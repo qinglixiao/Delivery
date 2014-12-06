@@ -7,7 +7,7 @@ import android.util.Log;
 
 import com.library.util.LibUtil;
 import com.library.util.LogUtil;
-import com.std.framework.comm.DrugUncaughtExceptionHandler;
+import com.std.framework.comm.STDUncaughtExceptionHandler;
 import com.std.framework.comm.STDActivityManager;
 import com.std.framework.util.AppUtil;
 
@@ -29,7 +29,7 @@ public class App extends Application {
 	}
 
 	private void setExceptionHandle() {
-		Thread.setDefaultUncaughtExceptionHandler(new DrugUncaughtExceptionHandler());
+		Thread.setDefaultUncaughtExceptionHandler(new STDUncaughtExceptionHandler());
 	}
 
 	/**

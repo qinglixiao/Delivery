@@ -13,8 +13,6 @@ import android.support.v4.app.Fragment;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
-import ch.qos.logback.core.joran.action.NewRuleAction;
-
 import com.library.file.SDCardHelper;
 import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
