@@ -1,5 +1,7 @@
 package com.std.framework.fragment;
 
+import com.std.framework.R;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class MainFragment extends BaseFragment {
-	public View rootView;
+	public View view;
 	private Intent intent;
 
 	@Override
@@ -20,7 +22,8 @@ public class MainFragment extends BaseFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		return null;
+		view = inflater.inflate(R.layout.fragment_main, null);
+		return view;
 	}
 
 	@Override

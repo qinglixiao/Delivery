@@ -67,7 +67,7 @@ public class LaunchActivity extends SherlockFragmentActivity {
 	};
 
 	private void redirectToMain() {
-		Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+		Intent intent = new Intent(LaunchActivity.this, MainTabActivity.class);
 		startActivity(intent);
 		finish();
 	}

@@ -132,4 +132,9 @@ public class TestMethod extends AndroidTestCase {
 		long size = Runtime.getRuntime().maxMemory()/1024/1024;
 		Log.d(TAG, size+"");
 	}
+	
+	public void testPhoneNumber(){
+		String phone = LibUtil.getPhoneNumber(getContext());
+		
+	}
 }
