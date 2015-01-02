@@ -12,23 +12,24 @@ import android.widget.Toast;
 
 import com.std.framework.App;
 import com.std.framework.R;
-import com.std.framework.core.PluginManager;
+import com.std.framework.fragment.Html5NativeCommunicationFragment;
 
-public class MainActivity extends BaseActivity implements OnClickListener{
+public class MainActivity extends BaseActivity implements OnClickListener {
 	private static final String TAG = "LX";
 	private long mExitTime = 0;
-	private PluginManager pluginManager;
 	private FrameLayout contentLayout;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		if (savedInstanceState == null)
+			FragmentManager.replace(R.id.content, new Html5NativeCommunicationFragment());
 	}
-	
+
 	public void onClick(View v) {
-		
-	};
+
+	}
 
 	public void remove(Fragment fragment) {
 		FragmentManager.remove(fragment);

@@ -1,24 +1,26 @@
 package com.std.framework.activity;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.std.framework.R;
-import com.std.framework.fragment.MainFragment;
-import com.std.framework.fragment.SecondFragment;
-
-import android.R.color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TabHost.OnTabChangeListener;
-import android.widget.TabHost.TabSpec;
 import android.widget.ImageView;
-import android.widget.TabWidget;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainTabActivity extends SherlockFragmentActivity{
+import com.std.framework.R;
+import com.std.framework.fragment.FiveFragment;
+import com.std.framework.fragment.FourFragment;
+import com.std.framework.fragment.MainFragment;
+import com.std.framework.fragment.SecondFragment;
+import com.std.framework.fragment.ThreeFragment;
+
+public class MainTabActivity extends BaseActivity {
+	private static final String PAGE_ONE = "page_one";
+	private static final String PAGE_TWO = "page_two";
+	private static final String PAGE_THREE = "page_three";
+	private static final String PAGE_FOUR = "page_four";
+	private static final String PAGE_FIVE = "page_five";
+
 	private FragmentTabHost mTabHost;
 	private LayoutInflater layoutInflater;
 
@@ -34,37 +36,28 @@ public class MainTabActivity extends SherlockFragmentActivity{
 	private void initViewTab() {
 		mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
 		mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
-		mTabHost.getTabWidget().setStripEnabled(false);
-		mTabHost.getTabWidget().setRightStripDrawable(color.white);
-		mTabHost.getTabWidget().setLeftStripDrawable(color.white);
 
-//		mTabHost.addTab(mTabHost.newTabSpec("simple").setIndicator("Simple"), MainFragment.class, null);
-//		mTabHost.addTab(mTabHost.newTabSpec("contacts").setIndicator("Simple"), SecondFragment.class, null);
-//		mTabHost.addTab(mTabHost.newTabSpec("custom").setIndicator("Simple"), MainFragment.class, null);
-//		mTabHost.addTab(mTabHost.newTabSpec("throttle").setIndicator("Simple"), MainFragment.class, null);
-	
-		TabSpec defalutSpec = mTabHost.newTabSpec("");
-		View defaultIndicator = newIndicator(R.drawable.abs__tab_indicator_ab_holo, R.drawable.ic_launcher, "默认页");
-		defalutSpec.setIndicator(defaultIndicator);
-		mTabHost.addTab(defalutSpec,MainFragment.class, null);
+		mTabHost.addTab(mTabHost.newTabSpec(PAGE_ONE).setIndicator(
+				newIndicator(R.drawable.ic_launcher, "one")), MainFragment.class, null);
+
+		mTabHost.addTab(mTabHost.newTabSpec(PAGE_TWO).setIndicator(
+				newIndicator(R.drawable.ic_launcher, "two")), SecondFragment.class, null);
+
+		mTabHost.addTab(mTabHost.newTabSpec(PAGE_THREE).setIndicator(
+				newIndicator(R.drawable.ic_launcher, "three")), ThreeFragment.class, null);
 		
-		defalutSpec = mTabHost.newTabSpec("a");
-		defaultIndicator = newIndicator(R.drawable.abs__tab_indicator_ab_holo, R.drawable.ic_launcher, "默认页");
-		defalutSpec.setIndicator(defaultIndicator);
-		mTabHost.addTab(defalutSpec,SecondFragment.class, null);
+		mTabHost.addTab(mTabHost.newTabSpec(PAGE_FOUR).setIndicator(
+				newIndicator(R.drawable.ic_launcher, "four")), FourFragment.class, null);
 		
-		
-		mTabHost.getTabWidget().getChildAt(0).setBackgroundResource(color.white);
-		mTabHost.getTabWidget().getChildAt(1).setBackgroundResource(color.white);
-//		mTabHost.getTabWidget().getChildAt(2).setBackgroundResource(color.white);
-		
+		mTabHost.addTab(mTabHost.newTabSpec(PAGE_FIVE).setIndicator(
+				newIndicator(R.drawable.ic_launcher, "five")), FiveFragment.class, null);
 	}
-	
-	private View newIndicator(int bgResId, int imgResId,String text){
-		View view = layoutInflater.inflate(R.layout.tab_indicator_item,null);
-		view.findViewById(R.id.tab_indicator_content).setBackgroundResource(bgResId);
-		((ImageView)view.findViewById(R.id.img_tab_indicator)).setImageResource(imgResId);
-		((TextView)view.findViewById(R.id.tv_tab_indicator)).setText(text);
+
+	private View newIndicator(int imgResId, String text) {
+		View view = layoutInflater.inflate(R.layout.tab_wiget_item, null);
+		view.findViewById(R.id.tab_main).setBackgroundResource(R.drawable.abs__tab_indicator_ab_holo);
+		((ImageView) view.findViewById(R.id.tab_img)).setImageResource(imgResId);
+		((TextView) view.findViewById(R.id.tab_tv)).setText(text);
 		return view;
 	}
 

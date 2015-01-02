@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <RelativeLayout
-        android:id="@+id/tab_indicator_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <ImageView
-            android:id="@+id/img_tab_indicator"
+            android:id="@+id/tab_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -18,13 +18,20 @@
             android:src="@drawable/ic_launcher" />
 
         <TextView
-            android:id="@+id/tv_tab_indicator"
+            android:id="@+id/tab_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/img_tab_indicator"
+            android:layout_below="@id/tab_img"
             android:layout_centerHorizontal="true"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/tab_adorn"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignRight="@id/tab_img"
+            android:src="@drawable/fail" />
     </RelativeLayout>
 
 </FrameLayout>
