@@ -5,7 +5,11 @@ import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.TimePicker.OnTimeChangedListener;
+import android.widget.Toast;
 
 import com.std.framework.R;
 import com.std.framework.fragment.FiveFragment;
@@ -14,7 +18,7 @@ import com.std.framework.fragment.MainFragment;
 import com.std.framework.fragment.SecondFragment;
 import com.std.framework.fragment.ThreeFragment;
 
-public class MainTabActivity extends BaseActivity {
+public class MainTabActivity extends BaseActivity implements OnTabChangeListener{
 	private static final String PAGE_ONE = "page_one";
 	private static final String PAGE_TWO = "page_two";
 	private static final String PAGE_THREE = "page_three";
@@ -51,6 +55,9 @@ public class MainTabActivity extends BaseActivity {
 		
 		mTabHost.addTab(mTabHost.newTabSpec(PAGE_FIVE).setIndicator(
 				newIndicator(R.drawable.ic_launcher, "five")), FiveFragment.class, null);
+		
+		mTabHost.setOnTabChangedListener(this);
+		mTabHost.setCurrentTabByTag(PAGE_THREE);
 	}
 
 	private View newIndicator(int imgResId, String text) {
@@ -64,5 +71,12 @@ public class MainTabActivity extends BaseActivity {
 	public void onDestroy() {
 		super.onDestroy();
 		mTabHost = null;
+	}
+
+	@Override
+	public void onTabChanged(String tabId) {
+		// TODO Auto-generated method stub
+		Toast.makeText(this, tabId, 0).show();
+		mTabHost.getCurrentTabView().findViewById(R.id.tab_adorn).setVisibility(View.GONE);
 	}
 }
