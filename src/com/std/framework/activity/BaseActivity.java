@@ -61,9 +61,9 @@ public class BaseActivity extends SherlockFragmentActivity implements IBaseActiv
 
 	private void setActionBar() {
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_TITLE);
-		ImageView imageView = (ImageView) findViewById(android.R.id.home);
-		imageView.setLayoutParams(new android.widget.FrameLayout.LayoutParams(android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
-				android.widget.FrameLayout.LayoutParams.MATCH_PARENT));
+//		ImageView imageView = (ImageView) findViewById(android.R.id.home);
+//		imageView.setLayoutParams(new android.widget.FrameLayout.LayoutParams(android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
+//				android.widget.FrameLayout.LayoutParams.MATCH_PARENT));
 	}
 
 	@Override
