@@ -12,10 +12,13 @@
         <item name="android:actionMenuTextColor">@color/blue</item>
         <item name="android:actionMenuTextAppearance">@style/ActionBar.MenuItem</item>
         <item name="android:actionBarTabTextStyle">@style/ActionBar.TabText</item>
+        <item name="windowContentOverlay">@null</item>
+        <item name="android:windowContentOverlay">@null</item><!-- 去掉actionbar下方的阴影 -->
     </style>
 
     <style name="ESGTheme.ActionBar" parent="Widget.Sherlock.ActionBar.Solid">
-        <item name="android:background">@drawable/titlebar</item>
+        <!-- <item name="android:background">@drawable/titlebar</item> -->
+        <item name="android:background">@color/white</item>
         <item name="android:backgroundStacked">@drawable/abs__ab_stacked_solid_light_holo</item>
         <item name="android:height">@dimen/title_bar_height</item>
         <item name="android:displayOptions">showCustom</item>

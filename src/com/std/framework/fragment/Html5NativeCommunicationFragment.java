@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.GeolocationPermissions;
+import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -25,7 +26,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.activity.MainActivity;
 
 public class Html5NativeCommunicationFragment extends Fragment {
 	private View view;
@@ -41,7 +41,6 @@ public class Html5NativeCommunicationFragment extends Fragment {
 		return view;
 	}
 	
-	
 	private void initWebView() {
 		button = (Button) view.findViewById(R.id.button);
 		button.setOnClickListener(new OnClickListener() {
@@ -55,9 +54,9 @@ public class Html5NativeCommunicationFragment extends Fragment {
 
 		//把本类的一个实例添加到js的全局对象window中，  
 		//这样就可以使用window.injs来调用它的方法  
-		webView.addJavascriptInterface(new InJavaScript(), "injs");
+		webView.addJavascriptInterface(new JSCallBack(), "injs");
 
-		//设置支持JavaScript脚本  
+		//设置支持JavaScript脚本 
 		WebSettings webSettings = webView.getSettings();
 		webSettings.setJavaScriptEnabled(true);
 		//设置可以访问文件  
@@ -110,7 +109,7 @@ public class Html5NativeCommunicationFragment extends Fragment {
 				return true;
 			};
 
-			//处理javascript中的confirm  
+			//处理javascript中的confirm
 			public boolean onJsConfirm(WebView view, String url, String message, final JsResult result) {
 				Builder builder = new Builder(getActivity());
 				builder.setTitle("confirm");
@@ -181,6 +180,22 @@ public class Html5NativeCommunicationFragment extends Fragment {
 					show.setText(str);
 				}
 			});
+		}
+	}
+	
+	private void javaCallJSTest(){
+		String js_method_1 = "javascript:getFromAndroid('+the data is from android!')";
+		webView.loadUrl(js_method_1);
+	}
+	
+	public class JSCallBack{
+		@JavascriptInterface
+		public String show(String str){
+			return str;
+		}
+		@JavascriptInterface
+		public void showResult(String result){
+			
 		}
 	}
 }

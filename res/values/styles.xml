@@ -24,7 +24,7 @@
     
     <style name="esg_btn_style" parent="android:style/Widget.Button">
         <item name="android:background">@drawable/scanning_btn_selector</item>
-        <item name="android:textColor">@drawable/btn_textcolor_selector</item>
+        <item name="android:textColor">@color/btn_textcolor_selector</item>
     </style>
     
     <style name="popWindowAnim" parent="android:Animation" >

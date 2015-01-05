@@ -170,8 +170,11 @@ window.onload = function() {
 	}
 	function sendToAndroid(){
 		console.log("!!!!!!!!!I'm sending to android!!!!!!!!!");
- 		var str = "the data is from JavaScript!";
- 		window.injs.runOnAndroidJavaScript(str);//通过injs接口调用android的函数
+ 		var str = "the data is from JavaScript!--";
+ 		//window.injs.runOnAndroidJavaScript(str);//通过injs接口调用android的函数
+ 		var javastr = window.injs.show(str);//通过injs接口调用android的函数
+ 		alert(javastr );
+ 		
 	}
 	function ale()
 	{
