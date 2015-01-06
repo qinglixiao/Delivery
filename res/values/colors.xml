@@ -32,5 +32,7 @@
     <!-- 左侧菜单设配置项 -->
     <color name="menu_background">#212121</color>
     <color name="menu_group_text_color">#8f8f8f</color>
+    
+    <color name="background_tab_pressed">#1AFFFFFF</color>
 
 </resources>
