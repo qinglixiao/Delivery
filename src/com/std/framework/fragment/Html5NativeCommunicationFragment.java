@@ -15,7 +15,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.GeolocationPermissions;
-import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -26,12 +25,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.std.framework.R;
+import com.std.framework.core.JSRemoteProvider;
 
-public class Html5NativeCommunicationFragment extends Fragment {
+public class Html5NativeCommunicationFragment extends Fragment implements OnClickListener{
 	private View view;
 	private WebView webView = null;
-	private Handler handler = new Handler();
-	private Button button = null;
+	private Button btn_bom;
+	private Button btn_dom;
+	private TextView tv_bom;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,19 +43,17 @@ public class Html5NativeCommunicationFragment extends Fragment {
 	}
 	
 	private void initWebView() {
-		button = (Button) view.findViewById(R.id.button);
-		button.setOnClickListener(new OnClickListener() {
-			public void onClick(View arg0) {
-				//调用javascript中的方法，传入string数据  
-				webView.loadUrl("javascript:getFromAndroid('the data is from android!')");
-			}
-		});
+		btn_bom = (Button) view.findViewById(R.id.btn_bom);
+		btn_dom = (Button) view.findViewById(R.id.btn_dom);
+		tv_bom = (TextView) view.findViewById(R.id.edt_bom);
+		btn_bom.setOnClickListener(this);
+		btn_dom.setOnClickListener(this);
 
 		webView = (WebView) view.findViewById(R.id.webview);
 
 		//把本类的一个实例添加到js的全局对象window中，  
 		//这样就可以使用window.injs来调用它的方法  
-		webView.addJavascriptInterface(new JSCallBack(), "injs");
+		webView.addJavascriptInterface(new JSRemoteProvider(getActivity()), "android");
 
 		//设置支持JavaScript脚本 
 		WebSettings webSettings = webView.getSettings();
@@ -169,33 +168,27 @@ public class Html5NativeCommunicationFragment extends Fragment {
 				return false;
 			}
 		});
-		webView.loadUrl("file:///android_asset/index.html");
+//		webView.loadUrl("file:///android_asset/index.html");
+		webView.loadUrl("http://172.21.11.77:8000/1.html");
 	}
 
-	final class InJavaScript {
-		public void runOnAndroidJavaScript(final String str) {
-			handler.post(new Runnable() {
-				public void run() {
-					TextView show = (TextView)view.findViewById(R.id.textview);
-					show.setText(str);
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch(v.getId()){
+			case R.id.btn_bom:
+				try {
+					JSRemoteProvider.bom(webView, Integer.parseInt(tv_bom.getText().toString()));
 				}
-			});
+				catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case R.id.btn_dom:
+				JSRemoteProvider.dom(webView);
+				break;
 		}
 	}
 	
-	private void javaCallJSTest(){
-		String js_method_1 = "javascript:getFromAndroid('+the data is from android!')";
-		webView.loadUrl(js_method_1);
-	}
-	
-	public class JSCallBack{
-		@JavascriptInterface
-		public String show(String str){
-			return str;
-		}
-		@JavascriptInterface
-		public void showResult(String result){
-			
-		}
-	}
 }
