@@ -16,6 +16,7 @@ public class SecondFragment extends BaseFragment {
 	private View view;
 	private ViewPager viewPager;
 	private PagerSlidingTabStrip tabStrip;
+	private int current_page_index = 0;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,7 +32,7 @@ public class SecondFragment extends BaseFragment {
 		viewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
 		tabStrip.setViewPager(viewPager);
 	}
-
+	
 	class MyPagerAdapter extends FragmentPagerAdapter {
 
 		private final String[] TITLES = { "Categories", "Home", "Top Paid", "Top Free", "Top Grossing", "Top New Paid", "Top New Free",
@@ -53,6 +54,7 @@ public class SecondFragment extends BaseFragment {
 
 		@Override
 		public Fragment getItem(int position) {
+			current_page_index = position;
 			return PagerFragment.newInstance(position);
 		}
 	}
