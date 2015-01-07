@@ -2,15 +2,15 @@ package com.std.framework.core;
 
 import java.util.ArrayList;
 
+import com.library.util.DataConvert;
+import com.library.util.LibUtil;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.telephony.TelephonyManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 
-import com.library.util.DataConvert;
-import com.library.util.LibUtil;
 
 /**
  * 
