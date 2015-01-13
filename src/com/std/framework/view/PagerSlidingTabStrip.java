@@ -302,7 +302,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 		if (newScrollX != lastScrollX) {
 			lastScrollX = newScrollX;
 			scrollTo(newScrollX, 0);
-			Log.d(TAG, "scrollTo:" + newScrollX);
 		}
 
 	}
@@ -318,7 +317,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 		final int height = getHeight();
 
 		// draw indicator line
-
 		rectPaint.setColor(indicatorColor);
 
 		// default: line below current tab

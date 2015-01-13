@@ -76,7 +76,6 @@ public class MainTabActivity extends BaseActivity implements OnTabChangeListener
 	@Override
 	public void onTabChanged(String tabId) {
 		// TODO Auto-generated method stub
-		Toast.makeText(this, tabId, 0).show();
 		mTabHost.getCurrentTabView().findViewById(R.id.tab_adorn).setVisibility(View.GONE);
 	}
 }
