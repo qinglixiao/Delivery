@@ -1,7 +1,6 @@
 package com.std.framework.activity;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.logging.Logger;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -31,7 +29,7 @@ import com.std.framework.widget.dialog.MessageTip;
 
 public class BaseActivity extends SherlockFragmentActivity implements IBaseActivity, IBackUp {
 	/**日志记录器*/
-	public Logger Loger = LoggerFactory.getLogger(this.getClass().getSimpleName());
+//	public Logger Loger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 	/**视图管理器*/
 	public final STDFragmentManager FragmentManager;
 	/**工作线程*/
@@ -152,9 +150,9 @@ public class BaseActivity extends SherlockFragmentActivity implements IBaseActiv
 	 * @return
 	 *
 	 */
-	public Logger getLoger() {
-		return Loger;
-	}
+//	public Logger getLoger() {
+//		return Loger;
+//	}
 
 	@Override
 	public void displayActionBar(boolean isShow) {

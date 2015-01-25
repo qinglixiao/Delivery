@@ -24,7 +24,7 @@ public class App extends Application {
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
-		configLogSystem();
+//		configLogSystem();
 		setExceptionHandle();
 	}
 
