@@ -25,7 +25,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.core.JSRemoteProvider;
+import com.std.framework.comm.JSRemoteProvider;
 
 public class Html5NativeCommunicationFragment extends Fragment implements OnClickListener{
 	private View view;
