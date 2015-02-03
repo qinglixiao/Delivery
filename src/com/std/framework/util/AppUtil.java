@@ -91,27 +91,4 @@ public class AppUtil {
 				.getSystemService(Context.NOTIFICATION_SERVICE)).cancelAll();
 	}
 	
-	/**
-	 * 根据进程名称获取进程Id
-	 * 
-	 * @param processName
-	 * @return
-	 */
-	public static int getProcessPid(Context context, String processName) {
-		ActivityManager activityManager = (ActivityManager) context
-				.getSystemService(context.ACTIVITY_SERVICE);
-		List<RunningAppProcessInfo> procList = null;
-		int result = -1;
-		procList = activityManager.getRunningAppProcesses();
-		for (Iterator<RunningAppProcessInfo> iterator = procList.iterator(); iterator
-				.hasNext();) {
-			RunningAppProcessInfo procInfo = iterator.next();
-			if (procInfo.processName.equals(processName)) {
-				result = procInfo.pid;
-				break;
-			}
-		}
-		return result;
-	}
-	
 }
