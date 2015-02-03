@@ -1,15 +1,10 @@
 package com.std.framework.comm;
 
-import java.util.ArrayList;
-
 import android.content.Context;
-import android.database.Cursor;
-import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.telephony.TelephonyManager;
+import android.os.Bundle;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 
-import com.library.util.DataConvert;
 import com.library.util.LibUtil;
 
 /**
@@ -23,29 +18,24 @@ import com.library.util.LibUtil;
  */
 public class JSRemoteProvider {
 	private Context context;
+	private onCallBackListener onCallBackListener;
+	private Bundle bundle;
 
 	public JSRemoteProvider(Context context) {
 		this.context = context;
+	}
+	
+	public void setOnCallBackListener(onCallBackListener onCallBackListener){
+		this.onCallBackListener = onCallBackListener;
+	}
+	
+	public void setBundle(Bundle bundle){
+		this.bundle = bundle;
 	}
 
 	@JavascriptInterface
 	public void getClickedContolLabel_JSReturn(String result) {
 		
-	}
-
-	@JavascriptInterface
-	public String getContact() {
-		// 查询的字段  
-		String[] projection = { Phone._ID, Phone.DISPLAY_NAME, Phone.NUMBER };
-		Cursor cursor = context.getContentResolver().query(Phone.CONTENT_URI, projection, null, null, null);
-		ArrayList<Contact> contacts = new ArrayList<Contact>();
-		while (cursor.moveToNext()) {
-			Contact contact = new Contact();
-			contact.name = cursor.getString(1);
-			contact.no = cursor.getString(2);
-			contacts.add(contact);
-		}
-		return DataConvert.toJSONString(contacts);
 	}
 
 	@JavascriptInterface
@@ -65,25 +55,8 @@ public class JSRemoteProvider {
 	public static void bom(WebView webView, int i) {
 		webView.loadUrl("javascript:bom(" + i + ")");
 	}
-
-	public class Contact {
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public String getNo() {
-			return no;
-		}
-
-		public void setNo(String no) {
-			this.no = no;
-		}
-
-		public String name;
-		public String no;
+	
+	public interface onCallBackListener{
+		void onCallBack(Bundle bundle);
 	}
 }
