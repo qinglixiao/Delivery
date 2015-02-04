@@ -1,12 +1,5 @@
 package com.std.framework.fragment;
 
-import ch.qos.logback.core.joran.action.NewRuleAction;
-
-import com.nineoldandroids.animation.ValueAnimator;
-import com.nineoldandroids.view.ViewPropertyAnimator;
-import com.std.framework.R;
-import com.std.framework.view.TouchSlopView;
-
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,6 +9,10 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.PopupWindow;
+
+import com.nineoldandroids.view.ViewPropertyAnimator;
+import com.std.framework.R;
+import com.std.framework.view.TouchSlopView;
 
 public class FiveFragment extends BaseFragment implements OnClickListener{
 	private View view;
