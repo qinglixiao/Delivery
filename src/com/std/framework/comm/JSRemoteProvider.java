@@ -9,7 +9,7 @@ import com.library.util.LibUtil;
 
 /**
  * 
- * 描          述 ：提供JS调用的方法类
+ * 描          述 ：提供与JS交互的方法类
  * 创建日期  : 2015-1-6
  * 作           者 ： lx
  * 修改日期  : 
