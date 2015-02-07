@@ -32,6 +32,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -44,16 +45,14 @@ import android.widget.TextView;
 import com.std.framework.R;
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
+	private static final String TAG = "LX";
 
 	public interface IconTabProvider {
 		public int getPageIconResId(int position);
 	}
 
 	// @formatter:off
-	private static final int[] ATTRS = new int[] {
-		android.R.attr.textSize,
-		android.R.attr.textColor
-    };
+	private static final int[] ATTRS = new int[] { android.R.attr.textSize, android.R.attr.textColor };
 	// @formatter:on
 
 	private LinearLayout.LayoutParams defaultTabLayoutParams;
@@ -196,7 +195,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
 			if (pager.getAdapter() instanceof IconTabProvider) {
 				addIconTab(i, ((IconTabProvider) pager.getAdapter()).getPageIconResId(i));
-			} else {
+			}
+			else {
 				addTextTab(i, pager.getAdapter().getPageTitle(i).toString());
 			}
 
@@ -213,7 +213,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
 				if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
 					getViewTreeObserver().removeGlobalOnLayoutListener(this);
-				} else {
+				}
+				else {
 					getViewTreeObserver().removeOnGlobalLayoutListener(this);
 				}
 
@@ -276,7 +277,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 				if (textAllCaps) {
 					if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
 						tab.setAllCaps(true);
-					} else {
+					}
+					else {
 						tab.setText(tab.getText().toString().toUpperCase(locale));
 					}
 				}
@@ -315,7 +317,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 		final int height = getHeight();
 
 		// draw indicator line
-
 		rectPaint.setColor(indicatorColor);
 
 		// default: line below current tab
@@ -337,12 +338,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 		canvas.drawRect(lineLeft, height - indicatorHeight, lineRight, height, rectPaint);
 
 		// draw underline
-
 		rectPaint.setColor(underlineColor);
 		canvas.drawRect(0, height - underlineHeight, tabsContainer.getWidth(), height, rectPaint);
 
 		// draw divider
-
 		dividerPaint.setColor(dividerColor);
 		for (int i = 0; i < tabCount - 1; i++) {
 			View tab = tabsContainer.getChildAt(i);
@@ -354,7 +353,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
 		@Override
 		public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+			Log.d(TAG, "position:" + position + "\npositionOffset:" + positionOffset + "\npositionOffsetPixels:" + positionOffsetPixels);
 			currentPosition = position;
 			currentPositionOffset = positionOffset;
 

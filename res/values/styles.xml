@@ -40,10 +40,10 @@
     
     <style name="ESGStyle.Dialog.Message" parent="ESGStyle.Dialog">
         <item name="android:windowIsFloating">true</item>
-        <item name="android:windowIsTranslucent">true</item>
+        <!-- <item name="android:windowIsTranslucent">true</item> -->
         <item name="android:windowNoTitle">true</item>
-        <item name="android:background">#00000000</item>
-        <item name="android:backgroundDimEnabled">false</item>
+       <!--  <item name="android:background">#00000000</item> -->
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
     
     <style name="ESGFullScreen" parent="Theme.Sherlock.Light">
