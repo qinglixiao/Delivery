@@ -135,6 +135,12 @@ public class TestMethod extends AndroidTestCase {
 	
 	public void testPhoneNumber(){
 		String phone = LibUtil.getPhoneNumber(getContext());
-		
+		try {
+			Runtime.getRuntime().exec("input text fuytfrdrsxgf");
+		}
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

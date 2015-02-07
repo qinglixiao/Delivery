@@ -19,6 +19,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.animation.Interpolator;
+import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
 import com.std.framework.R;
@@ -32,7 +33,7 @@ import com.std.framework.R;
  * 修   改   者 ：
  * @version   : 1.0
  */
-public class TouchSlopView extends ViewGroup {
+public class TouchSlopView extends RelativeLayout {
 	private static final String TAG = "LX";
 	private static final boolean DEBUG = false;
 	private static final boolean USE_CACHE = false;
@@ -100,7 +101,7 @@ public class TouchSlopView extends ViewGroup {
 	};
 
 	void init() {
-		setWillNotDraw(false);
+//		setWillNotDraw(false);
 		mScroller = new Scroller(getContext(), interpolator);
 		mViewConfiguration = ViewConfiguration.get(getContext());
 		mTouchSlop = mViewConfiguration.getScaledTouchSlop();
@@ -109,70 +110,64 @@ public class TouchSlopView extends ViewGroup {
 		mShadowDrawable = getContext().getResources().getDrawable(R.drawable.shadow1);
 	}
 
-	@Override
-	protected void onLayout(boolean changed, int l, int t, int r, int b) {
-		// TODO Auto-generated method stub
-		int count = getChildCount();
-		for (int i = 0; i < count; i++) {
-			getChildAt(i).layout(l, t, r, b);
-		}
-	}
 
-	@Override
-	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		// TODO Auto-generated method stub
-		int width = MeasureSpec.getSize(widthMeasureSpec);
-		int height = MeasureSpec.getSize(heightMeasureSpec);
+//	@Override
+//	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//		// TODO Auto-generated method stub
+//		int width = MeasureSpec.getSize(widthMeasureSpec);
+//		int height = MeasureSpec.getSize(heightMeasureSpec);
+//
+//		int w_mode = MeasureSpec.getMode(widthMeasureSpec);
+//		int h_mode = MeasureSpec.getMode(heightMeasureSpec);
+//
+//		int width_temp = 0;
+//		int height_temp = 0;
+//		int count = getChildCount();
+//		for (int i = 0; i < count; i++) {
+//			View child = getChildAt(i);
+//			if (child.getVisibility() != View.GONE) {
+//				child.measure(widthMeasureSpec, heightMeasureSpec);
+//
+//				int c_heigth = child.getMeasuredHeight();
+//				int c_width = child.getMeasuredWidth();
+//
+//				switch (w_mode) {
+//					case MeasureSpec.UNSPECIFIED:
+//					case MeasureSpec.AT_MOST:
+//						width_temp += c_width;
+//						break;
+//					case MeasureSpec.EXACTLY:
+//						width_temp = width;
+//				}
+//				switch (h_mode) {
+//					case MeasureSpec.UNSPECIFIED:
+//					case MeasureSpec.AT_MOST:
+//						height_temp += c_heigth;
+//						break;
+//					case MeasureSpec.EXACTLY:
+//						height_temp = height;
+//				}
+//			}
+//
+//		}
+//		setMeasuredDimension(width_temp, height_temp);
+//	}
 
-		int w_mode = MeasureSpec.getMode(widthMeasureSpec);
-		int h_mode = MeasureSpec.getMode(heightMeasureSpec);
-
-		int width_temp = 0;
-		int height_temp = 0;
-		int count = getChildCount();
-		for (int i = 0; i < count; i++) {
-			View child = getChildAt(i);
-			if (child.getVisibility() != View.GONE) {
-				child.measure(widthMeasureSpec, heightMeasureSpec);
-
-				int c_heigth = child.getMeasuredHeight();
-				int c_width = child.getMeasuredWidth();
-
-				switch (w_mode) {
-					case MeasureSpec.UNSPECIFIED:
-					case MeasureSpec.AT_MOST:
-						width_temp += c_width;
-						break;
-					case MeasureSpec.EXACTLY:
-						width_temp = width;
-				}
-				switch (h_mode) {
-					case MeasureSpec.UNSPECIFIED:
-					case MeasureSpec.AT_MOST:
-						height_temp += c_heigth;
-						break;
-					case MeasureSpec.EXACTLY:
-						height_temp = height;
-				}
-			}
-
-		}
-		setMeasuredDimension(width_temp, height_temp);
-	}
-
-	@Override
-	protected void dispatchDraw(Canvas canvas) {
-		// TODO Auto-generated method stub
-		super.dispatchDraw(canvas);
-		if (OPEN_MODE == OPEN_LEFT) {
-			Paint paint = getShadowPaint();
-			int alpha = Math.abs(getScrollX()) * paint.getAlpha() / getClientWidth();
-			paint.setAlpha(paint.getAlpha() - alpha);
-			canvas.drawRect(new Rect(getScrollX(), 0, 0, getHeight()), paint);
-			mShadowDrawable.setBounds(new Rect(-30, 0, 0, getHeight()));
-			mShadowDrawable.draw(canvas);
-		}
-	}
+//	@Override
+//	protected void dispatchDraw(Canvas canvas) {
+//		// TODO Auto-generated method stub
+//		super.dispatchDraw(canvas);
+//		if(getChildCount() == 0)
+//			return;
+//		if (OPEN_MODE == OPEN_LEFT) {
+//			Paint paint = getShadowPaint();
+//			int alpha = Math.abs(getScrollX()) * paint.getAlpha() / getClientWidth();
+//			paint.setAlpha(paint.getAlpha() - alpha);
+//			canvas.drawRect(new Rect(getScrollX(), 0, 0, getHeight()), paint);
+//			mShadowDrawable.setBounds(new Rect(-30, 0, 0, getHeight()));
+//			mShadowDrawable.draw(canvas);
+//		}
+//	}
 
 	Paint getShadowPaint() {
 		Paint paint = new Paint();

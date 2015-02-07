@@ -1,14 +1,14 @@
 package com.std.framework.comm;
 
-import com.std.framework.R;
-import com.std.framework.activity.MainActivity;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
+import com.std.framework.R;
+import com.std.framework.activity.MainActivity;
+
 
 public class STDNotificationManager {
 	private static STDNotificationManager instance;
