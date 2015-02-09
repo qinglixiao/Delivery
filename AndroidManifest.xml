@@ -73,6 +73,16 @@
             android:name="com.std.framework.service.StdService"
             android:process=":remote" />
 
+        <receiver android:name="com.std.framework.receiver.CallInReceiver" 
+            android:process=":remote">
+            <intent-filter>
+                <!-- 获取来电广播 -->
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <!-- 获取去电广播 -->
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+
         <!-- 百度定位key -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"

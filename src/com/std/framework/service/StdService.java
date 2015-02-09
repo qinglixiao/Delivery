@@ -1,7 +1,11 @@
 package com.std.framework.service;
 
+import com.std.framework.receiver.CallInReceiver;
+
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -10,6 +14,20 @@ import android.util.Log;
 public class StdService extends Service {
 //	private RemoteCallbackList<ICallBack> callbackList = new RemoteCallbackList<ICallBack>();
 	private ICallBack callBack;
+	
+	@Override
+	public void onCreate() {
+		// TODO Auto-generated method stub
+		super.onCreate();
+//		broadcastRegister();
+	}
+	
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		// TODO Auto-generated method stub
+		return super.onStartCommand(intent, flags, startId);
+		
+	}
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -40,6 +58,12 @@ public class StdService extends Service {
 			return 0;
 		}
 	};
+	
+	private void broadcastRegister(){
+		/**注册手机来电广播*/
+		registerReceiver(new CallInReceiver(), new IntentFilter("android.intent.action.PHONE_STATE"));
+		
+	}
 	
 	public void onDestroy() {
 		Log.d("LX", "onDestroy()");
