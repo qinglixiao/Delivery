@@ -1,16 +1,10 @@
 package com.std.framework.util;
 
-import java.util.Iterator;
-import java.util.List;
-
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.NotificationManager;
-import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.KeyEvent;
