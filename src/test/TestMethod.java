@@ -28,7 +28,7 @@ public class TestMethod extends AndroidTestCase {
 
 	@SuppressLint("NewApi")
 	public void testDex() {
-		String apkPath = LibUtil.getSdRootDirectory() + File.separator + "MyPlugin.apk";
+		String apkPath = LibUtil.getSdCardRootDirectory() + File.separator + "MyPlugin.apk";
 		DexClassLoader classLoader = new DexClassLoader(apkPath, getContext().getApplicationInfo().dataDir, null, this.getClass()
 				.getClassLoader());
 		try {
@@ -67,7 +67,7 @@ public class TestMethod extends AndroidTestCase {
 
 	public void dbCreate() throws IOException {
 		InputStream stream = getContext().getResources().getAssets().open("db/sdb.db");
-		File file = new File(LibUtil.getAppInstallDirectory(getContext()), "sdb");
+		File file = new File(LibUtil.getAppHomeDirectory(getContext()), "sdb");
 		FileOutputStream fileOutputStream = new FileOutputStream(file, true);
 		byte[] buffer = new byte[1024];
 		while (stream.read(buffer) != -1) {
@@ -87,14 +87,14 @@ public class TestMethod extends AndroidTestCase {
 	}
 
 	public void testDb() {
-		DbHelper helper = new DbHelper(DbHelper.createFromSdCard(LibUtil.getAppInstallDirectory(getContext()), "testdb"));
+		DbHelper helper = new DbHelper(DbHelper.createFromSdCard(LibUtil.getAppHomeDirectory(getContext()), "testdb"));
 		helper.exec("insert into people(name,age) values('王刚',12);");
 		String ss = SampleTableColumn.NAME;
 	}
 
 	public void testquery() {
 		long old = System.currentTimeMillis();
-		DbHelper helper = new DbHelper(DbHelper.createFromSdCard(LibUtil.getAppInstallDirectory(getContext()), "db.db"));
+		DbHelper helper = new DbHelper(DbHelper.createFromSdCard(LibUtil.getAppHomeDirectory(getContext()), "db.db"));
 		old = System.currentTimeMillis();
 		Cursor cursor = helper.rawQuery("select * from people;", null);
 		int columncount = cursor.getColumnCount();
@@ -111,10 +111,10 @@ public class TestMethod extends AndroidTestCase {
 		Log.d("LX", LibUtil.getCacheDirectory(getContext()));
 		Log.d("LX", LibUtil.getDownLoadDirectory());
 		SDCardHelper helper = new SDCardHelper(getContext());
-		helper.openOrCreateFile(LibUtil.getAppInstallDirectory(getContext()) + "/lx/lx", "me");
+		helper.openOrCreateFile(LibUtil.getAppHomeDirectory(getContext()) + "/lx/lx", "me");
 		helper.writeString("你好啊");
 		helper.close();
-		helper.delete(LibUtil.getAppInstallDirectory(getContext()));
+		helper.delete(LibUtil.getAppHomeDirectory(getContext()));
 
 	}
 

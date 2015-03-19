@@ -1,5 +1,6 @@
 package com.std.framework.activity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -28,7 +29,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-
+		
 	}
 
 	public void remove(Fragment fragment) {
@@ -40,6 +41,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onConfigurationChanged(newConfig);
 		Log.d(TAG, "onConfigurationChanged");
+	}
+	
+	@Override
+	protected void onNewIntent(Intent intent) {
+		// TODO Auto-generated method stub
+		super.onNewIntent(intent);
 	}
 
 	@Override

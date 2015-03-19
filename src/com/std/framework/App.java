@@ -44,7 +44,7 @@ public class App extends Application {
 	 */
 	private void configLogSystem() {
 		if (LibUtil.isExternalStorageAvailable())
-			LogUtil.configureOnlyLogFile(LibUtil.getAppInstallDirectory(this));
+			LogUtil.configureOnlyLogFile(LibUtil.getAppHomeDirectory(this));
 		else
 			Log.e("APP", "日志系统配置失败---[设备无存储卡]");
 	}

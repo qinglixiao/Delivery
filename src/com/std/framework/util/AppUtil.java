@@ -70,7 +70,7 @@ public class AppUtil {
 	}
 
 	// 返回
-	public static void onTitleBackPressed(Activity activity) {
+	public static void onBackButtonPressed(Activity activity) {
 		activity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK));
 		activity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK));
 	}

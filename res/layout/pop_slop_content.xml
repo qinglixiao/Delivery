@@ -2,23 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
->
-
+    android:orientation="vertical" >
 
     <com.std.framework.view.TouchSlopView
         android:id="@+id/touchSlopView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="60dp">
-
-        <Button
+        android:layout_marginLeft="60dp" >
+        <Button
             android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Button" 
-            android:background="@color/blue"/>
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
     </com.std.framework.view.TouchSlopView>
 
 </LinearLayout>

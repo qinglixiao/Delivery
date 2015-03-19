@@ -4,21 +4,32 @@
     android:layout_height="match_parent"
     >
 
+    <EditText
+        android:id="@+id/edt_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edt_url"
+        android:layout_marginTop="16dp"
+        android:text="下载" />
+
     <Button
         android:id="@+id/five_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btn_down"
         android:text="弹出" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="130dp"
-        android:layout_toRightOf="@+id/button1"
-        android:text="Five Page"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
