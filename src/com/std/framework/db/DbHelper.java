@@ -37,8 +37,8 @@ public class DbHelper {
 	 * @return
 	 *
 	 */
-	public static SQLiteDatabase createFromSdCard(String dir, String fileName) {
-		return SQLiteDatabase.openOrCreateDatabase(PathUtil.merge(dir, fileName), null);
+	public static DbHelper createFromSdCard(String dir, String fileName) {
+		return new DbHelper(SQLiteDatabase.openOrCreateDatabase(PathUtil.merge(dir, fileName), null));
 	}
 
 	public void exec(String sql) {
