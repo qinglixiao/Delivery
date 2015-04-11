@@ -25,8 +25,19 @@ public class StdService extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// TODO Auto-generated method stub
+		notifyRemoteServiceDeath(service);
 		return super.onStartCommand(intent, flags, startId);
 		
+	}
+	
+	private void notifyRemoteServiceDeath(IBinder iBinder){
+		try {
+			iBinder.linkToDeath(new MyLinkToDeathCallback(), 0);
+		}
+		catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -68,5 +79,15 @@ public class StdService extends Service {
 	public void onDestroy() {
 		Log.d("LX", "onDestroy()");
 	};
+	
+	class MyLinkToDeathCallback implements IBinder.DeathRecipient{
+
+		@Override
+		public void binderDied() {
+			// TODO Auto-generated method stub
+			Log.d("LX", "service_death");
+		}
+		
+	}
 
 }

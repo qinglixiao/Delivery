@@ -22,9 +22,6 @@ public class ThreeFragment extends BaseFragment implements OnClickListener{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		view = inflater.inflate(R.layout.fragment_three, null);
-		editText = (EditText) view.findViewById(R.id.frag3_edt);
-		button = (Button) view.findViewById(R.id.frag3_btn);
-		button.setOnClickListener(this);
 		return view;
 	}
 

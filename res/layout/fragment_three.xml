@@ -1,37 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <com.std.framework.view.ShapeImageView
+        android:id="@+id/ShapeImageView02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="false"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="false"
-        android:layout_marginRight="88dp"
-        android:text="Three Page"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:src="@drawable/logo_sinaweibo"
+        app:offsetAngle="-90"
+        app:shape="polygon"
+        app:sides="5" />
 
-    <EditText
-        android:id="@+id/frag3_edt"
+    <com.std.framework.view.ShapeImageView
+        android:id="@+id/shapeImageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="31dp"
+        android:layout_toRightOf="@+id/ShapeImageView02"
+        android:src="@drawable/logo_wechatmoments"
+        app:shape="rectangle" />
+
+    <com.std.framework.view.ShapeImageView
+        android:id="@+id/shapeImageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_toRightOf="@+id/shapeImageView2"
+        android:src="@drawable/logo_sinaweibo" />
+
+    <com.std.framework.view.ShapeImageView
+        android:id="@+id/ShapeImageView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
-        android:inputType="textMultiLine" >
+        android:layout_below="@+id/ShapeImageView02"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/logo_sinaweibo"
+        app:shape="polygon" />
 
-        <requestFocus />
-    </EditText>
+    <com.std.framework.view.ShapeImageView
+        android:id="@+id/shapeImageView3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ssdk_oks_yaoyiyao"
+        app:shape="rectangle" />
 
-    <Button
-        android:id="@+id/frag3_btn"
+    <com.std.framework.view.ShapeImageView
+        android:id="@+id/shapeImageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ShapeImageView01"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/skyblue_logo_sinaweibo_checked" />
+
+    <com.std.framework.view.ShapeImageView
+        android:id="@+id/ShapeImageView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ShapeImageView01"
+        android:layout_toLeftOf="@+id/shapeImageView1"
+        android:src="@drawable/logo_sinaweibo"
+        app:offsetAngle="-90"
+        app:shape="polygon"
+        app:sides="3" />
+
+    <com.std.framework.view.ShapeImageView
+        android:id="@+id/ShapeImageView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/shapeImageView1"
+        android:layout_alignTop="@+id/ShapeImageView03"
+        android:src="@drawable/logo_sinaweibo"
+        app:offsetAngle="-90"
+        app:shape="polygon"
+        app:sides="7" />
+
+    <com.std.framework.view.ShapeImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="Button" />
+        android:layout_alignTop="@+id/ShapeImageView04"
+        android:src="@drawable/logo_sinaweibo"
+        app:shape="square"
+        app:sides="7" />
+
+    <com.std.framework.view.ShapeImageView
+        android:id="@+id/shapeImageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ShapeImageView03"
+        android:layout_marginTop="29dp"
+        android:layout_toLeftOf="@+id/shapeImageView1"
+        android:src="@drawable/logo_sinaweibo"
+        app:shape="polygon"
+        app:sides="4" />
+
+    <com.std.framework.view.ShapeImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/shapeImageView5"
+        android:layout_alignRight="@+id/ShapeImageView04"
+        android:src="@drawable/note_letter_bg" 
+        app:shape = "round_rectangle"/>
 
 </RelativeLayout>

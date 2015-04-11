@@ -1,9 +1,14 @@
 package test;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
@@ -13,13 +18,20 @@ import android.support.v4.app.Fragment;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.library.file.SDCardHelper;
+import com.library.util.DataConvert;
 import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
 import com.std.framework.db.DbHelper;
 import com.std.framework.entity.SampleTable.SampleTableColumn;
 import com.std.framework.interfaces.plugin.IStdPlugin;
+import com.syswin.toon.bean.events.EventVoteData.ToonActivity.ActivityBasicInfo;
+import com.syswin.toon.bean.events.PluginItem;
+import com.syswin.toon.bean.events.ShowBlock;
+import com.syswin.toon.bean.events.ToonEvent;
+import com.syswin.toon.bean.events.ToonFrame;
 
 import dalvik.system.DexClassLoader;
 
@@ -87,24 +99,24 @@ public class TestMethod extends AndroidTestCase {
 	}
 
 	public void testDb() {
-		DbHelper helper = new DbHelper(DbHelper.createFromSdCard(LibUtil.getAppHomeDirectory(getContext()), "testdb"));
-		helper.exec("insert into people(name,age) values('王刚',12);");
-		String ss = SampleTableColumn.NAME;
+//		DbHelper helper = new DbHelper(DbHelper.createFromSdCard(LibUtil.getAppHomeDirectory(getContext()), "testdb"));
+//		helper.exec("insert into people(name,age) values('王刚',12);");
+//		String ss = SampleTableColumn.NAME;
 	}
 
 	public void testquery() {
-		long old = System.currentTimeMillis();
-		DbHelper helper = new DbHelper(DbHelper.createFromSdCard(LibUtil.getAppHomeDirectory(getContext()), "db.db"));
-		old = System.currentTimeMillis();
-		Cursor cursor = helper.rawQuery("select * from people;", null);
-		int columncount = cursor.getColumnCount();
-
-		//		while(cursor.moveToNext()){
-		//			Log.d("LX", cursor.getString()+"");
-		//		}
-		Log.d("LX", cursor.getCount() + "");
-		Log.d("LX", System.currentTimeMillis() - old + "");
-		String ss = SampleTableColumn.NAME;
+//		long old = System.currentTimeMillis();
+//		DbHelper helper = new DbHelper(DbHelper.createFromSdCard(LibUtil.getAppHomeDirectory(getContext()), "db.db"));
+//		old = System.currentTimeMillis();
+//		Cursor cursor = helper.rawQuery("select * from people;", null);
+//		int columncount = cursor.getColumnCount();
+//
+//		//		while(cursor.moveToNext()){
+//		//			Log.d("LX", cursor.getString()+"");
+//		//		}
+//		Log.d("LX", cursor.getCount() + "");
+//		Log.d("LX", System.currentTimeMillis() - old + "");
+//		String ss = SampleTableColumn.NAME;
 	}
 
 	public void testSdCard() {
@@ -142,5 +154,31 @@ public class TestMethod extends AndroidTestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void throwException(){
+		throw new IllegalArgumentException("");
+	}
+	
+	public void parseJson(){
+		try {
+			InputStream inputStream = getContext().getResources().getAssets().open("event.txt");
+			InputStreamReader reader = new InputStreamReader(inputStream,"UTF-8");
+			BufferedReader bufferedReader = new BufferedReader(reader);
+			String json = "";
+			StringBuffer buffer = new StringBuffer();
+			while((json = bufferedReader.readLine()) != null){
+				buffer.append(json);
+			}
+			json = buffer.toString();
+			Log.d("LX", json);
+			new Gson().fromJson(json, ToonEvent.class);
+		
+		}
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
