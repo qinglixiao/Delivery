@@ -136,6 +136,46 @@ public class ShapeImageView extends BaseImageView {
 		}
 		return null;
 	}
+	
+	/**
+	 * 变换图像形状
+	 */
+	public void changeShapeType(int shape){
+		mShape = shape;
+		invalidate();
+	}
+	
+	public float getRx() {
+		return rx;
+	}
+
+	public void setRx(float rx) {
+		this.rx = rx;
+	}
+
+	public float getRy() {
+		return ry;
+	}
+
+	public void setRy(float ry) {
+		this.ry = ry;
+	}
+
+	public int getSides() {
+		return sides;
+	}
+
+	public void setSides(int sides) {
+		this.sides = sides;
+	}
+
+	public float getOffsetAngle() {
+		return offsetAngle;
+	}
+
+	public void setOffsetAngle(float offsetAngle) {
+		this.offsetAngle = offsetAngle;
+	}
 
 }
 

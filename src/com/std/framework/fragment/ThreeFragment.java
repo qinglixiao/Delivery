@@ -19,26 +19,22 @@ public class ThreeFragment extends BaseFragment implements OnClickListener{
 	private View view;
 	private EditText editText;
 	private Button button;
+	private ShapeImageView shapeImageView;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		view = inflater.inflate(R.layout.fragment_three, null);
-		
-		ShapeImageView shapeImageView = new ShapeImageView(getActivity(), R.drawable.circle_shape, Shape.POLYGON, 0, 0, 5, 0, -1);
+		button = (Button) view.findViewById(R.id.button1);
+		button.setOnClickListener(this);
+		shapeImageView = (ShapeImageView) view.findViewById(R.id.shape_cus);
 		return view;
 	}
 
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		try {
-			Runtime.getRuntime().exec(new String[]{"input","text"," fuytfrdrsxgf"});
-		}
-		catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		shapeImageView.changeShapeType(Shape.POLYGON);
 	}
 	
 }

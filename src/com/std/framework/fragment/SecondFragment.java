@@ -39,7 +39,7 @@ public class SecondFragment extends BaseFragment {
 
 	class MyPagerAdapter extends FragmentPagerAdapter {
 
-		private final String[] TITLES = { "Categories", "Home", "Top Paid", "Top Free", "Top Grossing", "Top New Paid", "Top New Free",
+		private final String[] TITLES = { "Categories", "Home", "Top Paid", "Top Free", "Top Grossing", "ButtonImageView", "Top New Free",
 				"Trending" };
 
 		public MyPagerAdapter(FragmentManager fm) {
@@ -58,7 +58,7 @@ public class SecondFragment extends BaseFragment {
 
 		@Override
 		public Fragment getItem(int position) {
-			return PagerFragment.newInstance(position);
+			return PagerFragment.newInstance(position,TITLES[position]);
 		}
 	}
 }

@@ -102,11 +102,21 @@
         app:sides="4" />
 
     <com.std.framework.view.ShapeImageView
+        android:id="@+id/shape_cus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/shapeImageView5"
         android:layout_alignRight="@+id/ShapeImageView04"
         android:src="@drawable/note_letter_bg" 
         app:shape = "round_rectangle"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shapeImageView3"
+        android:layout_marginTop="58dp"
+        android:layout_toLeftOf="@+id/shapeImageView5"
+        android:text="Button" />
 
 </RelativeLayout>
