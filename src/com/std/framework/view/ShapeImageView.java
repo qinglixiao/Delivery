@@ -76,10 +76,24 @@ public class ShapeImageView extends BaseImageView {
 		super(context);
 	}
 
-	public ShapeImageView(Context context, int resourceId, int shape, int svgRawResourceId) {
+	 /**
+	     * @param context：上下文
+	     * @param resourceId ：图像资源id
+	     * @param shape ：图像形状
+	     * @param rx ：x轴圆角半径（只在圆角矩形中起作用（Shape.ROUNDRECTANGLE)）
+	     * @param ry ：y轴圆角半径（只在圆角矩形中起作用（Shape.ROUNDRECTANGLE)）
+	     * @param sides ：多边形边数(只在正多边形中起作用（Shape.POLYGON）)
+	     * @param offsetAngle ：多边形起始偏移角度(只在正多边形中起作用（Shape.POLYGON）)
+	     * @param svgRawResourceId ：svg文件位置
+	     */
+	public ShapeImageView(Context context, int resourceId, int shape,float rx,float ry,int sides,float offsetAngle, int svgRawResourceId) {
 		this(context);
 		setImageResource(resourceId);
 		mShape = shape;
+		this.rx = rx;
+		this.ry = ry;
+		this.sides = sides;
+		this.offsetAngle = offsetAngle;
 		mSvgRawResourceId = svgRawResourceId;
 	}
 

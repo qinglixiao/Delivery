@@ -3,6 +3,8 @@ package com.std.framework.fragment;
 import java.io.IOException;
 
 import com.std.framework.R;
+import com.std.framework.view.ShapeImageView;
+import com.std.framework.view.ShapeImageView.Shape;
 
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -22,6 +24,8 @@ public class ThreeFragment extends BaseFragment implements OnClickListener{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		view = inflater.inflate(R.layout.fragment_three, null);
+		
+		ShapeImageView shapeImageView = new ShapeImageView(getActivity(), R.drawable.circle_shape, Shape.POLYGON, 0, 0, 5, 0, -1);
 		return view;
 	}
 

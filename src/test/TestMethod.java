@@ -1,37 +1,22 @@
 package test;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Intent;
-import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.library.file.SDCardHelper;
-import com.library.util.DataConvert;
 import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
-import com.std.framework.db.DbHelper;
-import com.std.framework.entity.SampleTable.SampleTableColumn;
 import com.std.framework.interfaces.plugin.IStdPlugin;
-import com.syswin.toon.bean.events.EventVoteData.ToonActivity.ActivityBasicInfo;
-import com.syswin.toon.bean.events.PluginItem;
-import com.syswin.toon.bean.events.ShowBlock;
-import com.syswin.toon.bean.events.ToonEvent;
-import com.syswin.toon.bean.events.ToonFrame;
 
 import dalvik.system.DexClassLoader;
 
@@ -161,24 +146,24 @@ public class TestMethod extends AndroidTestCase {
 	}
 	
 	public void parseJson(){
-		try {
-			InputStream inputStream = getContext().getResources().getAssets().open("event.txt");
-			InputStreamReader reader = new InputStreamReader(inputStream,"UTF-8");
-			BufferedReader bufferedReader = new BufferedReader(reader);
-			String json = "";
-			StringBuffer buffer = new StringBuffer();
-			while((json = bufferedReader.readLine()) != null){
-				buffer.append(json);
-			}
-			json = buffer.toString();
-			Log.d("LX", json);
-			new Gson().fromJson(json, ToonEvent.class);
+//		try {
+//			InputStream inputStream = getContext().getResources().getAssets().open("event.txt");
+//			InputStreamReader reader = new InputStreamReader(inputStream,"UTF-8");
+//			BufferedReader bufferedReader = new BufferedReader(reader);
+//			String json = "";
+//			StringBuffer buffer = new StringBuffer();
+//			while((json = bufferedReader.readLine()) != null){
+//				buffer.append(json);
+//			}
+//			json = buffer.toString();
+//			Log.d("LX", json);
+//			new Gson().fromJson(json, ToonEvent.class);
 		
-		}
-		catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		}
+//		catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 	}
 }
