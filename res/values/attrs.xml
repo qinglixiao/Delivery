@@ -39,6 +39,8 @@
         <!-- 多边形偏移角度 -->
         <attr name="offsetAngle" format="float" />
         <attr name="svg_raw_resource" format="reference" />
+        <!-- 右下角图像资源 -->
+        <attr name="right_bottom_src" format="reference"/>
     </declare-styleable>
 
 </resources>

@@ -42,19 +42,19 @@ public class MainTabActivity extends BaseActivity implements OnTabChangeListener
 		mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
 		mTabHost.addTab(mTabHost.newTabSpec(PAGE_ONE).setIndicator(
-				newIndicator(R.drawable.ic_launcher, "one")), MainFragment.class, null);
+				newIndicator(R.drawable.ali144, "one")), MainFragment.class, null);
 
 		mTabHost.addTab(mTabHost.newTabSpec(PAGE_TWO).setIndicator(
-				newIndicator(R.drawable.ic_launcher, "two")), SecondFragment.class, null);
+				newIndicator(R.drawable.ali144, "two")), SecondFragment.class, null);
 
 		mTabHost.addTab(mTabHost.newTabSpec(PAGE_THREE).setIndicator(
-				newIndicator(R.drawable.ic_launcher, "three")), ThreeFragment.class, null);
+				newIndicator(R.drawable.ali144, "three")), ThreeFragment.class, null);
 		
 		mTabHost.addTab(mTabHost.newTabSpec(PAGE_FOUR).setIndicator(
-				newIndicator(R.drawable.ic_launcher, "four")), FourFragment.class, null);
+				newIndicator(R.drawable.ali144, "four")), FourFragment.class, null);
 		
 		mTabHost.addTab(mTabHost.newTabSpec(PAGE_FIVE).setIndicator(
-				newIndicator(R.drawable.ic_launcher, "five")), FiveFragment.class, null);
+				newIndicator(R.drawable.ali144, "five")), FiveFragment.class, null);
 		
 		mTabHost.setOnTabChangedListener(this);
 		mTabHost.setCurrentTabByTag(PAGE_THREE);

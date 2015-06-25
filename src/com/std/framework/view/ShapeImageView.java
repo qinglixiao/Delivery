@@ -16,14 +16,12 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
-import android.R.integer;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
@@ -31,7 +29,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Picture;
-import android.graphics.Point;
 import android.graphics.PointF;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -43,6 +40,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.PictureDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.widget.ImageView;
 
 import com.std.framework.R;
@@ -76,17 +74,17 @@ public class ShapeImageView extends BaseImageView {
 		super(context);
 	}
 
-	 /**
-	     * @param context：上下文
-	     * @param resourceId ：图像资源id
-	     * @param shape ：图像形状
-	     * @param rx ：x轴圆角半径（只在圆角矩形中起作用（Shape.ROUNDRECTANGLE)）
-	     * @param ry ：y轴圆角半径（只在圆角矩形中起作用（Shape.ROUNDRECTANGLE)）
-	     * @param sides ：多边形边数(只在正多边形中起作用（Shape.POLYGON）)
-	     * @param offsetAngle ：多边形起始偏移角度(只在正多边形中起作用（Shape.POLYGON）)
-	     * @param svgRawResourceId ：svg文件位置
-	     */
-	public ShapeImageView(Context context, int resourceId, int shape,float rx,float ry,int sides,float offsetAngle, int svgRawResourceId) {
+	/**
+	    * @param context：上下文
+	    * @param resourceId ：图像资源id
+	    * @param shape ：图像形状
+	    * @param rx ：x轴圆角半径（只在圆角矩形中起作用（Shape.ROUNDRECTANGLE)）
+	    * @param ry ：y轴圆角半径（只在圆角矩形中起作用（Shape.ROUNDRECTANGLE)）
+	    * @param sides ：多边形边数(只在正多边形中起作用（Shape.POLYGON）)
+	    * @param offsetAngle ：多边形起始偏移角度(只在正多边形中起作用（Shape.POLYGON）)
+	    * @param svgRawResourceId ：svg文件位置
+	    */
+	public ShapeImageView(Context context, int resourceId, int shape, float rx, float ry, int sides, float offsetAngle, int svgRawResourceId) {
 		this(context);
 		setImageResource(resourceId);
 		mShape = shape;
@@ -115,36 +113,63 @@ public class ShapeImageView extends BaseImageView {
 		ry = a.getFloat(R.styleable.ShapeImageView_radius_y, ROUNDRECTANGLERADIUS);
 		sides = a.getInt(R.styleable.ShapeImageView_sides, POLYGONSIDES);
 		offsetAngle = a.getFloat(R.styleable.ShapeImageView_offsetAngle, 0);
+		rightBottomDrawable = a.getDrawable(R.styleable.ShapeImageView_right_bottom_src);
 		a.recycle();
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		boolean b = super.onTouchEvent(event);
+		this.event = event;
+		invalidate();
+		return b;
 	}
 
 	@Override
 	public Bitmap getBitmap() {
 		switch (mShape) {
 			case Shape.CIRCLE:
-				return CircleImageView.getBitmap(getWidth(), getHeight());
+				CircleImageView circleImageView = new CircleImageView(getContext());
+				realImageView = circleImageView;
+				realImageView.isFocus = isFocused();
+				return circleImageView.getBitmap(getWidth(), getHeight());
 			case Shape.RECTANGLE:
-				return RectangleImageView.getBitmap(getWidth(), getHeight());
+				RectangleImageView rectangleImageView = new RectangleImageView(getContext());
+				realImageView = rectangleImageView;
+				rectangleImageView.isFocus = isFocused();
+				return rectangleImageView.getBitmap(getWidth(), getHeight());
 			case Shape.SVG:
-				return SvgImageView.getBitmap(mContext, getWidth(), getHeight(), mSvgRawResourceId);
+				SvgImageView svgImageView = new SvgImageView(getContext());
+				realImageView = svgImageView;
+				realImageView.isFocus = isFocused();
+				return svgImageView.getBitmap(mContext, getWidth(), getHeight(), mSvgRawResourceId);
 			case Shape.ROUNDRECTANGLE:
-				return RoundRectangleImageView.getBitmap(getWidth(), getHeight(), rx, ry);
+				RoundRectangleImageView roundRectangleImageView = new RoundRectangleImageView(getContext());
+				realImageView = roundRectangleImageView;
+				realImageView.isFocus = isFocused();
+				return roundRectangleImageView.getBitmap(getWidth(), getHeight(), rx, ry);
 			case Shape.POLYGON:
-				return PolygonImageView.getBitmap(getWidth(), getHeight(), sides, offsetAngle);
+				PolygonImageView polygonImageView = new PolygonImageView(getContext());
+				realImageView = polygonImageView;
+				realImageView.isFocus = isFocused();
+				return polygonImageView.getBitmap(getWidth(), getHeight(), sides, offsetAngle);
 			case Shape.SQUARE:
-				return SquareImageView.getBitmap(getWidth(), getHeight());
+				SquareImageView squareImageView = new SquareImageView(getContext());
+				realImageView = squareImageView;
+				realImageView.isFocus = isFocused();
+				return squareImageView.getBitmap(getWidth(), getHeight());
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 变换图像形状
 	 */
-	public void changeShapeType(int shape){
+	public void changeShapeType(int shape) {
 		mShape = shape;
 		invalidate();
 	}
-	
+
 	public float getRx() {
 		return rx;
 	}
@@ -196,7 +221,7 @@ class CircleImageView extends BaseImageView {
 		super(context, attrs, defStyle);
 	}
 
-	public static Bitmap getBitmap(int width, int height) {
+	public Bitmap getBitmap(int width, int height) {
 		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -210,6 +235,19 @@ class CircleImageView extends BaseImageView {
 	public Bitmap getBitmap() {
 		return getBitmap(getWidth(), getHeight());
 	}
+
+	@Override
+	protected void adorn(Canvas canvas, MotionEvent event) {
+		super.adorn(canvas, event);
+		if (isFocus) {
+			Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+			mPaint.setStrokeWidth(6);
+			mPaint.setColor(Color.WHITE);
+			mPaint.setStyle(Paint.Style.STROKE);
+			canvas.drawCircle(canvas.getWidth() / 2, canvas.getHeight() / 2, canvas.getWidth() / 2 - 2.5f, mPaint);
+		}
+	}
+
 }
 
 /**
@@ -229,7 +267,7 @@ class RectangleImageView extends BaseImageView {
 		super(context, attrs, defStyle);
 	}
 
-	public static Bitmap getBitmap(int width, int height) {
+	public Bitmap getBitmap(int width, int height) {
 		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -242,6 +280,7 @@ class RectangleImageView extends BaseImageView {
 	public Bitmap getBitmap() {
 		return getBitmap(getWidth(), getHeight());
 	}
+
 }
 
 /**
@@ -261,7 +300,7 @@ class SquareImageView extends BaseImageView {
 		super(context, attrs, defStyle);
 	}
 
-	public static Bitmap getBitmap(int width, int height) {
+	public Bitmap getBitmap(int width, int height) {
 		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -298,7 +337,7 @@ class RoundRectangleImageView extends BaseImageView {
 		super(context, attrs, defStyle);
 	}
 
-	public static Bitmap getBitmap(int width, int height, float rx, float ry) {
+	public Bitmap getBitmap(int width, int height, float rx, float ry) {
 		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -330,7 +369,7 @@ class PolygonImageView extends BaseImageView {
 		super(context, attrs, defStyle);
 	}
 
-	public static Bitmap getBitmap(int width, int height, int sides, float offsetAngle) {
+	public Bitmap getBitmap(int width, int height, int sides, float offsetAngle) {
 		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -378,8 +417,14 @@ class PolygonImageView extends BaseImageView {
  * svg图像实现
  */
 class SvgImageView extends BaseImageView {
-
+	private static SvgImageView instance;
 	private int mSvgRawResourceId;
+
+	public static SvgImageView getInstance(Context context) {
+		if (instance == null)
+			instance = new SvgImageView(context);
+		return instance;
+	}
 
 	public SvgImageView(Context context) {
 		super(context);
@@ -401,7 +446,7 @@ class SvgImageView extends BaseImageView {
 		a.recycle();
 	}
 
-	public static Bitmap getBitmap(Context context, int width, int height, int svgRawResourceId) {
+	public Bitmap getBitmap(Context context, int width, int height, int svgRawResourceId) {
 		Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -431,6 +476,10 @@ abstract class BaseImageView extends ImageView {
 	private Bitmap mMaskBitmap;
 	private Paint mPaint;
 	private WeakReference<Bitmap> mWeakBitmap;
+	protected BaseImageView realImageView;
+	protected MotionEvent event;
+	protected boolean isFocus;
+	protected Drawable rightBottomDrawable;  //右下角图片
 
 	public BaseImageView(Context context) {
 		super(context);
@@ -486,6 +535,11 @@ abstract class BaseImageView extends ImageView {
 						bitmapCanvas.drawBitmap(mMaskBitmap, 0.0f, 0.0f, mPaint);
 
 						mWeakBitmap = new WeakReference<Bitmap>(bitmap);
+
+						if (realImageView != null) {
+							realImageView.rightBottomDrawable = rightBottomDrawable;
+							realImageView.adorn(bitmapCanvas, event);
+						}
 					}
 				}
 
@@ -508,6 +562,22 @@ abstract class BaseImageView extends ImageView {
 		}
 	}
 
+	protected void adorn(Canvas canvas, MotionEvent event) {
+		if (rightBottomDrawable != null) {
+			int left = canvas.getWidth() - rightBottomDrawable.getIntrinsicWidth();
+			int top = canvas.getHeight() - rightBottomDrawable.getIntrinsicHeight();
+			int width = rightBottomDrawable.getIntrinsicWidth();
+			int height = rightBottomDrawable.getIntrinsicHeight();
+			rightBottomDrawable.setBounds(left, top, left + width, top + height);
+			rightBottomDrawable.draw(canvas);
+		}
+
+	}
+	
+	public void setRightBottomDrawable(Drawable drawable){
+		rightBottomDrawable = drawable;
+	}
+	
 	public abstract Bitmap getBitmap();
 }
 

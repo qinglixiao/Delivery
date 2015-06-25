@@ -32,6 +32,8 @@
         android:layout_toRightOf="@+id/shapeImageView2"
         android:src="@drawable/logo_sinaweibo" />
 
+    <requestFocus />
+
     <com.std.framework.view.ShapeImageView
         android:id="@+id/ShapeImageView01"
         android:layout_width="wrap_content"
@@ -97,9 +99,7 @@
         android:layout_below="@+id/ShapeImageView03"
         android:layout_marginTop="29dp"
         android:layout_toLeftOf="@+id/shapeImageView1"
-        android:src="@drawable/logo_sinaweibo"
-        app:shape="polygon"
-        app:sides="4" />
+        android:src="@drawable/logo_sinaweibo" />
 
     <com.std.framework.view.ShapeImageView
         android:id="@+id/shape_cus"
@@ -107,8 +107,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/shapeImageView5"
         android:layout_alignRight="@+id/ShapeImageView04"
-        android:src="@drawable/note_letter_bg" 
-        app:shape = "round_rectangle"/>
+        android:src="@drawable/note_letter_bg"
+      
+        app:shape="rectangle" />
 
     <Button
         android:id="@+id/button1"
