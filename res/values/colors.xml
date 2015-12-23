@@ -34,5 +34,12 @@
     <color name="menu_group_text_color">#8f8f8f</color>
     
     <color name="background_tab_pressed">#1AFFFFFF</color>
+    
+     <!-- 标准黑色 -->
+    <color name="guide_black">#333333</color>
+    <!-- 标准白色 -->
+    <color name="guide_white">#FFFFFF</color>
+     <!-- 标准蓝色 -->
+    <color name="guide_blue">#007aff</color>
 
 </resources>

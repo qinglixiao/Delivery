@@ -178,7 +178,7 @@ public class TouchSlopView extends RelativeLayout {
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		int action = ev.getAction() & MotionEvent.ACTION_MASK;
+		int action = ev.getActionMasked();
 		switch (action) {
 			case MotionEvent.ACTION_MOVE:
 				float x = ev.getX();
@@ -213,7 +213,7 @@ public class TouchSlopView extends RelativeLayout {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		int action = event.getAction() & MotionEvent.ACTION_MASK;
+		int action = event.getActionMasked();
 		switch (action) {
 			case MotionEvent.ACTION_DOWN:
 				if (!mScroller.isFinished())
