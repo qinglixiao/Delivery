@@ -40,8 +40,8 @@ public class AutoCycleView extends FrameLayout {
 	private CirclePageIndicator mIndicator;
 	private Handler handler = new Handler();
 	private changedTask task = new changedTask();
-	private boolean isAutoScroll = true;//ÊÇ·ñ×Ô¶¯¹ö¶¯
-	private int mInterval = 2000;// ÂÖ²¥¼ä¸ôÊ±¼ä£¬Ä¬ÈÏÎª2Ãë
+	private boolean isAutoScroll = true;//æ˜¯å¦è‡ªåŠ¨æ»šåŠ¨
+	private int mInterval = 2000;// è½®æ’­é—´éš”æ—¶é—´ï¼Œé»˜è®¤ä¸º2ç§’
 	private int mLastMotionX = -1;
 
 	public AutoCycleView(Context context, AttributeSet attrs) {
@@ -66,11 +66,11 @@ public class AutoCycleView extends FrameLayout {
 
 	/**
 	 * 
-	 * Ãè Êö £ºÉèÖÃ²¥·ÅÊ±¼ä¼ä¸ô
-	 * ´´½¨ÈÕÆÚ : 2013-10-29
-	 * ×÷ Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ :
-	 * ĞŞ ¸Ä Õß £º
+	 * æ è¿° ï¼šè®¾ç½®æ’­æ”¾æ—¶é—´é—´éš”
+	 * åˆ›å»ºæ—¥æœŸ : 2013-10-29
+	 * ä½œ è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ :
+	 * ä¿® æ”¹ è€… ï¼š
 	 * 
 	 * @version : 1.0
 	 * @param millisecond
@@ -82,11 +82,11 @@ public class AutoCycleView extends FrameLayout {
 
 	/**
 	 * 
-	 * Ãè          Êö £ºÉèÖÃÊÇ·ñ×Ô¶¯¹ö¶¯
-	 * ´´½¨ÈÕÆÚ  : 2013-11-11
-	 * ×÷           Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ  : 
-	 * ĞŞ   ¸Ä   Õß £º
+	 * æ          è¿° ï¼šè®¾ç½®æ˜¯å¦è‡ªåŠ¨æ»šåŠ¨
+	 * åˆ›å»ºæ—¥æœŸ  : 2013-11-11
+	 * ä½œ           è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ  : 
+	 * ä¿®   æ”¹   è€… ï¼š
 	 * @version   : 1.0
 	 * @param isScroll
 	 *
@@ -732,10 +732,10 @@ class CirclePageIndicator extends View implements PageIndicator {
 		int getIconResId(int index);
 
 		// From PagerAdapter
-		// »ñÈ¡ÔªËØ×ÜÊı
+		// è·å–å…ƒç´ æ€»æ•°
 		int getCount();
 
-		// »ñÈ¡²»ÖØ¸´µÄÔªËØÊıÁ¿
+		// è·å–ä¸é‡å¤çš„å…ƒç´ æ•°é‡
 		int getRealCount();
 	}
 }

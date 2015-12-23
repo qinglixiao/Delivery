@@ -108,11 +108,11 @@ public class PullRefreshView extends LinearLayout {
 	 */
 	private int mPullState;
 	/**
-	 * ±äÎªÏòÏÂµÄ¼ıÍ·,¸Ä±ä¼ıÍ··½Ïò
+	 * å˜ä¸ºå‘ä¸‹çš„ç®­å¤´,æ”¹å˜ç®­å¤´æ–¹å‘
 	 */
 	private RotateAnimation mFlipAnimation;
 	/**
-	 * ±äÎªÄæÏòµÄ¼ıÍ·,Ğı×ª
+	 * å˜ä¸ºé€†å‘çš„ç®­å¤´,æ—‹è½¬
 	 */
 	private RotateAnimation mReverseFlipAnimation;
 	/**
@@ -139,12 +139,12 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 *Êı¾İ³õÊ¼»¯ 
+	 *æ•°æ®åˆå§‹åŒ– 
 	 * @description
 	 * @param context
 	 */
 	private void init() {
-		// ³õÊ¼»¯¶¯»­
+		// åˆå§‹åŒ–åŠ¨ç”»
 		mFlipAnimation = new RotateAnimation(0, -180, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
 		mFlipAnimation.setInterpolator(new LinearInterpolator());
 		mFlipAnimation.setDuration(250);
@@ -196,11 +196,11 @@ public class PullRefreshView extends LinearLayout {
 	}
 	/**
 	 * 
-	 * Ãè          Êö £º´úÂëÉú³É¿Ø¼şÊ±µ÷ÓÃ
-	 * ´´½¨ÈÕÆÚ  : 2013-11-12
-	 * ×÷           Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ  : 
-	 * ĞŞ   ¸Ä   Õß £º
+	 * æ          è¿° ï¼šä»£ç ç”Ÿæˆæ§ä»¶æ—¶è°ƒç”¨
+	 * åˆ›å»ºæ—¥æœŸ  : 2013-11-12
+	 * ä½œ           è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ  : 
+	 * ä¿®   æ”¹   è€… ï¼š
 	 * @version   : 1.0
 	 *
 	 */
@@ -256,11 +256,11 @@ public class PullRefreshView extends LinearLayout {
 		int y = (int) e.getRawY();
 		switch (e.getAction()) {
 			case MotionEvent.ACTION_DOWN:
-				// Ê×ÏÈÀ¹½ØdownÊÂ¼ş,¼ÇÂ¼y×ø±ê
+				// é¦–å…ˆæ‹¦æˆªdownäº‹ä»¶,è®°å½•yåæ ‡
 				mLastMotionY = y;
 				break;
 			case MotionEvent.ACTION_MOVE:
-				// deltaY > 0 ÊÇÏòÏÂÔË¶¯,< 0ÊÇÏòÉÏÔË¶¯
+				// deltaY > 0 æ˜¯å‘ä¸‹è¿åŠ¨,< 0æ˜¯å‘ä¸Šè¿åŠ¨
 				int deltaY = y - mLastMotionY;
 				if (isRefreshViewScroll(deltaY)) {
 					return true;
@@ -281,19 +281,19 @@ public class PullRefreshView extends LinearLayout {
 		int y = (int) event.getRawY();
 		switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
-				// onInterceptTouchEventÒÑ¾­¼ÇÂ¼
+				// onInterceptTouchEventå·²ç»è®°å½•
 				// mLastMotionY = y;
 				break;
 			case MotionEvent.ACTION_MOVE:
 				int deltaY = y - mLastMotionY;
 				if (mPullState == PULL_DOWN_STATE) {
-					// PullToRefreshViewÖ´ĞĞÏÂÀ­
+					// PullToRefreshViewæ‰§è¡Œä¸‹æ‹‰
 					Log.i(TAG, " pull down!parent view move!");
 					headerPrepareToRefresh(deltaY);
 					// setHeaderPadding(-mHeaderViewHeight);
 				}
 				else if (mPullState == PULL_UP_STATE) {
-					// PullToRefreshViewÖ´ĞĞÉÏÀ­
+					// PullToRefreshViewæ‰§è¡Œä¸Šæ‹‰
 					Log.i(TAG, "pull up!parent view move!");
 					footerPrepareToRefresh(deltaY);
 				}
@@ -304,21 +304,21 @@ public class PullRefreshView extends LinearLayout {
 				int topMargin = getHeaderTopMargin();
 				if (mPullState == PULL_DOWN_STATE) {
 					if (topMargin >= 0) {
-						// ¿ªÊ¼Ë¢ĞÂ
+						// å¼€å§‹åˆ·æ–°
 						headerRefreshing();
 					}
 					else {
-						// »¹Ã»ÓĞÖ´ĞĞË¢ĞÂ£¬ÖØĞÂÒş²Ø
+						// è¿˜æ²¡æœ‰æ‰§è¡Œåˆ·æ–°ï¼Œé‡æ–°éšè—
 						setHeaderTopMargin(-mHeaderViewHeight);
 					}
 				}
 				else if (mPullState == PULL_UP_STATE) {
 					if (Math.abs(topMargin) >= mHeaderViewHeight + mFooterViewHeight) {
-						// ¿ªÊ¼Ö´ĞĞfooter Ë¢ĞÂ
+						// å¼€å§‹æ‰§è¡Œfooter åˆ·æ–°
 						footerRefreshing();
 					}
 					else {
-						// »¹Ã»ÓĞÖ´ĞĞË¢ĞÂ£¬ÖØĞÂÒş²Ø
+						// è¿˜æ²¡æœ‰æ‰§è¡Œåˆ·æ–°ï¼Œé‡æ–°éšè—
 						setHeaderTopMargin(-mHeaderViewHeight);
 					}
 				}
@@ -328,24 +328,24 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * ÊÇ·ñÓ¦¸Ãµ½ÁË¸¸View,¼´PullToRefreshView»¬¶¯
+	 * æ˜¯å¦åº”è¯¥åˆ°äº†çˆ¶View,å³PullToRefreshViewæ»‘åŠ¨
 	 * 
 	 * @param deltaY
-	 *                , deltaY > 0 ÊÇÏòÏÂÔË¶¯,< 0ÊÇÏòÉÏÔË¶¯
+	 *                , deltaY > 0 æ˜¯å‘ä¸‹è¿åŠ¨,< 0æ˜¯å‘ä¸Šè¿åŠ¨
 	 * @return
 	 */
 	private boolean isRefreshViewScroll(int deltaY) {
 		if (mHeaderState == REFRESHING || mFooterState == REFRESHING) {
 			return false;
 		}
-		// ¶ÔÓÚListViewºÍGridView
+		// å¯¹äºListViewå’ŒGridView
 		if (mAdapterView != null) {
-			// ×Óview(ListView or GridView)»¬¶¯µ½×î¶¥¶Ë
+			// å­view(ListView or GridView)æ»‘åŠ¨åˆ°æœ€é¡¶ç«¯
 			if (deltaY > 0) {
 
 				View child = mAdapterView.getChildAt(0);
 				if (child == null) {
-					// Èç¹ûmAdapterViewÖĞÃ»ÓĞÊı¾İ,²»À¹½Ø
+					// å¦‚æœmAdapterViewä¸­æ²¡æœ‰æ•°æ®,ä¸æ‹¦æˆª
 					return false;
 				}
 				if (mAdapterView.getFirstVisiblePosition() == 0 && child.getTop() == 0) {
@@ -354,7 +354,7 @@ public class PullRefreshView extends LinearLayout {
 				}
 				int top = child.getTop();
 				int padding = mAdapterView.getPaddingTop();
-				if (mAdapterView.getFirstVisiblePosition() == 0 && Math.abs(top - padding) <= 8) {// ÕâÀïÖ®Ç°ÓÃ3¿ÉÒÔÅĞ¶Ï,µ«ÏÖÔÚ²»ĞĞ,»¹Ã»ÕÒµ½Ô­Òò
+				if (mAdapterView.getFirstVisiblePosition() == 0 && Math.abs(top - padding) <= 8) {// è¿™é‡Œä¹‹å‰ç”¨3å¯ä»¥åˆ¤æ–­,ä½†ç°åœ¨ä¸è¡Œ,è¿˜æ²¡æ‰¾åˆ°åŸå› 
 					mPullState = PULL_DOWN_STATE;
 					return true;
 				}
@@ -363,7 +363,7 @@ public class PullRefreshView extends LinearLayout {
 			else if (deltaY < 0) {
 				View lastChild = mAdapterView.getChildAt(mAdapterView.getChildCount() - 1);
 				if (lastChild == null) {
-					// Èç¹ûmAdapterViewÖĞÃ»ÓĞÊı¾İ,²»À¹½Ø
+					// å¦‚æœmAdapterViewä¸­æ²¡æœ‰æ•°æ®,ä¸æ‹¦æˆª
 					return false;
 				}
 				if (lastChild.getBottom() <= getHeight() && mAdapterView.getLastVisiblePosition() == mAdapterView.getCount() - 1) {
@@ -372,9 +372,9 @@ public class PullRefreshView extends LinearLayout {
 				}
 			}
 		}
-		// ¶ÔÓÚScrollView
+		// å¯¹äºScrollView
 		if (mScrollView != null) {
-			// ×Óscroll view»¬¶¯µ½×î¶¥¶Ë
+			// å­scroll viewæ»‘åŠ¨åˆ°æœ€é¡¶ç«¯
 			View child = mScrollView.getChildAt(0);
 			if (deltaY > 0 && mScrollView.getScrollY() == 0) {
 				mPullState = PULL_DOWN_STATE;
@@ -389,10 +389,10 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * header ×¼±¸Ë¢ĞÂ,ÊÖÖ¸ÒÆ¶¯¹ı³Ì,»¹Ã»ÓĞÊÍ·Å
+	 * header å‡†å¤‡åˆ·æ–°,æ‰‹æŒ‡ç§»åŠ¨è¿‡ç¨‹,è¿˜æ²¡æœ‰é‡Šæ”¾
 	 * 
 	 * @param deltaY
-	 *                ,ÊÖÖ¸»¬¶¯µÄ¾àÀë
+	 *                ,æ‰‹æŒ‡æ»‘åŠ¨çš„è·ç¦»
 	 */
 	private void headerPrepareToRefresh(int deltaY) {
 		int newTopMargin = changingHeaderViewTopMargin(deltaY);
@@ -403,7 +403,7 @@ public class PullRefreshView extends LinearLayout {
 			mHeaderImageView.startAnimation(mFlipAnimation);
 			mHeaderState = RELEASE_TO_REFRESH;
 		}
-		else if (newTopMargin < 0 && newTopMargin > -mHeaderViewHeight) {// ÍÏ¶¯Ê±Ã»ÓĞÊÍ·Å
+		else if (newTopMargin < 0 && newTopMargin > -mHeaderViewHeight) {// æ‹–åŠ¨æ—¶æ²¡æœ‰é‡Šæ”¾
 			mHeaderImageView.clearAnimation();
 			mHeaderImageView.startAnimation(mFlipAnimation);
 			// mHeaderImageView.
@@ -413,10 +413,10 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * footer ×¼±¸Ë¢ĞÂ,ÊÖÖ¸ÒÆ¶¯¹ı³Ì,»¹Ã»ÓĞÊÍ·Å 
+	 * footer å‡†å¤‡åˆ·æ–°,æ‰‹æŒ‡ç§»åŠ¨è¿‡ç¨‹,è¿˜æ²¡æœ‰é‡Šæ”¾ 
 	 * 
 	 * @param deltaY
-	 *                ,ÊÖÖ¸»¬¶¯µÄ¾àÀë
+	 *                ,æ‰‹æŒ‡æ»‘åŠ¨çš„è·ç¦»
 	 */
 	private void footerPrepareToRefresh(int deltaY) {
 		int newTopMargin = changingHeaderViewTopMargin(deltaY);
@@ -435,7 +435,7 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * ĞŞ¸ÄHeader view top marginµÄÖµ
+	 * ä¿®æ”¹Header view top marginçš„å€¼
 	 * 
 	 * @description
 	 * @param deltaY
@@ -491,7 +491,7 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * ÉèÖÃheader view µÄtopMarginµÄÖµ
+	 * è®¾ç½®header view çš„topMarginçš„å€¼
 	 * @param topMargin
 	 */
 	private void setHeaderTopMargin(int topMargin) {
@@ -502,7 +502,7 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * header view Íê³É¸üĞÂºó»Ö¸´³õÊ¼×´Ì¬
+	 * header view å®Œæˆæ›´æ–°åæ¢å¤åˆå§‹çŠ¶æ€
 	 * 
 	 */
 	public void finishHeaderRefresh() {
@@ -526,7 +526,7 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * footer view Íê³É¸üĞÂºó»Ö¸´³õÊ¼×´Ì¬
+	 * footer view å®Œæˆæ›´æ–°åæ¢å¤åˆå§‹çŠ¶æ€
 	 */
 	public void finishFooterRefresh() {
 		setHeaderTopMargin(-mHeaderViewHeight);
@@ -555,7 +555,7 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°header view µÄtopMargin
+	 * è·å–å½“å‰header view çš„topMargin
 	 * 
 	 * @description
 	 */
@@ -565,21 +565,21 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * Ëø¶¨Ë¢ĞÂ¹¦ÄÜ
+	 * é”å®šåˆ·æ–°åŠŸèƒ½
 	 */
 	private void lock() {
 		mLock = true;
 	}
 
 	/**
-	 * ½âËøË¢ĞÂ¹¦ÄÜ
+	 * è§£é”åˆ·æ–°åŠŸèƒ½
 	 */
 	private void unlock() {
 		mLock = false;
 	}
 
 	/**
-	 * ÉèÖÃ¶¥²¿Ë¢ĞÂ¼àÌı
+	 * è®¾ç½®é¡¶éƒ¨åˆ·æ–°ç›‘å¬
 	 * 
 	 * @description
 	 * @param headerRefreshListener
@@ -589,7 +589,7 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * ÉèÖÃµ×²¿Ë¢ĞÂ¼àÌı
+	 * è®¾ç½®åº•éƒ¨åˆ·æ–°ç›‘å¬
 	 * @param footerRefreshListener
 	 */
 	public void setOnFooterRefreshListener(OnFooterRefreshListener footerRefreshListener) {
@@ -597,14 +597,14 @@ public class PullRefreshView extends LinearLayout {
 	}
 
 	/**
-	 * µ×²¿Ë¢ĞÂ»Øµ÷½Ó¿Ú
+	 * åº•éƒ¨åˆ·æ–°å›è°ƒæ¥å£
 	 * footer view should be refreshed.
 	 */
 	public interface OnFooterRefreshListener {
 		public void onFooterRefresh(PullRefreshView view);
 	}
 
-	/**¶¥²¿Ë¢ĞÂ»Øµ÷½Ó¿Ú
+	/**é¡¶éƒ¨åˆ·æ–°å›è°ƒæ¥å£
 	 */
 	public interface OnHeaderRefreshListener {
 		public void onHeaderRefresh(PullRefreshView view);

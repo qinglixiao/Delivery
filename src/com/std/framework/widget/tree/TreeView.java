@@ -19,11 +19,11 @@ import com.std.framework.R;
 
 /**
  * 
- * Ãè Êö £ºÊ÷ĞÍ¿Ø¼ş
- * ´´½¨ÈÕÆÚ : 2013-10-31
- * ×÷ Õß £º lx
- * ĞŞ¸ÄÈÕÆÚ :
- * ĞŞ ¸Ä Õß £º
+ * æ è¿° ï¼šæ ‘å‹æ§ä»¶
+ * åˆ›å»ºæ—¥æœŸ : 2013-10-31
+ * ä½œ è€… ï¼š lx
+ * ä¿®æ”¹æ—¥æœŸ :
+ * ä¿® æ”¹ è€… ï¼š
  * 
  * @version : 1.0
  */
@@ -31,22 +31,22 @@ public class TreeView extends ListView {
 	private List<TreeNode> mNodes;
 	private TreeAdapter mAdapter;
 	private Context mContext;
-	// Õ¹¿ª½Úµã²ã¼¶(0:È«²¿Õ¹¿ª)
+	// å±•å¼€èŠ‚ç‚¹å±‚çº§(0:å…¨éƒ¨å±•å¼€)
 	private int mExpandLevel = 1;
-	// Í¬¼¶½ÚµãÃ¿´ÎÖ»Õ¹¿ªÒ»¸ö½Úµã
+	// åŒçº§èŠ‚ç‚¹æ¯æ¬¡åªå±•å¼€ä¸€ä¸ªèŠ‚ç‚¹
 	private boolean isSingleOfLevel = true;
 
-	// ½ÚµãËõ½øÁ¿
+	// èŠ‚ç‚¹ç¼©è¿›é‡
 	private int mOffset = 30;
 	private int mTop = 5;
 	private int mRight = 5;
 	private int mBottom = 5;
 
-	// ½ÚµãÕ¹¿ªÊ±ÏÔÊ¾µÄÍ¼Æ¬
+	// èŠ‚ç‚¹å±•å¼€æ—¶æ˜¾ç¤ºçš„å›¾ç‰‡
 	private int expanderIcon = -1;
-	// ½ÚµãÕÛµşÊ±ÏÔÊ¾µÄÍ¼Æ¬
+	// èŠ‚ç‚¹æŠ˜å æ—¶æ˜¾ç¤ºçš„å›¾ç‰‡
 	private int collsapsedIcon = -1;
-	// Ò¶×Ó½ÚµãÏÔÊ¾µÄÍ¼Æ¬
+	// å¶å­èŠ‚ç‚¹æ˜¾ç¤ºçš„å›¾ç‰‡
 	private int leafIco = -1;
 
 	public TreeView(Context context, AttributeSet attrs) {
@@ -66,11 +66,11 @@ public class TreeView extends ListView {
 
 	/**
 	 * 
-	 * Ãè Êö £ºÉèÖÃÊ÷½ÚµãËõ½øÁ¿
-	 * ´´½¨ÈÕÆÚ : 2013-10-30
-	 * ×÷ Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ :
-	 * ĞŞ ¸Ä Õß £º
+	 * æ è¿° ï¼šè®¾ç½®æ ‘èŠ‚ç‚¹ç¼©è¿›é‡
+	 * åˆ›å»ºæ—¥æœŸ : 2013-10-30
+	 * ä½œ è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ :
+	 * ä¿® æ”¹ è€… ï¼š
 	 * 
 	 * @version : 1.0
 	 * @param dis
@@ -82,42 +82,42 @@ public class TreeView extends ListView {
 
 	/**
 	 * 
-	 * Ãè Êö £ºÕ¹¿ªÊ÷½ÚµãÇ°ÏÈÕÛµş¸ú¸Ã½ÚµãÍ¬¼¶µÄÆäËüµã½Ú
-	 * ´´½¨ÈÕÆÚ : 2013-11-7
-	 * ×÷ Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ :
-	 * ĞŞ ¸Ä Õß £º
+	 * æ è¿° ï¼šå±•å¼€æ ‘èŠ‚ç‚¹å‰å…ˆæŠ˜å è·Ÿè¯¥èŠ‚ç‚¹åŒçº§çš„å…¶å®ƒç‚¹èŠ‚
+	 * åˆ›å»ºæ—¥æœŸ : 2013-11-7
+	 * ä½œ è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ :
+	 * ä¿® æ”¹ è€… ï¼š
 	 * 
 	 * @version : 1.0
-	 * @param collapse£ºtrue£ºÕÛµş£¬false:²»ÕÛµş
+	 * @param collapseï¼štrueï¼šæŠ˜å ï¼Œfalse:ä¸æŠ˜å 
 	 * 
 	 */
 	public void collapseOthersBeforeExpander(boolean collapse) {
 		isSingleOfLevel = collapse;
 	}
 
-	// ÉÏ±ß¾à
+	// ä¸Šè¾¹è·
 	private void setNodeTop(int top) {
 		mTop = top;
 	}
 
-	// ÓÒ±ß¾à
+	// å³è¾¹è·
 	private void setNodeRight(int right) {
 		mRight = right;
 	}
 
-	// µ×±ß¾à
+	// åº•è¾¹è·
 	private void setNodeBottom(int bottom) {
 		mBottom = bottom;
 	}
 
 	/**
 	 * 
-	 * Ãè Êö £ºÉèÖÃ½ÚµãÕ¹¿ªÊ±ÏÔÊ¾µÄÍ¼Æ¬ID
-	 * ´´½¨ÈÕÆÚ : 2013-10-30
-	 * ×÷ Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ :
-	 * ĞŞ ¸Ä Õß £º
+	 * æ è¿° ï¼šè®¾ç½®èŠ‚ç‚¹å±•å¼€æ—¶æ˜¾ç¤ºçš„å›¾ç‰‡ID
+	 * åˆ›å»ºæ—¥æœŸ : 2013-10-30
+	 * ä½œ è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ :
+	 * ä¿® æ”¹ è€… ï¼š
 	 * 
 	 * @version : 1.0
 	 * @param id
@@ -129,11 +129,11 @@ public class TreeView extends ListView {
 
 	/**
 	 * 
-	 * Ãè Êö £ºÉèÖÃ½ÚµãÕÛµşÊ±ÏÔÊ¾µÄÍ¼Æ¬ID
-	 * ´´½¨ÈÕÆÚ : 2013-10-30
-	 * ×÷ Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ :
-	 * ĞŞ ¸Ä Õß £º
+	 * æ è¿° ï¼šè®¾ç½®èŠ‚ç‚¹æŠ˜å æ—¶æ˜¾ç¤ºçš„å›¾ç‰‡ID
+	 * åˆ›å»ºæ—¥æœŸ : 2013-10-30
+	 * ä½œ è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ :
+	 * ä¿® æ”¹ è€… ï¼š
 	 * 
 	 * @version : 1.0
 	 * @param id
@@ -145,11 +145,11 @@ public class TreeView extends ListView {
 
 	/**
 	 * 
-	 * Ãè Êö £ºÉèÖÃÒ¶×Ó½ÚµãÏÔÊ¾µÄÍ¼Æ¬ID
-	 * ´´½¨ÈÕÆÚ : 2013-10-30
-	 * ×÷ Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ :
-	 * ĞŞ ¸Ä Õß £º
+	 * æ è¿° ï¼šè®¾ç½®å¶å­èŠ‚ç‚¹æ˜¾ç¤ºçš„å›¾ç‰‡ID
+	 * åˆ›å»ºæ—¥æœŸ : 2013-10-30
+	 * ä½œ è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ :
+	 * ä¿® æ”¹ è€… ï¼š
 	 * 
 	 * @version : 1.0
 	 * @param id
@@ -214,7 +214,7 @@ public class TreeView extends ListView {
 			else {
 				holder = (ViewHolder) convertView.getTag();
 			}
-			// ½«½ÚµãµÄÖµ¸³¸øËûÃÇ
+			// å°†èŠ‚ç‚¹çš„å€¼èµ‹ç»™ä»–ä»¬
 			TreeNode node = nodes.get(position);
 			if (node != null) {
 				holder.value.setText(node.getValue());
@@ -256,7 +256,7 @@ public class TreeView extends ListView {
 
 		}
 
-		// µ±ÓÃ»§µã»÷Ä³ÏîLISTµÄÊ±ºò ¿ØÖÆ½ÚµãÊÕËõ
+		// å½“ç”¨æˆ·ç‚¹å‡»æŸé¡¹LISTçš„æ—¶å€™ æ§åˆ¶èŠ‚ç‚¹æ”¶ç¼©
 		public void ExpandOrCollapse(View view, int position) {
 			TreeNode n = nodes.get(position);
 			Log.i("LX", n.value + " isExpanded:" + n.isExpanded());
@@ -280,7 +280,7 @@ public class TreeView extends ListView {
 			}
 		}
 
-		// ÕÛµş¸úÖ¸¶¨Ê÷½áµãÍ¬¼¶µÄÆäËü½Úµã
+		// æŠ˜å è·ŸæŒ‡å®šæ ‘ç»“ç‚¹åŒçº§çš„å…¶å®ƒèŠ‚ç‚¹
 		private void CollapseOtherNodesOfSameLevel(TreeNode node, int level) {
 			for (int i = 0; i < nodesCache.size(); i++) {
 				TreeNode s_node = nodesCache.get(i);
@@ -292,13 +292,13 @@ public class TreeView extends ListView {
 			notifyDataSetChanged();
 		}
 
-		// ÉèÖÃ´ò¿ªÊ±Õ¹¿ª¼¶±ğ
+		// è®¾ç½®æ‰“å¼€æ—¶å±•å¼€çº§åˆ«
 		private void ExpanderLevel(int level) {
 			if (level == 0)
 				return;
 			nodes.clear();
 			for (int i = 0; i < nodesCache.size(); i++) {
-				// µÃµ½Ã¿Ò»¸ö½Úµã
+				// å¾—åˆ°æ¯ä¸€ä¸ªèŠ‚ç‚¹
 				TreeNode n = nodesCache.get(i);
 				if (n.getLevel() <= level) {
 					if (n.getLevel() < level) {
@@ -316,7 +316,7 @@ public class TreeView extends ListView {
 			notifyDataSetChanged();
 		}
 
-		// ¼¶ÁªÌí¼Ó×Ó½Úµã
+		// çº§è”æ·»åŠ å­èŠ‚ç‚¹
 		private void cascadeAdd(TreeNode node) {
 			nodes.add(node);
 			nodesCache.add(node);
@@ -325,7 +325,7 @@ public class TreeView extends ListView {
 			}
 		}
 
-		// ¼¶ÁªÕ¹¿ª×Ó½Úµã
+		// çº§è”å±•å¼€å­èŠ‚ç‚¹
 		private void cascadeExpand(TreeNode node, List<TreeNode> refNodes) {
 			for (int i = 0; i < node.children.size(); i++) {
 				TreeNode n = node.children.get(i);
@@ -335,7 +335,7 @@ public class TreeView extends ListView {
 			}
 		}
 
-		// ¼¶ÁªÕÛµş×Ó½Úµã
+		// çº§è”æŠ˜å å­èŠ‚ç‚¹
 		private void cascadeCollapse(TreeNode node) {
 			for (TreeNode n : node.children) {
 				if (nodes.contains(n)) {

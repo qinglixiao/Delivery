@@ -27,64 +27,64 @@ import android.widget.Scroller;
 import com.std.framework.R;
 
 class WheelView extends View {
-	/** ¹ö¶¯³ÖĞøµÄÊ±¼ä */
+	/** æ»šåŠ¨æŒç»­çš„æ—¶é—´ */
 	private static final int SCROLLING_DURATION = 400;
 
-	/** ×îÉÙ¹ö¶¯µÄÎ»ÖÃ */
+	/** æœ€å°‘æ»šåŠ¨çš„ä½ç½® */
 	private static final int MIN_DELTA_FOR_SCROLLING = 1;
 
-	/** µ±Ç°ÖµºÍ±êÇ©µÄÑÕÉ« */
+	/** å½“å‰å€¼å’Œæ ‡ç­¾çš„é¢œè‰² */
 	private static final int VALUE_TEXT_COLOR = 0xF0FF6347;
 
-	/** itemÎÄ×ÖµÄÑÕÉ« */
+	/** itemæ–‡å­—çš„é¢œè‰² */
 	private static final int ITEMS_TEXT_COLOR = 0xFF000000;
 
-	/** ¶¥²¿ºÍµ×²¿ÒõÓ°µÄÑÕÉ« */
+	/** é¡¶éƒ¨å’Œåº•éƒ¨é˜´å½±çš„é¢œè‰² */
 	private static final int[] SHADOWS_COLORS = new int[] { 0xFF111111, 0x00AAAAAA, 0x00AAAAAA };
 
-	/** ¸½¼ÓµÄitemµÄ¸ß¶È */
+	/** é™„åŠ çš„itemçš„é«˜åº¦ */
 	private static final int ADDITIONAL_ITEM_HEIGHT = 15;
 
-	/** ×ÖÌå´óĞ¡ */
+	/** å­—ä½“å¤§å° */
 	public static int TEXT_SIZE = 30;
 
-	/** ¶¥²¿ºÍµ×²¿itemµÄÆ«ÒÆÖµ */
+	/** é¡¶éƒ¨å’Œåº•éƒ¨itemçš„åç§»å€¼ */
 	private static final int ITEM_OFFSET = TEXT_SIZE / 5;
 
-	/** item²¼¾ÖµÄ¸½¼Ó¿í¶È */
+	/** itemå¸ƒå±€çš„é™„åŠ å®½åº¦ */
 	private static final int ADDITIONAL_ITEMS_SPACE = 10;
 
-	/** ±êÇ©Æ«ÒÆÖµ */
+	/** æ ‡ç­¾åç§»å€¼ */
 	private static final int LABEL_OFFSET = 8;
 
-	/** ×óÓÒpaddingÖµ */
+	/** å·¦å³paddingå€¼ */
 	private static final int PADDING = 10;
 
-	/** Ä¬ÈÏ¿É¼ûµÄitemÊıÄ¿ */
+	/** é»˜è®¤å¯è§çš„itemæ•°ç›® */
 	private static final int DEF_VISIABLE_ITEMS = 5;
 
-	/** ³õÊ¼»¯wheeladpater */
+	/** åˆå§‹åŒ–wheeladpater */
 	private WheelAdapter adapter = null;
 
-	/** µ±Ç°itemÎ»ÖÃ */
+	/** å½“å‰itemä½ç½® */
 	private int currentItem = 0;
 
-	/** item¿í¶È */
+	/** itemå®½åº¦ */
 	private int itemsWidth = 0;
 
-	/** ±êÇ©¿í¶È */
+	/** æ ‡ç­¾å®½åº¦ */
 	private int labelWidth = 0;
 
-	/** ¿É¼ûitemÊıÄ¿ */
+	/** å¯è§itemæ•°ç›® */
 	private int visibleItems = DEF_VISIABLE_ITEMS;
 
-	/** item¸ß¶È */
+	/** itemé«˜åº¦ */
 	private int itemHeight = 0;
 
-	/** itemµÄ×Ö·û´®ÊôĞÔ¶ÔÏó */
+	/** itemçš„å­—ç¬¦ä¸²å±æ€§å¯¹è±¡ */
 	private TextPaint itemsPaint;
 
-	/** valueµÄ×Ö·û´®ÊôĞÔ¶ÔÏó */
+	/** valueçš„å­—ç¬¦ä¸²å±æ€§å¯¹è±¡ */
 	private TextPaint valuePaint;
 
 	// Layouts
@@ -93,35 +93,35 @@ class WheelView extends View {
 	private String label;
 	private Drawable centerDrawable;
 
-	/** ¶¥²¿½¥±ädrawable¶ÔÏó */
+	/** é¡¶éƒ¨æ¸å˜drawableå¯¹è±¡ */
 	private GradientDrawable topShadow;
 
-	/** ¶¥²¿½¥±ädrawable¶ÔÏó */
+	/** é¡¶éƒ¨æ¸å˜drawableå¯¹è±¡ */
 	private GradientDrawable bottomShadow;
 
-	/** ¹ö¶¯¶¯×÷ÊÇ·ñÖ´ĞĞ */
+	/** æ»šåŠ¨åŠ¨ä½œæ˜¯å¦æ‰§è¡Œ */
 	private boolean isScrollingPerformed;
 
-	/** ¹ö¶¯Æ«ÒÆÁ¿ */
+	/** æ»šåŠ¨åç§»é‡ */
 	private int scrollingOffset;
 
-	/** ÊÖÊÆÕì²â¶ÔÏó */
+	/** æ‰‹åŠ¿ä¾¦æµ‹å¯¹è±¡ */
 	private GestureDetector gestureDetector;
 
 	private Scroller scroller;
 	private int lastScrollY;
 
-	/** ÊÇ·ñ¿ÉÑ­»· */
+	/** æ˜¯å¦å¯å¾ªç¯ */
 	private boolean isCyclic = false;
 
-	/** ÊµÀı»¯OnWheelChangedListener */
+	/** å®ä¾‹åŒ–OnWheelChangedListener */
 	private List<OnWheelChangedListener> changingListeners = new LinkedList<OnWheelChangedListener>();
 
-	/** ÊµÀı»¯OnWheelScrollListener */
+	/** å®ä¾‹åŒ–OnWheelScrollListener */
 	private List<OnWheelScrollListener> scrollingListeners = new LinkedList<OnWheelScrollListener>();
 
 	/**
-	 * 3¸ö²ÎÊı¹¹Ôìº¯Êı
+	 * 3ä¸ªå‚æ•°æ„é€ å‡½æ•°
 	 */
 	public WheelView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -129,7 +129,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * 2¸ö²ÎÊı¹¹Ôìº¯Êı
+	 * 2ä¸ªå‚æ•°æ„é€ å‡½æ•°
 	 */
 	public WheelView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -137,7 +137,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * 1¸ö²ÎÊı¹¹Ôìº¯Êı
+	 * 1ä¸ªå‚æ•°æ„é€ å‡½æ•°
 	 */
 	public WheelView(Context context) {
 		super(context);
@@ -146,13 +146,13 @@ class WheelView extends View {
 
 	private void initData(Context context) {
 		gestureDetector = new GestureDetector(context, gestureListener);
-		gestureDetector.setIsLongpressEnabled(false);// ÉèÖÃÊÖÊÆ³¤°´²»Æğ×÷ÓÃ
+		gestureDetector.setIsLongpressEnabled(false);// è®¾ç½®æ‰‹åŠ¿é•¿æŒ‰ä¸èµ·ä½œç”¨
 
 		scroller = new Scroller(context);
 	}
 
 	/**
-	 * »ñÈ¡¹öÂÖÊÊÅäÆ÷
+	 * è·å–æ»šè½®é€‚é…å™¨
 	 * 
 	 * @return
 	 */
@@ -161,19 +161,19 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ÉèÖÃ¹öÂÖÊÊÅäÆ÷
+	 * è®¾ç½®æ»šè½®é€‚é…å™¨
 	 * 
 	 * @param adapter
 	 */
 	public void setAdapter(WheelAdapter adapter) {
 		this.adapter = adapter;
 		invalidateLayouts();
-		invalidate();// ÊÇÊÓÍ¼ÎŞĞ§
+		invalidate();// æ˜¯è§†å›¾æ— æ•ˆ
 
 	}
 
 	/**
-	 * ÉèÖÃÖ¸¶¨µÄ¹öÂÖ¶¯»­±ä»¯ÂÊ
+	 * è®¾ç½®æŒ‡å®šçš„æ»šè½®åŠ¨ç”»å˜åŒ–ç‡
 	 * 
 	 * @param interpolator
 	 */
@@ -183,7 +183,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * µÃµ½¿É¼ûitemµÄÊıÄ¿
+	 * å¾—åˆ°å¯è§itemçš„æ•°ç›®
 	 * 
 	 * @return the count of visible items
 	 */
@@ -192,7 +192,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ÉèÖÃ¿É¼ûitemµÄÊıÄ¿
+	 * è®¾ç½®å¯è§itemçš„æ•°ç›®
 	 * 
 	 * @param count
 	 *                the new count
@@ -203,7 +203,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * µÃµ½±êÇ©
+	 * å¾—åˆ°æ ‡ç­¾
 	 * 
 	 * @return
 	 */
@@ -212,7 +212,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ÉèÖÃ±êÇ©
+	 * è®¾ç½®æ ‡ç­¾
 	 * 
 	 * @param newLabel
 	 */
@@ -225,7 +225,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * Ôö¼Ó¹öÂÖ±ä»¯¼àÌıÆ÷
+	 * å¢åŠ æ»šè½®å˜åŒ–ç›‘å¬å™¨
 	 * 
 	 * @param listener
 	 */
@@ -234,7 +234,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ÒÆ³ı¹öÂÖ±ä»¯¼àÌıÆ÷
+	 * ç§»é™¤æ»šè½®å˜åŒ–ç›‘å¬å™¨
 	 * 
 	 * @param listener
 	 */
@@ -243,7 +243,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * Í¨Öª¸Ä±äµÄ¼àÌıÆ÷
+	 * é€šçŸ¥æ”¹å˜çš„ç›‘å¬å™¨
 	 * 
 	 * @param oldValue
 	 * @param newValue
@@ -255,7 +255,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * Ôö¼Ó¹öÂÖ¼àÌıÆ÷
+	 * å¢åŠ æ»šè½®ç›‘å¬å™¨
 	 * 
 	 * @param listener
 	 *                the listener
@@ -265,7 +265,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ÒÆ³ı¹öÂÖ¼àÌıÆ÷
+	 * ç§»é™¤æ»šè½®ç›‘å¬å™¨
 	 * 
 	 * @param listener
 	 *                the listener
@@ -275,7 +275,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * Í¨Öª¼àÌıÆ÷¿ªÊ¼¹ö¶¯
+	 * é€šçŸ¥ç›‘å¬å™¨å¼€å§‹æ»šåŠ¨
 	 */
 	protected void notifyScrollingListenersAboutStart() {
 		for (OnWheelScrollListener listener : scrollingListeners) {
@@ -284,7 +284,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * Í¨Öª¼àÌıÆ÷½áÊø¹ö¶¯
+	 * é€šçŸ¥ç›‘å¬å™¨ç»“æŸæ»šåŠ¨
 	 */
 	protected void notifyScrollingListenersAboutEnd() {
 		for (OnWheelScrollListener listener : scrollingListeners) {
@@ -293,7 +293,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * È¡µÃµ±Ç°item
+	 * å–å¾—å½“å‰item
 	 * 
 	 * @return
 	 */
@@ -302,7 +302,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ÉèÖÃµ±Ç°item
+	 * è®¾ç½®å½“å‰item
 	 * 
 	 * @param index
 	 * @param animated
@@ -339,7 +339,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ÉèÖÃµ±Ç°item w/o ¶¯»­. µ±indexÓĞÎóÊÇ²»×öÈÎºÎÏìÓ¦.
+	 * è®¾ç½®å½“å‰item w/o åŠ¨ç”». å½“indexæœ‰è¯¯æ˜¯ä¸åšä»»ä½•å“åº”.
 	 * 
 	 * @param index
 	 *                the item index
@@ -349,7 +349,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ²âÊÔ¹öÂÖÊÇ·ñ¿ÉÑ­»·.
+	 * æµ‹è¯•æ»šè½®æ˜¯å¦å¯å¾ªç¯.
 	 * 
 	 * @return true if wheel is cyclic
 	 */
@@ -358,7 +358,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ÉèÖÃ¹öÂÖÑ­»·±êÖ¾
+	 * è®¾ç½®æ»šè½®å¾ªç¯æ ‡å¿—
 	 * 
 	 * @param isCyclic
 	 *                the flag to set
@@ -371,7 +371,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * Ê¹²¼¾ÖÎŞĞ§
+	 * ä½¿å¸ƒå±€æ— æ•ˆ
 	 */
 	private void invalidateLayouts() {
 		itemsLayout = null;
@@ -380,7 +380,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ³õÊ¼»¯×ÊÔ´ĞÅÏ¢
+	 * åˆå§‹åŒ–èµ„æºä¿¡æ¯
 	 */
 	private void initResourceIfNecessary() {
 		if (itemsPaint == null) {
@@ -410,7 +410,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ¼ÆËãlayoutËùĞèµÄ¸ß¶È
+	 * è®¡ç®—layoutæ‰€éœ€çš„é«˜åº¦
 	 * 
 	 * @param layout
 	 * @return
@@ -427,7 +427,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * Í¨¹ıindexµÃµ½text
+	 * é€šè¿‡indexå¾—åˆ°text
 	 * 
 	 * @param index
 	 * @return
@@ -450,7 +450,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ¸ù¾İµ±Ç°Öµ¹¹½¨text
+	 * æ ¹æ®å½“å‰å€¼æ„å»ºtext
 	 * 
 	 * @param useCurrentValue
 	 * @return the text
@@ -475,7 +475,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ·µ»Ø¿ÉÒÔ±íÊ¾µÄitemµÄ×î´ó³¤¶È
+	 * è¿”å›å¯ä»¥è¡¨ç¤ºçš„itemçš„æœ€å¤§é•¿åº¦
 	 * 
 	 * @return the max length
 	 */
@@ -503,7 +503,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ·µ»Ø¹öÂÖitemµÄ¸ß¶È
+	 * è¿”å›æ»šè½®itemçš„é«˜åº¦
 	 * 
 	 * @return the item height
 	 */
@@ -520,7 +520,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ¼ÆËã¿ØÖÆ¿í¶ÈºÍ´´½¨text²¼¾Ö
+	 * è®¡ç®—æ§åˆ¶å®½åº¦å’Œåˆ›å»ºtextå¸ƒå±€
 	 * 
 	 * @param widthSize
 	 *                the input layout width
@@ -593,7 +593,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ´´½¨²¼¾Ö
+	 * åˆ›å»ºå¸ƒå±€
 	 * 
 	 * @param widthItems
 	 *                width of items layout
@@ -686,7 +686,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ÔÚ¶¥²¿ºÍµ×²¿»­ÒõÓ°µÄ¿ØÖÆ
+	 * åœ¨é¡¶éƒ¨å’Œåº•éƒ¨ç”»é˜´å½±çš„æ§åˆ¶
 	 * 
 	 * @param canvas
 	 *                the canvas for drawing
@@ -700,7 +700,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * »­valueºÍ±êÇ©µÄ²¼¾Ö
+	 * ç”»valueå’Œæ ‡ç­¾çš„å¸ƒå±€
 	 * 
 	 * @param canvas
 	 *                the canvas for drawing
@@ -730,7 +730,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * »­items
+	 * ç”»items
 	 * 
 	 * @param canvas
 	 *                the canvas for drawing
@@ -749,7 +749,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * »­µ±Ç°ÖµµÄ¾ØĞÎ
+	 * ç”»å½“å‰å€¼çš„çŸ©å½¢
 	 * 
 	 * @param canvas
 	 *                the canvas for drawing
@@ -775,7 +775,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ¹ö¶¯¹öÂÖ
+	 * æ»šåŠ¨æ»šè½®
 	 * 
 	 * @param delta
 	 *                the scrolling value
@@ -931,7 +931,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * ¿ªÊ¼¹ö¶¯
+	 * å¼€å§‹æ»šåŠ¨
 	 */
 	private void startScrolling() {
 		if (!isScrollingPerformed) {
@@ -941,7 +941,7 @@ class WheelView extends View {
 	}
 
 	/**
-	 * Í£Ö¹¹ö¶¯
+	 * åœæ­¢æ»šåŠ¨
 	 */
 	void finishScrolling() {
 		if (isScrollingPerformed) {

@@ -1,0 +1,14 @@
+build/
+gen/
+bin/
+.gradle/
+*.iml
+.idea/
+*.gradle
+*.properties
+*.bak
+captures/
+ToonDaoGenerator/
+Toon/SystoonCore/obj/
+Toon/Toon.iml
+AndroidManifest.xml

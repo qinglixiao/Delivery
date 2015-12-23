@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreeNode {
-	public String id;// ½Úµãid
-	public String value;// ½ÚµãÏÔÊ¾µÄÎÄ×Ö
-	public TreeNode parent;// ¸¸½Úµã
-	public List<TreeNode> children = new ArrayList<TreeNode>();// ×Ó½Úµã
-	public boolean isExpanded = true;// ÊÇ·ñ´¦ÓÚÕ¹¿ª×´Ì¬
+	public String id;// èŠ‚ç‚¹id
+	public String value;// èŠ‚ç‚¹æ˜¾ç¤ºçš„æ–‡å­—
+	public TreeNode parent;// çˆ¶èŠ‚ç‚¹
+	public List<TreeNode> children = new ArrayList<TreeNode>();// å­èŠ‚ç‚¹
+	public boolean isExpanded = true;// æ˜¯å¦å¤„äºå±•å¼€çŠ¶æ€
 	public boolean isSelected = false;
 	public boolean isShowCheckBox = false;
-	public int ico = -1;// Í¼±ê
+	public int ico = -1;// å›¾æ ‡
 	public int stateImg = -1;
 
 	public TreeNode(String id, String value) {
@@ -20,7 +20,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * »ñµÃ¸¸½Úµã
+	 * è·å¾—çˆ¶èŠ‚ç‚¹
 	 * 
 	 * @return
 	 */
@@ -29,7 +29,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * ÉèÖÃ½ÚµãÖµ
+	 * è®¾ç½®èŠ‚ç‚¹å€¼
 	 * 
 	 * @param value
 	 */
@@ -38,7 +38,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * »ñµÃ½ÚµãÖµ
+	 * è·å¾—èŠ‚ç‚¹å€¼
 	 * 
 	 * @return
 	 */
@@ -79,7 +79,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * ÊÇ·ñ¸ù½Úµã
+	 * æ˜¯å¦æ ¹èŠ‚ç‚¹
 	 * 
 	 * @return
 	 */
@@ -88,7 +88,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * »ñµÃ×Ó½Úµã
+	 * è·å¾—å­èŠ‚ç‚¹
 	 * 
 	 * @return
 	 */
@@ -97,7 +97,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * Ìí¼Ó×Ó½Úµã
+	 * æ·»åŠ å­èŠ‚ç‚¹
 	 * 
 	 * @param node
 	 */
@@ -109,14 +109,14 @@ public class TreeNode {
 	}
 
 	/**
-	 * Çå³ıËùÓĞ×Ó½Úµã
+	 * æ¸…é™¤æ‰€æœ‰å­èŠ‚ç‚¹
 	 */
 	public void clear() {
 		children.clear();
 	}
 
 	/**
-	 * É¾³ıÒ»¸ö×Ó½Úµã
+	 * åˆ é™¤ä¸€ä¸ªå­èŠ‚ç‚¹
 	 * 
 	 * @param node
 	 */
@@ -127,7 +127,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * É¾³ıÖ¸¶¨Î»ÖÃµÄ×Ó½Úµã
+	 * åˆ é™¤æŒ‡å®šä½ç½®çš„å­èŠ‚ç‚¹
 	 * 
 	 * @param location
 	 */
@@ -136,7 +136,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * »ñµÃ½ÚµãµÄ¼¶Êı,¸ù½ÚµãÎª0
+	 * è·å¾—èŠ‚ç‚¹çš„çº§æ•°,æ ¹èŠ‚ç‚¹ä¸º0
 	 * 
 	 * @return
 	 */
@@ -145,7 +145,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * ÊÇ·ñÒ¶½Úµã,¼´Ã»ÓĞ×Ó½ÚµãµÄ½Úµã
+	 * æ˜¯å¦å¶èŠ‚ç‚¹,å³æ²¡æœ‰å­èŠ‚ç‚¹çš„èŠ‚ç‚¹
 	 * 
 	 * @return
 	 */
@@ -154,7 +154,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * µ±Ç°½ÚµãÊÇ·ñ´¦ÓÚÕ¹¿ª×´Ì¬
+	 * å½“å‰èŠ‚ç‚¹æ˜¯å¦å¤„äºå±•å¼€çŠ¶æ€
 	 * 
 	 * @return
 	 */
@@ -163,7 +163,7 @@ public class TreeNode {
 	}
 
 	/**
-	 * ÉèÖÃ½ÚµãÕ¹¿ª×´Ì¬
+	 * è®¾ç½®èŠ‚ç‚¹å±•å¼€çŠ¶æ€
 	 * 
 	 * @return
 	 */

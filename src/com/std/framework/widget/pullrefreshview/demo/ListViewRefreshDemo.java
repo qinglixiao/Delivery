@@ -9,9 +9,9 @@ import android.os.Bundle;
 import android.text.format.Time;
 import android.widget.ListView;
 
-/**LRefreshViewÉÏÀ­£¬ÏÂÀ­Ë¢ĞÂ¿Ø¼ş¹¦ÄÜÑİÊ¾
+/**LRefreshViewä¸Šæ‹‰ï¼Œä¸‹æ‹‰åˆ·æ–°æ§ä»¶åŠŸèƒ½æ¼”ç¤º
  * 
- * gridView,ScrollView Ê¹ÓÃ·½·¨ÀàËÆ
+ * gridView,ScrollView ä½¿ç”¨æ–¹æ³•ç±»ä¼¼
  * @author Administrator
  *
  */
@@ -33,36 +33,36 @@ class ListViewRefreshDemo extends Activity implements OnHeaderRefreshListener,On
 	}
 
 	/**
-	 * ÉÏÀ­Ë¢ĞÂ
+	 * ä¸Šæ‹‰åˆ·æ–°
 	 */
 	@Override
 	public void onFooterRefresh(PullRefreshView view) {
 		/**
-		 *  ´Ë´¦Ö´ĞĞÉÏÀ­Ë¢ĞÂÓÃ»§´¦ÀíÈÎÎñ
+		 *  æ­¤å¤„æ‰§è¡Œä¸Šæ‹‰åˆ·æ–°ç”¨æˆ·å¤„ç†ä»»åŠ¡
 		 *  1.
 		 *  2.
-		 *  ¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£
+		 *  ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚
 		 */
 		refreshView.postDelayed(new Runnable() {
 			
 			@Override
 			public void run() {
-				//ÈÎÎñÍê³É½áÊøË¢ĞÂ
+				//ä»»åŠ¡å®Œæˆç»“æŸåˆ·æ–°
 				refreshView.finishFooterRefresh();
 			}
 		}, 500);
 	}
 
 	/**
-	 * ÏÂÀ­Ë¢ĞÂ
+	 * ä¸‹æ‹‰åˆ·æ–°
 	 */
 	@Override
 	public void onHeaderRefresh(PullRefreshView view) {
 		/**
-		 *  ´Ë´¦Ö´ĞĞÏÂÀ­Ë¢ĞÂÓÃ»§´¦ÀíÈÎÎñ
+		 *  æ­¤å¤„æ‰§è¡Œä¸‹æ‹‰åˆ·æ–°ç”¨æˆ·å¤„ç†ä»»åŠ¡
 		 *  1.
 		 *  2.
-		 *  ¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£
+		 *  ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚
 		 */
 		refreshView.postDelayed(new Runnable() {
 			
@@ -71,8 +71,8 @@ class ListViewRefreshDemo extends Activity implements OnHeaderRefreshListener,On
 				// TODO Auto-generated method stub
 				Time time = new Time();
 				time.setToNow();
-				//ÈÎÎñÍê³É½áÊøË¢ĞÂ
-				refreshView.finishHeaderRefresh("×îºó¸üĞÂÓÚ" + time.hour +":" + time.minute);
+				//ä»»åŠ¡å®Œæˆç»“æŸåˆ·æ–°
+				refreshView.finishHeaderRefresh("æœ€åæ›´æ–°äº" + time.hour +":" + time.minute);
 			}
 		}, 500);
 	}

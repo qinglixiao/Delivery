@@ -48,11 +48,11 @@ class SlideExpandableListView extends ListView {
 	
 	/**
 	 * 
-	 * Ãè          Êö £ºÉèÖÃÁÐ±íÕ¹¿ªÊÂ¼þ£¬´Ë·½·¨ÐëÔÚÉèÖÃÊÊÅäÆ÷Ö®ºóµ÷ÓÃ
-	 * ´´½¨ÈÕÆÚ  : 2013-7-9
-	 * ×÷           Õß £º lx
-	 * ÐÞ¸ÄÈÕÆÚ  : 
-	 * ÐÞ   ¸Ä   Õß £º
+	 * æ          è¿° ï¼šè®¾ç½®åˆ—è¡¨å±•å¼€äº‹ä»¶ï¼Œæ­¤æ–¹æ³•é¡»åœ¨è®¾ç½®é€‚é…å™¨ä¹‹åŽè°ƒç”¨
+	 * åˆ›å»ºæ—¥æœŸ  : 2013-7-9
+	 * ä½œ           è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ  : 
+	 * ä¿®   æ”¹   è€… ï¼š
 	 * @version   : 1.0
 	 * @param onExPandListener
 	 *

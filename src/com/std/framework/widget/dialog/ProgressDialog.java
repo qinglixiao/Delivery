@@ -347,14 +347,14 @@ public class ProgressDialog extends AlertDialog {
 	}
 
 	/**
-	 * Ãè          Êö £ºµ¯³öĞı×ªµÈ´ıÌáÊ¾¿ò
-	 * ´´½¨ÈÕÆÚ  : 2013-6-13
-	 * ×÷           Õß £º 
-	 * ĞŞ¸ÄÈÕÆÚ  : 
-	 * ĞŞ   ¸Ä   Õß £º
+	 * æ          è¿° ï¼šå¼¹å‡ºæ—‹è½¬ç­‰å¾…æç¤ºæ¡†
+	 * åˆ›å»ºæ—¥æœŸ  : 2013-6-13
+	 * ä½œ           è€… ï¼š 
+	 * ä¿®æ”¹æ—¥æœŸ  : 
+	 * ä¿®   æ”¹   è€… ï¼š
 	 * @version   : 1.0
-	 * @param context ÉÏÏÂÎÄ
-	 * @return ÌáÊ¾¿òÊµÀı
+	 * @param context ä¸Šä¸‹æ–‡
+	 * @return æç¤ºæ¡†å®ä¾‹
 	 *
 	 */
 	public static ProgressDialog show(Context context) {
@@ -363,15 +363,15 @@ public class ProgressDialog extends AlertDialog {
 
 	/**
 	 * 
-	 * Ãè          Êö £ºµ¯³öĞı×ªµÈ´ıÌáÊ¾¿ò
-	 * ´´½¨ÈÕÆÚ  : 2013-6-13
-	 * ×÷           Õß £ºlx 
-	 * ĞŞ¸ÄÈÕÆÚ  : 
-	 * ĞŞ   ¸Ä   Õß £º
+	 * æ          è¿° ï¼šå¼¹å‡ºæ—‹è½¬ç­‰å¾…æç¤ºæ¡†
+	 * åˆ›å»ºæ—¥æœŸ  : 2013-6-13
+	 * ä½œ           è€… ï¼šlx 
+	 * ä¿®æ”¹æ—¥æœŸ  : 
+	 * ä¿®   æ”¹   è€… ï¼š
 	 * @version   : 1.0
-	 * @param context ÉÏÏÂÎÄ
-	 * @param message ÌáÊ¾ĞÅÏ¢
-	 * @return ÌáÊ¾¿òÊµÀı
+	 * @param context ä¸Šä¸‹æ–‡
+	 * @param message æç¤ºä¿¡æ¯
+	 * @return æç¤ºæ¡†å®ä¾‹
 	 *
 	 */
 	public static ProgressDialog show(Context context, CharSequence message) {
@@ -380,16 +380,16 @@ public class ProgressDialog extends AlertDialog {
 
 	/**
 	 * 
-	 * Ãè          Êö £ºµ¯³öĞı×ªµÈ´ıÌáÊ¾¿ò
-	 * ´´½¨ÈÕÆÚ  : 2013-6-13
-	 * ×÷           Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ  : 
-	 * ĞŞ   ¸Ä   Õß £º
+	 * æ          è¿° ï¼šå¼¹å‡ºæ—‹è½¬ç­‰å¾…æç¤ºæ¡†
+	 * åˆ›å»ºæ—¥æœŸ  : 2013-6-13
+	 * ä½œ           è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ  : 
+	 * ä¿®   æ”¹   è€… ï¼š
 	 * @version   : 1.0
-	 * @param context ÉÏÏÂÎÄ
-	 * @param message ÌáÊ¾ĞÅÏ¢
-	 * @param title ±êÌâ
-	 * @return ÌáÊ¾¿òÊµÀı
+	 * @param context ä¸Šä¸‹æ–‡
+	 * @param message æç¤ºä¿¡æ¯
+	 * @param title æ ‡é¢˜
+	 * @return æç¤ºæ¡†å®ä¾‹
 	 *
 	 */
 	public static ProgressDialog show(Context context, CharSequence message, CharSequence title) {
@@ -398,17 +398,17 @@ public class ProgressDialog extends AlertDialog {
 
 	/**
 	 * 
-	 * Ãè          Êö £ºµ¯³öĞı×ªµÈ´ıÌáÊ¾¿ò
-	 * ´´½¨ÈÕÆÚ  : 2013-6-13
-	 * ×÷           Õß £º lx
-	 * ĞŞ¸ÄÈÕÆÚ  : 
-	 * ĞŞ   ¸Ä   Õß £º
+	 * æ          è¿° ï¼šå¼¹å‡ºæ—‹è½¬ç­‰å¾…æç¤ºæ¡†
+	 * åˆ›å»ºæ—¥æœŸ  : 2013-6-13
+	 * ä½œ           è€… ï¼š lx
+	 * ä¿®æ”¹æ—¥æœŸ  : 
+	 * ä¿®   æ”¹   è€… ï¼š
 	 * @version   : 1.0
-	 * @param context ÉÏÏÂÎÄ
-	 * @param message ÌáÊ¾ĞÅÏ¢
-	 * @param title ±êÌâ
-	 * @param cancelListener ÌáÊ¾¿òÈ¡Ïû»Øµ÷½Ó¿Ú
-	 * @return ÌáÊ¾¿òÊµÀı
+	 * @param context ä¸Šä¸‹æ–‡
+	 * @param message æç¤ºä¿¡æ¯
+	 * @param title æ ‡é¢˜
+	 * @param cancelListener æç¤ºæ¡†å–æ¶ˆå›è°ƒæ¥å£
+	 * @return æç¤ºæ¡†å®ä¾‹
 	 *
 	 */
 	public static ProgressDialog show(Context context, CharSequence message, CharSequence title, OnCancelListener cancelListener) {
@@ -423,11 +423,11 @@ public class ProgressDialog extends AlertDialog {
 	}
 	
 	/**
-	 * Ãè Êö £º ÉèÖÃ¶Ô»°¿ò³ß´ç 
-	 * ´´½¨ÈÕÆÚ : 2013-5-30
-	 *  ×÷ Õß £ºlx 
-	 *  ĞŞ¸ÄÈÕÆÚ : 
-	 *  ĞŞ ¸Ä Õß £º
+	 * æ è¿° ï¼š è®¾ç½®å¯¹è¯æ¡†å°ºå¯¸ 
+	 * åˆ›å»ºæ—¥æœŸ : 2013-5-30
+	 *  ä½œ è€… ï¼šlx 
+	 *  ä¿®æ”¹æ—¥æœŸ : 
+	 *  ä¿® æ”¹ è€… ï¼š
 	 * @version : 1.0
 	 * @param width
 	 * @param height

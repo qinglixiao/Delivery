@@ -13,13 +13,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 public class TimePicker extends LinearLayout {
-	private WheelView mHourWheel;//Ğ¡Ê±¹öÂÖ
-	private WheelView mMinuteWheel;//·ÖÖÓ¹öÂÖ
-	private WheelView mFormatWheel;//Ê±¼ä¸ñÊ½¹öÂÖ(µ±²ÉÓÃ12Ğ¡Ê±ÖÆÊ±³öÏÖ)
+	private WheelView mHourWheel;//å°æ—¶æ»šè½®
+	private WheelView mMinuteWheel;//åˆ†é’Ÿæ»šè½®
+	private WheelView mFormatWheel;//æ—¶é—´æ ¼å¼æ»šè½®(å½“é‡‡ç”¨12å°æ—¶åˆ¶æ—¶å‡ºç°)
 	private NumericWheelAdapter mHourAdapter;
 	private NumericWheelAdapter mMinuteAdapter;
 	private ArrayWheelAdapter<String> mFormatAdapter;
-	private String[] hour12format = { "ÉÏÎç", "ÏÂÎç" };
+	private String[] hour12format = { "ä¸Šåˆ", "ä¸‹åˆ" };
 
 	private Context mContext;
 	private int mFormat = 0;
@@ -47,8 +47,8 @@ public class TimePicker extends LinearLayout {
 		mHourWheel = new WheelView(context, attrs);
 		mMinuteWheel = new WheelView(context, attrs);
 		mFormatWheel = new WheelView(context, attrs);
-		mHourWheel.setLabel("Ê±");
-		mMinuteWheel.setLabel("·Ö");
+		mHourWheel.setLabel("æ—¶");
+		mMinuteWheel.setLabel("åˆ†");
 		mFormatWheel.setCyclic(false);
 		mFormatWheel.setCurrentItem(0);
 		addView(mHourWheel, params);
@@ -92,7 +92,7 @@ public class TimePicker extends LinearLayout {
 
 	private void adapterScreen() {
 		// TODO Auto-generated method stub
-		// ¸ù¾İÆÁÄ»ÃÜ¶ÈÀ´Ö¸¶¨Ñ¡ÔñÆ÷×ÖÌåµÄ´óĞ¡
+		// æ ¹æ®å±å¹•å¯†åº¦æ¥æŒ‡å®šé€‰æ‹©å™¨å­—ä½“çš„å¤§å°
 		int textSize = pixelsToDip(mContext.getResources(), 13);
 		 mHourWheel.TEXT_SIZE = textSize;
 		 mMinuteWheel.TEXT_SIZE = textSize;

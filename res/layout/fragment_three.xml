@@ -3,17 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="false"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="false"
-        android:layout_marginRight="88dp"
-        android:text="Three Page"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <EditText
         android:id="@+id/frag3_edt"
         android:layout_width="wrap_content"
@@ -33,5 +22,14 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="Button" />
+
+    <com.std.framework.view.ShapeView
+        android:id="@+id/shapeView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/frag3_btn"
+        android:layout_marginTop="40dp" 
+        />
 
 </RelativeLayout>

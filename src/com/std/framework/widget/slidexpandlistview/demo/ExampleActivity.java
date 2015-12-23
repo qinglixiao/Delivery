@@ -10,8 +10,8 @@ import com.std.framework.widget.slidexpandlistview.demo.ModuleManager.Module;
 import com.std.framework.widget.slidexpandlistview.demo.ModuleManager.OnModuleListener;
 
  class ExampleActivity extends Activity {
-	private final String[] data = { "Æ«Æ«Ï²»¶Äã", "ÎŞ¿É±ÜÃâ", "ÖÜÄ©»­±¨", "ºÃ½áËû", "ÁíÑÛÏà¿´", "»î×Å", "Âé²»Ë¦", "Ö÷ĞıÂÉ" };
-	private final String[][] modules = { { "Ìí¼Ó", "±à¼­" }, { "Ìí¼Ó" }, { "Ìí¼Ó", "±à¼­", "É¾³ı" }, { "±à¼­" }, { "É¾³ı" }, { "Ìí¼Ó" }, { "Ìí¼Ó", "±à¼­" }, { "±à¼­" } };
+	private final String[] data = { "ååå–œæ¬¢ä½ ", "æ— å¯é¿å…", "å‘¨æœ«ç”»æŠ¥", "å¥½ç»“ä»–", "å¦çœ¼ç›¸çœ‹", "æ´»ç€", "éº»ä¸ç”©", "ä¸»æ—‹å¾‹" };
+	private final String[][] modules = { { "æ·»åŠ ", "ç¼–è¾‘" }, { "æ·»åŠ " }, { "æ·»åŠ ", "ç¼–è¾‘", "åˆ é™¤" }, { "ç¼–è¾‘" }, { "åˆ é™¤" }, { "æ·»åŠ " }, { "æ·»åŠ ", "ç¼–è¾‘" }, { "ç¼–è¾‘" } };
 	private ModuleManager manager;
 
 	@Override

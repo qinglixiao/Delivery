@@ -13,17 +13,17 @@ import android.widget.TextView;
 import com.std.framework.R;
 
 public class DateTimeDialog extends AlertDialog {
-	private static final int S_DATEDIALOG = 0;// ÈÕÆÚ¿ò
-	private static final int S_TIMEDIALOG = 1;// Ê±¼ä¿ò
-	private static final int S_DATETIMEDIALOG = 2;// ×éºÏ¿ò
+	private static final int S_DATEDIALOG = 0;// æ—¥æœŸæ¡†
+	private static final int S_TIMEDIALOG = 1;// æ—¶é—´æ¡†
+	private static final int S_DATETIMEDIALOG = 2;// ç»„åˆæ¡†
 
 	private DatePicker mDatePicker;
 	private TimePicker mTimePicker;
 	private String mTitleTxt;
 	private TextView mTitleView;
 	private int dialog = S_DATEDIALOG;
-	private Calendar assigDate; // Ô¤ÉèÊ±¼ä
-	private onCallBackListener onCallBackListener; // ÈÕÆÚÑ¡Ôñ»Øµ÷½Ó¿Ú
+	private Calendar assigDate; // é¢„è®¾æ—¶é—´
+	private onCallBackListener onCallBackListener; // æ—¥æœŸé€‰æ‹©å›è°ƒæ¥å£
 
 	public DateTimeDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
 		super(context, cancelable, cancelListener);
@@ -96,7 +96,7 @@ public class DateTimeDialog extends AlertDialog {
 	public static DateTimeDialog showDateDialog(Context context, onCallBackListener onCallBackListener) {
 		DateTimeDialog dateDialog = new DateTimeDialog(context);
 		dateDialog.dialog = S_DATEDIALOG;
-		dateDialog.mTitleTxt = "Ñ¡ÔñÈÕÆÚ";
+		dateDialog.mTitleTxt = "é€‰æ‹©æ—¥æœŸ";
 		dateDialog.onCallBackListener = onCallBackListener;
 		dateDialog.show();
 		dateDialog.ajustScreen();
@@ -107,7 +107,7 @@ public class DateTimeDialog extends AlertDialog {
 		DateTimeDialog dateDialog = new DateTimeDialog(context);
 		dateDialog.dialog = S_DATEDIALOG;
 		dateDialog.assigDate = date;
-		dateDialog.mTitleTxt = "Ñ¡ÔñÈÕÆÚ";
+		dateDialog.mTitleTxt = "é€‰æ‹©æ—¥æœŸ";
 		dateDialog.onCallBackListener = onCallBackListener;
 		dateDialog.show();
 		dateDialog.ajustScreen();
@@ -117,7 +117,7 @@ public class DateTimeDialog extends AlertDialog {
 	public static DateTimeDialog showTimeDialog(Context context, onCallBackListener onCallBackListener) {
 		DateTimeDialog dateDialog = new DateTimeDialog(context);
 		dateDialog.dialog = S_TIMEDIALOG;
-		dateDialog.mTitleTxt = "Ñ¡ÔñÊ±¼ä";
+		dateDialog.mTitleTxt = "é€‰æ‹©æ—¶é—´";
 		dateDialog.onCallBackListener = onCallBackListener;
 		dateDialog.show();
 		dateDialog.ajustScreen();
@@ -127,7 +127,7 @@ public class DateTimeDialog extends AlertDialog {
 	public static DateTimeDialog showTimeDialog(Context context, Calendar date, onCallBackListener onCallBackListener) {
 		DateTimeDialog dateDialog = new DateTimeDialog(context);
 		dateDialog.dialog = S_TIMEDIALOG;
-		dateDialog.mTitleTxt = "Ñ¡ÔñÊ±¼ä";
+		dateDialog.mTitleTxt = "é€‰æ‹©æ—¶é—´";
 		dateDialog.assigDate = date;
 		dateDialog.onCallBackListener = onCallBackListener;
 		dateDialog.show();
@@ -138,7 +138,7 @@ public class DateTimeDialog extends AlertDialog {
 	public static DateTimeDialog showDateTimeDialog(Context context, onCallBackListener onCallBackListener) {
 		DateTimeDialog dialog = new DateTimeDialog(context);
 		dialog.dialog = S_DATETIMEDIALOG;
-		dialog.mTitleTxt = "ÇëÑ¡Ôñ";
+		dialog.mTitleTxt = "è¯·é€‰æ‹©";
 		dialog.onCallBackListener = onCallBackListener;
 		dialog.show();
 		dialog.ajustScreen();
@@ -148,7 +148,7 @@ public class DateTimeDialog extends AlertDialog {
 	public static DateTimeDialog showDateTimeDialog(Context context, Calendar date, onCallBackListener onCallBackListener) {
 		DateTimeDialog dateDialog = new DateTimeDialog(context);
 		dateDialog.dialog = S_DATETIMEDIALOG;
-		dateDialog.mTitleTxt = "Ñ¡ÔñÊ±¼ä";
+		dateDialog.mTitleTxt = "é€‰æ‹©æ—¶é—´";
 		dateDialog.assigDate = date;
 		dateDialog.onCallBackListener = onCallBackListener;
 		dateDialog.show();
@@ -159,11 +159,11 @@ public class DateTimeDialog extends AlertDialog {
 	
 	/**
 	 * 
-	 * Ãè          Êö £ºÈÕÆÚÊ±¼äÌáÊ¾¿òÈ·ÈÏ»Øµ÷½Ó¿Ú
-	 * ´´½¨ÈÕÆÚ  : 2013-6-13
-	 * ×÷           Õß £º 
-	 * ĞŞ¸ÄÈÕÆÚ  : 
-	 * ĞŞ   ¸Ä   Õß £º
+	 * æ          è¿° ï¼šæ—¥æœŸæ—¶é—´æç¤ºæ¡†ç¡®è®¤å›è°ƒæ¥å£
+	 * åˆ›å»ºæ—¥æœŸ  : 2013-6-13
+	 * ä½œ           è€… ï¼š 
+	 * ä¿®æ”¹æ—¥æœŸ  : 
+	 * ä¿®   æ”¹   è€… ï¼š
 	 * @version   : 1.0
 	 */
 	public interface onCallBackListener {

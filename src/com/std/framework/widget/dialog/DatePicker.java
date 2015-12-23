@@ -14,8 +14,8 @@ import android.widget.LinearLayout;
 
 
 public class DatePicker extends LinearLayout {
-	private final String[] MONTHS_BIG = { "1", "3", "5", "7", "8", "10", "12" };// ´óÔÂ
-	private final String[] MONTHS_LITTLE = { "4", "6", "9", "11" };// Ğ¡ÔÂ
+	private final String[] MONTHS_BIG = { "1", "3", "5", "7", "8", "10", "12" };// å¤§æœˆ
+	private final String[] MONTHS_LITTLE = { "4", "6", "9", "11" };// å°æœˆ
 
 	private Context mContext;
 	private WheelView mYearWheel;
@@ -54,9 +54,9 @@ public class DatePicker extends LinearLayout {
 		mYearWheel.setVisibleItems(5);
 		mMonthWheel.setVisibleItems(5);
 		mDayWheel.setVisibleItems(5);
-		// mYearWheel.setLabel("Äê");
-		mMonthWheel.setLabel("ÔÂ");
-		mDayWheel.setLabel("ÈÕ");
+		// mYearWheel.setLabel("å¹´");
+		mMonthWheel.setLabel("æœˆ");
+		mDayWheel.setLabel("æ—¥");
 		addView(mYearWheel, params);
 		addView(mMonthWheel, params);
 		addView(mDayWheel, params);
@@ -91,7 +91,7 @@ public class DatePicker extends LinearLayout {
 
 	private void adapterScreen() {
 		// TODO Auto-generated method stub
-		// ¸ù¾İÆÁÄ»ÃÜ¶ÈÀ´Ö¸¶¨Ñ¡ÔñÆ÷×ÖÌåµÄ´óĞ¡
+		// æ ¹æ®å±å¹•å¯†åº¦æ¥æŒ‡å®šé€‰æ‹©å™¨å­—ä½“çš„å¤§å°
 		int textSize = pixelsToDip(mContext.getResources(), 13);
 		 mDayWheel.TEXT_SIZE = textSize;
 		 mMonthWheel.TEXT_SIZE = textSize;
@@ -103,12 +103,12 @@ public class DatePicker extends LinearLayout {
 		return (int) (pixels * scale + 0.5f);
 	}
 
-	// Ìí¼Ó"Äê"¼àÌı
+	// æ·»åŠ "å¹´"ç›‘å¬
 	private final WheelView.OnWheelChangedListener wheelListener_year = new WheelView.OnWheelChangedListener() {
 		@Override
 		public void onChanged(WheelView wheel, int oldValue, int newValue) {
 			int year_num = newValue + mYearAdapter.getMin();
-			// ÅĞ¶Ï´óĞ¡ÔÂ¼°ÊÇ·ñÈòÄê,ÓÃÀ´È·¶¨"ÈÕ"µÄÊı¾İ
+			// åˆ¤æ–­å¤§å°æœˆåŠæ˜¯å¦é—°å¹´,ç”¨æ¥ç¡®å®š"æ—¥"çš„æ•°æ®
 			if (list_big.contains(String.valueOf(mMonthWheel.getCurrentItem() + 1))) {
 				mDayAdapter = mDayWheel.new NumericWheelAdapter(1, 31);
 				mDayWheel.setAdapter(mDayAdapter);
@@ -130,12 +130,12 @@ public class DatePicker extends LinearLayout {
 		}
 	};
 
-	// Ìí¼Ó"ÔÂ"¼àÌı
+	// æ·»åŠ "æœˆ"ç›‘å¬
 	private final WheelView.OnWheelChangedListener wheelListener_month = new WheelView.OnWheelChangedListener() {
 		@Override
 		public void onChanged(WheelView wheel, int oldValue, int newValue) {
 			int month_num = newValue + 1;
-			// ÅĞ¶Ï´óĞ¡ÔÂ¼°ÊÇ·ñÈòÄê,ÓÃÀ´È·¶¨"ÈÕ"µÄÊı¾İ
+			// åˆ¤æ–­å¤§å°æœˆåŠæ˜¯å¦é—°å¹´,ç”¨æ¥ç¡®å®š"æ—¥"çš„æ•°æ®
 			if (list_big.contains(String.valueOf(month_num))) {
 				mDayAdapter = mDayWheel.new NumericWheelAdapter(1, 31);
 				mDayWheel.setAdapter(mDayAdapter);
@@ -171,13 +171,13 @@ public class DatePicker extends LinearLayout {
 			mDayWheel.setAdapter(mMonthWheel.new NumericWheelAdapter(1, 30));
 		}
 		else {
-			// ÈòÄê
+			// é—°å¹´
 			if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
 				mDayWheel.setAdapter(mMonthWheel.new NumericWheelAdapter(1, 29));
 			else
 				mDayWheel.setAdapter(mMonthWheel.new NumericWheelAdapter(1, 28));
 		}
-		mYearWheel.setCurrentItem(year - mYearAdapter.getMin());// ³õÊ¼»¯Ê±ÏÔÊ¾µÄÊı¾İ
+		mYearWheel.setCurrentItem(year - mYearAdapter.getMin());// åˆå§‹åŒ–æ—¶æ˜¾ç¤ºçš„æ•°æ®
 		mMonthWheel.setCurrentItem(month);
 		mDayWheel.setCurrentItem(day - 1);
 	}
