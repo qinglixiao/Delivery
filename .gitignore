@@ -1,10 +1,8 @@
 build/
 gen/
 bin/
-.gradle/
 *.iml
 .idea/
-*.gradle
 *.properties
 *.bak
 captures/
