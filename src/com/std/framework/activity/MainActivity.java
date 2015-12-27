@@ -57,7 +57,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 				mExitTime = System.currentTimeMillis();
 			}
 			else {
-				App.stdApp.exit();
+				App.instance.exit();
 			}
 			return false;
 		}

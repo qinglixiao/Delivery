@@ -1,9 +1,9 @@
 package test;
 
+import android.test.AndroidTestCase;
+
 import java.io.IOException;
 
-import android.test.AndroidTestCase;
-import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
 import de.greenrobot.daogenerator.Schema;
 

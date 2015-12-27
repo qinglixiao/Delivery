@@ -1,27 +1,13 @@
 package test;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import android.annotation.SuppressLint;
-import android.app.ActivityManager;
-import android.content.Intent;
-import android.database.Cursor;
-import android.support.v4.app.Fragment;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
-import com.library.file.SDCardHelper;
 import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
-import com.std.framework.db.DbHelper;
-import com.std.framework.entity.SampleTable.SampleTableColumn;
-import com.std.framework.interfaces.plugin.IStdPlugin;
 
-import dalvik.system.DexClassLoader;
+import java.io.IOException;
 
 public class TestMethod extends AndroidTestCase {
 	private static final String TAG = "LX";

@@ -5,6 +5,9 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import android.app.Activity;
 import android.content.Context;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class STDUncaughtExceptionHandler extends Exception implements UncaughtExceptionHandler {
 	private static final long serialVersionUID = -6094962699800441386L;
 
@@ -33,8 +36,8 @@ public class STDUncaughtExceptionHandler extends Exception implements UncaughtEx
 
 		Activity activity = STDActivityManager.getInstance().getCurrent();
 		String crashReport = getCrashReport(activity, ex);
-//		Logger logger = LoggerFactory.getLogger(activity.getComponentName().getShortClassName());
-//		logger.error(crashReport);
+		Logger logger = LoggerFactory.getLogger(activity.getComponentName().getShortClassName());
+		logger.error(crashReport);
 		return true;
 	}
 
