@@ -3,12 +3,15 @@ package com.std.framework.fragment;
 import java.io.IOException;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.std.framework.R;
 import com.std.framework.view.ShapeView;
@@ -28,7 +31,20 @@ public class ThreeFragment extends BaseFragment implements OnClickListener{
 		shapeView = (ShapeView) view.findViewById(R.id.shapeView1);
 		button.setOnClickListener(this);
 		shapeView.setImageDrawable(getResources().getDrawable(R.drawable.call));
+		registerListener();
 		return view;
+	}
+
+	private void registerListener(){
+		editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				Log.d("LX",v.getText().toString());
+				return false;
+			}
+		});
+
+		
 	}
 
 	@Override

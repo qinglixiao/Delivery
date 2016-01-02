@@ -7,9 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.TimePicker.OnTimeChangedListener;
-import android.widget.Toast;
 
 import com.std.framework.R;
 import com.std.framework.fragment.FiveFragment;
