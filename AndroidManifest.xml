@@ -3,7 +3,7 @@
     package="com.std.framework"
     android:sharedUserId="com.plugin.cn"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -29,12 +29,12 @@
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:label="@string/app_name"
-        android:theme="@style/ESGAppTheme" >
+        android:theme="@style/ESGAppTheme">
         />
 
         <activity
             android:name="com.std.framework.activity.LaunchActivity"
-            android:theme="@style/STDFullScreen.NoTitle" >
+            android:theme="@style/STDFullScreen.NoTitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,14 +43,12 @@
         </activity>
         <activity
             android:name="com.std.framework.activity.MainActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" >
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
         <activity
             android:name="com.std.framework.activity.MainTabActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize" >
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
 
-        <receiver android:name="com.std.framework.widget.desk.DeskWidgetProvider" >
+        <receiver android:name="com.std.framework.widget.desk.DeskWidgetProvider">
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/deskprovider" />
@@ -60,11 +58,12 @@
                 <action android:name="com.std.click" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.std.framework.receiver.NetWorkReceiver"
-            android:process=":remote" >
+        <receiver
+            android:name="com.std.framework.receiver.NetWorkReceiver"
+            android:process=":remote">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-               />
+                />
 
             </intent-filter>
         </receiver>
@@ -84,10 +83,9 @@
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":baidu" >
+            android:process=":baidu">
             <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2" >
-                </action>
+                <action android:name="com.baidu.location.service_v2.2"></action>
             </intent-filter>
         </service>
     </application>

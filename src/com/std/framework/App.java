@@ -53,10 +53,7 @@ public class App extends Application {
 	 *
 	 */
 	public void exit(){
-		STDActivityManager manager = STDActivityManager.getInstance();
-		while(!manager.getStackActivity().isEmpty()){
-			manager.getStackActivity().pop().finish();
-		}
+		STDActivityManager.getInstance().finishAll();
 	}
 	
 }
