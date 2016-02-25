@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    jcenter()
+}
+
 buildscript {
-    repositories {
-        jcenter()
-    }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.5.0'
         // NOTE: Do not place your application dependencies here; they belong
@@ -17,6 +18,8 @@ dependencies {
     compile project(':STDlibrary_res')
     compile project(':SlidingResource')
     compile 'com.android.support:support-annotations:22.2.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'org.altbeacon:android-beacon-library:2+'
 }
 
 android {
@@ -42,6 +45,8 @@ android {
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
         }
+
+        instrumentTest.setRoot('tests')
 
         // Move the build types to build-types/<type>
         // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
