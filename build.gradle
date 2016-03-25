@@ -17,18 +17,19 @@ dependencies {
     compile project(':STDlibrary')
     compile project(':STDlibrary_res')
     compile project(':SlidingResource')
-    compile 'com.android.support:support-annotations:22.2.0'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'org.altbeacon:android-beacon-library:2+'
+    compile 'com.facebook.fresco:fresco:0.8.1+'
 }
 
 android {
     compileSdkVersion 21
     buildToolsVersion "22.0.1"
 
-    defaultConfig {
-        multiDexEnabled true
-    }
+//    defaultConfig {
+//        multiDexEnabled true
+//        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
+//    }
 
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
@@ -45,8 +46,6 @@ android {
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
         }
-
-        instrumentTest.setRoot('tests')
 
         // Move the build types to build-types/<type>
         // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...

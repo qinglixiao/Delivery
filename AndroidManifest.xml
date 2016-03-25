@@ -21,7 +21,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
@@ -63,8 +62,6 @@
             android:process=":remote">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                />
-
             </intent-filter>
         </receiver>
 
@@ -88,6 +85,13 @@
                 <action android:name="com.baidu.location.service_v2.2"></action>
             </intent-filter>
         </service>
+
+        <activity android:name=".activity.JumpInActivity">
+            <!--<intent-filter>-->
+                <!--<data android:scheme="something" />-->
+                <!--<data android:host="project.example.com" />-->
+            <!--</intent-filter>-->
+        </activity>
     </application>
 
 </manifest>

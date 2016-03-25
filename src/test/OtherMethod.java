@@ -15,6 +15,6 @@ public class OtherMethod extends InstrumentationTestCase {
 		private Type(int tag) {
 			type = tag;
 		}
-		
+
 	}
 }
