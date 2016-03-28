@@ -46,7 +46,7 @@ public class TestMethod extends AndroidTestCase {
 //
 //	}
 
-	public void formatStr() {
+	public void testformatStr() {
 		String f_str = String.format("hello_%s%s", "wold", "你好");
 		Log.d("LX", f_str);
 	}
