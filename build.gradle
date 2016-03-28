@@ -26,10 +26,11 @@ android {
     compileSdkVersion 21
     buildToolsVersion "22.0.1"
 
-//    defaultConfig {
-//        multiDexEnabled true
-//        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
-//    }
+    defaultConfig {
+        multiDexEnabled true
+        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
+//        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
 
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
