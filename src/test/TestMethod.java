@@ -1,11 +1,14 @@
 package test;
 
+import android.os.SystemClock;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
 import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
+import com.library.core.God;
+import com.std.framework.fragment.FourFragment;
 
 import java.io.IOException;
 
@@ -128,6 +131,25 @@ public class TestMethod extends AndroidTestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void testRuntime(){
+		int pro = Runtime.getRuntime().availableProcessors();
+		Log.d(TAG,pro+"");
+	}
+
+	public void testReflected(){
+		long start = SystemClock.currentThreadTimeMillis();
+		for (int i = 0; i < 100; i++) {
+			new FourFragment();
+		}
+		long second = SystemClock.currentThreadTimeMillis();
+		Log.d(TAG,"new time :"+(second - start));
+		for (int i = 0; i < 100; i++) {
+			God.love(FourFragment.class);
+		}
+		long third = SystemClock.currentThreadTimeMillis() - second;
+		Log.d(TAG,"reflect time :"+third);
 	}
 
 }

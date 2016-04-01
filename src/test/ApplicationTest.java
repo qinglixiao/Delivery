@@ -14,15 +14,4 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public void test(){
 
     }
-
-//    public void testcheck(){
-//        PackageManager pm = getPackageManager();
-//        boolean permission = (PackageManager.PERMISSION_GRANTED ==
-//                pm.checkPermission("android.permission.READ_CONTACTS", ""));
-//        if (permission) {
-//
-//        }else {
-//
-//        }
-//    }
 }

@@ -2,24 +2,19 @@ package test;
 
 import android.test.AndroidTestCase;
 
-import java.io.IOException;
-
+import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
 import de.greenrobot.daogenerator.Schema;
 
 public class GreenDaoMethod extends AndroidTestCase {
+	private static final int VERSION = 1;
 	private static final String SCHEMA = "com.systoon.toon.common.dao.entity";
-	private static final String DEST_PROJECT_PATH = "../Toon/src-gen";
+	private static final String DEST_PROJECT_PATH = "D:/Toon/src-gen";
 
-	public void testTableDynamicCreate() throws IOException, Exception {
-		Schema schema = new Schema(1, SCHEMA);
+	public void testTableDynamicCreate() throws Exception {
+		Schema schema = new Schema(VERSION, SCHEMA);
 		addLeaveMsgTable(schema);
-//		new DaoGenerator().generateAll(schema, DEST_PROJECT_PATH);
-		
-	}
-	
-	public void testEmpty(){
-		
+		new DaoGenerator().generateAll(schema, DEST_PROJECT_PATH);
 	}
 
 	private  void addLeaveMsgTable(Schema schema) {

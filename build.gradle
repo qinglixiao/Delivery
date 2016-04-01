@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
 repositories {
+    flatDir {
+        dirs 'libs'
+    }
     jcenter()
 }
 
@@ -13,7 +16,7 @@ buildscript {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    compile fileTree(include: '*.jar', dir: 'libs')
     compile project(':STDlibrary')
     compile project(':STDlibrary_res')
     compile project(':SlidingResource')

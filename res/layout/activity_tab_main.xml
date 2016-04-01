@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:showDividers="none"
-            android:orientation="horizontal" 
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
             android:background="@color/gray"/>
 
         <FrameLayout
