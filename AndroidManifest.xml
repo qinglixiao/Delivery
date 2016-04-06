@@ -32,7 +32,7 @@
         />
 
         <activity
-            android:name="com.std.framework.activity.LaunchActivity"
+            android:name=".login.activity.LaunchActivity"
             android:theme="@style/STDFullScreen.NoTitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

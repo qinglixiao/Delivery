@@ -35,6 +35,7 @@ android {
     }
 
     defaultConfig {
+        applicationId "com.std.framework"
         multiDexEnabled true
         testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
     }
@@ -42,6 +43,17 @@ android {
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
+    }
+
+    productFlavors {
+        playstore {
+            applicationId = "com.example.my.pkg.pro"
+            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
+        }
+        hiapk {
+            applicationId = "com.example.my.pkg.free"
+            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
+        }
     }
 
     sourceSets {

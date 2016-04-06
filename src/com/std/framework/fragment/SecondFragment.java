@@ -60,7 +60,7 @@ public class SecondFragment extends BaseFragment {
         @Override
         public Fragment getItem(int position) {
             if (TITLES[position].equals("EventBus"))
-                return FragmentManufacture.make(null, FourFragment.class);
+                return FragmentManufacture.make(null, EventBusFragment.class);
             else
                 return PagerFragment.newInstance(position, TITLES[position]);
         }

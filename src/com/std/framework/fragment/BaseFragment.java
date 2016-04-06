@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class BaseFragment extends Fragment {
+
+	public BaseFragment(){}
 	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
