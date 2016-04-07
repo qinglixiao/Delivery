@@ -11,6 +11,7 @@ import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
 import com.std.framework.fragment.FourFragment;
+import com.std.framework.util.ResourceUtil;
 import com.std.framework.util.SharedPreferencesUtil;
 
 import java.io.IOException;
@@ -170,6 +171,13 @@ public class TestMethod extends AndroidTestCase {
     public void testSharedPreferences(){
         SharedPreferencesUtil.putUser("LX");
         assertEquals(SharedPreferencesUtil.getUser(),"LX");
+    }
+
+    public void testResourceUtil(){
+        String s = ResourceUtil.getString("login_001");
+        assertEquals(s,"登录名称不可用");
+        int w = ResourceUtil.getStringId(null);
+        assertEquals(w,-1);
     }
 
 }

@@ -12,14 +12,11 @@ public class App extends Application {
 	/**全局应用实例*/
 	public static App instance;
 
-	public App(){
-		instance = this;
-	}
-
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
+		instance = this;
 		configLogSystem();
 		setExceptionHandle();
 	}
