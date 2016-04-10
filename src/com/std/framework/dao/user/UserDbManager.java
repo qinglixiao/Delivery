@@ -1,8 +1,8 @@
 package com.std.framework.dao.user;
 
 import com.cn.sale.dao.entity.User;
-import com.library.core.db.GreenDaoAccess;
-import com.library.core.db.IDBAccess;
+import com.library.db.GreenDaoAccess;
+import com.library.db.IDBAccess;
 import com.std.framework.dao.BaseDao;
 
 /**
@@ -21,7 +21,7 @@ public class UserDbManager extends BaseDao {
                 }
             }
         }
-        instance.connectionToonDB();
+        instance.connectionInnerDB();
         return instance;
     }
 

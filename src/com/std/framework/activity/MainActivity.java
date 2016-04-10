@@ -1,7 +1,6 @@
 package com.std.framework.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.std.framework.App;
 import com.std.framework.R;
 import com.std.framework.fragment.Html5NativeCommunicationFragment;
 

@@ -7,7 +7,7 @@ public abstract class BaseDao {
 
     protected InnerDB innerDB;
 
-    public void connectionToonDB() {
+    public void connectionInnerDB() {
         innerDB = InnerDB.create(SharedPreferencesUtil.getUser());
         if (innerDB != null) {
             initAccess();

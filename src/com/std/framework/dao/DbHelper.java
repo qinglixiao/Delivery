@@ -105,7 +105,7 @@ public class DbHelper {
 
 		@Override
 		public void onCreate(SQLiteDatabase db) {
-			String sql = SQLFactory.buildSampleTableSQL();
+			String sql = SQLBuilder.buildSampleTableSQL();
 			db.execSQL(sql);
 		}
 

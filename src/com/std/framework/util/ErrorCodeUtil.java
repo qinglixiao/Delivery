@@ -3,6 +3,8 @@ package com.std.framework.util;
 
 import android.util.SparseArray;
 
+import com.library.util.ResourceUtil;
+
 /**
  * 服务端返回的错误码跟提示语的对应关系
  */

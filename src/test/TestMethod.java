@@ -12,7 +12,7 @@ import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
 import com.std.framework.core.Logger;
 import com.std.framework.fragment.FourFragment;
-import com.std.framework.util.ResourceUtil;
+import com.library.util.ResourceUtil;
 import com.std.framework.util.SharedPreferencesUtil;
 
 import java.io.IOException;

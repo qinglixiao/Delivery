@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 import com.cn.sale.dao.entity.DaoMaster;
 import com.cn.sale.dao.entity.DaoSession;
-import com.std.framework.App;
+import com.std.framework.activity.App;
 
 public class InnerDB {
     private static InnerDB instance;

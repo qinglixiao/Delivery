@@ -3,13 +3,14 @@ package com.std.framework.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.std.framework.App;
+import com.std.framework.activity.App;
 
 /**
  * Created by gfy on 2016/4/6.
  */
 public class SharedPreferencesUtil {
-    private static final String file = "sp_param";
+    private static final String file = "sp_data";
+
     private static SharedPreferences.Editor sp_edit;
     private static SharedPreferences sp;
 
