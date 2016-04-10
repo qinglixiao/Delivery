@@ -10,6 +10,7 @@ import com.library.util.About;
 import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
+import com.std.framework.core.Logger;
 import com.std.framework.fragment.FourFragment;
 import com.std.framework.util.ResourceUtil;
 import com.std.framework.util.SharedPreferencesUtil;
@@ -178,6 +179,11 @@ public class TestMethod extends AndroidTestCase {
         assertEquals(s,"登录名称不可用");
         int w = ResourceUtil.getStringId(null);
         assertEquals(w,-1);
+    }
+
+    public void testLogger(){
+        Logger.PUT_OUT = true;
+        Logger.d(TAG,"logger_debug");
     }
 
 }

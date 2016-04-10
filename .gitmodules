@@ -1,3 +1,6 @@
 [submodule "STDlibrary"]
 	path = STDlibrary
 	url = git@github.com:qinglixiao/STDlibrary.git
+[submodule "volley"]
+	path = volley
+	url = https://android.googlesource.com/platform/frameworks/volley

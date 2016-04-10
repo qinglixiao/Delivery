@@ -10,6 +10,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.std.framework.R;
 import com.std.framework.activity.MainTabActivity;
 import com.std.framework.comm.STDActivityManager;
+import com.std.framework.core.Logger;
 import com.std.framework.login.fragment.GuideFragment;
 import com.std.framework.util.SharedPreferencesUtil;
 
