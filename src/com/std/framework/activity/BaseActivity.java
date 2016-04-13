@@ -25,8 +25,6 @@ import com.std.framework.util.WidgetUtil;
 import com.std.framework.widget.dialog.MessageTip;
 
 public class BaseActivity extends SherlockFragmentActivity implements IBaseActivity, IBackUp {
-	/**日志记录器*/
-//	public Logger Loger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 	/**视图管理器*/
 	public final STDFragmentManager FragmentManager;
 	/**工作线程*/
@@ -135,21 +133,6 @@ public class BaseActivity extends SherlockFragmentActivity implements IBaseActiv
 	public void AsynLoadData(Intent intent) {
 		// TODO Auto-generated method stub
 	}
-
-	/**
-	 * 
-	 * 描      述 ：获取日志记录器
-	 * 创建日期 ： 2014-4-22
-	 * 作      者 ： lx
-	 * 修改日期 ： 
-	 * 修  改 者 ：
-	 * @version： 1.0
-	 * @return
-	 *
-	 */
-//	public Logger getLoger() {
-//		return Loger;
-//	}
 
 	@Override
 	public void displayActionBar(boolean isShow) {

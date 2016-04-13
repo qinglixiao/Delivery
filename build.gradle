@@ -28,7 +28,7 @@ dependencies {
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "22.0.1"
+    buildToolsVersion '23.0.3'
 
     dexOptions {
         incremental true
@@ -64,7 +64,7 @@ android {
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
+            res.srcDirs = ['res','res/resource']
             assets.srcDirs = ['assets']
         }
 
