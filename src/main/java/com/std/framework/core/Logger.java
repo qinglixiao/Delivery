@@ -48,4 +48,10 @@ public class Logger {
         }
     }
 
+    public static void m(String msg) {
+        if(PUT_OUT && LEVEL >= ERROR && !TextUtils.isEmpty(msg)) {
+            Log.e("LX", msg);
+        }
+    }
+
 }

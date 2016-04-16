@@ -40,8 +40,6 @@ public class BaseTitleActivity extends BaseActivity {
     }
 
     protected void onNavigationBar(Navigation navigation) {
-
-
     }
 
 }

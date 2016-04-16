@@ -13,6 +13,10 @@ public class JunitMethod {
     @Test
     public void test(){
         Assert.assertEquals(1,1);
+    }
 
+    @Test
+    public void parseXML(){
+        DataConvert.toJSONString(new Object());
     }
 }
