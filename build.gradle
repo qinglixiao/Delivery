@@ -17,7 +17,7 @@ buildscript {
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
-    //    testCompile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
     compile project(':STDlibrary')
     compile project(':STDlibrary_res')
     compile 'org.greenrobot:eventbus:3.0.0'
@@ -48,23 +48,21 @@ android {
     }
 
     productFlavors {
-        playstore {
-            applicationId = "com.example.my.pkg.pro"
-            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
-        }
-        hiapk {
-            applicationId = "com.example.my.pkg.free"
-            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
-        }
+//        playstore {
+//            applicationId = "com.example.my.pkg.pro"
+//            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
+//        }
+//        hiapk {
+//            applicationId = "com.example.my.pkg.free"
+//            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
+//        }
     }
 
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src','src-gen']
-            resources.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
+            java.srcDirs = ['src/main/java','src-gen']
+            aidl.srcDirs = ['src/main/java']
             res.srcDirs = ['res','res/resource','res/main']
             assets.srcDirs = ['assets']
         }
