@@ -1,1 +1,1 @@
-include ':STDlibrary', ':STDlibrary_res', ':SlidingResource', ':volley'
+include ':STDlibrary', ':STDlibrary_res', ':volley'

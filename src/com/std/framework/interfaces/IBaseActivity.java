@@ -1,9 +1,8 @@
 package com.std.framework.interfaces;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.view.View;
-
-import com.actionbarsherlock.app.ActionBar.LayoutParams;
 
 public interface IBaseActivity extends IRequest {
 	/**扫描功能不可用*/
@@ -159,7 +158,7 @@ public interface IBaseActivity extends IRequest {
 
 	void setActionBarCustomView(int layoutId);
 
-	void setActionBarCustomView(View view, LayoutParams params);
+	void setActionBarCustomView(View view, ActionBar.LayoutParams params);
 
 	void setHomeButtonEnabled(boolean enable);
 

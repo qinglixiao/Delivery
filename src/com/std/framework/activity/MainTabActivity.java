@@ -9,13 +9,14 @@ import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
 
 import com.std.framework.R;
+import com.std.framework.core.Navigation;
 import com.std.framework.fragment.FiveFragment;
 import com.std.framework.fragment.FourFragment;
 import com.std.framework.fragment.MainFragment;
 import com.std.framework.fragment.SecondFragment;
 import com.std.framework.fragment.ThreeFragment;
 
-public class MainTabActivity extends BaseActivity implements OnTabChangeListener{
+public class MainTabActivity extends BaseTitleActivity implements OnTabChangeListener{
 	private static final String PAGE_ONE = "page_one";
 	private static final String PAGE_TWO = "page_two";
 	private static final String PAGE_THREE = "page_three";
@@ -59,10 +60,15 @@ public class MainTabActivity extends BaseActivity implements OnTabChangeListener
 
 	private View newIndicator(int imgResId, String text) {
 		View view = layoutInflater.inflate(R.layout.tab_wiget_item, null);
-		view.findViewById(R.id.tab_main).setBackgroundResource(R.drawable.abs__tab_indicator_ab_holo);
 		((ImageView) view.findViewById(R.id.tab_img)).setImageResource(imgResId);
 		((TextView) view.findViewById(R.id.tab_tv)).setText(text);
 		return view;
+	}
+
+	@Override
+	protected void onNavigationBar(Navigation navigation) {
+		super.onNavigationBar(navigation);
+		navigation.setSubTitle("子标题");
 	}
 
 	public void onDestroy() {

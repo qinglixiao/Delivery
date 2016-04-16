@@ -8,21 +8,21 @@
     
      <style name="ESGAppTheme" parent="ESGFullScreen">
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
-        <item name="android:actionBarStyle">@style/ESGTheme.ActionBar</item>
+        <!--<item name="android:actionBarStyle">@style/ESGTheme.ActionBar</item>-->
         <item name="android:actionMenuTextColor">@color/blue</item>
         <item name="android:actionMenuTextAppearance">@style/ActionBar.MenuItem</item>
         <item name="android:actionBarTabTextStyle">@style/ActionBar.TabText</item>
-        <item name="windowContentOverlay">@null</item>
-        <item name="android:windowContentOverlay">@null</item><!-- 去掉actionbar下方的阴影 -->
+        <!--<item name="windowContentOverlay">@null</item>-->
+        <!--<item name="android:windowContentOverlay">@null</item>&lt;!&ndash; 去掉actionbar下方的阴影 &ndash;&gt;-->
     </style>
 
-    <style name="ESGTheme.ActionBar" parent="Widget.Sherlock.ActionBar.Solid">
-        <!-- <item name="android:background">@drawable/titlebar</item> -->
-        <item name="android:background">@color/white</item>
-        <item name="android:backgroundStacked">@drawable/abs__ab_stacked_solid_light_holo</item>
-        <item name="android:height">@dimen/title_bar_height</item>
-        <item name="android:displayOptions">showCustom</item>
-    </style>
+    <!--<style name="ESGTheme.ActionBar" parent="Widget.Sherlock.ActionBar.Solid">-->
+        <!--&lt;!&ndash; <item name="android:background">@drawable/titlebar</item> &ndash;&gt;-->
+        <!--<item name="android:background">@color/white</item>-->
+        <!--<item name="android:backgroundStacked">@drawable/abs__ab_stacked_solid_light_holo</item>-->
+        <!--<item name="android:height">@dimen/title_bar_height</item>-->
+        <!--<item name="android:displayOptions">showCustom</item>-->
+    <!--</style>-->
 
     <style name="ActionBar.MenuItem" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Menu">
         <item name="android:textSize">@dimen/titile_bar_item_size</item>

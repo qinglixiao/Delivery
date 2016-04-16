@@ -6,15 +6,14 @@ import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.std.framework.R;
+import com.std.framework.activity.BaseActivity;
 import com.std.framework.activity.MainTabActivity;
 import com.std.framework.comm.STDActivityManager;
-import com.std.framework.core.Logger;
 import com.std.framework.login.fragment.GuideFragment;
 import com.std.framework.util.SharedPreferencesUtil;
 
-public class LaunchActivity extends SherlockFragmentActivity {
+public class LaunchActivity extends BaseActivity {
 	private Handler handler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
 			if (msg.what == 1) {

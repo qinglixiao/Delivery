@@ -28,12 +28,10 @@
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:label="@string/app_name"
-        android:theme="@style/ESGAppTheme">
+        android:theme="@style/AppTheme">
         />
 
-        <activity
-            android:name=".login.activity.LaunchActivity"
-            android:theme="@style/STDFullScreen.NoTitle">
+        <activity android:name=".login.activity.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -88,8 +86,8 @@
 
         <activity android:name=".activity.JumpInActivity">
             <!--<intent-filter>-->
-                <!--<data android:scheme="something" />-->
-                <!--<data android:host="project.example.com" />-->
+            <!--<data android:scheme="something" />-->
+            <!--<data android:host="project.example.com" />-->
             <!--</intent-filter>-->
         </activity>
     </application>

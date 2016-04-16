@@ -27,7 +27,7 @@ import android.widget.TextView;
 import com.std.framework.R;
 import com.std.framework.comm.JSRemoteProvider;
 
-public class Html5NativeCommunicationFragment extends Fragment implements OnClickListener{
+public class Html5NativeCommunicationFragment extends BaseFragment implements OnClickListener{
 	private View view;
 	private WebView webView = null;
 	private Button btn_bom;

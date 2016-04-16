@@ -53,9 +53,9 @@ public class CustomDefStateListDrawableDemo extends View {
 		int stateFoucesd = android.R.attr.state_focused;
 		//匹配状态时，是一种优先包含的关系。
 		// "-"号表示该状态值为false .即不匹配
-		statelistDrawable
-				.addState(new int[] { pressed, windowfocused }, mContext.getResources().getDrawable(R.drawable.abs__ic_ab_back_holo_dark));
-		statelistDrawable.addState(new int[] { -pressed, windowfocused }, mContext.getResources().getDrawable(R.drawable.abs__ic_ab_back_holo_light));
+//		statelistDrawable
+//				.addState(new int[] { pressed, windowfocused }, mContext.getResources().getDrawable(R.drawable.abs__ic_ab_back_holo_dark));
+//		statelistDrawable.addState(new int[] { -pressed, windowfocused }, mContext.getResources().getDrawable(R.drawable.abs__ic_ab_back_holo_light));
 
 		//更多其他状态属性
 		//stateD.addState(new int[]{pressed , windowfocused },mContext.getResources().getDrawable(R.drawable.btn_dialog_selected) )

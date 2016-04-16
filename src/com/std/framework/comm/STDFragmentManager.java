@@ -4,6 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
+import com.std.framework.activity.BaseActivity;
+import com.std.framework.fragment.BaseFragment;
+
 public class STDFragmentManager {
 	private static STDFragmentManager instance;
 	private FragmentManager mFragmentManager;
@@ -23,7 +26,7 @@ public class STDFragmentManager {
 	 * @return
 	 *
 	 */
-	public static STDFragmentManager getInstance(FragmentActivity fragmentActivity){
+	public static STDFragmentManager getInstance(BaseActivity fragmentActivity){
 		if(instance == null){
 			synchronized(STDFragmentManager.class){
 				if(instance == null)
@@ -46,7 +49,7 @@ public class STDFragmentManager {
 	 * @param newFragment 布局块
 	 *
 	 */
-	public void add(int vId,Fragment newFragment){
+	public void add(int vId,BaseFragment newFragment){
 		mFragmentManager.beginTransaction().add(vId, newFragment).commit();
 	}
 	
@@ -62,7 +65,7 @@ public class STDFragmentManager {
 	 * @param newFragment
 	 *
 	 */
-	public void addToBack(int vId,Fragment newFragment){
+	public void addToBack(int vId,BaseFragment newFragment){
 		mFragmentManager.beginTransaction()
 		.add(vId, newFragment)
 		.addToBackStack(null)
@@ -81,7 +84,7 @@ public class STDFragmentManager {
 	 * @param newFragment
 	 *
 	 */
-	public void replace(int vId,Fragment newFragment){
+	public void replace(int vId,BaseFragment newFragment){
 		mFragmentManager.beginTransaction().replace(vId, newFragment).commit();
 	}
 	
@@ -97,14 +100,14 @@ public class STDFragmentManager {
 	 * @param newFragment
 	 *
 	 */
-	public void replaceToBack(int vId,Fragment newFragment){
+	public void replaceToBack(int vId,BaseFragment newFragment){
 		mFragmentManager.beginTransaction()
 		.replace(vId, newFragment)
 		.addToBackStack(null)
 		.commit();
 	}
 	
-	public void remove(Fragment fragment){
+	public void remove(BaseFragment fragment){
 		mFragmentManager.beginTransaction()
 		.remove(fragment)
 		.commit();

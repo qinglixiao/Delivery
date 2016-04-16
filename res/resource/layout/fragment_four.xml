@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="obj" />
+        android:text="放大" />
 
     <Button
         android:id="@+id/frag4_btn_pro"

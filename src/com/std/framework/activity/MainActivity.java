@@ -12,9 +12,10 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.std.framework.R;
+import com.std.framework.fragment.BaseFragment;
 import com.std.framework.fragment.Html5NativeCommunicationFragment;
 
-public class MainActivity extends BaseActivity implements OnClickListener {
+public class MainActivity extends BaseTitleActivity {
 	private static final String TAG = "LX";
 	private long mExitTime = 0;
 	private FrameLayout contentLayout;
@@ -27,11 +28,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			FragmentManager.replace(R.id.content, new Html5NativeCommunicationFragment());
 	}
 
-	public void onClick(View v) {
-
-	}
-
-	public void remove(Fragment fragment) {
+	public void remove(BaseFragment fragment) {
 		FragmentManager.remove(fragment);
 	}
 
