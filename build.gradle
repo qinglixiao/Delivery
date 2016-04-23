@@ -8,6 +8,9 @@ repositories {
 }
 
 buildscript {
+    repositories {
+        jcenter()
+    }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.0.0'
         // NOTE: Do not place your application dependencies here; they belong
@@ -42,12 +45,15 @@ android {
         testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
     }
 
-    packagingOptions {
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
     }
 
-    productFlavors {
+
+//    productFlavors {
 //        playstore {
 //            applicationId = "com.example.my.pkg.pro"
 //            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
@@ -56,7 +62,7 @@ android {
 //            applicationId = "com.example.my.pkg.free"
 //            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
 //        }
-    }
+//    }
 
     sourceSets {
         main {
