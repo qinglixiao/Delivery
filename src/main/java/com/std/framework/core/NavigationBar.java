@@ -11,78 +11,82 @@ import com.std.framework.activity.App;
 /**
  * Created by gfy on 2016/4/16.
  */
-public class Navigation {
-    private ActionBar bar;
+public class NavigationBar {
+    private ToolBarWrapper wrapper;
 
-    /**标题*/
+    /**
+     * 标题
+     */
     private View mTitleView;
-    /**标题是否居中显示*/
+    /**
+     * 标题是否居中显示
+     */
     private boolean isTitleCenter = false;
 
-    public Navigation(ActionBar actionBar){
-        bar = actionBar;
+    public NavigationBar(ToolBarWrapper wrapper) {
+        this.wrapper = wrapper;
         //		ImageView imageView = (ImageView) findViewById(android.R.id.home);
 //		imageView.setLayoutParams(new android.widget.FrameLayout.LayoutParams(android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
 //				android.widget.FrameLayout.LayoutParams.MATCH_PARENT));
-        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_TITLE);
+        wrapper.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_TITLE);
     }
 
     public void displayActionBar(boolean isShow) {
         // TODO Auto-generated method stub
         if (isShow)
-            bar.show();
+            wrapper.getActionBar().show();
         else
-            bar.hide();
+            wrapper.getActionBar().hide();
     }
 
     public void displayActionBarCustomLayout(boolean isShow) {
         // TODO Auto-generated method stub
-        bar.setDisplayShowCustomEnabled(isShow);
+        wrapper.getActionBar().setDisplayShowCustomEnabled(isShow);
     }
 
     public void displayHomeIcon(boolean isShow) {
         // TODO Auto-generated method stub
-        bar.setDisplayShowHomeEnabled(isShow);
+        wrapper.getActionBar().setDisplayShowHomeEnabled(isShow);
     }
 
     public void displayTitle(boolean isShow) {
         // TODO Auto-generated method stub
-        bar.setDisplayShowTitleEnabled(isShow);
+        wrapper.getActionBar().setDisplayShowTitleEnabled(isShow);
     }
 
     public void displayHomeAsUp(boolean isShow) {
         // TODO Auto-generated method stub
-        bar.setDisplayHomeAsUpEnabled(isShow);
+        wrapper.getActionBar().setDisplayHomeAsUpEnabled(isShow);
     }
 
     public void displayUseLogo(boolean enable) {
         // TODO Auto-generated method stub
-        bar.setDisplayUseLogoEnabled(enable);
+        wrapper.getActionBar().setDisplayUseLogoEnabled(enable);
     }
 
     public void setSubTitle(CharSequence subTitle) {
         // TODO Auto-generated method stub
-        bar.setSubtitle(subTitle);
+        wrapper.getActionBar().setSubtitle(subTitle);
     }
 
     public void setActionBarCustomView(View view) {
         // TODO Auto-generated method stub
-        bar.setCustomView(view);
+        wrapper.getActionBar().setCustomView(view);
     }
 
     public void setActionBarCustomView(int layoutId) {
         // TODO Auto-generated method stub
-        bar.setCustomView(layoutId);
+        wrapper.getActionBar().setCustomView(layoutId);
     }
 
     public void setActionBarCustomView(View view, ActionBar.LayoutParams params) {
         // TODO Auto-generated method stub
-        bar.setCustomView(view, params);
+        wrapper.getActionBar().setCustomView(view, params);
     }
 
     public void setHomeButtonEnabled(boolean enable) {
         // TODO Auto-generated method stub
-        bar.setHomeButtonEnabled(enable);
+        wrapper.getActionBar().setHomeButtonEnabled(enable);
     }
 
     public void requestWindowTitleCenter(boolean isCenter) {
@@ -90,14 +94,13 @@ public class Navigation {
         isTitleCenter = isCenter;
         if (isCenter) {
             if (mTitleView == null) {
-                mTitleView = View.inflate(App.instance,R.layout.custom_title, null);
+                mTitleView = View.inflate(App.instance, R.layout.custom_title, null);
             }
             android.support.v7.app.ActionBar.LayoutParams params = new android.support.v7.app.ActionBar.LayoutParams(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
             setActionBarCustomView(mTitleView, params);
             displayActionBarCustomLayout(true);
             displayTitle(false);
-        }
-        else {
+        } else {
             displayActionBarCustomLayout(false);
             displayTitle(true);
         }
@@ -108,7 +111,7 @@ public class Navigation {
         if (isTitleCenter)
             ((TextView) mTitleView.findViewById(R.id.tv_title_custom)).setText(title);
         else
-            bar.setTitle(title);
+            wrapper.getActionBar().setTitle(title);
     }
 
 }

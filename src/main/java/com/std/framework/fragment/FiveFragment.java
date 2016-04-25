@@ -12,21 +12,29 @@ import android.widget.PopupWindow;
 
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
+import com.std.framework.core.NavigationBar;
 import com.std.framework.view.TouchSlopView;
 
 public class FiveFragment extends BaseFragment implements OnClickListener{
 	private View view;
 	private Button button;
 	private TouchSlopView slopView;
-	
+
+	@Override
+	protected void onNavigationBar(NavigationBar navigationBar) {
+		navigationBar.setTitle("FiveFragment");
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		super.onCreateView(inflater,container,savedInstanceState);
 		view = inflater.inflate(R.layout.fragment_five, null);
 		button = (Button) view.findViewById(R.id.five_btn);
 		button.setOnClickListener(this);
 		return view;
 	}
+
 
 	@Override
 	public void onClick(View v) {

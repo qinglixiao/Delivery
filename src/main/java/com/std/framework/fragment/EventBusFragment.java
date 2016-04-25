@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.std.framework.R;
+import com.std.framework.core.NavigationBar;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -24,6 +25,7 @@ public class EventBusFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         view = inflater.inflate(R.layout.fragment_event_bus, null);
         return view;
     }
@@ -36,6 +38,11 @@ public class EventBusFragment extends BaseFragment implements View.OnClickListen
         btn_asyn = (Button) view.findViewById(R.id.btn_asyn);
         btn_send.setOnClickListener(this);
         btn_asyn.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onNavigationBar(NavigationBar navigationBar) {
+        navigationBar.setTitle("EventBus-Demo");
     }
 
     @Override

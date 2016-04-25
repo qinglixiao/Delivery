@@ -102,4 +102,18 @@ public class JunitMethod {
 
     }
 
+    class A{
+        public int getAge(){
+            return 10;
+        }
+    }
+
+    class B{
+        public B(A a){
+            a.getAge();
+        }
+    }
+
+
+
 }

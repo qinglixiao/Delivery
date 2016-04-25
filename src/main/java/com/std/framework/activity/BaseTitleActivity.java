@@ -7,19 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
-import com.std.framework.core.Navigation;
+import com.std.framework.core.NavigationBar;
+import com.std.framework.core.ToolBarWrapper;
 
 
 /**
  * Created by gfy on 2016/4/13.
  */
 public class BaseTitleActivity extends BaseActivity {
+    private NavigationBar navigationBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.root_layout);
-        onNavigationBar(setActionBar((Toolbar) findViewById(R.id.toolbar)));
+        navigationBar = setNavigationBar((Toolbar) findViewById(R.id.toolbar));
+        onNavigationBar(navigationBar);
     }
 
     @Override
@@ -30,16 +33,23 @@ public class BaseTitleActivity extends BaseActivity {
     @Override
     public void setContentView(View view) {
         ViewGroup container = (ViewGroup) findViewById(R.id.container);
-        if (container == null) return;
+        if (container == null) {
+            throw new NullPointerException(getClass().getSimpleName() + ":container is null");
+        }
         container.addView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
 
-    protected Navigation setActionBar(Toolbar toolbar) {
+    protected NavigationBar setNavigationBar(Toolbar toolbar) {
         setSupportActionBar(toolbar);
-        return new Navigation(getSupportActionBar());
+        return new NavigationBar(new ToolBarWrapper(getSupportActionBar(), toolbar));
     }
 
-    protected void onNavigationBar(Navigation navigation) {
+    public NavigationBar getNavigationBar(){
+        return navigationBar;
+    }
+
+    protected void onNavigationBar(NavigationBar navigation) {
+
     }
 
 }
