@@ -15,11 +15,6 @@ import com.std.framework.fragment.BaseFragment;
 
 public class GuideFragment extends BaseFragment {
 	private View view;
-	private Handler handler;
-	
-	public GuideFragment(Handler handler){
-		this.handler = handler;
-	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,7 +41,7 @@ public class GuideFragment extends BaseFragment {
 		@Override
 		public Fragment getItem(int arg0) {
 			// TODO Auto-generated method stub
-			return GuidePagerFragment.newInstance(resId[arg0], arg0 != resId.length - 1 ? false : true, handler);
+			return GuidePagerFragment.newInstance(resId[arg0], arg0 != resId.length - 1 ? false : true);
 		}
 
 		@Override

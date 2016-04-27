@@ -1,12 +1,16 @@
 package com.std.framework.core;
 
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.ActionMenuView;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.std.framework.R;
 import com.std.framework.activity.App;
+import com.std.framework.interfaces.OnMenuItemWrapClickListener;
 
 /**
  * Created by gfy on 2016/4/16.
@@ -25,9 +29,10 @@ public class NavigationBar {
 
     public NavigationBar(ToolBarWrapper wrapper) {
         this.wrapper = wrapper;
-        //		ImageView imageView = (ImageView) findViewById(android.R.id.home);
-//		imageView.setLayoutParams(new android.widget.FrameLayout.LayoutParams(android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
-//				android.widget.FrameLayout.LayoutParams.MATCH_PARENT));
+        applyDefault();
+    }
+
+    private void applyDefault(){
         wrapper.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_TITLE);
     }
 
@@ -112,6 +117,10 @@ public class NavigationBar {
             ((TextView) mTitleView.findViewById(R.id.tv_title_custom)).setText(title);
         else
             wrapper.getActionBar().setTitle(title);
+    }
+
+    public void setOnMenuItemClickListener(OnMenuItemWrapClickListener listener){
+        wrapper.getToolbar().setOnMenuItemClickListener(listener);
     }
 
 }

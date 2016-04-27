@@ -1,7 +1,6 @@
 package com.std.framework.login.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,18 +9,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.std.framework.R;
+import com.std.framework.login.activity.LaunchActivity;
 
 public class GuidePagerFragment extends Fragment {
 	public boolean isLastPager;
 	public View view;
 	public int imgResourceId;
-	public Handler handler;
-	
-	public static GuidePagerFragment newInstance(int resId,boolean isLast,Handler handler){
+
+	public static GuidePagerFragment newInstance(int resId,boolean isLast){
 		GuidePagerFragment fragment = new GuidePagerFragment();
 		fragment.imgResourceId = resId;
 		fragment.isLastPager = isLast;
-		fragment.handler = handler;
 		return fragment;
 	}
 	
@@ -41,7 +39,9 @@ public class GuidePagerFragment extends Fragment {
 		
 		@Override
 		public void onClick(View v) {
-			handler.sendEmptyMessage(1);
+			if(getActivity() instanceof LaunchActivity){
+				((LaunchActivity)getActivity()).redirectToMain();
+			}
 		}
 	};
 	

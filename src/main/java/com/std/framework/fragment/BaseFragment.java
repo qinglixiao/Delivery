@@ -27,15 +27,10 @@ public class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
         if (getActivity() instanceof BaseTitleActivity) {
             onNavigationBar(((BaseTitleActivity) getActivity()).getNavigationBar());
         }
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     protected void onNavigationBar(NavigationBar navigationBar) {
