@@ -1,6 +1,7 @@
 package com.std.framework.fragment;
 
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,12 +12,14 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.core.FragmentManufacture;
+import com.std.framework.core.Logger;
 import com.std.framework.view.PagerSlidingTabStrip;
 
-public class SecondFragment extends BaseFragment {
+public class SecondFragment extends BaseFragment implements ViewPager.OnPageChangeListener{
     private View view;
     private ViewPager viewPager;
     private PagerSlidingTabStrip tabStrip;
+    private MyPagerAdapter adapter = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class SecondFragment extends BaseFragment {
             viewPager = (ViewPager) view.findViewById(R.id.pager);
             tabStrip = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
             initPager();
+            tabStrip.setOnPageChangeListener(this);
         }
         ViewGroup parent = (ViewGroup) view.getParent();
         if (parent != null)
@@ -34,8 +38,24 @@ public class SecondFragment extends BaseFragment {
     }
 
     private void initPager() {
-        viewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
+        adapter = new MyPagerAdapter(getFragmentManager());
+        viewPager.setAdapter(adapter);
         tabStrip.setViewPager(viewPager);
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        Logger.m(adapter.getItem(position).getClass().getSimpleName());
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 
     class MyPagerAdapter extends FragmentPagerAdapter {

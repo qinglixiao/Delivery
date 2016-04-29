@@ -1,6 +1,6 @@
 package com.std.framework.core;
 
-import android.support.v7.app.ActionBar;
+import android.support.annotation.StringRes;
 import android.support.v7.widget.Toolbar;
 
 /**
@@ -8,19 +8,21 @@ import android.support.v7.widget.Toolbar;
  */
 public class ToolBarWrapper {
     private Toolbar toolbar;
-    private ActionBar actionBar;
-
-    public ActionBar getActionBar() {
-        return actionBar;
-    }
 
     public Toolbar getToolbar() {
         return toolbar;
     }
 
-    public ToolBarWrapper(ActionBar actionBar, Toolbar toolbar) {
-        this.actionBar = actionBar;
+    public ToolBarWrapper(Toolbar toolbar) {
         this.toolbar = toolbar;
+    }
+
+    public void setTitle(@StringRes int resId){
+        toolbar.setTitle(resId);
+    }
+
+    public void setTitle(CharSequence title){
+        toolbar.setTitle(title);
     }
 
 }

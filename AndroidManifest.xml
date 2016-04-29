@@ -28,11 +28,11 @@
         />
 
         <activity android:name=".login.activity.LaunchActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name="com.std.framework.activity.MainActivity"
@@ -86,6 +86,13 @@
             <!--<data android:scheme="something" />-->
             <!--<data android:host="project.example.com" />-->
             <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".activity.ToolBarDemoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

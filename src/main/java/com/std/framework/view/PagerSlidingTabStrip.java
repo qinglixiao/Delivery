@@ -45,7 +45,6 @@ import android.widget.TextView;
 import com.std.framework.R;
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
-	private static final String TAG = "LX";
 
 	public interface IconTabProvider {
 		public int getPageIconResId(int position);
@@ -353,7 +352,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
 		@Override
 		public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-			Log.d(TAG, "position:" + position + "\npositionOffset:" + positionOffset + "\npositionOffsetPixels:" + positionOffsetPixels);
 			currentPosition = position;
 			currentPositionOffset = positionOffset;
 

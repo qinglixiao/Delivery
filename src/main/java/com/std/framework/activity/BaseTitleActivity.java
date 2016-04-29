@@ -21,7 +21,7 @@ public class BaseTitleActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.root_layout);
-        navigationBar = setNavigationBar((Toolbar) findViewById(R.id.toolbar));
+        setNavigationBar((Toolbar) findViewById(R.id.toolbar));
         onNavigationBar(navigationBar);
     }
 
@@ -39,12 +39,11 @@ public class BaseTitleActivity extends BaseActivity {
         container.addView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
 
-    protected NavigationBar setNavigationBar(Toolbar toolbar) {
-        setSupportActionBar(toolbar);
-        return new NavigationBar(new ToolBarWrapper(getSupportActionBar(), toolbar));
+    protected void setNavigationBar(Toolbar toolbar) {
+        navigationBar = new NavigationBar(new ToolBarWrapper(toolbar));
     }
 
-    public NavigationBar getNavigationBar(){
+    public NavigationBar getNavigationBar() {
         return navigationBar;
     }
 

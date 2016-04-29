@@ -48,32 +48,6 @@ public class BaseActivity extends AppCompatActivity {
 		return true;
 	};
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
-		/** 
-		int groupId = 0;
-		int itemId = 0;
-		int order = 1;
-
-		//sample1
-		menu.add("sample1")
-		.setIcon(R.drawable.ic_launcher)
-		.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-
-		//sample2
-		menu.add(groupId, itemId, order, "sample2")
-		.setIcon(R.drawable.ic_launcher)
-		.setShowAsAction(MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-
-		//add group
-		SubMenu subMenu = menu.addSubMenu(groupId, itemId, order, "组");
-		subMenu.add("组-1").setIcon(R.drawable.ic_launcher);
-		subMenu.getItem().setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-		*/
-		return super.onCreateOptionsMenu(menu);
-	}
-
 	public void onBack() {
 		finish();
 	}

@@ -19,38 +19,38 @@ public class Logger {
     private static int LEVEL = VERBOSE;
 
     public static void v(String tag, String msg) {
-        if(PUT_OUT && LEVEL >= VERBOSE && !TextUtils.isEmpty(msg)) {
+        if(PUT_OUT && LEVEL <= VERBOSE && !TextUtils.isEmpty(msg)) {
             Log.v(tag, msg);
         }
     }
 
     public static void d(String tag, String msg) {
-        if(PUT_OUT && LEVEL >= DEBUG && !TextUtils.isEmpty(msg)) {
+        if(PUT_OUT && LEVEL <= DEBUG && !TextUtils.isEmpty(msg)) {
             Log.d(tag, msg);
         }
     }
 
     public static void i(String tag, String msg) {
-        if(PUT_OUT && LEVEL >= INFO && !TextUtils.isEmpty(msg)) {
+        if(PUT_OUT && LEVEL <= INFO && !TextUtils.isEmpty(msg)) {
             Log.i(tag, msg);
         }
     }
 
     public static void w(String tag, String msg) {
-        if(PUT_OUT && LEVEL >= WARN && !TextUtils.isEmpty(msg)) {
+        if(PUT_OUT && LEVEL <= WARN && !TextUtils.isEmpty(msg)) {
             Log.w(tag, msg);
         }
     }
 
     public static void e(String tag, String msg) {
-        if(PUT_OUT && LEVEL >= ERROR && !TextUtils.isEmpty(msg)) {
+        if(PUT_OUT && LEVEL <= ERROR && !TextUtils.isEmpty(msg)) {
             Log.e(tag, msg);
         }
     }
 
     public static void m(String msg) {
-        if(PUT_OUT && LEVEL >= ERROR && !TextUtils.isEmpty(msg)) {
-            Log.e("LX", msg);
+        if(PUT_OUT && LEVEL <= DEBUG && !TextUtils.isEmpty(msg)) {
+            Log.d("LX", msg);
         }
     }
 
