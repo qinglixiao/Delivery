@@ -1,4 +1,4 @@
-package com.std.framework.fragment;
+package com.std.framework.main.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
+import com.std.framework.fragment.BaseFragment;
 
 public class FourFragment extends BaseFragment implements OnClickListener {
     private View view;

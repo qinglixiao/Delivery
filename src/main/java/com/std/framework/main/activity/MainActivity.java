@@ -1,4 +1,4 @@
-package com.std.framework.activity;
+package com.std.framework.main.activity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.std.framework.R;
+import com.std.framework.activity.App;
+import com.std.framework.activity.BaseTitleActivity;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.fragment.BaseFragment;
 import com.std.framework.fragment.Html5NativeCommunicationFragment;

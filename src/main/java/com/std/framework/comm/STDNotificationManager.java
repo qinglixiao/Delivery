@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import com.std.framework.R;
-import com.std.framework.activity.MainTabActivity;
+import com.std.framework.main.activity.MainTabActivity;
 
 
 public class STDNotificationManager {

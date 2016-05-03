@@ -35,10 +35,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.std.framework.activity.MainActivity"
+            android:name=".main.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
         <activity
-            android:name="com.std.framework.activity.MainTabActivity"
+            android:name=".main.activity.MainTabActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
 
         <receiver android:name="com.std.framework.widget.desk.DeskWidgetProvider">
@@ -79,22 +79,6 @@
                 <action android:name="com.baidu.location.service_v2.2"></action>
             </intent-filter>
         </service>
-
-        <activity android:name=".activity.JumpInActivity">
-            <!--<intent-filter>-->
-            <!--<data android:scheme="something" />-->
-            <!--<data android:host="project.example.com" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity
-            android:name=".activity.ToolBarDemoActivity"
-            android:theme="@style/AppTitleBarTransparent">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.std.framework.fragment;
+package com.std.framework.main.fragment;
 
 import java.io.IOException;
 
@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.std.framework.R;
+import com.std.framework.fragment.BaseFragment;
 import com.std.framework.view.ShapeView;
 
 public class ThreeFragment extends BaseFragment implements OnClickListener{

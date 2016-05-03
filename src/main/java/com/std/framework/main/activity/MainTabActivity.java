@@ -1,4 +1,4 @@
-package com.std.framework.activity;
+package com.std.framework.main.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
@@ -9,12 +9,13 @@ import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
 
 import com.std.framework.R;
+import com.std.framework.activity.BaseTitleActivity;
 import com.std.framework.core.NavigationBar;
-import com.std.framework.fragment.FiveFragment;
-import com.std.framework.fragment.FourFragment;
-import com.std.framework.fragment.MainFragment;
-import com.std.framework.fragment.SecondFragment;
-import com.std.framework.fragment.ThreeFragment;
+import com.std.framework.main.fragment.FiveFragment;
+import com.std.framework.main.fragment.FourFragment;
+import com.std.framework.main.fragment.MainFragment;
+import com.std.framework.main.fragment.SecondFragment;
+import com.std.framework.main.fragment.ThreeFragment;
 
 public class MainTabActivity extends BaseTitleActivity implements OnTabChangeListener{
 	private static final String PAGE_ONE = "page_one";

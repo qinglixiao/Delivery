@@ -44,7 +44,6 @@ public class NavigationBar {
 
     public void setNavigationContentDescription(CharSequence txt){
         wrapper.getToolbar().setNavigationContentDescription(txt);
-        wrapper.getToolbar().setSubtitle("返回");
     }
 
     public void setMenu(@MenuRes int resId) {

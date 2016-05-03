@@ -1,4 +1,4 @@
-package com.std.framework.fragment;
+package com.std.framework.main.fragment;
 
 import com.std.framework.R;
 

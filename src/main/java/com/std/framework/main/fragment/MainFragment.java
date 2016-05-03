@@ -1,8 +1,9 @@
-package com.std.framework.fragment;
+package com.std.framework.main.fragment;
 
 import com.std.framework.R;
 import com.std.framework.comm.BaiduLocationProvider;
 import com.std.framework.comm.BaiduLocationProvider.LocationListener;
+import com.std.framework.fragment.BaseFragment;
 import com.std.framework.service.ICallBack;
 import com.std.framework.service.IRemoteService;
 import com.std.framework.service.StdService;

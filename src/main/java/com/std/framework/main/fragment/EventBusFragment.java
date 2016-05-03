@@ -1,4 +1,4 @@
-package com.std.framework.fragment;
+package com.std.framework.main.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.std.framework.R;
 import com.std.framework.core.NavigationBar;
+import com.std.framework.fragment.BaseFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

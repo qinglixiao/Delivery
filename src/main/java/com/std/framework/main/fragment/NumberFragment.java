@@ -1,4 +1,4 @@
-package com.std.framework.fragment;
+package com.std.framework.main.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -13,7 +13,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.activity.MainActivity;
+import com.std.framework.fragment.BaseFragment;
+import com.std.framework.main.activity.MainActivity;
 import com.std.framework.view.TouchSlopView;
 import com.std.framework.view.TouchSlopView.OnSlopListener;
 

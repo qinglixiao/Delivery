@@ -1,7 +1,6 @@
-package com.std.framework.fragment;
+package com.std.framework.main.fragment;
 
 import android.os.Bundle;
-import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,6 +12,7 @@ import android.view.ViewGroup;
 import com.std.framework.R;
 import com.std.framework.core.FragmentManufacture;
 import com.std.framework.core.Logger;
+import com.std.framework.fragment.BaseFragment;
 import com.std.framework.view.PagerSlidingTabStrip;
 
 public class SecondFragment extends BaseFragment implements ViewPager.OnPageChangeListener{
