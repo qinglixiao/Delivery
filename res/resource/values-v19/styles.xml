@@ -1,16 +1,8 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <!--<item name="colorPrimary">@color/solid_red</item>-->
-        <!--<item name="colorPrimaryDark">@color/solid_red</item>-->
-        <!--<item name="colorAccent">@color/solid_red</item>-->
-    </style>
-
     <style name="AppTitleBarTransparent" parent="AppTheme">
-        <!--<item name="android:windowTranslucentStatus">true</item>-->
-        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
 </resources>

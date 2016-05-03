@@ -34,9 +34,9 @@ public class BaseActivity extends AppCompatActivity {
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
-		super.onDestroy();
 		/**销毁栈信息*/
 		STDActivityManager.getInstance().remove(this);
+		super.onDestroy();
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -50,31 +50,6 @@ public class BaseActivity extends AppCompatActivity {
 
 	public void onBack() {
 		finish();
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
-		if (keyCode == KeyEvent.KEYCODE_MENU) {
-			//弹出菜单，退出系统
-			WidgetUtil.popMenuExit(this, new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					if (v.getId() == R.id.btn_exit) {
-						MessageTip.confirm(BaseActivity.this, "确定退出系统？", new OnTipClickListener() {
-
-							public void onClick(int id) {
-								// TODO Auto-generated method stub
-								if (id == MessageTip.OK)
-									((App) getApplicationContext()).exit();
-							}
-						});
-					}
-				}
-			});
-		}
-		return super.onKeyDown(keyCode, event);
 	}
 
 }

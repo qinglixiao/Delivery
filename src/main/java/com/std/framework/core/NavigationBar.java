@@ -2,7 +2,9 @@ package com.std.framework.core;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.MenuRes;
+import android.support.annotation.StringRes;
 import android.view.Menu;
+import android.view.View;
 
 import com.std.framework.interfaces.OnMenuItemWrapClickListener;
 
@@ -24,12 +26,25 @@ public class NavigationBar {
         wrapper.setTitle(title);
     }
 
+    public void setTitle(@StringRes int resId){
+        wrapper.setTitle(resId);
+    }
+
     public void setOnMenuItemClickListener(OnMenuItemWrapClickListener listener) {
         wrapper.getToolbar().setOnMenuItemClickListener(listener);
     }
 
+    public void setOnNavigationClickListener(View.OnClickListener listener){
+        wrapper.getToolbar().setNavigationOnClickListener(listener);
+    }
+
     public void setNavigationIcon(@DrawableRes int resId) {
         wrapper.getToolbar().setNavigationIcon(resId);
+    }
+
+    public void setNavigationContentDescription(CharSequence txt){
+        wrapper.getToolbar().setNavigationContentDescription(txt);
+        wrapper.getToolbar().setSubtitle("返回");
     }
 
     public void setMenu(@MenuRes int resId) {

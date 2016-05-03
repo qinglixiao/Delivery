@@ -58,7 +58,7 @@ public class ResourceUtil {
      * @param colorName
      * @return
      */
-    public static int getColorId(String colorName) {
+    private static int getColorId(String colorName) {
         try {
             return App.instance.getResources().getIdentifier(colorName, "color", App.instance.getPackageName());
         } catch (Exception ex) {
@@ -72,7 +72,7 @@ public class ResourceUtil {
      * @param stringName
      * @return
      */
-    public static int getStringId(String stringName) {
+    private static int getStringId(String stringName) {
         try {
             return App.instance.getResources().getIdentifier(stringName, "string", App.instance.getPackageName());
         } catch (Exception ex) {
@@ -86,7 +86,7 @@ public class ResourceUtil {
      * @param drawableName
      * @return
      */
-    public static int getDrawableId(String drawableName) {
+    private static int getDrawableId(String drawableName) {
         try {
             return App.instance.getResources().getIdentifier(drawableName, "drawable", App.instance.getPackageName());
         } catch (Exception ex) {

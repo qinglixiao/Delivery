@@ -97,13 +97,6 @@ public class TestMethod extends AndroidTestCase {
         assertEquals(SharedPreferencesUtil.getUser(), "LX");
     }
 
-    public void testResourceUtil() {
-        String s = ResourceUtil.getString("login_001");
-        assertEquals(s, "登录名称不可用");
-        int w = ResourceUtil.getStringId(null);
-        assertEquals(w, -1);
-    }
-
     public void testLogger() {
         Logger.PUT_OUT = true;
         Logger.m("logger_debug");
