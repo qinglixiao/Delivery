@@ -25,14 +25,12 @@ public class MainTabActivity extends BaseTitleActivity implements OnTabChangeLis
 	private static final String PAGE_FIVE = "page_five";
 
 	private FragmentTabHost mTabHost;
-	private LayoutInflater layoutInflater;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub
 		super.onCreate(arg0);
 		setContentView(R.layout.activity_tab_main);
-		layoutInflater = getLayoutInflater();
 		initViewTab();
 	}
 
@@ -60,7 +58,7 @@ public class MainTabActivity extends BaseTitleActivity implements OnTabChangeLis
 	}
 
 	private View newIndicator(int imgResId, String text) {
-		View view = layoutInflater.inflate(R.layout.tab_wiget_item, null);
+		View view = View.inflate(this,R.layout.tab_wiget_item, null);
 		((ImageView) view.findViewById(R.id.tab_img)).setImageResource(imgResId);
 		((TextView) view.findViewById(R.id.tab_tv)).setText(text);
 		return view;
@@ -69,7 +67,6 @@ public class MainTabActivity extends BaseTitleActivity implements OnTabChangeLis
 	@Override
 	protected void onNavigationBar(NavigationBar navigation) {
 		super.onNavigationBar(navigation);
-		navigation.setSubTitle("子标题");
 	}
 
 	public void onDestroy() {

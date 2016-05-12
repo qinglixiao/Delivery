@@ -1,6 +1,6 @@
 <resources>
     <!-- Application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <!--导航栏底色-->
         <item name="colorPrimary">@color/solid_orange</item>
@@ -18,12 +18,9 @@
         <item name="colorButtonNormal">@color/accent_material_light</item>
         <!--EditText 输入框中字体的颜色-->
         <item name="editTextColor">@android:color/black</item>
-
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
     </style>
     
-    <style name="AppTitleBarTransparent" parent="AppTheme">
+    <style name="AppTheme" parent="BaseAppTheme">
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!--<item name="android:windowTranslucentNavigation">true</item>-->
     </style>

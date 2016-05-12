@@ -8,7 +8,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
+import android.view.animation.Animation;
 import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +27,7 @@ public class FourFragment extends BaseFragment implements OnClickListener {
     private View view;
     private TextView target_view;
     private TextView target_color_view;
+    private View circle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,12 +40,19 @@ public class FourFragment extends BaseFragment implements OnClickListener {
         Button btn_add = (Button) view.findViewById(R.id.frag4_btn_add);
         Button btn_color = (Button) view.findViewById(R.id.frag4_btn_color);
         Button btn_after = (Button) view.findViewById(R.id.frag4_btn_after);
+        circle = view.findViewById(R.id.circle);
         btn_after.setOnClickListener(this);
         btn_add.setOnClickListener(this);
         btn_obj.setOnClickListener(this);
         btn_pro.setOnClickListener(this);
         btn_color.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        startRotate();
     }
 
     @Override
@@ -108,6 +118,15 @@ public class FourFragment extends BaseFragment implements OnClickListener {
     //多属性组合动画
     private void proAnima(View view) {
         ViewPropertyAnimator.animate(view).scaleX(2).scaleY(2).start();
+    }
+
+    private void startRotate(){
+//        ViewPropertyAnimator.animate(circle).rotation(360).setDuration(3).
+        RotateAnimation animation = new RotateAnimation(0,360);
+        animation.setDuration(3000);
+        animation.setFillAfter(true);
+        animation.setRepeatMode(Animation.INFINITE);
+        circle.startAnimation(animation);
     }
 
     //向窗口添加元素

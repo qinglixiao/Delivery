@@ -10,6 +10,7 @@ import com.std.framework.main.activity.MainActivity;
 import com.std.framework.comm.STDActivityManager;
 import com.std.framework.comm.STDFragmentManager;
 import com.std.framework.login.fragment.GuideFragment;
+import com.std.framework.main.activity.MainTabActivity;
 import com.std.framework.util.SharedPreferencesUtil;
 
 public class LaunchActivity extends BaseActivity {

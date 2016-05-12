@@ -15,6 +15,10 @@ import com.std.framework.core.Logger;
 import com.std.framework.main.fragment.FourFragment;
 import com.std.framework.util.SharedPreferencesUtil;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
 import java.io.IOException;
 
 
@@ -99,6 +103,18 @@ public class TestMethod extends AndroidTestCase {
     public void testLogger() {
         Logger.PUT_OUT = true;
         Logger.m("logger_debug");
+    }
+
+    public void testJson(){
+        String json = "{\"code\":500,\"message\":\"指定的审批人不是设备管理员\"}";
+        JSONTokener jsonTokener = new JSONTokener(json);
+        try {
+            JSONObject object = (JSONObject) jsonTokener.nextValue();
+            int error = object.getInt("code");
+            Logger.m(error+"");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }

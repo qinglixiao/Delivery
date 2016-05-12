@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/frag4_target"
@@ -63,5 +63,23 @@
         android:layout_alignBottom="@+id/frag4_btn_color"
         android:layout_alignLeft="@+id/frag4_btn_pro"
         android:text="after" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/beacon_shake" />
+
+        <ImageView
+            android:id="@+id/circle"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/beacon_circle" />
+
+    </FrameLayout>
 
 </RelativeLayout>

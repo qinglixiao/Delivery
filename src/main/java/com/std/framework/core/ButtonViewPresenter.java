@@ -3,5 +3,6 @@ package com.std.framework.core;
 /**
  * Created by gfy on 2016/5/6.
  */
-public class ButtonViewPresenter {
+public interface ButtonViewPresenter extends Presenter {
+    void performClick();
 }
