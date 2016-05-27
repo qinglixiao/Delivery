@@ -15,7 +15,7 @@
         <!--和 colorAccent相反，正常状态下按钮的颜色-->
         <item name="colorControlNormal">#ff0000</item>
         <!--Button按钮正常状态颜色-->
-        <item name="colorButtonNormal">@color/accent_material_light</item>
+        <item name="colorButtonNormal">@color/solid_orange</item>
         <!--EditText 输入框中字体的颜色-->
         <item name="editTextColor">@android:color/black</item>
     </style>

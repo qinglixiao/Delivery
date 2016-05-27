@@ -1,4 +1,4 @@
-package com.std.framework.main.fragment;
+package com.std.framework.main.view.fragment;
 
 import com.std.framework.R;
 import com.std.framework.comm.BaiduLocationProvider;

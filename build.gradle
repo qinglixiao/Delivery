@@ -39,6 +39,10 @@ android {
         javaMaxHeapSize "4g"
     }
 
+    dataBinding {
+        enabled true
+    }
+
     defaultConfig {
         applicationId "com.std.framework"
         minSdkVersion 19

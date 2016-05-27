@@ -1,4 +1,4 @@
-package com.std.framework.main.fragment;
+package com.std.framework.main.view.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -46,13 +47,13 @@ public class FourFragment extends BaseFragment implements OnClickListener {
         btn_obj.setOnClickListener(this);
         btn_pro.setOnClickListener(this);
         btn_color.setOnClickListener(this);
+        startRotate();
         return view;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startRotate();
     }
 
     @Override
@@ -120,12 +121,14 @@ public class FourFragment extends BaseFragment implements OnClickListener {
         ViewPropertyAnimator.animate(view).scaleX(2).scaleY(2).start();
     }
 
-    private void startRotate(){
+    private void startRotate() {
 //        ViewPropertyAnimator.animate(circle).rotation(360).setDuration(3).
-        RotateAnimation animation = new RotateAnimation(0,360);
+        RotateAnimation animation = new RotateAnimation(0, 720, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(3000);
         animation.setFillAfter(true);
-        animation.setRepeatMode(Animation.INFINITE);
+        animation.setRepeatMode(Animation.RESTART);
+        animation.setRepeatCount(Animation.INFINITE);
+        animation.setInterpolator(new LinearInterpolator());
         circle.startAnimation(animation);
     }
 

@@ -6,11 +6,10 @@ import android.os.Bundle;
 import com.library.util.ThreadPool;
 import com.std.framework.R;
 import com.std.framework.activity.BaseActivity;
-import com.std.framework.main.activity.MainActivity;
 import com.std.framework.comm.STDActivityManager;
 import com.std.framework.comm.STDFragmentManager;
 import com.std.framework.login.fragment.GuideFragment;
-import com.std.framework.main.activity.MainTabActivity;
+import com.std.framework.main.view.activity.MainTabActivity;
 import com.std.framework.util.SharedPreferencesUtil;
 
 public class LaunchActivity extends BaseActivity {
@@ -45,7 +44,7 @@ public class LaunchActivity extends BaseActivity {
     };
 
     public void redirectToMain() {
-        Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+        Intent intent = new Intent(LaunchActivity.this, MainTabActivity.class);
         startActivity(intent);
         finish();
     }

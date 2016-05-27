@@ -1,4 +1,4 @@
-package com.std.framework.main.fragment;
+package com.std.framework.main.view.fragment;
 
 import android.os.Bundle;
 import android.util.Log;

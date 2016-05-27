@@ -1,4 +1,4 @@
-package com.std.framework.main.activity;
+package com.std.framework.main.view.activity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
