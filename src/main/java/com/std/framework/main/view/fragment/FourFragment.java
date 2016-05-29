@@ -1,5 +1,6 @@
 package com.std.framework.main.view.fragment;
 
+import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,33 +23,29 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
+import com.std.framework.databinding.FragmentFourBinding;
 import com.std.framework.fragment.BaseFragment;
 
 public class FourFragment extends BaseFragment implements OnClickListener {
     private View view;
-    private TextView target_view;
-    private TextView target_color_view;
-    private View circle;
+    private FragmentFourBinding fragmentFourBinding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         view = inflater.inflate(R.layout.fragment_four, null);
-        target_view = (TextView) view.findViewById(R.id.frag4_target);
-        target_color_view = (TextView) view.findViewById(R.id.frag4_color);
-        Button btn_obj = (Button) view.findViewById(R.id.frag4_btn_obj);
-        Button btn_pro = (Button) view.findViewById(R.id.frag4_btn_pro);
-        Button btn_add = (Button) view.findViewById(R.id.frag4_btn_add);
-        Button btn_color = (Button) view.findViewById(R.id.frag4_btn_color);
-        Button btn_after = (Button) view.findViewById(R.id.frag4_btn_after);
-        circle = view.findViewById(R.id.circle);
-        btn_after.setOnClickListener(this);
-        btn_add.setOnClickListener(this);
-        btn_obj.setOnClickListener(this);
-        btn_pro.setOnClickListener(this);
-        btn_color.setOnClickListener(this);
+        fragmentFourBinding = DataBindingUtil.bind(view);
+        setListener();
         startRotate();
         return view;
+    }
+
+    private void setListener(){
+        fragmentFourBinding.frag4BtnAdd.setOnClickListener(this);
+        fragmentFourBinding.frag4BtnAfter.setOnClickListener(this);
+        fragmentFourBinding.frag4BtnColor.setOnClickListener(this);
+        fragmentFourBinding.frag4BtnObj.setOnClickListener(this);
+        fragmentFourBinding.frag4BtnPro.setOnClickListener(this);
     }
 
     @Override
@@ -60,19 +57,19 @@ public class FourFragment extends BaseFragment implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.frag4_btn_obj:
-                objAnima(target_view);
+                objAnima(fragmentFourBinding.frag4Target);
                 break;
             case R.id.frag4_btn_pro:
-                proAnima(target_view);
+                proAnima(fragmentFourBinding.frag4Target);
                 break;
             case R.id.frag4_btn_add:
                 addView();
                 break;
             case R.id.frag4_btn_color:
-                colorTrans(target_color_view);
+                colorTrans(fragmentFourBinding.frag4Color);
                 break;
             case R.id.frag4_btn_after:
-                afterAnim(target_view);
+                afterAnim(fragmentFourBinding.frag4Target);
                 break;
         }
     }
@@ -122,14 +119,13 @@ public class FourFragment extends BaseFragment implements OnClickListener {
     }
 
     private void startRotate() {
-//        ViewPropertyAnimator.animate(circle).rotation(360).setDuration(3).
         RotateAnimation animation = new RotateAnimation(0, 720, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(3000);
         animation.setFillAfter(true);
         animation.setRepeatMode(Animation.RESTART);
         animation.setRepeatCount(Animation.INFINITE);
         animation.setInterpolator(new LinearInterpolator());
-        circle.startAnimation(animation);
+       fragmentFourBinding.circle.startAnimation(animation);
     }
 
     //向窗口添加元素

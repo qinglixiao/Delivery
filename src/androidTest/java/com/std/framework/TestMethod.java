@@ -117,4 +117,9 @@ public class TestMethod extends AndroidTestCase {
         }
     }
 
+    public void testNetWork(){
+//        assertTrue(LibUtil.isNetworkConnected(getContext()));
+//        assertTrue(LibUtil.isNetWorkAvailable(getContext()));
+    }
+
 }
