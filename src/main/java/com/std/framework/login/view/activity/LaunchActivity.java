@@ -1,4 +1,4 @@
-package com.std.framework.login.activity;
+package com.std.framework.login.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

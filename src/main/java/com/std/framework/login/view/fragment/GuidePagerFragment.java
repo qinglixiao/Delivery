@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.std.framework.R;
-import com.std.framework.login.activity.LaunchActivity;
+import com.std.framework.login.view.activity.LaunchActivity;
 
 public class GuidePagerFragment extends Fragment {
 	public boolean isLastPager;

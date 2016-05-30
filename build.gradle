@@ -24,10 +24,11 @@ dependencies {
     compile project(':STDlibrary')
     compile project(':STDlibrary_res')
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'org.altbeacon:android-beacon-library:2+'
     compile 'com.facebook.fresco:fresco:0.8.1+'
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+    compile 'com.squareup.retrofit2:retrofit:2.+'
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'io.reactivex:rxandroid:1.+'
+    compile 'io.reactivex:rxjava:1.+'
 }
 
 android {
