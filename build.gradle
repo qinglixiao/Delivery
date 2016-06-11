@@ -12,7 +12,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.android.tools.build:gradle:2.1.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -21,6 +21,7 @@ buildscript {
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
     testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:1.9.5"
     compile project(':STDlibrary')
     compile project(':STDlibrary_res')
     compile 'org.greenrobot:eventbus:3.0.0'
@@ -59,6 +60,9 @@ android {
         abortOnError false
     }
 
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 
 //    productFlavors {
 //        playstore {
