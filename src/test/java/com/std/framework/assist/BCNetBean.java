@@ -1,7 +1,5 @@
 package com.std.framework.assist;
 
-import java.util.List;
-
 /**
  * Created by gfy on 2016/4/18.
  */

@@ -1,4 +1,4 @@
-package com.std.framework.net;
+package com.std.framework.net.basic;
 
 /**
  * Created by gfy on 2016/4/10.
