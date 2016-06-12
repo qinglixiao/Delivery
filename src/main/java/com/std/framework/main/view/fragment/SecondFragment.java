@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.core.FragmentManufacture;
-import com.std.framework.core.Logger;
+import com.std.framework.util.Logger;
 import com.std.framework.fragment.BaseFragment;
 import com.std.framework.view.PagerSlidingTabStrip;
 

@@ -1,4 +1,4 @@
-package com.std.framework.core;
+package com.std.framework.util;
 
 import android.text.TextUtils;
 import android.util.Log;

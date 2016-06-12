@@ -1,8 +1,6 @@
 package com.std.framework.util;
 
 import android.app.Activity;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
@@ -15,16 +13,6 @@ public class AppUtil {
     public static void onKeyBackPressed(Activity activity) {
         activity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK));
         activity.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK));
-    }
-
-    /**
-     * 取消或者删除所有状态栏通知
-     *
-     * @param context
-     */
-    public static void cancelAllNotification(Context context) {
-        ((NotificationManager) context
-                .getSystemService(Context.NOTIFICATION_SERVICE)).cancelAll();
     }
 
     public static String getMetaData(String metaName) {

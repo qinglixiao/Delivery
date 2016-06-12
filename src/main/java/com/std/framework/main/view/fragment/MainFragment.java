@@ -7,9 +7,8 @@ import com.std.framework.databinding.FragmentMainBinding;
 import com.std.framework.fragment.BaseFragment;
 import com.std.framework.service.ICallBack;
 import com.std.framework.service.IRemoteService;
-import com.std.framework.service.StdService;
+import com.std.framework.service.InnerService;
 
-import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -26,9 +25,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainFragment extends BaseFragment implements OnClickListener{
@@ -58,11 +54,11 @@ public class MainFragment extends BaseFragment implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 			case R.id.btn_open:
-				Intent intent = new Intent(getActivity(), StdService.class);
+				Intent intent = new Intent(getActivity(), InnerService.class);
 				getActivity().bindService(intent, connection, Context.BIND_AUTO_CREATE);
 				break;
 			case R.id.btn_close:
-				intent = new Intent(getActivity(), StdService.class);
+				intent = new Intent(getActivity(), InnerService.class);
 				getActivity().unbindService(connection);
 				break;
 			case R.id.btn_request:

@@ -1,6 +1,8 @@
 package com.std.framework.util;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -39,5 +41,15 @@ public class WidgetUtil {
 		popupWindow.setWindowLayoutMode(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		popupWindow.setContentView(view);
 		popupWindow.showAtLocation(context.getWindow().getDecorView(), Gravity.BOTTOM, 0,0);
+	}
+
+	/**
+	 * 取消或者删除所有状态栏通知
+	 *
+	 * @param context
+	 */
+	public static void cancelAllNotification(Context context) {
+		((NotificationManager) context
+				.getSystemService(Context.NOTIFICATION_SERVICE)).cancelAll();
 	}
 }

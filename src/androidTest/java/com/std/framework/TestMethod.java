@@ -11,7 +11,7 @@ import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
 import com.std.framework.assist.Bean;
-import com.std.framework.core.Logger;
+import com.std.framework.util.Logger;
 import com.std.framework.main.view.fragment.FourFragment;
 import com.std.framework.util.SharedPreferencesUtil;
 
