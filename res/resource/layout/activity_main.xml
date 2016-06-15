@@ -8,7 +8,7 @@
         <FrameLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -47,7 +47,28 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|bottom"
                 android:text="New RadioButton" />
+
+
         </FrameLayout>
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="新增" />
+
+        <Button
+            android:id="@+id/btn_dellllll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="第二" />
+
+        <Button
+            android:id="@+id/btn_removellllll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="第二" />
+
 
     </LinearLayout>
 </layout>

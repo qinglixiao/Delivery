@@ -41,19 +41,4 @@ public class MainActivity extends BaseTitleActivity {
 		Log.d(TAG, "onConfigurationChanged");
 	}
 
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			if ((System.currentTimeMillis() - mExitTime) > 2000) {
-				Toast.makeText(this, "再按一下退出系统", Toast.LENGTH_SHORT).show();
-				mExitTime = System.currentTimeMillis();
-			}
-			else {
-				App.instance.exit();
-			}
-			return false;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
-
 }
