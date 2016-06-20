@@ -11,6 +11,7 @@ buildscript {
     repositories {
         jcenter()
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:2.1.2'
         // NOTE: Do not place your application dependencies here; they belong
@@ -19,9 +20,9 @@ buildscript {
 }
 
 dependencies {
-    compile fileTree(include: '*.jar', dir: 'libs')
+    compile fileTree(dir: 'libs', include: '*.jar')
     testCompile 'junit:junit:4.12'
-    testCompile "org.mockito:mockito-core:1.9.5"
+    testCompile 'org.mockito:mockito-core:1.9.5'
     compile project(':STDlibrary')
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.facebook.fresco:fresco:0.8.1+'
@@ -47,7 +48,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.std.framework"
+        applicationId "com.std.framework.delivery"
         minSdkVersion 19
         targetSdkVersion 23
         multiDexEnabled true
@@ -79,9 +80,9 @@ android {
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src/main/java','src-gen']
+            java.srcDirs = ['src/main/java', 'src-gen']
             aidl.srcDirs = ['src/main/java']
-            res.srcDirs = ['res/resource','res/main','res/lib']
+            res.srcDirs = ['res/resource', 'res/main', 'res/lib','res/getui']
             assets.srcDirs = ['assets']
         }
 
