@@ -1,5 +1,6 @@
 package com.std.framework.util;
 
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 
 import com.std.framework.activity.App;
@@ -9,6 +10,14 @@ import com.std.framework.activity.App;
  * Created by gfy on 2016/4/7.
  */
 public class ResourceUtil {
+
+    /**
+     * 获取应用资源
+     * @return
+     */
+    public static Resources getResource(){
+       return App.instance.getResources();
+    }
 
     /**
      * 根据图像名称获取drawable
