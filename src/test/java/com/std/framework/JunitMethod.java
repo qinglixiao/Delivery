@@ -1,5 +1,9 @@
 package com.std.framework;
 
+import com.google.gson.Gson;
+import com.std.framework.assist.JunitUtil;
+import com.std.framework.util.Logger;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -8,6 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.HashMap;
 
 /**
  * Created by gfy on 2016/4/14.
@@ -112,5 +117,36 @@ public class JunitMethod {
         long s = Long.parseLong("F36804BD", 16);
         int a = (int) s;
     }
+
+    @Test
+    public void GsonMap() {
+        HashMap<String, String> param = new HashMap<>();
+        param.put("userId", "LX");
+        param.put("userName", "李晓");
+        param.put("token", "resee235jfoiexoeor");
+        JunitUtil.log(new Gson().toJson(param));
+    }
+
+    @Test
+    public void testClone(){
+        class People implements Cloneable{
+            @Override
+            public Object clone() {
+                People people = null;
+                try {
+                    people = (People) super.clone();
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+                return people;
+            }
+        }
+
+        People people1 = new People();
+        JunitUtil.log(people1.hashCode()+"");
+        JunitUtil.log(people1.clone().hashCode()+"");
+
+    }
+
 
 }
