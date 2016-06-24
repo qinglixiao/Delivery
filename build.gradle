@@ -51,8 +51,9 @@ android {
         applicationId "com.std.framework.delivery"
         minSdkVersion 19
         targetSdkVersion 23
-        multiDexEnabled true
-        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
+//        multiDexEnabled true
+//        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
     }
 
     lintOptions {
@@ -82,7 +83,7 @@ android {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src/main/java', 'src-gen']
             aidl.srcDirs = ['src/main/java']
-            res.srcDirs = ['res/resource', 'res/main', 'res/lib','res/getui']
+            res.srcDirs = ['res/resource', 'res/main', 'res/lib', 'res/getui']
             assets.srcDirs = ['assets']
         }
 
