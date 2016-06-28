@@ -1,6 +1,7 @@
 package com.std.framework;
 
 import com.std.framework.assist.JunitUtil;
+import com.std.framework.net.basic.ToStringConverterFactory;
 
 import org.junit.Test;
 
@@ -22,7 +23,7 @@ public class TestRetrofit {
     String url = "https://api.douban.com/v2/movie/";
 
     interface Sample {
-        @GET("/")
+        @GET("top250")
         Call<String> getTopMovieString(@Query("start") int start, @Query("count") int count);
 
         @GET("top250")
@@ -32,8 +33,8 @@ public class TestRetrofit {
     private Sample getSample() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(new ToStringConverterFactory())
                 .build();
 
         return retrofit.create(Sample.class);

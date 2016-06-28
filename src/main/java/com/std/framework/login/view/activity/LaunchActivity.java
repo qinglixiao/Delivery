@@ -3,7 +3,7 @@ package com.std.framework.login.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.library.util.ThreadPool;
+import com.library.core.ThreadPool;
 import com.std.framework.R;
 import com.std.framework.activity.BaseActivity;
 import com.std.framework.comm.STDActivityManager;
