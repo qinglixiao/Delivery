@@ -148,5 +148,32 @@ public class JunitMethod {
 
     }
 
+    @Test
+    public void testEnum(){
+        A a = A.valueOf(B.Choole.name());
+    }
+
+    enum A{
+        Choole,
+        Home,
+        Me
+    }
+
+    enum B{
+        Choole,
+        Home,
+        Me
+    }
+
+    @Test
+    public void swap(){
+        int a = 10,b = 20;
+        a = a^b;
+        b = a^b;
+        a = a^b;
+        JunitUtil.log("a = "+a +" b = "+b);
+    }
+
+
 
 }
