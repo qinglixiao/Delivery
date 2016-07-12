@@ -105,21 +105,16 @@ public class TestMethod extends AndroidTestCase {
         Logger.m("logger_debug");
     }
 
-    public void testJson(){
+    public void testJson() {
         String json = "{\"code\":500,\"message\":\"指定的审批人不是设备管理员\"}";
         JSONTokener jsonTokener = new JSONTokener(json);
         try {
             JSONObject object = (JSONObject) jsonTokener.nextValue();
             int error = object.getInt("code");
-            Logger.m(error+"");
+            Logger.m(error + "");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
-
-    public void testNetWork(){
-//        assertTrue(LibUtil.isNetworkConnected(getContext()));
-//        assertTrue(LibUtil.isNetWorkAvailable(getContext()));
     }
 
 }

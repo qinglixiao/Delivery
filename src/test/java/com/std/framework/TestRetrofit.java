@@ -79,8 +79,4 @@ public class TestRetrofit {
         String title;
     }
 
-    class Sub {
-        String rating;
-
-    }
 }
