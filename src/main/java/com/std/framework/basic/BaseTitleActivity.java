@@ -1,4 +1,4 @@
-package com.std.framework.activity;
+package com.std.framework.basic;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;

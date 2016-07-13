@@ -8,7 +8,7 @@ import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.activity.BaseTitleActivity;
+import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.main.view.fragment.FiveFragment;
 import com.std.framework.main.view.fragment.FourFragment;

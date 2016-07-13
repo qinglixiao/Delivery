@@ -1,8 +1,8 @@
-package com.std.framework.core;
+package com.std.framework.basic;
 
 /**
  * Created by gfy on 2016/5/6.
  */
-public interface BaseView<T> {
+public interface IBaseView<T> {
     void setPresenter(T presenter);
 }

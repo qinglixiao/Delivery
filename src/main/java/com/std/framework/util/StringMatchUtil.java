@@ -5,7 +5,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.std.framework.activity.App;
+import com.std.framework.basic.App;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

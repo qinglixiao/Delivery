@@ -15,7 +15,7 @@ import com.std.framework.util.Logger;
 import com.std.framework.fragment.BaseFragment;
 import com.std.framework.view.PagerSlidingTabStrip;
 
-public class SecondFragment extends BaseFragment implements ViewPager.OnPageChangeListener{
+public class SecondFragment extends BaseFragment implements ViewPager.OnPageChangeListener {
     private View view;
     private ViewPager viewPager;
     private PagerSlidingTabStrip tabStrip;
@@ -61,7 +61,7 @@ public class SecondFragment extends BaseFragment implements ViewPager.OnPageChan
     class MyPagerAdapter extends FragmentPagerAdapter {
 
         private final String[] TITLES = {"Categories", "Home", "Top Paid", "Top Free", "Top Grossing", "ButtonImageView", "Top New Free",
-                "Trending", "EventBus"};
+                "Trending", "EventBus", "RxBus"};
 
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -81,6 +81,9 @@ public class SecondFragment extends BaseFragment implements ViewPager.OnPageChan
         public Fragment getItem(int position) {
             if (TITLES[position].equals("EventBus"))
                 return FragmentManufacture.make(null, EventBusFragment.class);
+            else if (TITLES[position].equals("RxBus"))
+                return FragmentManufacture.make(null, RxBusFragment.class);
+
             else
                 return PagerFragment.newInstance(position, TITLES[position]);
         }

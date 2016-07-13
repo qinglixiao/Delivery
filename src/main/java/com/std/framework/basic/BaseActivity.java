@@ -1,19 +1,11 @@
-package com.std.framework.activity;
+package com.std.framework.basic;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
 
-import com.std.framework.R;
 import com.std.framework.comm.STDActivityManager;
 import com.std.framework.comm.STDFragmentManager;
-import com.std.framework.interfaces.OnTipClickListener;
-import com.std.framework.util.WidgetUtil;
-import com.std.framework.widget.dialog.MessageTip;
 
 public class BaseActivity extends AppCompatActivity {
 	/**视图管理器*/

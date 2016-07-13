@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.library.core.ThreadPool;
 import com.std.framework.R;
-import com.std.framework.activity.BaseActivity;
+import com.std.framework.basic.BaseActivity;
 import com.std.framework.comm.STDActivityManager;
 import com.std.framework.comm.STDFragmentManager;
 import com.std.framework.login.fragment.GuideFragment;

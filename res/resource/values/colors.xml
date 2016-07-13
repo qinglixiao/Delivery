@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- 屏幕黑色不透明背景 -->
-    <drawable name="screen_background_black">#ff000000</drawable>
     <!-- 半透明背景 -->
-    <drawable name="translucent_background">#e0000000</drawable>
+    <drawable name="translucent">#e0000000</drawable>
     <!-- 透明背景 -->
-    <drawable name="transparent_background">#00000000</drawable>
+    <drawable name="transparent">#00000000</drawable>
 
     <color name="solid_red">#f00</color>
     <color name="solid_blue">#0000ff</color>

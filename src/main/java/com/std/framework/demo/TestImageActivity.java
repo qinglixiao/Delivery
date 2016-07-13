@@ -1,6 +1,6 @@
 package com.std.framework.demo;
 
-import com.std.framework.activity.BaseTitleActivity;
+import com.std.framework.basic.BaseTitleActivity;
 
 /**
  * Created by gfy on 2016/6/24.

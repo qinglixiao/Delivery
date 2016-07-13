@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 
-import com.std.framework.activity.App;
+import com.std.framework.basic.App;
 
 public class AppUtil {
     // 返回

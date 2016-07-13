@@ -1,4 +1,4 @@
-package com.std.framework.activity;
+package com.std.framework.basic;
 
 import android.app.Application;
 import android.util.Log;

@@ -3,7 +3,7 @@ package com.std.framework.util;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 
-import com.std.framework.activity.App;
+import com.std.framework.basic.App;
 
 /**
  * 项目资源工具类

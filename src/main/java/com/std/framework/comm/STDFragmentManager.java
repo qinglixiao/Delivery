@@ -2,7 +2,7 @@ package com.std.framework.comm;
 
 import android.support.v4.app.FragmentManager;
 
-import com.std.framework.activity.BaseActivity;
+import com.std.framework.basic.BaseActivity;
 import com.std.framework.fragment.BaseFragment;
 
 public class STDFragmentManager {

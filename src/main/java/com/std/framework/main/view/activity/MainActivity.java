@@ -3,17 +3,11 @@ package com.std.framework.main.view.activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.std.framework.R;
-import com.std.framework.activity.App;
-import com.std.framework.activity.BaseTitleActivity;
+import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.fragment.BaseFragment;
-import com.std.framework.fragment.Html5NativeCommunicationFragment;
 
 public class MainActivity extends BaseTitleActivity {
 	private static final String TAG = "LX";
