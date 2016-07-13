@@ -101,6 +101,7 @@ public class TestRxJava {
                 JunitUtil.log(aLong.toString());
             }
         });
+        JunitUtil.sleep(8000);
     }
 
     @Test
