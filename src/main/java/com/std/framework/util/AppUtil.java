@@ -33,4 +33,29 @@ public class AppUtil {
         return meta_str;
     }
 
+    /**
+     * 获取app最多允许占用的内存
+     * @return
+     */
+    public static long getMaxMemoryAllocated(){
+        return Runtime.getRuntime().maxMemory();
+    }
+
+    /**
+     * 获取app当前总共分配的内存
+     * @return
+     */
+    public static long getTotalMemoryAllocated(){
+        return Runtime.getRuntime().totalMemory();
+    }
+
+    /**
+     * 获取app当前释放的内存数
+     * @return
+     */
+    public static long getFreeMemoryAllocated(){
+        return Runtime.getRuntime().freeMemory();
+    }
+
+
 }

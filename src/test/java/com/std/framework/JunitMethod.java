@@ -2,6 +2,8 @@ package com.std.framework;
 
 import com.google.gson.Gson;
 import com.std.framework.assist.JunitUtil;
+import com.std.framework.basic.App;
+import com.std.framework.util.AppUtil;
 import com.std.framework.util.Logger;
 
 import junit.framework.Assert;
@@ -22,8 +24,6 @@ public class JunitMethod {
     public void test() {
         Assert.assertEquals(1, 1);
     }
-
-
 
     @Test
     public void testURL() {
@@ -107,6 +107,13 @@ public class JunitMethod {
     public void testProcess(){
         int count = Runtime.getRuntime().availableProcessors();
         JunitUtil.log(count + "");
+    }
+
+    @Test
+    public void testMemery(){
+        AppUtil.getTotalMemoryAllocated();
+        AppUtil.getFreeMemoryAllocated();
+        JunitUtil.log(String.format("max:%d total:%d free:%d",AppUtil.getMaxMemoryAllocated()/1024/1024,AppUtil.getTotalMemoryAllocated()/1024/1024, AppUtil.getFreeMemoryAllocated()/1024/1024));
     }
 
 }
