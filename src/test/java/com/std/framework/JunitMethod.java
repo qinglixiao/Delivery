@@ -116,4 +116,9 @@ public class JunitMethod {
         JunitUtil.log(String.format("max:%d total:%d free:%d",AppUtil.getMaxMemoryAllocated()/1024/1024,AppUtil.getTotalMemoryAllocated()/1024/1024, AppUtil.getFreeMemoryAllocated()/1024/1024));
     }
 
+    @Test
+    public void testMeta(){
+        JunitUtil.log(AppUtil.getMetaData("com.baidu.lbsapi.API_KEY"));
+    }
+
 }
