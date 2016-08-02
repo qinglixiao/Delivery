@@ -534,7 +534,7 @@ abstract class BaseImageView extends ImageView {
 						mPaint.setXfermode(sXfermode);
 						bitmapCanvas.drawBitmap(mMaskBitmap, 0.0f, 0.0f, mPaint);
 
-						mWeakBitmap = new WeakReference<Bitmap>(bitmap);
+						mWeakBitmap = new WeakReference(bitmap);
 
 						if (realImageView != null) {
 							realImageView.rightBottomDrawable = rightBottomDrawable;

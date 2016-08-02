@@ -1,7 +1,6 @@
-package com.std.framework.login.fragment;
+package com.std.framework.login.view.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;

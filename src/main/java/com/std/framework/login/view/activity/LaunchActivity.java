@@ -8,7 +8,7 @@ import com.std.framework.R;
 import com.std.framework.basic.BaseActivity;
 import com.std.framework.comm.STDActivityManager;
 import com.std.framework.comm.STDFragmentManager;
-import com.std.framework.login.fragment.GuideFragment;
+import com.std.framework.login.view.fragment.GuideFragment;
 import com.std.framework.main.view.activity.MainTabActivity;
 import com.std.framework.util.SharedPreferencesUtil;
 

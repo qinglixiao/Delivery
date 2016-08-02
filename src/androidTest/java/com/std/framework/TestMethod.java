@@ -117,4 +117,16 @@ public class TestMethod extends AndroidTestCase {
         }
     }
 
+    public void testLibPhone() {
+        LibUtil.getPhoneNumber(getContext());
+    }
+
+    public void testIMEI() {
+        LibUtil.getDeviceIMEI(getContext());
+    }
+
+    public void testNetProvider() {
+        About.getNetProvider(getContext());
+    }
+
 }

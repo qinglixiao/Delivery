@@ -1,4 +1,4 @@
-package com.std.framework.login.fragment;
+package com.std.framework.login.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -27,7 +27,7 @@ public class ResourceUtil {
      */
     public static Drawable getDrawable(String drawableName) {
         int id = getDrawableId(drawableName);
-        if (id == -1)
+        if (id == -1 || id == 0)
             return null;
         else
             return App.instance.getResources().getDrawable(id);
@@ -41,7 +41,7 @@ public class ResourceUtil {
      */
     public static String getString(String stringName) {
         int id = getStringId(stringName);
-        if (id == -1)
+        if (id == -1 || id == 0)
             return "";
         else
             return App.instance.getResources().getString(id);
@@ -55,7 +55,7 @@ public class ResourceUtil {
      */
     public static int getColor(String colorName) {
         int id = getColorId(colorName);
-        if (id == -1)
+        if (id == -1 || id == 0)
             return -1;
         else
             return App.instance.getResources().getColor(id);
