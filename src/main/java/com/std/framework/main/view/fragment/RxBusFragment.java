@@ -41,12 +41,13 @@ public class RxBusFragment extends BaseFragment implements RxBusContract.View,Vi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Observable<String> observable = RxBus.getDefault().toObservable(String.class);
-        observable.subscribe(new Action1<String>() {
-            @Override
-            public void call(String s) {
-                fragmentRxbusBinding.tvShow.setText(s);
-            }
-        });
+//        observable.subscribe(new Action1<String>() {
+//            @Override
+//            public void call(String s) {
+//                fragmentRxbusBinding.tvShow.setText(s);
+//            }
+//        });
+        observable.subscribe(subscriber);
     }
 
     private void setListener(){
@@ -55,12 +56,11 @@ public class RxBusFragment extends BaseFragment implements RxBusContract.View,Vi
 
     @Override
     public void setPresenter(IBasePresenter presenter) {
-
     }
 
     @Override
     public void onClick(View v) {
-        RxBus.getDefault().post("你好");
+        RxBus.getDefault().post(fragmentRxbusBinding.edtMessage.getText().toString());
     }
 
     private Subscriber<String> subscriber = new Subscriber<String>() {
@@ -76,7 +76,7 @@ public class RxBusFragment extends BaseFragment implements RxBusContract.View,Vi
 
         @Override
         public void onNext(String s) {
-            fragmentRxbusBinding.tvShow.getEditableText().append(s);
+            fragmentRxbusBinding.tvShow.setText(s);
         }
     };
 }

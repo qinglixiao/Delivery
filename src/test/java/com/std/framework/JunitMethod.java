@@ -1,6 +1,7 @@
 package com.std.framework;
 
 import com.google.gson.Gson;
+import com.library.core.Reflect;
 import com.library.util.LibUtil;
 import com.std.framework.assist.JunitUtil;
 import com.std.framework.basic.App;
@@ -58,8 +59,8 @@ public class JunitMethod {
     }
 
     @Test
-    public void testClone(){
-        class People implements Cloneable{
+    public void testClone() {
+        class People implements Cloneable {
             @Override
             public Object clone() {
                 People people = null;
@@ -73,53 +74,98 @@ public class JunitMethod {
         }
 
         People people1 = new People();
-        JunitUtil.log(people1.hashCode()+"");
-        JunitUtil.log(people1.clone().hashCode()+"");
+        JunitUtil.log(people1.hashCode() + "");
+        JunitUtil.log(people1.clone().hashCode() + "");
 
     }
 
     @Test
-    public void testEnum(){
+    public void testEnum() {
         A a = A.valueOf(B.Choole.name());
     }
 
-    enum A{
+    enum A {
         Choole,
         Home,
         Me
     }
 
-    enum B{
+    enum B {
         Choole,
         Home,
         Me
     }
 
     @Test
-    public void swap(){
-        int a = 10,b = 20;
-        a = a^b;
-        b = a^b;
-        a = a^b;
-        JunitUtil.log("a = "+a +" b = "+b);
+    public void swap() {
+        int a = 10, b = 20;
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
+        JunitUtil.log("a = " + a + " b = " + b);
     }
 
     @Test
-    public void testProcess(){
+    public void testProcess() {
         int count = Runtime.getRuntime().availableProcessors();
         JunitUtil.log(count + "");
     }
 
     @Test
-    public void testMemery(){
+    public void testMemery() {
         AppUtil.getTotalMemoryAllocated();
         AppUtil.getFreeMemoryAllocated();
-        JunitUtil.log(String.format("max:%d total:%d free:%d",AppUtil.getMaxMemoryAllocated()/1024/1024,AppUtil.getTotalMemoryAllocated()/1024/1024, AppUtil.getFreeMemoryAllocated()/1024/1024));
+        JunitUtil.log(String.format("max:%d total:%d free:%d", AppUtil.getMaxMemoryAllocated() / 1024 / 1024, AppUtil.getTotalMemoryAllocated() / 1024 / 1024, AppUtil.getFreeMemoryAllocated() / 1024 / 1024));
     }
 
     @Test
-    public void testMeta(){
+    public void testMeta() {
         JunitUtil.log(AppUtil.getMetaData("com.baidu.lbsapi.API_KEY"));
+    }
+
+    @Test
+    public void testRef() {
+        One one = new One();
+        one.set(new Three());
+        Three three = new Three();
+        three.age = 20;
+        three.name = "me";
+        one.c = three;
+        JunitUtil.log(one.b.c.age + "  " + one.b.c.name);
+        JunitUtil.log(one.c.age + "  " + one.c.name);
+    }
+
+    class One {
+        Three c;
+        Two b;
+
+        public One() {
+            b = new Two();
+        }
+
+        public void set(Three c) {
+            this.c = c;
+            b.setC(c);
+        }
+    }
+
+    class Two {
+        Three c;
+        public void setC(Three c){
+            this.c = c;
+            c = null;
+        }
+
+    }
+
+    class Three {
+        int age = 10;
+        String name = "lx";
+    }
+
+    @Test
+    public void reflect(){
+        JunitMethod junitMethod = Reflect.on("com.std.framework.JunitMethod").create().get();
     }
 
 }

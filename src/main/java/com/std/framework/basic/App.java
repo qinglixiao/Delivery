@@ -2,6 +2,7 @@ package com.std.framework.basic;
 
 import android.app.Application;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.library.util.LibUtil;
 import com.library.util.LogUtil;
