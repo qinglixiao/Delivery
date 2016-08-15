@@ -112,6 +112,7 @@ public class TestRxJava {
                 return s + "参加比赛";
             }
         }).subscribe(subscriber);
+
     }
 
     @Test
@@ -162,7 +163,7 @@ public class TestRxJava {
     public void testZip() throws InterruptedException {
         List<String> hellos = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
-            hellos.add(String.format("hello %s:" , i));
+            hellos.add(String.format("hello %s:", i));
         }
         List<Integer> worlds = new ArrayList<>();
         for (int j = 0; j < 20; j++) {
@@ -172,7 +173,7 @@ public class TestRxJava {
         Observable.zip(Observable.from(hellos).subscribeOn(Schedulers.io()), Observable.from(worlds).subscribeOn(Schedulers.io()), new Func2<String, Integer, String>() {
             @Override
             public String call(String s, Integer integer) {
-                return s+integer.toString();
+                return s + integer.toString();
             }
         }).subscribe(subscriber);
 

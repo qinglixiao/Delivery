@@ -1,23 +1,35 @@
-
 package com.std.framework.util;
 
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.StateSet;
-import android.widget.ImageView;
+
+import com.std.framework.R;
+import com.std.framework.basic.App;
 
 import java.util.WeakHashMap;
 
+/**
+ * Description : 主题皮肤适配，提供标题栏元素主题样式及图片资源的主题适配
+ * Created by lx on 2015/8/14.
+ * Job number：137289
+ * Phone ：        18611867932
+ * Email：          lixiao3@syswin.com
+ * Person in charge : lx
+ * Leader：lx
+ */
 public class ThemeUtil {
-    private static WeakHashMap<String,Drawable> cache = new WeakHashMap<>();
+    private static WeakHashMap<String, Drawable> cache = new WeakHashMap<>();
 
     public static Drawable getDrawableSelector(String pressedDrawable,
                                                String normalDrawable) {
         TouchColorChangedDrawable drawable = new TouchColorChangedDrawable();
+
         Drawable pressed = ResourceUtil.getDrawable(pressedDrawable);
         Drawable normal = ResourceUtil.getDrawable(normalDrawable);
 
@@ -179,9 +191,10 @@ public class ThemeUtil {
      * @return
      */
     public static Drawable getOperatorDrawableSelector(int pressedResId, int normalResId) {
+        Resources res = App.instance.getResources();
         TouchColorChangedDrawable drawable = new TouchColorChangedDrawable();
-        Drawable pressed = ResourceUtil.getResource().getDrawable(pressedResId);
-        Drawable normal = ResourceUtil.getResource().getDrawable(normalResId);
+        Drawable pressed = res.getDrawable(pressedResId);
+        Drawable normal = res.getDrawable(normalResId);
 
         int title_skin_color = getThemeColor();
         if (title_skin_color != -1) {
@@ -201,37 +214,6 @@ public class ThemeUtil {
 
         return drawable;
     }
-
-    /**
-     * frame页图片selector
-     *
-     * @param pressed
-     * @param normal
-     * @return
-     */
-    public static Drawable getFrameDrawableSelector(Drawable pressed, Drawable normal) {
-        TouchColorChangedDrawable drawable = new TouchColorChangedDrawable();
-
-        int title_skin_color = getThemeColor();
-        if (title_skin_color != -1) {
-            drawable.setPressedEffect(getIconColorFilter(0));
-            drawable.setNormalEffect(getIconColorFilter(title_skin_color));
-        }
-
-        // Pressed
-        drawable.addState(new int[]{
-                android.R.attr.state_focused, android.R.attr.state_pressed
-        }, pressed);
-        drawable.addState(new int[]{
-                android.R.attr.state_pressed
-        }, pressed);
-
-        // Non focused states
-        drawable.addState(new int[]{}, normal);
-
-        return drawable;
-    }
-
 
     /**
      * 弹出菜单操作栏文字selector
@@ -287,29 +269,17 @@ public class ThemeUtil {
         return drawable;
     }
 
-
-    public static void putImageViewTheme(ImageView imageView) {
-        if (imageView != null) {
-            int title_skin_color = getThemeColor();
-            if (title_skin_color != -1) {
-                imageView.setColorFilter(getIconColorFilter(title_skin_color));
-            }
-        }
-    }
-
     /**
-     * 将图片与指定颜色相匹配
+     * 获取适配皮肤的图片
      *
-     * @param imageView
-     * @param colorName
+     * @param drawable
+     * @param color
+     * @return
      */
-    public static void adjustImageViewWithColor(ImageView imageView, String colorName) {
-        if (imageView != null) {
-            int color = ResourceUtil.getColor(colorName);
-            if (color != -1) {
-                imageView.setColorFilter(getIconColorFilter(color));
-            }
-        }
+    public static Drawable getDrawableWithColor(Drawable drawable, int color) {
+        if (drawable != null)
+            drawable.setColorFilter(getIconColorFilter(color));
+        return drawable;
     }
 
     /**
@@ -351,105 +321,151 @@ public class ThemeUtil {
 
     /**
      * 标题栏左侧文字颜色
+     *
      * @return
      */
-    public static int getTitleBarLeftTxtColor(){
+    public static int getTitleBarLeftTxtColor() {
         return ResourceUtil.getColor("title_bar_left_txt_color");
     }
 
     /**
      * 标题栏返回图标
+     *
      * @return
      */
-    public static Drawable getTitleBarBackIcon(){
+    public static Drawable getTitleBarBackIcon() {
         return getDrawableWithColor("common_goback_white", "title_bar_left_icon_color");
     }
 
     /**
-     * 标题栏返回文字颜色
+     * 标题文字颜色
+     *
      * @return
      */
-    public static int getTitleBarBackTxtColor(){
+    public static int getTitleTxtColor() {
+        try {
+            return ResourceUtil.getColor("title_bar_txt_color");
+        } catch (Exception ex) {
+            return App.instance.getResources().getColor(R.color.c19);
+        }
+    }
+
+    /**
+     * 标题栏返回文字颜色
+     *
+     * @return
+     */
+    public static int getTitleBarBackTxtColor() {
         return ResourceUtil.getColor("title_bar_back_txt_color");
     }
 
     /**
      * 标题栏右侧文字颜色
+     *
      * @return
      */
-    public static int getTitleBarRightTxtColor(){
+    public static int getTitleBarRightTxtColor() {
         return ResourceUtil.getColor("title_bar_right_txt_color");
     }
 
     /**
      * 右侧图标颜色
+     *
      * @return
      */
-    public static int getTitleBarRightIconColor(){
-        return  ResourceUtil.getColor("title_bar_right_icon_color");
+    public static int getTitleBarRightIconColor() {
+        return ResourceUtil.getColor("title_bar_right_icon_color");
     }
 
-    public static int getTitleBarRightSelectedIconColor(){
-        return  ResourceUtil.getColor("title_bar_right_selected_color");
+    /**
+     * 右侧图标选中时颜色
+     *
+     * @return
+     */
+    public static int getTitleBarRightSelectedIconColor() {
+        return ResourceUtil.getColor("title_bar_right_selected_color");
     }
 
     /**
      * 名片选择区颜色
+     *
      * @return
      */
-    public static ColorStateList getChooseCardSelector(){
+    public static ColorStateList getChooseCardSelector() {
         return getColorSelectedSelector("control_choose_card_txt_selected_color", "control_choose_card_txt_normal_color");
     }
 
     /**
      * all图标图像
+     *
      * @return
      */
-    public static Drawable getChooseCardAllIconDrawable(){
-        return getDrawableSelector("common_all_normal", "control_choose_card_all_pressed_color", "control_choose_card_all_color");
+    public static Drawable getChooseCardAllIconDrawable() {
+        if (!cache.containsKey("getChooseCardAllIconDrawable")) {
+            cache.put("getChooseCardAllIconDrawable", getDrawableSelector("common_all_normal", "control_choose_card_all_pressed_color", "control_choose_card_all_color"));
+        }
+        return cache.get("getChooseCardAllIconDrawable");
     }
 
     /**
      * add图标图像
+     *
      * @return
      */
-    public static Drawable getChooseCardAddIconDrawable(){
-        return getDrawableSelector("common_add_normal", "control_choose_card_add_pressed_color", "control_choose_card_add_color");
+    public static Drawable getChooseCardAddIconDrawable() {
+        if (!cache.containsKey("getChooseCardAddIconDrawable")) {
+            cache.put("getChooseCardAddIconDrawable", getDrawableSelector("common_add_normal", "control_choose_card_add_pressed_color", "control_choose_card_add_color"));
+        }
+        return cache.get("getChooseCardAddIconDrawable");
     }
 
     /**
      * communication_member_add图标图像
+     *
      * @return
      */
-    public static Drawable getCardAddIconDrawable(){
-        if(!cache.containsKey("getCardAddIconDrawable")){
-           cache.put("getCardAddIconDrawable",getDrawableSelector("communication_member_add", "control_choose_card_add_pressed_color", "control_choose_card_add_color"));
+    public static Drawable getCardAddIconDrawable() {
+        if (!cache.containsKey("getCardAddIconDrawable")) {
+            cache.put("getCardAddIconDrawable", getDrawableSelector("communication_member_add", "control_choose_card_add_pressed_color", "control_choose_card_add_color"));
         }
         return cache.get("getCardAddIconDrawable");
     }
 
     /**
      * 名片头像选中时颜色
+     *
      * @return
      */
-    public static int getChooseCardSelectedColor(){
+    public static int getChooseCardSelectedColor() {
         return ResourceUtil.getColor("control_choose_card_frame_selected_color");
     }
 
     /**
      * 名片头像正常状态颜色
+     *
      * @return
      */
-    public static int getChooseCardNormalColor(){
+    public static int getChooseCardNormalColor() {
         return ResourceUtil.getColor("control_choose_card_frame_normal_color");
     }
 
     /**
-     * 右上角all图标
+     * 获取颜色值
+     *
+     * @param colorName 颜色名称
      * @return
      */
-    public static Drawable getTitleBarRightAllIconDrawable(){
-        return getDrawableWithColor("common_all_normal","title_bar_right_icon_color");
+    public static int getColor(String colorName) {
+        return ResourceUtil.getColor(colorName);
+    }
+
+    /**
+     * 右上角all图标
+     *
+     * @return
+     */
+    public static Drawable getTitleBarRightAllIconDrawable() {
+        return getDrawableWithColor("common_all_normal", "title_bar_right_icon_color");
     }
 
     public static PorterDuffColorFilter getIconColorFilter(int color) {

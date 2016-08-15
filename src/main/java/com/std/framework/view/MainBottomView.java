@@ -70,6 +70,7 @@ public class MainBottomView extends LinearLayout{
     }
 
     public <T extends FragmentActivity> void apply(ViewPager viewPager, T context) {
+        this.viewPager = viewPager;
         if (viewPager != null) {
             viewPager.setAdapter(new TabAdapter(context.getSupportFragmentManager()));
             viewPager.setCurrentItem(cur_index);
