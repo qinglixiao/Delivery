@@ -41,7 +41,9 @@ public class TestRxJava {
         Observable<String> rx = Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
+                JunitUtil.log("开始发送-你好！");
                 subscriber.onNext("你好！");
+                JunitUtil.log("开始发送-朋友！");
                 subscriber.onNext("朋友");
                 subscriber.onCompleted();
             }
@@ -125,21 +127,11 @@ public class TestRxJava {
         Observable.from(items).repeat(5).flatMap(new Func1<String, Observable<String>>() {
             @Override
             public Observable<String> call(String s) {
-                return getFlatObser(s);
+                return Observable.just(s+"第一",s+"第二",s+"第三");
             }
         }).subscribe(subscriber);
 
         Thread.sleep(100);
-    }
-
-    private Observable<String> getFlatObser(final String s) {
-        return Observable.create(new Observable.OnSubscribe<String>() {
-            @Override
-            public void call(final Subscriber<? super String> subscriber) {
-                subscriber.onNext(s + "从二");
-                subscriber.onCompleted();
-            }
-        }).subscribeOn(Schedulers.io());
     }
 
     @Test
@@ -152,7 +144,7 @@ public class TestRxJava {
         Observable.from(items).repeat(5).concatMap(new Func1<String, Observable<String>>() {
             @Override
             public Observable<String> call(String s) {
-                return getFlatObser(s);
+                return Observable.just(s+"第一",s+"第二",s+"第三");
             }
         }).subscribe(subscriber);
 
@@ -180,5 +172,15 @@ public class TestRxJava {
         Thread.sleep(500);
     }
 
+    @Test
+    public void testNoSubcribe(){
+        Observable.just("a","b","c").map(new Func1<String, String>() {
+            @Override
+            public String call(String s) {
+                JunitUtil.log(s);
+                return null;
+            }
+        }).subscribe();
+    }
 
 }
