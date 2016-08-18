@@ -1,5 +1,7 @@
 package com.std.framework;
 
+import android.os.Looper;
+
 import com.std.framework.assist.JunitUtil;
 
 import org.junit.Test;
@@ -10,6 +12,9 @@ import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action0;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.functions.Func2;
 import rx.schedulers.Schedulers;
@@ -20,6 +25,11 @@ import rx.schedulers.Schedulers;
 public class TestRxJava {
 
     private Subscriber<String> subscriber = new Subscriber<String>() {
+        @Override
+        public void onStart() {
+            JunitUtil.log("onStart");
+        }
+
         @Override
         public void onCompleted() {
             JunitUtil.log("onCompleted");
@@ -127,7 +137,7 @@ public class TestRxJava {
         Observable.from(items).repeat(5).flatMap(new Func1<String, Observable<String>>() {
             @Override
             public Observable<String> call(String s) {
-                return Observable.just(s+"第一",s+"第二",s+"第三");
+                return Observable.just(s + "第一", s + "第二", s + "第三");
             }
         }).subscribe(subscriber);
 
@@ -144,7 +154,7 @@ public class TestRxJava {
         Observable.from(items).repeat(5).concatMap(new Func1<String, Observable<String>>() {
             @Override
             public Observable<String> call(String s) {
-                return Observable.just(s+"第一",s+"第二",s+"第三");
+                return Observable.just(s + "第一", s + "第二", s + "第三");
             }
         }).subscribe(subscriber);
 
@@ -173,14 +183,41 @@ public class TestRxJava {
     }
 
     @Test
-    public void testNoSubcribe(){
-        Observable.just("a","b","c").map(new Func1<String, String>() {
+    public void testNoSubcribe() {
+        Observable.just("a", "b", "c").map(new Func1<String, String>() {
             @Override
             public String call(String s) {
                 JunitUtil.log(s);
                 return null;
             }
         }).subscribe();
+    }
+
+    @Test
+    public void testOnSubcribe() {
+        Observable
+                .create(new Observable.OnSubscribe<String>() {
+                    @Override
+                    public void call(Subscriber<? super String> subscriber) {
+                        JunitUtil.log("开始发送");
+                        subscriber.onNext("发送");
+                        subscriber.onCompleted();
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .doOnSubscribe(new Action0() {
+                    @Override
+                    public void call() {
+                        JunitUtil.log("doOnSubscribe" + "---thread:" + (Thread.currentThread().getName()));
+                    }
+                })
+                .doOnNext(new Action1<String>() {
+                    @Override
+                    public void call(String o) {
+                        JunitUtil.log("doOnNext:" + o + "---thread:" + (Thread.currentThread().getName()));
+                    }
+                })
+                .subscribe(subscriber);
     }
 
 }

@@ -1,7 +1,9 @@
 package com.std.framework.view;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
@@ -36,7 +38,9 @@ public class MainBottomView extends LinearLayout{
 
     private ViewPager viewPager;
 
-    private int cur_index = 0;
+    private int default_index = 0;
+
+    private int last_selected_index = default_index;
 
     public MainBottomView(Context context) {
         super(context);
@@ -66,22 +70,28 @@ public class MainBottomView extends LinearLayout{
     }
 
     public void setDefaultSelected(int index) {
-        cur_index = index;
+        default_index = index;
+        last_selected_index = default_index;
     }
 
     public <T extends FragmentActivity> void apply(ViewPager viewPager, T context) {
         this.viewPager = viewPager;
         if (viewPager != null) {
             viewPager.setAdapter(new TabAdapter(context.getSupportFragmentManager()));
-            viewPager.setCurrentItem(cur_index);
+            viewPager.setOffscreenPageLimit(tabs.size());
+            viewPager.setCurrentItem(default_index);
+            tabs.get(default_index).setSelected(true);
         }
     }
 
     private OnTabClickListener tabClickListener = new OnTabClickListener() {
         @Override
         public void onClick(TabSpec tabSpec) {
+            tabSpec.setSelected(true);
+            tabs.get(last_selected_index).setSelected(false);
+            last_selected_index = tabSpec.getIndex();
             if(viewPager != null){
-                viewPager.setCurrentItem(tabSpec.getIndex());
+                viewPager.setCurrentItem(tabSpec.getIndex(),false);
             }
         }
     };
@@ -108,6 +118,7 @@ public class MainBottomView extends LinearLayout{
         private int drawableId;
         private int strId;
         private int index;
+        private boolean isSelected;
         private Class<? extends BaseFragment> fragmentClass;
         private OnTabClickListener onTabClickListener;
         private Context context;
@@ -125,12 +136,21 @@ public class MainBottomView extends LinearLayout{
         protected View getView() {
             if(view == null){
                 view = View.inflate(context, R.layout.bottom_tab_layout, null);
-                BottomTabLayout bottomTabLayout = DataBindingUtil.bind(view);
+                bottomTabLayout = DataBindingUtil.bind(view);
                 bottomTabLayout.imgTabIcon.setImageResource(drawableId);
                 bottomTabLayout.tvTabName.setText(strId);
                 bottomTabLayout.tabMain.setOnClickListener(onClickListener);
             }
             return view;
+        }
+
+        public void setSelected(boolean isSelected){
+            this.isSelected = isSelected;
+            view.setSelected(isSelected);
+        }
+
+        public boolean isSelected(){
+            return isSelected;
         }
 
         public ImageView getIconImageView() {
@@ -139,6 +159,11 @@ public class MainBottomView extends LinearLayout{
 
         public TextView getIconTextView() {
             return bottomTabLayout.tvTabName;
+        }
+
+        public void applySkin(Drawable iconDrawable, ColorStateList textColor){
+            getIconImageView().setImageDrawable(iconDrawable);
+            getIconTextView().setTextColor(textColor);
         }
 
         public void setOnTabClickListener(OnTabClickListener onTabClickListener) {

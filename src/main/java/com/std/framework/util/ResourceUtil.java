@@ -2,6 +2,7 @@ package com.std.framework.util;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 
 import com.std.framework.basic.App;
 

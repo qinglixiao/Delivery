@@ -12,7 +12,7 @@ import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
 import com.std.framework.assist.Bean;
 import com.std.framework.util.Logger;
-import com.std.framework.main.view.fragment.FourFragment;
+import com.std.framework.main.view.fragment.CommunicateFragment;
 import com.std.framework.util.SharedPreferencesUtil;
 
 import org.json.JSONException;
@@ -73,17 +73,17 @@ public class TestMethod extends AndroidTestCase {
     public void testReflected() {
         long start = SystemClock.currentThreadTimeMillis();
         for (int i = 0; i < 100; i++) {
-            new FourFragment();
+            new CommunicateFragment();
         }
         long second = SystemClock.currentThreadTimeMillis();
         Log.d(TAG, "new time :" + (second - start));
         for (int i = 0; i < 100; i++) {
-            God.love(FourFragment.class);
+            God.love(CommunicateFragment.class);
         }
         long third = SystemClock.currentThreadTimeMillis() - second;
         Log.d(TAG, "reflect time :" + third);
 
-        FourFragment fourFragment = Reflect.on(FourFragment.class).create().get();
+        CommunicateFragment fourFragment = Reflect.on(CommunicateFragment.class).create().get();
         assertNotNull(fourFragment);
 
         Bean bean = Reflect.on(Bean.class).create(30, "").get();

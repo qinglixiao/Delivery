@@ -6,6 +6,7 @@ import com.library.util.LibUtil;
 import com.std.framework.R;
 import com.std.framework.comm.BaiduLocationProvider;
 import com.std.framework.comm.BaiduLocationProvider.LocationListener;
+import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentMainBinding;
 import com.std.framework.fragment.BaseFragment;
 import com.std.framework.service.ICallBack;
@@ -40,6 +41,11 @@ public class MainFragment extends BaseFragment implements OnClickListener {
     public View view;
     private IRemoteService remoteService;
     private FragmentMainBinding fragmentMainBinding;
+
+    @Override
+    protected void onNavigationBar(NavigationBar navigationBar) {
+        navigationBar.setTitle(R.string.main_tab_home);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

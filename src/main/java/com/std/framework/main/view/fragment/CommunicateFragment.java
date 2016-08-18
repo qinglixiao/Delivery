@@ -23,12 +23,18 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
+import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentFourBinding;
 import com.std.framework.fragment.BaseFragment;
 
-public class FourFragment extends BaseFragment implements OnClickListener {
+public class CommunicateFragment extends BaseFragment implements OnClickListener {
     private View view;
     private FragmentFourBinding fragmentFourBinding;
+
+    @Override
+    protected void onNavigationBar(NavigationBar navigationBar) {
+        navigationBar.setTitle(R.string.main_tab_communicate);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

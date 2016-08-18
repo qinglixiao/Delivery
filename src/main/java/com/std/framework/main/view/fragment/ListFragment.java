@@ -11,15 +11,21 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.core.FragmentManufacture;
+import com.std.framework.core.NavigationBar;
 import com.std.framework.util.Logger;
 import com.std.framework.fragment.BaseFragment;
 import com.std.framework.view.PagerSlidingTabStrip;
 
-public class SecondFragment extends BaseFragment implements ViewPager.OnPageChangeListener {
+public class ListFragment extends BaseFragment implements ViewPager.OnPageChangeListener {
     private View view;
     private ViewPager viewPager;
     private PagerSlidingTabStrip tabStrip;
     private MyPagerAdapter adapter = null;
+
+    @Override
+    protected void onNavigationBar(NavigationBar navigationBar) {
+        navigationBar.setTitle(R.string.main_tab_contact);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

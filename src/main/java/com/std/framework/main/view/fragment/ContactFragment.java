@@ -14,15 +14,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.std.framework.R;
+import com.std.framework.core.NavigationBar;
 import com.std.framework.fragment.BaseFragment;
 import com.std.framework.view.ShapeView;
 
-public class ThreeFragment extends BaseFragment implements OnClickListener{
+public class ContactFragment extends BaseFragment implements OnClickListener{
 	private View view;
 	private EditText editText;
 	private Button button;
 	private ShapeView shapeView;
-	
+
+	@Override
+	protected void onNavigationBar(NavigationBar navigationBar) {
+		navigationBar.setTitle(R.string.main_tab_contact);
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

@@ -7,6 +7,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
+import android.support.annotation.DrawableRes;
 import android.util.StateSet;
 
 import com.std.framework.R;
@@ -288,7 +289,7 @@ public class ThemeUtil {
      * @return
      */
     public static int getThemeColor() {
-        return ResourceUtil.getColor("inner_element_color");
+        return ResourceUtil.getColor("topic");
     }
 
     /**
@@ -297,8 +298,7 @@ public class ThemeUtil {
      * @return
      */
     public static ColorStateList getTabTextSelector() {
-        return getColorSelector("tab_text_color_selected",
-                "tab_text_color_unselected");
+        return getColorSelector("topic", "topic_reverse");
     }
 
     /**

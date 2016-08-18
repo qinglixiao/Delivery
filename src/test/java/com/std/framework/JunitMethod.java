@@ -13,10 +13,15 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by gfy on 2016/4/14.
@@ -166,6 +171,20 @@ public class JunitMethod {
     @Test
     public void reflect(){
         JunitMethod junitMethod = Reflect.on("com.std.framework.JunitMethod").create().get();
+    }
+
+    @Test
+    public void arraysCopy(){
+        List<String> e = Arrays.asList("你好","朋友");
+        JunitUtil.log(Arrays.toString(e.toArray()));
+        List<String> copy = new ArrayList<>(e);
+        JunitUtil.log(Arrays.toString(copy.toArray()));
+    }
+
+    @Test
+    public void testFoure(){
+        int t = 103100;
+        JunitUtil.log(t/100000 + "");
     }
 
 }

@@ -16,14 +16,14 @@ import com.std.framework.core.NavigationBar;
 import com.std.framework.fragment.BaseFragment;
 import com.std.framework.view.TouchSlopView;
 
-public class FiveFragment extends BaseFragment implements OnClickListener{
+public class SettingFragment extends BaseFragment implements OnClickListener{
 	private View view;
 	private Button button;
 	private TouchSlopView slopView;
 
 	@Override
 	protected void onNavigationBar(NavigationBar navigationBar) {
-		navigationBar.setTitle("FiveFragment");
+		navigationBar.setTitle(R.string.main_tab_setting);
 	}
 
 	@Override
