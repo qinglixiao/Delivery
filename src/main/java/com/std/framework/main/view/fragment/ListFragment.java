@@ -24,7 +24,7 @@ public class ListFragment extends BaseFragment implements ViewPager.OnPageChange
 
     @Override
     protected void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle(R.string.main_tab_contact);
+        navigationBar.setTitle(R.string.main_tab_list);
     }
 
     @Override

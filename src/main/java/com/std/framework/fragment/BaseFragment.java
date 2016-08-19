@@ -10,13 +10,6 @@ import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.core.NavigationBar;
 
 public class BaseFragment extends Fragment {
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        super.onActivityCreated(savedInstanceState);
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +18,13 @@ public class BaseFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        if (getActivity() instanceof BaseTitleActivity) {
-            onNavigationBar(((BaseTitleActivity) getActivity()).getNavigationBar());
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            if (getActivity() instanceof BaseTitleActivity) {
+                onNavigationBar(((BaseTitleActivity) getActivity()).getNavigationBar());
+            }
         }
-        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     protected void onNavigationBar(NavigationBar navigationBar) {

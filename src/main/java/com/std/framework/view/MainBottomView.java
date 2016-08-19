@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.library.core.Reflect;
 import com.std.framework.R;
+import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.databinding.BottomTabLayout;
 import com.std.framework.fragment.BaseFragment;
 import com.std.framework.view.MainBottomView.TabSpec.OnTabClickListener;
@@ -34,6 +35,8 @@ import java.util.List;
  * Modify by：lx
  */
 public class MainBottomView extends LinearLayout{
+    private BaseTitleActivity context;
+
     protected List<TabSpec> tabs = new ArrayList();
 
     private ViewPager viewPager;
@@ -74,11 +77,12 @@ public class MainBottomView extends LinearLayout{
         last_selected_index = default_index;
     }
 
-    public <T extends FragmentActivity> void apply(ViewPager viewPager, T context) {
+    public <T extends BaseTitleActivity> void apply(ViewPager viewPager, T context) {
         this.viewPager = viewPager;
+        this.context = context;
         if (viewPager != null) {
             viewPager.setAdapter(new TabAdapter(context.getSupportFragmentManager()));
-            viewPager.setOffscreenPageLimit(tabs.size());
+            viewPager.setOffscreenPageLimit(0);
             viewPager.setCurrentItem(default_index);
             tabs.get(default_index).setSelected(true);
         }
