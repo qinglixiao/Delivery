@@ -24,10 +24,18 @@ public class BaseFragment extends Fragment {
             if (getActivity() instanceof BaseTitleActivity) {
                 onNavigationBar(((BaseTitleActivity) getActivity()).getNavigationBar());
             }
+            loadData();
         }
     }
 
     protected void onNavigationBar(NavigationBar navigationBar) {
+
+    }
+
+    /**
+     * 加载数据
+     */
+    protected void loadData(){
 
     }
 
