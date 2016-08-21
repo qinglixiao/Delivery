@@ -10,12 +10,11 @@ import com.std.framework.R;
 import com.std.framework.basic.IBasePresenter;
 import com.std.framework.core.RxBus;
 import com.std.framework.databinding.FragmentRxbusBinding;
-import com.std.framework.fragment.BaseFragment;
+import com.std.framework.basic.BaseFragment;
 import com.std.framework.main.contract.RxBusContract;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.functions.Action1;
 
 /**
  * Description :

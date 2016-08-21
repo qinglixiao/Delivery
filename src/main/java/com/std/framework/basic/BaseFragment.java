@@ -1,4 +1,4 @@
-package com.std.framework.fragment;
+package com.std.framework.basic;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

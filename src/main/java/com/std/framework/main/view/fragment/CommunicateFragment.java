@@ -13,9 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnticipateOvershootInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ArgbEvaluator;
@@ -25,7 +23,7 @@ import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentFourBinding;
-import com.std.framework.fragment.BaseFragment;
+import com.std.framework.basic.BaseFragment;
 
 public class CommunicateFragment extends BaseFragment implements OnClickListener {
     private View view;
@@ -42,7 +40,7 @@ public class CommunicateFragment extends BaseFragment implements OnClickListener
         view = inflater.inflate(R.layout.fragment_four, null);
         fragmentFourBinding = DataBindingUtil.bind(view);
         setListener();
-        startRotate();
+//        startRotate();
         return view;
     }
 

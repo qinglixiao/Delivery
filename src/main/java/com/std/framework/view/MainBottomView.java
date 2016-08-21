@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -22,7 +21,7 @@ import com.library.core.Reflect;
 import com.std.framework.R;
 import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.databinding.BottomTabLayout;
-import com.std.framework.fragment.BaseFragment;
+import com.std.framework.basic.BaseFragment;
 import com.std.framework.view.MainBottomView.TabSpec.OnTabClickListener;
 
 import java.util.ArrayList;

@@ -7,7 +7,7 @@ import android.util.Log;
 import com.std.framework.R;
 import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.core.NavigationBar;
-import com.std.framework.fragment.BaseFragment;
+import com.std.framework.basic.BaseFragment;
 
 public class MainActivity extends BaseTitleActivity {
 	private static final String TAG = "LX";

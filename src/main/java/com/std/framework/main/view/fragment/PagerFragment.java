@@ -1,17 +1,18 @@
 package com.std.framework.main.view.fragment;
 
 import com.std.framework.R;
+import com.std.framework.core.NavigationBar;
+import com.std.framework.basic.BaseFragment;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class PagerFragment extends Fragment {
+public class PagerFragment extends BaseFragment {
 	private static final String ARG_POSITION = "position";
 	private static final String TITLE = "title";
 
@@ -27,6 +28,11 @@ public class PagerFragment extends Fragment {
 		bundle.putString(TITLE, title);
 		pagerFragment.setArguments(bundle);
 		return pagerFragment;
+	}
+
+	@Override
+	protected void onNavigationBar(NavigationBar navigationBar) {
+		navigationBar.setTitle(getArguments().get(TITLE).toString());
 	}
 
 	@Override

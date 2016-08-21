@@ -13,7 +13,7 @@ import com.std.framework.R;
 import com.std.framework.core.FragmentManufacture;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.util.Logger;
-import com.std.framework.fragment.BaseFragment;
+import com.std.framework.basic.BaseFragment;
 import com.std.framework.view.PagerSlidingTabStrip;
 
 public class ListFragment extends BaseFragment implements ViewPager.OnPageChangeListener {

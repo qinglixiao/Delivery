@@ -1,7 +1,5 @@
 package com.std.framework;
 
-import android.os.Looper;
-
 import com.std.framework.assist.JunitUtil;
 
 import org.junit.Test;
@@ -12,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -118,12 +115,24 @@ public class TestRxJava {
 
     @Test
     public void testMap() {
-        Observable.just("德国", "意大利").map(new Func1<String, String>() {
-            @Override
-            public String call(String s) {
-                return s + "参加比赛";
-            }
-        }).subscribe(subscriber);
+        Observable
+                .just("德国", "意大利")
+                .filter(new Func1<String, Boolean>() {
+                    @Override
+                    public Boolean call(String s) {
+                        JunitUtil.log(Thread.currentThread().getName());
+                        return true;
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .map(new Func1<String, String>() {
+                    @Override
+                    public String call(String s) {
+                        JunitUtil.log(Thread.currentThread().getName());
+                        return s + "参加比赛";
+                    }
+                })
+                .subscribe(subscriber);
 
     }
 

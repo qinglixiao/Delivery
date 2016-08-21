@@ -8,7 +8,7 @@ import com.std.framework.comm.BaiduLocationProvider;
 import com.std.framework.comm.BaiduLocationProvider.LocationListener;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentMainBinding;
-import com.std.framework.fragment.BaseFragment;
+import com.std.framework.basic.BaseFragment;
 import com.std.framework.service.ICallBack;
 import com.std.framework.service.IRemoteService;
 import com.std.framework.service.InnerService;
@@ -31,9 +31,7 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 

@@ -18,7 +18,7 @@ public class App extends Application {
 		// TODO Auto-generated method stub
 		super.onCreate();
 		instance = this;
-		configLogSystem();
+//		configLogSystem();
 		setExceptionHandle();
 	}
 

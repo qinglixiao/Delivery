@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.fragment.BaseFragment;
+import com.std.framework.basic.BaseFragment;
 import com.std.framework.main.view.activity.MainActivity;
 import com.std.framework.view.TouchSlopView;
 import com.std.framework.view.TouchSlopView.OnSlopListener;

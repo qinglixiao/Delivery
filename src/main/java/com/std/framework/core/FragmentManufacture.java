@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.library.core.God;
-import com.library.core.Reflect;
-import com.std.framework.fragment.BaseFragment;
+import com.std.framework.basic.BaseFragment;
 
 /**
  * Created by gfy on 2016/3/31.
