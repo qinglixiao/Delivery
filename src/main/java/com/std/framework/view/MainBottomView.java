@@ -25,7 +25,9 @@ import com.std.framework.basic.BaseFragment;
 import com.std.framework.view.MainBottomView.TabSpec.OnTabClickListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description :
@@ -36,7 +38,7 @@ import java.util.List;
 public class MainBottomView extends LinearLayout{
     private BaseTitleActivity context;
 
-    protected List<TabSpec> tabs = new ArrayList();
+    protected List<TabSpec> tabs = new ArrayList<>();
 
     private ViewPager viewPager;
 
@@ -52,12 +54,11 @@ public class MainBottomView extends LinearLayout{
         super(context, attrs);
     }
 
-    public TabSpec newTabSpec(int index, @DrawableRes int iconDrawableId, @StringRes int iconNameId, Class<? extends BaseFragment> clazz) {
+    public TabSpec newTabSpec(@DrawableRes int iconDrawableId, @StringRes int iconNameId, Class<? extends BaseFragment> clazz) {
         return new TabSpec.Builder()
                 .setDrawableId(iconDrawableId)
                 .setStrId(iconNameId)
                 .setFragmentClass(clazz)
-                .setIndex(index)
                 .setContext(getContext())
                 .build();
     }
@@ -68,6 +69,7 @@ public class MainBottomView extends LinearLayout{
         lp.gravity = Gravity.CENTER;
         addView(tabSpec.getView(), lp);
         tabs.add(tabSpec);
+        tabSpec.setIndex(tabs.size() - 1);
         tabSpec.setOnTabClickListener(tabClickListener);
     }
 
@@ -128,11 +130,10 @@ public class MainBottomView extends LinearLayout{
         private BottomTabLayout bottomTabLayout;
         private View view;
 
-        private TabSpec(int index, int drawableId, int strId, Class<? extends BaseFragment> clazz, Context context) {
+        private TabSpec(int drawableId, int strId, Class<? extends BaseFragment> clazz, Context context) {
             this.drawableId = drawableId;
             this.strId = strId;
             this.fragmentClass = clazz;
-            this.index = index;
             this.context = context;
         }
 
@@ -177,6 +178,10 @@ public class MainBottomView extends LinearLayout{
             return index;
         }
 
+        public void setIndex(int index){
+            this.index = index;
+        }
+
         public BaseFragment getFragment() {
             return Reflect.on(fragmentClass).create().get();
         }
@@ -199,8 +204,6 @@ public class MainBottomView extends LinearLayout{
 
             private int strId;
 
-            private int index;
-
             private Context context;
 
             private Class<? extends BaseFragment> fragmentClass;
@@ -220,18 +223,13 @@ public class MainBottomView extends LinearLayout{
                 return this;
             }
 
-            public Builder setIndex(int index) {
-                this.index = index;
-                return this;
-            }
-
             public Builder setContext(Context context) {
                 this.context = context;
                 return this;
             }
 
             public TabSpec build() {
-                return new TabSpec(index, drawableId, strId, fragmentClass, context);
+                return new TabSpec(drawableId, strId, fragmentClass, context);
             }
         }
     }

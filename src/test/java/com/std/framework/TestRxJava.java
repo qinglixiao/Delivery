@@ -229,4 +229,21 @@ public class TestRxJava {
                 .subscribe(subscriber);
     }
 
+    @Test
+    public void testNullSubcribe() {
+        Observable
+                .create(new Observable.OnSubscribe<Object>() {
+                    @Override
+                    public void call(Subscriber<? super Object> subscriber) {
+                        subscriber.onNext("发送");
+                    }
+                })
+                .subscribe(new Action1<Object>() {
+                    @Override
+                    public void call(Object o) {
+                        JunitUtil.log("接收");
+                    }
+                });
+    }
+
 }
