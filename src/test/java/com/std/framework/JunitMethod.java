@@ -2,24 +2,19 @@ package com.std.framework;
 
 import com.google.gson.Gson;
 import com.library.core.Reflect;
-import com.library.util.LibUtil;
 import com.std.framework.assist.JunitUtil;
-import com.std.framework.basic.App;
 import com.std.framework.util.AppUtil;
-import com.std.framework.util.Logger;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -185,6 +180,12 @@ public class JunitMethod {
     public void testFoure(){
         int t = 103100;
         JunitUtil.log(t/100000 + "");
+    }
+
+    @Test
+    public void testParseInteger(){
+        String i = "-1";
+        JunitUtil.log(Integer.parseInt(i)+"");
     }
 
 }

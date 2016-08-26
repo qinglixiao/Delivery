@@ -9,7 +9,6 @@
     <!-- 标题栏标题文字大小 -->
     <dimen name="title_text_size">23sp</dimen>
     
-    <!-- 标题栏高度 -->
     <!-- 标题栏菜单项字体大小 -->
     <dimen name="titile_bar_item_size">18sp</dimen>
     

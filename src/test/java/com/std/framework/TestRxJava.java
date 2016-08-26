@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -213,7 +214,6 @@ public class TestRxJava {
                         subscriber.onCompleted();
                     }
                 })
-                .subscribeOn(Schedulers.io())
                 .doOnSubscribe(new Action0() {
                     @Override
                     public void call() {
@@ -223,10 +223,19 @@ public class TestRxJava {
                 .doOnNext(new Action1<String>() {
                     @Override
                     public void call(String o) {
-                        JunitUtil.log("doOnNext:" + o + "---thread:" + (Thread.currentThread().getName()));
+                        JunitUtil.log("doOnNext1:" + o + "---thread:" + (Thread.currentThread().getName()));
+                        JunitUtil.sleep(100);
                     }
                 })
+                .doOnNext(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        JunitUtil.log("doOnNext2:" + s + "---thread:" + (Thread.currentThread().getName()));
+                    }
+                })
+                .subscribeOn(Schedulers.io())
                 .subscribe(subscriber);
+        JunitUtil.sleep(200);
     }
 
     @Test

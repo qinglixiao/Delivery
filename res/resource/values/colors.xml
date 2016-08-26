@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 半透明背景 -->
-    <!-- 透明背景 -->
-
     <color name="solid_orange">#F19802</color>
-
     <!-- 白色 -->
     <color name="white">#ffffff</color>
+    <!--黑色-->
     <color name="black">#000000</color>
-
     <!-- 蓝色 -->
     <color name="blue">#3bbcf2</color>
     <!-- 红色 -->
     <color name = "red">#ff0000</color>
     <!-- 灰色 -->
     <color name="gray">#8a8a8a</color>
-
-    <!-- 密码输入提示(灰色) -->
+    <!--浅灰-->
+    <color name="light_gray">#dcdbdb</color>
+    <!-- 透明 -->
     <color name="transparent">#00000000</color>
 
-    <!-- 左侧菜单设配置项 -->
-
-    <color name="background_tab_pressed">#1AFFFFFF</color>
-    
-     <!-- 标准黑色 -->
-    <color name="guide_black">#333333</color>
-    <!-- 标准白色 -->
     <!-- 标准蓝色 -->
     <color name="guide_blue">#007aff</color>
 
