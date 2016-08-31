@@ -10,10 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
-import com.std.framework.core.FragmentManufacture;
-import com.std.framework.core.NavigationBar;
-import com.std.framework.core.Logger;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.business.find.view.fragment.CustomerViewFragment;
+import com.std.framework.core.FragmentManufacture;
+import com.std.framework.core.Logger;
+import com.std.framework.core.NavigationBar;
 import com.std.framework.view.PagerSlidingTabStrip;
 
 import java.util.HashMap;
@@ -52,6 +53,7 @@ public class ListFragment extends BaseFragment implements ViewPager.OnPageChange
         fragments = new HashMap<>();
         fragments.put("EventBus", EventBusFragment.class);
         fragments.put("RxBus", RxBusFragment.class);
+        fragments.put("CustomerView", CustomerViewFragment.class);
     }
 
     private void initPager() {
