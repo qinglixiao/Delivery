@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.core.NavigationBar;
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +28,11 @@ public class BaseFragment extends Fragment {
         }
     }
 
-    protected void onNavigationBar(NavigationBar navigationBar) {
-
-    }
+    /**
+     * 定义title
+     * @param navigationBar
+     */
+    public abstract void onNavigationBar(NavigationBar navigationBar);
 
     /**
      * 加载数据

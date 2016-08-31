@@ -41,7 +41,7 @@
         android:theme="@style/AppTheme">
         />
 
-        <activity android:name=".login.view.activity.LaunchActivity">
+        <activity android:name=".business.login.view.activity.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,7 +49,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.view.activity.MainActivity"
+            android:name=".business.main.view.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
@@ -58,7 +58,7 @@
             <!--</intent-filter>-->
         </activity>
         <activity
-            android:name=".main.view.activity.MainTabActivity"
+            android:name=".business.main.view.activity.MainTabActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
 
         <receiver android:name="com.std.framework.widget.desk.DeskWidgetProvider">

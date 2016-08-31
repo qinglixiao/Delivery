@@ -14,7 +14,7 @@ import com.std.framework.core.ToolBarWrapper;
 /**
  * Created by gfy on 2016/4/13.
  */
-public class BaseTitleActivity extends BaseActivity {
+public abstract class BaseTitleActivity extends BaseActivity {
     private NavigationBar navigationBar;
 
     @Override
@@ -47,8 +47,10 @@ public class BaseTitleActivity extends BaseActivity {
         return navigationBar;
     }
 
-    protected void onNavigationBar(NavigationBar navigation) {
-
-    }
+    /**
+     * 定义title
+     * @param navigation
+     */
+    public abstract void onNavigationBar(NavigationBar navigation);
 
 }

@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import com.std.framework.comm.STDActivityManager;
 import com.std.framework.comm.STDFragmentManager;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 	/**视图管理器*/
 	public final STDFragmentManager FragmentManager;
 

@@ -12,7 +12,7 @@ import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
 import com.std.framework.assist.Bean;
 import com.std.framework.core.Logger;
-import com.std.framework.main.view.fragment.CommunicateFragment;
+import com.std.framework.business.main.view.fragment.CommunicateFragment;
 import com.std.framework.util.SharedPreferencesUtil;
 
 import org.json.JSONException;

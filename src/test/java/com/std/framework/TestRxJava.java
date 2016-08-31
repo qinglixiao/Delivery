@@ -255,4 +255,32 @@ public class TestRxJava {
                 });
     }
 
+    @Test
+    public void testJustAsyn() {
+        Observable
+                .just(sample())
+                .subscribeOn(Schedulers.io())
+                .subscribe();
+
+//        Observable
+//                .create(new Observable.OnSubscribe<Object>() {
+//                    @Override
+//                    public void call(Subscriber<? super Object> subscriber) {
+//                        subscriber.onNext(sample());
+//                        subscriber.onCompleted();
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io())
+//                .subscribe();
+        JunitUtil.sleep(100);
+    }
+
+    private int sample() {
+        for (int i = 0; i < 10; i++) {
+            JunitUtil.sleep(10);
+        }
+        JunitUtil.log("thread:" + Thread.currentThread().getName());
+        return 100;
+    }
+
 }

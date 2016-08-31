@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.comm.JSRemoteProvider;
+import com.std.framework.core.NavigationBar;
 
 public class Html5NativeCommunicationFragment extends BaseFragment implements OnClickListener{
 	private View view;
@@ -189,5 +190,9 @@ public class Html5NativeCommunicationFragment extends BaseFragment implements On
 				break;
 		}
 	}
-	
+
+	@Override
+	public void onNavigationBar(NavigationBar navigationBar) {
+
+	}
 }
