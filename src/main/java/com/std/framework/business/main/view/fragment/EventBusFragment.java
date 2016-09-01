@@ -43,7 +43,6 @@ public class EventBusFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle("EventBus-Demo");
     }
 
     @Override

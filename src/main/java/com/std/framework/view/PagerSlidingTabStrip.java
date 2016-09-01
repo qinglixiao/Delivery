@@ -46,7 +46,6 @@ import com.std.framework.R;
 import com.std.framework.core.Logger;
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
-
     public interface IconTabProvider {
         int getPageIconResId(int position);
     }

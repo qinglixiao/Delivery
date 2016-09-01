@@ -13,6 +13,8 @@
     <color name="gray">#8a8a8a</color>
     <!--浅灰-->
     <color name="light_gray">#dcdbdb</color>
+    <!--标准灰-->
+    <color name="standard_gray">#EDEDED</color>
     <!-- 透明 -->
     <color name="transparent">#00000000</color>
 

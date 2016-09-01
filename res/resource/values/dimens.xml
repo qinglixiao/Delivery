@@ -16,4 +16,10 @@
     <dimen name="dialog_title_size">20sp</dimen>
     <!-- 弹出框内容字体大小 -->
  	<dimen name="dialog_content_size">17sp</dimen>
+
+    <dimen name="edge_small">8dp</dimen>
+    <dimen name="edge_normal">16dp</dimen>
+
+    <dimen name="item_height">34dp</dimen>
+
 </resources>

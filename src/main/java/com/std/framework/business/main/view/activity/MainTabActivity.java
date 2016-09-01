@@ -8,9 +8,9 @@ import com.std.framework.R;
 import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.business.main.view.fragment.CommunicateFragment;
 import com.std.framework.business.main.view.fragment.ContactFragment;
-import com.std.framework.business.main.view.fragment.ListFragment;
+import com.std.framework.business.main.view.fragment.FindFragment;
 import com.std.framework.business.main.view.fragment.MainFragment;
-import com.std.framework.business.main.view.fragment.SettingFragment;
+import com.std.framework.business.main.view.fragment.MineFragment;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.ActivityTabMain;
 import com.std.framework.util.ThemeUtil;
@@ -36,8 +36,8 @@ public class MainTabActivity extends BaseTitleActivity {
     }
 
     private void initTab() {
-        //订单列表
-        listTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_list, R.string.main_tab_list, ListFragment.class);
+        //发现
+        listTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_list, R.string.main_tab_find, FindFragment.class);
         activityTabMain.tabContainer.addTab(listTab);
         //通讯录
         contactTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_contact, R.string.main_tab_contact, ContactFragment.class);
@@ -45,11 +45,11 @@ public class MainTabActivity extends BaseTitleActivity {
         //主页
         homeTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_home, R.string.main_tab_home, MainFragment.class);
         activityTabMain.tabContainer.addTab(homeTab);
-        //沟通
+        //群呼
         communicateTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_communicate, R.string.main_tab_communicate, CommunicateFragment.class);
         activityTabMain.tabContainer.addTab(communicateTab);
-        //设置
-        settingTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_setting, R.string.main_tab_setting, SettingFragment.class);
+        //我
+        settingTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_setting, R.string.main_tab_me, MineFragment.class);
         activityTabMain.tabContainer.addTab(settingTab);
 
         activityTabMain.tabContainer.setDefaultSelected(0);

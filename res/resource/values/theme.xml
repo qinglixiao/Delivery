@@ -10,7 +10,7 @@
         <!--导航栏上的标题颜色-->
         <item name="android:textColorPrimary">@android:color/black</item>
         <!--Activity窗口的颜色-->
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@color/standard_gray</item>
         <!--按钮选中或者点击获得焦点后的颜色-->
         <item name="colorAccent">#00ff00</item>
         <!--和 colorAccent相反，正常状态下按钮的颜色-->

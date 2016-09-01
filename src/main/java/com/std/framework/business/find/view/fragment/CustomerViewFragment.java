@@ -23,7 +23,6 @@ public class CustomerViewFragment extends BaseFragment {
 
     @Override
     public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle("自定义控件");
     }
 
     @Nullable

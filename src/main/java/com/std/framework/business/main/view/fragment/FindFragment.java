@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.business.find.view.fragment.AnimationFragment;
 import com.std.framework.business.find.view.fragment.CustomerViewFragment;
 import com.std.framework.core.FragmentManufacture;
 import com.std.framework.core.Logger;
@@ -18,9 +19,10 @@ import com.std.framework.core.NavigationBar;
 import com.std.framework.view.PagerSlidingTabStrip;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ListFragment extends BaseFragment implements ViewPager.OnPageChangeListener {
+public class FindFragment extends BaseFragment implements ViewPager.OnPageChangeListener {
     private View view;
     private ViewPager viewPager;
     private PagerSlidingTabStrip tabStrip;
@@ -29,7 +31,7 @@ public class ListFragment extends BaseFragment implements ViewPager.OnPageChange
 
     @Override
     public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle(R.string.main_tab_list);
+        navigationBar.setTitle(R.string.main_tab_find);
     }
 
     @Override
@@ -39,7 +41,7 @@ public class ListFragment extends BaseFragment implements ViewPager.OnPageChange
             view = inflater.inflate(R.layout.fragment_second, null);
             viewPager = (ViewPager) view.findViewById(R.id.pager);
             tabStrip = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
-            tabStrip.setDividerColor(R.color.white);
+            tabStrip.setAllCaps(false);
             initPager();
             tabStrip.setOnPageChangeListener(this);
         }
@@ -50,10 +52,11 @@ public class ListFragment extends BaseFragment implements ViewPager.OnPageChange
     }
 
     private void initFragment() {
-        fragments = new HashMap<>();
+        fragments = new LinkedHashMap<>();
         fragments.put("EventBus", EventBusFragment.class);
         fragments.put("RxBus", RxBusFragment.class);
         fragments.put("CustomerView", CustomerViewFragment.class);
+        fragments.put("Animation", AnimationFragment.class);
     }
 
     private void initPager() {

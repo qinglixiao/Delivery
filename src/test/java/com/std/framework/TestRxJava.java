@@ -283,4 +283,19 @@ public class TestRxJava {
         return 100;
     }
 
+    @Test
+    public void testFilterThread() {
+        Observable
+                .just(null)
+                .filter(new Func1<Object, Boolean>() {
+                    @Override
+                    public Boolean call(Object o) {
+                        JunitUtil.log("thread:" + Thread.currentThread().getName());
+                        return true;
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .subscribe();
+    }
+
 }

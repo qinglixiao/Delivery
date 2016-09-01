@@ -51,8 +51,7 @@ public class RxBusFragment extends BaseFragment implements RxBusContract.View,Vi
     }
 
     @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle("RxBus");
+    public void onNavigationBar(NavigationBar navigationBar){
     }
 
     private void setListener(){

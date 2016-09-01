@@ -151,7 +151,8 @@ public class JunitMethod {
 
     class Two {
         Three c;
-        public void setC(Three c){
+
+        public void setC(Three c) {
             this.c = c;
             c = null;
         }
@@ -164,28 +165,51 @@ public class JunitMethod {
     }
 
     @Test
-    public void reflect(){
+    public void reflect() {
         JunitMethod junitMethod = Reflect.on("com.std.framework.JunitMethod").create().get();
     }
 
     @Test
-    public void arraysCopy(){
-        List<String> e = Arrays.asList("你好","朋友");
+    public void arraysCopy() {
+        List<String> e = Arrays.asList("你好", "朋友");
         JunitUtil.log(Arrays.toString(e.toArray()));
         List<String> copy = new ArrayList<>(e);
         JunitUtil.log(Arrays.toString(copy.toArray()));
     }
 
     @Test
-    public void testFoure(){
+    public void testFoure() {
         int t = 103100;
-        JunitUtil.log(t/100000 + "");
+        JunitUtil.log(t / 100000 + "");
     }
 
     @Test
-    public void testParseInteger(){
+    public void testParseInteger() {
         String i = "-1";
-        JunitUtil.log(Integer.parseInt(i)+"");
+        JunitUtil.log(Integer.parseInt(i) + "");
+    }
+
+    @Test
+    public void testArray() {
+        int[] array = new int[10];
+        for (int i = 0; i < 10; i++) {
+            array[i] = i;
+        }
+        int code = 100011;
+        long start = System.nanoTime();
+        int index = Arrays.binarySearch(array, 0);
+//        if (
+//                code == 100001
+//                || code == 100008
+//                || code == 100009
+//                || code == 100007
+//                || code == 100011
+//                || code == 100004
+//                || code == 100012
+//                || code == 100006
+//                || code == 100010
+//                )
+            JunitUtil.log("index:"+index+ " time:" + (System.nanoTime() - start));
     }
 
 }
