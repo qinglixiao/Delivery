@@ -1,6 +1,7 @@
 package com.std.framework;
 
 import com.std.framework.assist.JunitUtil;
+import com.std.framework.util.RxJavaUtil;
 
 import org.junit.Test;
 
@@ -13,8 +14,10 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
 import rx.functions.Action1;
+import rx.functions.Actions;
 import rx.functions.Func1;
 import rx.functions.Func2;
+import rx.internal.util.ActionSubscriber;
 import rx.schedulers.Schedulers;
 
 /**
@@ -298,4 +301,30 @@ public class TestRxJava {
                 .subscribe();
     }
 
+    @Test
+    public void testException() {
+        Observable
+                .create(new Observable.OnSubscribe<String>() {
+                    @Override
+                    public void call(Subscriber<? super String> subscriber) {
+                        String aa = null;
+                        aa.equals(0);
+                        subscriber.onNext("ds");
+                        subscriber.onCompleted();
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .subscribe(RxJavaUtil.addOnNextActionErrorDeal(new Action1<String>() {
+                               @Override
+                               public void call(String s) {
+                                   JunitUtil.log(s);
+                                   s = null;
+                                   s.equals(0);
+                               }
+                           }
+
+                ));
+        JunitUtil.sleep(100);
+
+    }
 }
