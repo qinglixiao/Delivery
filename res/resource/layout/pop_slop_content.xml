@@ -6,7 +6,7 @@
 >
 
 
-    <com.std.framework.view.TouchSlopView
+    <com.std.framework.comm.view.TouchSlopView
         android:id="@+id/touchSlopView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,6 +19,6 @@
             android:text="Button" 
             android:background="@color/blue"/>
 
-    </com.std.framework.view.TouchSlopView>
+    </com.std.framework.comm.view.TouchSlopView>
 
 </LinearLayout>

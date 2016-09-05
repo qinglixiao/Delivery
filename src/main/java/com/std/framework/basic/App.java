@@ -2,12 +2,11 @@ package com.std.framework.basic;
 
 import android.app.Application;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.library.util.LibUtil;
 import com.library.util.LogUtil;
-import com.std.framework.comm.STDActivityManager;
-import com.std.framework.comm.STDUncaughtExceptionHandler;
+import com.std.framework.comm.clazz.STDActivityManager;
+import com.std.framework.comm.clazz.STDUncaughtExceptionHandler;
 
 public class App extends Application {
 	/**全局应用实例*/

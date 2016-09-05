@@ -61,7 +61,7 @@
             android:name=".business.main.view.activity.MainTabActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
 
-        <receiver android:name="com.std.framework.widget.desk.DeskWidgetProvider">
+        <receiver android:name=".comm.widget.desk.DeskWidgetProvider">
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/deskprovider" />
@@ -72,7 +72,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.std.framework.receiver.NetWorkReceiver"
+            android:name=".comm.receiver.NetWorkReceiver"
             android:process=":remote">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -80,10 +80,10 @@
         </receiver>
 
         <service
-            android:name="com.std.framework.service.DeskWidgetService"
+            android:name=".comm.service.DeskWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
         <service
-            android:name=".service.InnerService"
+            android:name=".comm.service.InnerService"
             android:process=":remote" />
 
         <!-- 百度定位key -->
@@ -114,7 +114,7 @@
 
         <!-- 配置第三方Receiver -->
         <receiver
-            android:name=".receiver.PushReceiver"
+            android:name=".comm.receiver.PushReceiver"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.igexin.sdk.action.6bPNRWmTIg9gu9KyQSlzFA" />

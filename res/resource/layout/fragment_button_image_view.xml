@@ -61,7 +61,7 @@
         android:background="@null"
         android:drawableTop="@drawable/btn_group_section_selector" />
 
-    <com.std.framework.view.ImageTextView
+    <com.std.framework.comm.view.ImageTextView
         android:id="@+id/imageTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         android:text="ImageTextView"
         android:textColor="@color/btn_scan_text_selector" />
 
-    <com.std.framework.view.ImageTextView
+    <com.std.framework.comm.view.ImageTextView
         android:id="@+id/imageTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

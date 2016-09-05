@@ -6,7 +6,7 @@ import android.support.annotation.StringRes;
 import android.view.Menu;
 import android.view.View;
 
-import com.std.framework.interfaces.OnMenuItemWrapClickListener;
+import com.std.framework.comm.interfaces.OnMenuItemWrapClickListener;
 
 /**
  * Created by gfy on 2016/4/16.

@@ -5,7 +5,7 @@
 
     </data>
 
-    <com.std.framework.view.TestCustomerGroupView
+    <com.std.framework.comm.view.TestCustomerGroupView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -25,6 +25,6 @@
             android:text="button" />
 
 
-    </com.std.framework.view.TestCustomerGroupView>
+    </com.std.framework.comm.view.TestCustomerGroupView>
 
 </layout>

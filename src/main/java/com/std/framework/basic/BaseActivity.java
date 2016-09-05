@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.std.framework.comm.STDActivityManager;
-import com.std.framework.comm.STDFragmentManager;
+import com.std.framework.comm.clazz.STDActivityManager;
+import com.std.framework.comm.clazz.STDFragmentManager;
 
 public abstract class BaseActivity extends AppCompatActivity {
 	/**视图管理器*/

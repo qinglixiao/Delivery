@@ -16,8 +16,8 @@ import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.business.main.view.activity.MainActivity;
 import com.std.framework.core.NavigationBar;
-import com.std.framework.view.TouchSlopView;
-import com.std.framework.view.TouchSlopView.OnSlopListener;
+import com.std.framework.comm.view.TouchSlopView;
+import com.std.framework.comm.view.TouchSlopView.OnSlopListener;
 
 public class NumberFragment extends BaseFragment {
 	private int number = 1;

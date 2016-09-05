@@ -6,15 +6,15 @@ import android.view.View;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseTitleActivity;
-import com.std.framework.business.main.view.fragment.CommunicateFragment;
+import com.std.framework.business.call.view.fragment.CallFragment;
 import com.std.framework.business.main.view.fragment.ContactFragment;
-import com.std.framework.business.main.view.fragment.FindFragment;
+import com.std.framework.business.find.view.fragment.FindFragment;
 import com.std.framework.business.main.view.fragment.MainFragment;
 import com.std.framework.business.main.view.fragment.MineFragment;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.ActivityTabMain;
 import com.std.framework.util.ThemeUtil;
-import com.std.framework.view.MainBottomView;
+import com.std.framework.comm.view.MainBottomView;
 
 public class MainTabActivity extends BaseTitleActivity {
     private ActivityTabMain activityTabMain;
@@ -46,7 +46,7 @@ public class MainTabActivity extends BaseTitleActivity {
         homeTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_home, R.string.main_tab_home, MainFragment.class);
         activityTabMain.tabContainer.addTab(homeTab);
         //群呼
-        communicateTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_communicate, R.string.main_tab_communicate, CommunicateFragment.class);
+        communicateTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_communicate, R.string.main_tab_communicate, CallFragment.class);
         activityTabMain.tabContainer.addTab(communicateTab);
         //我
         settingTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_setting, R.string.main_tab_me, MineFragment.class);

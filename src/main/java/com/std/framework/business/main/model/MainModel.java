@@ -1,6 +1,6 @@
 package com.std.framework.business.main.model;
 
-import com.std.framework.net.RetrofitNetBase;
+import com.std.framework.comm.net.RetrofitNetBase;
 
 import retrofit2.Call;
 import retrofit2.http.POST;

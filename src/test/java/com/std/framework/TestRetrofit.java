@@ -3,12 +3,11 @@ package com.std.framework;
 import android.os.Looper;
 
 import com.std.framework.assist.JunitUtil;
-import com.std.framework.net.basic.ToStringConverterFactory;
+import com.std.framework.comm.net.basic.ToStringConverterFactory;
 
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Map;
 
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
@@ -22,8 +21,6 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
-import rx.Scheduler;
-import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 

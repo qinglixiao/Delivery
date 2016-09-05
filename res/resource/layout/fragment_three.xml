@@ -23,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:text="Button" />
 
-    <com.std.framework.view.ShapeView
+    <com.std.framework.comm.view.ShapeView
         android:id="@+id/shapeView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

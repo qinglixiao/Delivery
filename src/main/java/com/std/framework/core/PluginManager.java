@@ -1,7 +1,6 @@
 package com.std.framework.core;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import android.annotation.SuppressLint;
@@ -11,7 +10,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 
-import com.std.framework.interfaces.plugin.IStdPlugin;
+import com.std.framework.comm.interfaces.plugin.IStdPlugin;
 
 import dalvik.system.DexClassLoader;
 
