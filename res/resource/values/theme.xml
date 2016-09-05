@@ -10,7 +10,7 @@
         <!--导航栏上的标题颜色-->
         <item name="android:textColorPrimary">@android:color/black</item>
         <!--Activity窗口的颜色-->
-        <item name="android:windowBackground">@color/standard_gray</item>
+        <item name="android:windowBackground">@color/light_gray</item>
         <!--按钮选中或者点击获得焦点后的颜色-->
         <item name="colorAccent">#00ff00</item>
         <!--和 colorAccent相反，正常状态下按钮的颜色-->
@@ -24,5 +24,12 @@
     <style name="AppTheme" parent="BaseAppTheme">
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!--<item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+
+    <!--透明背景主题-->
+    <style name="AppTranslucentTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>
