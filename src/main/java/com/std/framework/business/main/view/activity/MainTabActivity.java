@@ -19,7 +19,7 @@ import com.std.framework.view.MainBottomView;
 public class MainTabActivity extends BaseTitleActivity {
     private ActivityTabMain activityTabMain;
 
-    private MainBottomView.TabSpec listTab;
+    private MainBottomView.TabSpec findTab;
     private MainBottomView.TabSpec contactTab;
     private MainBottomView.TabSpec homeTab;
     private MainBottomView.TabSpec communicateTab;
@@ -37,8 +37,8 @@ public class MainTabActivity extends BaseTitleActivity {
 
     private void initTab() {
         //发现
-        listTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_list, R.string.main_tab_find, FindFragment.class);
-        activityTabMain.tabContainer.addTab(listTab);
+        findTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_list, R.string.main_tab_find, FindFragment.class);
+        activityTabMain.tabContainer.addTab(findTab);
         //通讯录
         contactTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_contact, R.string.main_tab_contact, ContactFragment.class);
         activityTabMain.tabContainer.addTab(contactTab);
@@ -58,7 +58,7 @@ public class MainTabActivity extends BaseTitleActivity {
     }
 
     private void applySkin() {
-        listTab.applySkin(ThemeUtil.getDrawableSelector("main_app_list", "main_app_list")
+        findTab.applySkin(ThemeUtil.getDrawableSelector("main_app_list", "main_app_list")
                 , ThemeUtil.getTabTextSelector());
         contactTab.applySkin(ThemeUtil.getDrawableSelector("main_app_contact", "main_app_contact")
                 , ThemeUtil.getTabTextSelector());

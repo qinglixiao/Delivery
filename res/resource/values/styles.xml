@@ -35,4 +35,9 @@
         <item name="android:activityCloseExitAnimation">@anim/left_to_right_out</item>
     </style>
 
+    <!--字体加粗-->
+    <style name="TextBoldStyle" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
