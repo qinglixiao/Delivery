@@ -22,7 +22,7 @@ public class CallFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_communicate, null);
+        View view = inflater.inflate(R.layout.fragment_call, null);
         fragmentCallBinding = DataBindingUtil.bind(view);
         return view;
     }
