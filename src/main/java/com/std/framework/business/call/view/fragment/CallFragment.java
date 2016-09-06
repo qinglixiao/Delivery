@@ -16,6 +16,7 @@ import com.std.framework.databinding.FragmentCallBinding;
 import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
@@ -32,19 +33,32 @@ public class CallFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_call, null);
         fragmentCallBinding = DataBindingUtil.bind(view);
+        playImitate();
         return view;
     }
 
+    private Subscriber<Long> subscribe = new Subscriber<Long>() {
+        @Override
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
+
+        }
+
+        @Override
+        public void onNext(Long aLong) {
+            fragmentCallBinding.vPlayVoice.pbPlay.setProgress(aLong.intValue());
+        }
+    };
+
     private void playImitate() {
         Observable
-                .interval(1000, TimeUnit.MILLISECONDS, Schedulers.computation())
+                .interval(1, 1, TimeUnit.SECONDS, Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Long>() {
-                    @Override
-                    public void call(Long aLong) {
-
-                    }
-                });
+                .subscribe(subscribe);
     }
 
 

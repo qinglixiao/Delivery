@@ -315,16 +315,28 @@ public class TestRxJava {
                 })
                 .subscribeOn(Schedulers.io())
                 .subscribe(RxJavaUtil.addOnNextActionErrorDeal(new Action1<String>() {
-                               @Override
-                               public void call(String s) {
-                                   JunitUtil.log(s);
-                                   s = null;
-                                   s.equals(0);
-                               }
-                           }
+                                                                   @Override
+                                                                   public void call(String s) {
+                                                                       JunitUtil.log(s);
+                                                                       s = null;
+                                                                       s.equals(0);
+                                                                   }
+                                                               }
 
                 ));
         JunitUtil.sleep(100);
+    }
 
+    @Test
+    public void testInterval() {
+        Observable.interval(1, 1, TimeUnit.SECONDS,Schedulers.computation())
+                .subscribe(new Action1<Long>() {
+                    @Override
+                    public void call(Long aLong) {
+                        JunitUtil.log(aLong + "");
+
+                    }
+                });
+        JunitUtil.sleep(20000);
     }
 }

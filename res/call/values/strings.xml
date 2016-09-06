@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="sel_video">选择语音</string>
+    <string name="edit">编辑名称</string>
+
 </resources>

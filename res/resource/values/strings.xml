@@ -10,5 +10,7 @@
     <string name="main_tab_home">主页</string>
     <string name="main_tab_communicate">群呼</string>
     <string name="main_tab_me">我</string>
+
+    <string name="del">删除</string>
     
 </resources>

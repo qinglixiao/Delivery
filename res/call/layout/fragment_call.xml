@@ -44,42 +44,13 @@
                 android:background="@color/light_gray"
                 android:paddingLeft="@dimen/edge_small" />
 
-            <LinearLayout
+            <include
+                android:id="@+id/v_play_voice"
+                layout="@layout/view_play_voice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/edge_small"
-                android:paddingTop="@dimen/edge_small">
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_below="@+id/anchor"
-                    android:layout_marginRight="@dimen/edge_small"
-                    android:src="@drawable/icon_voice_play" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="00:00" />
-
-                <ProgressBar
-                    android:id="@+id/pb_play"
-                    android:layout_width="wrap_content"
-                    android:layout_height="2dp"
-                    android:layout_marginLeft="@dimen/edge_small"
-                    android:layout_marginRight="@dimen/edge_small"
-                    android:layout_weight="1"
-                    android:background="@color/light_gray"
-                    android:indeterminateDrawable="@color/solid_orange" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="00:00" />
-
-            </LinearLayout>
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp" />
 
         </LinearLayout>
     </LinearLayout>

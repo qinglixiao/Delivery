@@ -1,35 +1,36 @@
 <resources>
+
     <style name="Custom_Title_Style" parent="@android:style/TextAppearance.WindowTitle">
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">@dimen/title_text_size</item>
     </style>
-    
+
     <style name="esg_btn_style" parent="android:style/Widget.Button">
         <item name="android:background">@drawable/scanning_btn_selector</item>
         <item name="android:textColor">@color/btn_text_selector</item>
     </style>
-    
-    <style name="popWindowAnim" parent="android:Animation" >
+
+    <style name="popWindowAnim" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/right_to_left_in</item>
         <item name="android:windowExitAnimation">@anim/left_to_right_out</item>
     </style>
-    
-     <style name="ESGStyle.Dialog" parent="@android:style/Theme.Dialog">
+
+    <style name="ESGStyle.Dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFrame">@null</item>
     </style>
-    
+
     <style name="ESGStyle.Dialog.Message" parent="ESGStyle.Dialog">
         <item name="android:windowIsFloating">true</item>
         <!-- <item name="android:windowIsTranslucent">true</item> -->
         <item name="android:windowNoTitle">true</item>
-       <!--  <item name="android:background">#00000000</item> -->
+        <!--  <item name="android:background">#00000000</item> -->
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
     <style name="AnimationActivity" mce_bogus="1" parent="@android:style/Animation.Activity">
-         <item name="android:activityOpenEnterAnimation">@anim/flat_in</item>
+        <item name="android:activityOpenEnterAnimation">@anim/flat_in</item>
         <item name="android:activityOpenExitAnimation">@anim/zoom_out</item>
         <item name="android:activityCloseEnterAnimation">@anim/flat_in</item>
         <item name="android:activityCloseExitAnimation">@anim/left_to_right_out</item>
@@ -38,6 +39,13 @@
     <!--字体加粗-->
     <style name="TextBoldStyle" parent="@android:style/TextAppearance">
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--水平进度条样式-->
+    <style name="ProgressBar.H.Style" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_drawable</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
     </style>
 
 </resources>
