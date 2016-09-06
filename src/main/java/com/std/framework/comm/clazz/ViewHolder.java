@@ -14,7 +14,7 @@ public class ViewHolder {
      * @return T 返回类型
      */
     @SuppressWarnings("unchecked")
-    public static <T extends View> T get(View view, int id) {
+    public static <T extends View> T getView(View view, int id) {
         SparseArray<View> viewHolder = (SparseArray<View>) view.getTag();
         if (viewHolder == null) {
             viewHolder = new SparseArray<>();
