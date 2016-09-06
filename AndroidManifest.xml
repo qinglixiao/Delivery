@@ -62,7 +62,7 @@
             android:name=".business.main.view.activity.MainTabActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
 
-        <receiver android:name=".comm.widget.desk.DeskWidgetProvider">
+        <receiver android:name=".comm.view.desk.DeskWidgetProvider">
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/deskprovider" />

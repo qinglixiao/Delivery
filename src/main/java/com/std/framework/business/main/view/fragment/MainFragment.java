@@ -6,11 +6,11 @@ import com.library.util.LibUtil;
 import com.std.framework.R;
 import com.std.framework.comm.clazz.BaiduLocationProvider;
 import com.std.framework.comm.clazz.BaiduLocationProvider.LocationListener;
+import com.std.framework.comm.service.aidl.ICallBack;
+import com.std.framework.comm.service.aidl.IRemoteService;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentMainBinding;
 import com.std.framework.basic.BaseFragment;
-import com.std.framework.comm.service.ICallBack;
-import com.std.framework.comm.service.IRemoteService;
 import com.std.framework.comm.service.InnerService;
 
 import android.content.ComponentName;
