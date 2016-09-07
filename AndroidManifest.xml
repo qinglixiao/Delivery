@@ -29,8 +29,7 @@
 
     <permission
         android:name="getui.permission.GetuiService.com.std.framework.delivery"
-        android:protectionLevel="normal" >
-    </permission>
+        android:protectionLevel="normal"></permission>
 
     <application
         android:name=".basic.App"
@@ -41,7 +40,8 @@
         android:theme="@style/AppTheme">
         />
 
-        <activity android:name=".business.login.view.activity.LaunchActivity"
+        <activity
+            android:name=".business.login.view.activity.LaunchActivity"
             android:theme="@style/AppTranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,9 +53,9 @@
             android:name=".business.main.view.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
         <activity
@@ -101,7 +101,7 @@
             </intent-filter>
         </service>
 
-        <!-- 个推SDK配置开始 -->
+        <!--================================ 个推SDK配置开始 ===============================-->
         <!-- 配置的第三方参数属性 -->
         <meta-data
             android:name="PUSH_APPID"
@@ -113,10 +113,10 @@
             android:name="PUSH_APPSECRET"
             android:value="4TnJgwrdFc9o3T7ZT7dcf9" />
 
-        <!-- 配置第三方Receiver -->
+        <!--配置第三方Receiver -->
         <receiver
             android:name=".comm.receiver.PushReceiver"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.igexin.sdk.action.6bPNRWmTIg9gu9KyQSlzFA" />
             </intent-filter>
@@ -129,16 +129,15 @@
             android:label="NotificationCenter"
             android:process=":pushservice">
             <intent-filter>
-                <action android:name="com.igexin.sdk.action.service.message"/>
+                <action android:name="com.igexin.sdk.action.service.message" />
             </intent-filter>
         </service>
         <service
             android:name="com.igexin.sdk.PushServiceUser"
             android:exported="true"
-            android:label="NotificationCenterUser" >
-        </service>
+            android:label="NotificationCenterUser"></service>
 
-        <receiver android:name="com.igexin.sdk.PushReceiver" >
+        <receiver android:name="com.igexin.sdk.PushReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -152,7 +151,7 @@
         </receiver>
         <receiver
             android:name="com.igexin.sdk.PushManagerReceiver"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.igexin.sdk.action.pushmanager" />
             </intent-filter>
@@ -164,14 +163,13 @@
             android:exported="false"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
 
         <service
             android:name="com.igexin.download.DownloadService"
             android:process=":pushservice" />
 
-        <receiver android:name="com.igexin.download.DownloadReceiver" >
+        <receiver android:name="com.igexin.download.DownloadReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
@@ -179,8 +177,8 @@
 
         <provider
             android:name="com.igexin.download.DownloadProvider"
-            android:exported="true"
             android:authorities="downloads.com.std.framework.delivery"
+            android:exported="true"
             android:process=":pushservice" />
 
         <activity
@@ -189,8 +187,18 @@
             android:exported="true"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <!-- 个推SDK配置结束 -->
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--============================== 个推SDK配置结束================================ -->
+
+        <activity
+            android:name=".business.call.view.activity.VoiceRecordActivity"
+          >
+            <intent-filter>
+                <action android:name="VoiceRecordActivity" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
 
     </application>
 

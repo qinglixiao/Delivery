@@ -1,7 +1,7 @@
 package com.std.framework.business.call.view.fragment;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.databinding.parser.BindingExpressionParser;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.business.call.mutual.ConfigCall;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentCallBinding;
 
@@ -18,10 +19,9 @@ import java.util.concurrent.TimeUnit;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
-public class CallFragment extends BaseFragment {
+public class CallFragment extends BaseFragment implements View.OnClickListener {
     private FragmentCallBinding fragmentCallBinding;
 
     @Override
@@ -34,7 +34,12 @@ public class CallFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_call, null);
         fragmentCallBinding = DataBindingUtil.bind(view);
         playImitate();
+        setListener();
         return view;
+    }
+
+    private void setListener() {
+        fragmentCallBinding.layoutChooseVoice.setOnClickListener(this);
     }
 
     private Subscriber<Long> subscribe = new Subscriber<Long>() {
@@ -62,4 +67,12 @@ public class CallFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.layout_choose_voice:
+                startActivity(new Intent(ConfigCall.ACTION_VOICE_RECORD));
+                break;
+        }
+    }
 }

@@ -81,7 +81,7 @@ public class MainBottomView extends LinearLayout{
         this.context = context;
         if (viewPager != null) {
             viewPager.setAdapter(new TabAdapter(context.getSupportFragmentManager()));
-            viewPager.setOffscreenPageLimit(0);
+            viewPager.setOffscreenPageLimit(tabs.size());
             viewPager.setCurrentItem(default_index);
             tabs.get(default_index).setSelected(true);
         }
