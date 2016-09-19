@@ -58,4 +58,8 @@ public class NavigationBar {
         wrapper.getToolbar().setLogo(resId);
     }
 
+    public void setVisibility(int visibility){
+        wrapper.getToolbar().setVisibility(visibility);
+    }
+
 }

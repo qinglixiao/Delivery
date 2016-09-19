@@ -32,6 +32,9 @@ public class VoiceRecordActivity extends BaseTitleActivity implements VoiceSelCo
         View view = View.inflate(this, R.layout.activity_voice_record, null);
         voiceRecordBinding = DataBindingUtil.bind(view);
         setContentView(view);
+        findViewById(R.id.parent).setBackgroundColor(getResources().getColor(R.color.transparent));
+        findViewById(R.id.container).setBackgroundColor(getResources().getColor(R.color.transparent));
+        getNavigationBar().setVisibility(View.GONE);
     }
 
     @Override

@@ -42,7 +42,7 @@
 
         <activity
             android:name=".business.login.view.activity.LaunchActivity"
-            android:theme="@style/AppTranslucentTheme">
+            android:theme="@style/AppTransparentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -101,7 +101,7 @@
             </intent-filter>
         </service>
 
-        <!--================================ 个推SDK配置开始 ===============================-->
+        <!--================= 个推SDK配置开始 ================-->
         <!-- 配置的第三方参数属性 -->
         <meta-data
             android:name="PUSH_APPID"
@@ -188,14 +188,14 @@
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--============================== 个推SDK配置结束================================ -->
+        <!--================== 个推SDK配置结束================= -->
 
         <activity
             android:name=".business.call.view.activity.VoiceRecordActivity"
-          >
+            android:theme="@style/AppDialog">
             <intent-filter>
                 <action android:name="VoiceRecordActivity" />
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 

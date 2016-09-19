@@ -17,6 +17,8 @@
     <color name="standard_gray">#EDEDED</color>
     <!-- 透明 -->
     <color name="transparent">#00000000</color>
+    <!--半透明-->
+    <color name="translucent">#60000000</color>
 
     <!-- 标准蓝色 -->
     <color name="guide_blue">#007aff</color>

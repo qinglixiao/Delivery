@@ -10,7 +10,7 @@
         <!--导航栏上的标题颜色-->
         <item name="android:textColorPrimary">@android:color/black</item>
         <!--Activity窗口的颜色-->
-        <item name="android:windowBackground">@color/light_gray</item>
+        <item name="android:windowBackground">@color/standard_gray</item>
         <!--按钮选中或者点击获得焦点后的颜色-->
         <item name="colorAccent">#00ff00</item>
         <!--和 colorAccent相反，正常状态下按钮的颜色-->
@@ -19,17 +19,50 @@
         <item name="colorButtonNormal">@color/solid_orange</item>
         <!--EditText 输入框中字体的颜色-->
         <item name="editTextColor">@android:color/black</item>
+
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
+        <item name="android:activityOpenEnterAnimation">@anim/flat_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/zoom_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/flat_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/left_to_right_out</item>
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!--<item name="android:windowTranslucentNavigation">true</item>-->
     </style>
 
     <!--透明背景主题-->
-    <style name="AppTranslucentTheme" parent="AppTheme">
+    <style name="AppTransparentTheme" parent="AppTheme">
         <item name="android:windowBackground">@color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
+
+    <!--半透明背景主题-->
+    <style name="AppTranslucentTheme" parent="AppTransparentTheme">
+        <item name="android:windowBackground">@color/translucent</item>
+        <item name="android:windowAnimationStyle">@style/AnimationAlpha</item>
+    </style>
+
+    <!--全屏-->
+    <style name="AppFullScreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!--全屏+半透明背景主题-->
+    <style name="AppFullScreen.Translucent" parent="AppTranslucentTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AppDialog" parent="android:style/Theme.Translucent">
+        <item name="android:windowBackground">@color/translucent</item>
+        <!--<item name="android:windowFrame">@null</item>-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <!--<item name="android:windowContentOverlay">@null</item>-->
+        <!--<item name="android:windowAnimationStyle">@style/AnimationAlpha</item>-->
+        <!--<item name="android:backgroundDimEnabled">true</item>-->
+    </style>
+
 </resources>

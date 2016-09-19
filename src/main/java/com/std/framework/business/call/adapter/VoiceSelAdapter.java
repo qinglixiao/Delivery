@@ -24,7 +24,6 @@ public class VoiceSelAdapter extends RecyclerView.Adapter<RecyclerHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerHolder holder, int position) {
-
     }
 
     @Override
