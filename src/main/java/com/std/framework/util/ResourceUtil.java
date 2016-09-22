@@ -1,5 +1,6 @@
 package com.std.framework.util;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
@@ -14,10 +15,11 @@ public class ResourceUtil {
 
     /**
      * 获取应用资源
+     *
      * @return
      */
-    public static Resources getResource(){
-       return App.instance.getResources();
+    public static Resources getResource() {
+        return App.instance.getResources();
     }
 
     /**
@@ -100,6 +102,25 @@ public class ResourceUtil {
         try {
             return App.instance.getResources().getIdentifier(drawableName, "drawable", App.instance.getPackageName());
         } catch (Exception ex) {
+            return -1;
+        }
+    }
+
+    /**
+     * 描          述 ：通过给定的布局文件名获取对应的资源ID
+     * 创建日期  : 2014-1-27
+     * 作           者 ： lx
+     * 修改日期  : ·
+     * 修   改   者 ：
+     *
+     * @param layoutName
+     * @return 查找成功返回：id
+     * 失败返回：-1
+     */
+    public static int getLayoutId(String layoutName) {
+        try {
+            return App.instance.getResources().getIdentifier(layoutName, "layout", App.instance.getPackageName());
+        }catch (Exception ex){
             return -1;
         }
     }

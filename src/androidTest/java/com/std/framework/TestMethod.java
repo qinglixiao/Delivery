@@ -1,5 +1,6 @@
 package com.std.framework;
 
+import android.os.Environment;
 import android.os.SystemClock;
 import android.test.AndroidTestCase;
 import android.util.Log;
@@ -7,10 +8,13 @@ import android.util.Log;
 import com.library.core.God;
 import com.library.core.Reflect;
 import com.library.util.About;
+import com.library.util.FileUtil;
 import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
 import com.std.framework.assist.Bean;
+import com.std.framework.basic.App;
+import com.std.framework.business.find.view.fragment.EventBusFragment;
 import com.std.framework.core.Logger;
 import com.std.framework.business.call.view.fragment.CallFragment;
 import com.std.framework.util.SharedPreferencesUtil;
@@ -19,6 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -127,6 +132,18 @@ public class TestMethod extends AndroidTestCase {
 
     public void testNetProvider() {
         About.getNetProvider(getContext());
+    }
+
+    public void testFileUtil(){
+        File file = Environment.getExternalStorageDirectory();
+        Logger.m(file.getAbsolutePath());
+        Logger.m(file.getPath());
+        Logger.m(LibUtil.getAppDirectory(getContext()));
+        Logger.m(LibUtil.getDownLoadDirectory());
+        Logger.m(LibUtil.getCacheDirectory(getContext()));
+        FileUtil.delete(new File(LibUtil.getAppDirectory(getContext()) + File.separator + "io"),true);
+
+//        FileUtil.deleteCascade(file);
     }
 
 }
