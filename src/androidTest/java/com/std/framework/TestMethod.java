@@ -134,16 +134,18 @@ public class TestMethod extends AndroidTestCase {
         About.getNetProvider(getContext());
     }
 
-    public void testFileUtil(){
+    public void testFileUtil() {
         File file = Environment.getExternalStorageDirectory();
         Logger.m(file.getAbsolutePath());
         Logger.m(file.getPath());
         Logger.m(LibUtil.getAppDirectory(getContext()));
         Logger.m(LibUtil.getDownLoadDirectory());
         Logger.m(LibUtil.getCacheDirectory(getContext()));
-        FileUtil.delete(new File(LibUtil.getAppDirectory(getContext()) + File.separator + "io"),true);
-
-//        FileUtil.deleteCascade(file);
+        FileUtil.delete(new File(LibUtil.getAppDirectory(getContext()) + File.separator + "io"), true);
+        File file1 = new File(LibUtil.getAppDirectory(getContext()));
+        for (File f : file1.listFiles()) {
+            Logger.m(f.getName());
+        }
     }
 
 }
