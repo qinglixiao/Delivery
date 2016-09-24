@@ -166,6 +166,9 @@ public class RecyclerAdapterWrapper extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
     public void setEmptyView(View emptyView) {
+        if(this.emptyView != null && this.emptyView.getParent() != null){
+            ((ViewGroup)this.emptyView.getParent()).removeView(this.emptyView);
+        }
         if(emptyView != null && emptyView.getParent() != null){
             ((ViewGroup)emptyView.getParent()).removeView(emptyView);
         }
