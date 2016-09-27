@@ -1,4 +1,4 @@
-package com.std.framework.business.find.view.fragment;
+package com.std.framework.business.explore.view.fragment;
 
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;

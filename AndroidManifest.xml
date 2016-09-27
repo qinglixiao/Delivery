@@ -194,7 +194,7 @@
             android:name=".business.call.view.activity.VoiceRecordActivity"
             android:theme="@style/AppDialog">
             <intent-filter>
-                <action android:name="VoiceRecordActivity" />
+                <action android:name="com.std.framework.VoiceRecordActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

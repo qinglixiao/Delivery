@@ -10,5 +10,5 @@ public class ConfigCall {
     /**
      * 录音界面跳转
      **/
-    public static final String ACTION_VOICE_RECORD = "VoiceRecordActivity";
+    public static final String ACTION_VOICE_RECORD = "com.std.framework.VoiceRecordActivity";
 }

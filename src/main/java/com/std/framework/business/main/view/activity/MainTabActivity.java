@@ -8,7 +8,7 @@ import com.std.framework.R;
 import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.business.call.view.fragment.CallFragment;
 import com.std.framework.business.main.view.fragment.ContactFragment;
-import com.std.framework.business.find.view.fragment.FindFragment;
+import com.std.framework.business.explore.view.fragment.ExploreMainFragment;
 import com.std.framework.business.main.view.fragment.MainFragment;
 import com.std.framework.business.main.view.fragment.MineFragment;
 import com.std.framework.core.NavigationBar;
@@ -19,7 +19,7 @@ import com.std.framework.comm.view.MainBottomView;
 public class MainTabActivity extends BaseTitleActivity {
     private ActivityTabMain activityTabMain;
 
-    private MainBottomView.TabSpec findTab;
+    private MainBottomView.TabSpec exploreTab;
     private MainBottomView.TabSpec contactTab;
     private MainBottomView.TabSpec homeTab;
     private MainBottomView.TabSpec communicateTab;
@@ -36,9 +36,9 @@ public class MainTabActivity extends BaseTitleActivity {
     }
 
     private void initTab() {
-        //发现
-        findTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_list, R.string.main_tab_find, FindFragment.class);
-        activityTabMain.tabContainer.addTab(findTab);
+        //探索
+        exploreTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_list, R.string.main_tab_explore, ExploreMainFragment.class);
+        activityTabMain.tabContainer.addTab(exploreTab);
         //通讯录
         contactTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_contact, R.string.main_tab_contact, ContactFragment.class);
         activityTabMain.tabContainer.addTab(contactTab);
@@ -58,7 +58,7 @@ public class MainTabActivity extends BaseTitleActivity {
     }
 
     private void applySkin() {
-        findTab.applySkin(ThemeUtil.getDrawableSelector("main_app_list", "main_app_list")
+        exploreTab.applySkin(ThemeUtil.getDrawableSelector("main_app_list", "main_app_list")
                 , ThemeUtil.getTabTextSelector());
         contactTab.applySkin(ThemeUtil.getDrawableSelector("main_app_contact", "main_app_contact")
                 , ThemeUtil.getTabTextSelector());
@@ -69,7 +69,6 @@ public class MainTabActivity extends BaseTitleActivity {
         settingTab.applySkin(ThemeUtil.getDrawableSelector("main_app_setting", "main_app_setting")
                 , ThemeUtil.getTabTextSelector());
     }
-
 
     @Override
     public void onNavigationBar(NavigationBar navigation) {

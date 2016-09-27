@@ -1,4 +1,4 @@
-package com.std.framework.business.find.view.fragment;
+package com.std.framework.business.explore.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,15 +11,14 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
-import com.std.framework.core.FragmentManufacture;
-import com.std.framework.core.Logger;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.comm.view.PagerSlidingTabStrip;
+import com.std.framework.core.FragmentManufacture;
+import com.std.framework.core.NavigationBar;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FindFragment extends BaseFragment {
+public class ExploreMainFragment extends BaseFragment {
     private View view;
     private ViewPager viewPager;
     private PagerSlidingTabStrip tabStrip;
@@ -32,11 +31,12 @@ public class FindFragment extends BaseFragment {
         fragments.put("RxBus", AnimationFragment.RxBusFragment.class);
         fragments.put("CustomerView", CustomerViewFragment.class);
         fragments.put("Animation", AnimationFragment.class);
+        fragments.put("RecyclerView",RecyclerViewFragment.class);
     }
 
     @Override
     public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle(R.string.main_tab_find);
+        navigationBar.setTitle(R.string.main_tab_explore);
     }
 
     @Override

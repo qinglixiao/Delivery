@@ -13,8 +13,6 @@ import com.library.util.LibUtil;
 import com.library.util.SecurityUtil.MD5;
 import com.library.util.SecurityUtil.SHA1;
 import com.std.framework.assist.Bean;
-import com.std.framework.basic.App;
-import com.std.framework.business.find.view.fragment.EventBusFragment;
 import com.std.framework.core.Logger;
 import com.std.framework.business.call.view.fragment.CallFragment;
 import com.std.framework.util.SharedPreferencesUtil;

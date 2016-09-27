@@ -1,4 +1,4 @@
-package com.std.framework.business.find.view.fragment;
+package com.std.framework.business.explore.view.fragment;
 
 import android.os.Bundle;
 import android.util.Log;

@@ -25,16 +25,17 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
-     * 定义title
+     * 自定义title
+     *
      * @param navigationBar
      */
-    public abstract void onNavigationBar(NavigationBar navigationBar);
+    protected void onNavigationBar(NavigationBar navigationBar) {
+    }
 
     /**
      * 加载数据
      */
-    protected void loadData(){
-
+    protected void loadData() {
     }
 
 }
