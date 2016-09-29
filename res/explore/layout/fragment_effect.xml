@@ -13,6 +13,9 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
+            android:background="@color/c25"
+            android:clickable="true"
+            android:gravity="center"
             android:text="颜色"
             android:textColor="@color/tab_strip_text_color"
             android:textSize="20dp" />

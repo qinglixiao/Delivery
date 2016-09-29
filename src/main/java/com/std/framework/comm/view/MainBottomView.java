@@ -38,6 +38,8 @@ public class MainBottomView extends LinearLayout{
 
     protected List<TabSpec> tabs = new ArrayList<>();
 
+    private TabSpec cur_tab_spec;
+
     private ViewPager viewPager;
 
     private int default_index = 0;
@@ -90,6 +92,9 @@ public class MainBottomView extends LinearLayout{
     private OnTabClickListener tabClickListener = new OnTabClickListener() {
         @Override
         public void onClick(TabSpec tabSpec) {
+            if(last_selected_index == tabSpec.getIndex()){
+                return;
+            }
             tabSpec.setSelected(true);
             tabs.get(last_selected_index).setSelected(false);
             last_selected_index = tabSpec.getIndex();
