@@ -4,6 +4,5 @@ gen/
 bin/
 *.iml
 .idea/
-*.properties
 *.bak
 captures/
