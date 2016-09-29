@@ -2,6 +2,7 @@ package com.std.framework.business.explore.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -19,14 +20,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerHolder> {
     private Context context;
     private String[] data;
 
-    public RecyclerViewAdapter(String[] data,Context context) {
+    public RecyclerViewAdapter(String[] data, Context context) {
         this.data = data;
         this.context = context;
     }
 
     @Override
     public RecyclerHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new RecyclerHolder(View.inflate(context, R.layout.item_view_recycler, null));
+        return new RecyclerHolder(LayoutInflater.from(context).inflate(R.layout.item_view_recycler, parent, false));
     }
 
     @Override
