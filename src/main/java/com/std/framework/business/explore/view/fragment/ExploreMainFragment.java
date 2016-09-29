@@ -46,6 +46,7 @@ public class ExploreMainFragment extends BaseFragment {
             view = inflater.inflate(R.layout.fragment_second, null);
             viewPager = (ViewPager) view.findViewById(R.id.pager);
             tabStrip = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
+            tabStrip.setTextColorResource(R.color.tab_strip_text_color);
             tabStrip.setAllCaps(false);
             initPager();
         }
