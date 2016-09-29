@@ -8,9 +8,11 @@
     <!-- 蓝色 -->
     <color name="blue">#3bbcf2</color>
     <!-- 红色 -->
-    <color name = "red">#ff0000</color>
+    <color name="red">#ff0000</color>
     <!-- 灰色 -->
     <color name="gray">#8a8a8a</color>
+    <!--深灰-->
+    <color name="dark_gray">#FF666666</color>
     <!--浅灰-->
     <color name="light_gray">#dcdbdb</color>
     <!--标准灰-->
@@ -57,8 +59,8 @@
     <color name="c31">#328DDE</color>
     <color name="c32">#a0a5ae</color>
     <color name="c33">#EBEBEB</color>
-    
+
     <color name="topic">@color/solid_orange</color>
     <color name="topic_reverse">@color/gray</color>
-    
+
 </resources>
