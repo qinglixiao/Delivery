@@ -3,6 +3,7 @@ package com.std.framework.business.explore.view.fragment;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class RecyclerViewFragment extends BaseFragment {
     private void initView(){
         recyclerView = recyclerViewBinding.rcvResult;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
     private void initData(){
