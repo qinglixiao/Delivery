@@ -19,7 +19,7 @@ import android.view.View;
  * Person in charge : lx
  * Leader：lx
  */
-public class DividerItemDecoration extends RecyclerView.ItemDecoration {
+public class RecyclerItemDivider extends RecyclerView.ItemDecoration {
     private static final int[] ATTRS = new int[]{
             android.R.attr.listDivider
     };
@@ -28,7 +28,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private Drawable mDivider;
     private int mOrientation;
 
-    public DividerItemDecoration(Context context, int orientation) {
+    public RecyclerItemDivider(Context context, int orientation) {
         final TypedArray a = context.obtainStyledAttributes(ATTRS);
         mDivider = a.getDrawable(0);
         a.recycle();
@@ -52,7 +52,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public void drawVertical(Canvas c, RecyclerView parent) {
-        final int left = parent.getPaddingLeft();
+        final int left = parent.getPaddingLeft()+20;
         final int right = parent.getWidth() - parent.getPaddingRight();
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {

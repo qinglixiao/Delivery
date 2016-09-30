@@ -2,7 +2,8 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="BaseAppTheme">
-        <item name="android:navigationBarColor">@color/solid_orange</item>
+        <item name="android:navigationBarColor">@color/topic</item>
+        <item name="android:statusBarColor">@color/topic</item>
     </style>
 
     <!--透明背景主题-->

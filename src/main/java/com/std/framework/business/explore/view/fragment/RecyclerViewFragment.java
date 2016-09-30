@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.business.explore.adapter.RecyclerViewAdapter;
+import com.std.framework.comm.view.RecyclerItemDivider;
 import com.std.framework.databinding.RecyclerViewBinding;
 
 /**
@@ -25,26 +26,27 @@ public class RecyclerViewFragment extends BaseFragment {
     private RecyclerViewBinding recyclerViewBinding;
     private RecyclerView recyclerView;
     private static final String[] data = new String[]{
-            "北京","黑龙江","吉林","山东","江苏","河北","山西","内蒙古","新疆","西藏","云南","香港","澳门"
+            "北京", "黑龙江", "吉林", "山东", "江苏", "河北", "山西", "内蒙古", "新疆", "西藏", "云南", "香港", "澳门"
     };
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recycler_view,null);
+        View view = inflater.inflate(R.layout.fragment_recycler_view, null);
         recyclerViewBinding = DataBindingUtil.bind(view);
         initView();
         initData();
         return view;
     }
 
-    private void initView(){
+    private void initView() {
         recyclerView = recyclerViewBinding.rcvResult;
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new RecyclerItemDivider(getContext(), LinearLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
-    private void initData(){
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(data,getContext());
+    private void initData() {
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(data, getContext());
         recyclerView.setAdapter(adapter);
     }
 

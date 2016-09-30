@@ -32,7 +32,7 @@ public abstract class BaseTitleActivity extends BaseActivity {
 
     @Override
     public void setContentView(View view) {
-        ViewGroup container = (ViewGroup) findViewById(R.id.container);
+        ViewGroup container = (ViewGroup) findViewById(R.id.parent);
         if (container == null) {
             throw new NullPointerException(getClass().getSimpleName() + ":container is null");
         }

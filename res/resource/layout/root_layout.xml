@@ -3,18 +3,9 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/solid_orange"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/standard_gray"
-        android:orientation="vertical">
-
-        <include layout="@layout/navigation_action_bar" />
-    </LinearLayout>
+    <include layout="@layout/navigation_action_bar" />
 
 </LinearLayout>

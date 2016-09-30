@@ -19,7 +19,6 @@
         <item name="colorButtonNormal">@color/solid_orange</item>
         <!--EditText 输入框中字体的颜色-->
         <item name="editTextColor">@android:color/black</item>
-
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
