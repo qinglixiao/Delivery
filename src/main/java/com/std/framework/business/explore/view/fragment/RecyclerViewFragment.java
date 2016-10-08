@@ -41,7 +41,7 @@ public class RecyclerViewFragment extends BaseFragment {
     private void initView() {
         recyclerView = recyclerViewBinding.rcvResult;
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new RecyclerItemDivider(getContext(), LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new RecyclerItemDivider());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 

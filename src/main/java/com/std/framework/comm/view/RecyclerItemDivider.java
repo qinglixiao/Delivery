@@ -1,6 +1,5 @@
 package com.std.framework.comm.view;
 
-import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -9,6 +8,9 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import com.android.annotations.NonNull;
+import com.std.framework.basic.App;
 
 /**
  * Description : RecyclerView 分割线
@@ -28,10 +30,19 @@ public class RecyclerItemDivider extends RecyclerView.ItemDecoration {
     private Drawable mDivider;
     private int mOrientation;
 
-    public RecyclerItemDivider(Context context, int orientation) {
-        final TypedArray a = context.obtainStyledAttributes(ATTRS);
+    public RecyclerItemDivider(){
+        this(VERTICAL_LIST);
+    }
+
+    public RecyclerItemDivider(int orientation) {
+        final TypedArray a = App.instance.obtainStyledAttributes(ATTRS);
         mDivider = a.getDrawable(0);
         a.recycle();
+        setOrientation(orientation);
+    }
+
+    public RecyclerItemDivider(@NonNull Drawable divider, int orientation){
+        mDivider = divider;
         setOrientation(orientation);
     }
 
@@ -52,7 +63,7 @@ public class RecyclerItemDivider extends RecyclerView.ItemDecoration {
     }
 
     public void drawVertical(Canvas c, RecyclerView parent) {
-        final int left = parent.getPaddingLeft()+20;
+        final int left = parent.getPaddingLeft();
         final int right = parent.getWidth() - parent.getPaddingRight();
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
