@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.android.annotations.NonNull;
 import com.std.framework.basic.App;
+import com.std.framework.util.DimenUtil;
 
 /**
  * Description : RecyclerView 分割线
@@ -30,7 +31,7 @@ public class RecyclerItemDivider extends RecyclerView.ItemDecoration {
     private Drawable mDivider;
     private int mOrientation;
 
-    public RecyclerItemDivider(){
+    public RecyclerItemDivider() {
         this(VERTICAL_LIST);
     }
 
@@ -41,7 +42,7 @@ public class RecyclerItemDivider extends RecyclerView.ItemDecoration {
         setOrientation(orientation);
     }
 
-    public RecyclerItemDivider(@NonNull Drawable divider, int orientation){
+    public RecyclerItemDivider(@NonNull Drawable divider, int orientation) {
         mDivider = divider;
         setOrientation(orientation);
     }
@@ -98,7 +99,7 @@ public class RecyclerItemDivider extends RecyclerView.ItemDecoration {
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
         if (mOrientation == VERTICAL_LIST) {
-            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
+            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight() == -1 ? (int)DimenUtil.dpToPx(3) : mDivider.getIntrinsicHeight());
         } else {
             outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
         }
