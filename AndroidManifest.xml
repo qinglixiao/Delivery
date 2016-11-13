@@ -51,13 +51,7 @@
         </activity>
         <activity
             android:name=".business.main.view.activity.MainActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
         <activity
             android:name=".business.main.view.activity.MainTabActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
@@ -198,7 +192,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".business.rich.view.RichMainActivity" />
+        <activity android:name=".business.rich.gallery.GalleryActivity" />
+        <activity android:name=".business.rich.other.EditorActivity" />
 
     </application>
 

@@ -37,7 +37,7 @@ public class PluginManager {
 			try {
 				DexClassLoader classLoader = new DexClassLoader(dexPath, dexOutputDir, libPath, getClass().getClassLoader());
 //				Class<?> clazz = classLoader.loadClass(packageName + ".PluginClass");
-				Class<?> clazz = classLoader.loadClass(packageName + ".MainActivity");
+				Class<?> clazz = classLoader.loadClass(packageName + ".RichMainActivity");
 				IStdPlugin plugin = (IStdPlugin) clazz.newInstance();
 				plugins.add(plugin);
 			}

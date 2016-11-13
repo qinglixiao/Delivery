@@ -37,7 +37,7 @@ public class DimenUtil {
      * @return
      * @version : 1.0
      */
-    public static float pxToDp(float px) {
+    public static float pxTodp(float px) {
         final float scale = App.instance.getResources().getDisplayMetrics().density;
         return px / scale;
     }

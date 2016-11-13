@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc">
+
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/rv_content"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+
+    <com.std.framework.business.rich.dslv.DragSortListView
+        android:id="@+id/lsv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_tool_bar"></com.std.framework.business.rich.dslv.DragSortListView>
+
+    <LinearLayout
+        android:id="@+id/ll_tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cbx_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:checked="false"
+            android:text="调序"
+            android:textColor="#E58C7C" />
+
+        <ImageButton
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ffffffff" />
+
+        <ImageButton
+            android:id="@+id/btn_undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_xiezuo_undo" />
+
+        <ImageButton
+            android:id="@+id/btn_redo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_xiezuo_redo" />
+
+        <ImageButton
+            android:id="@+id/btn_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_xiezuo_wenzi" />
+
+        <ImageButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_xiezuo_tianjia" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
