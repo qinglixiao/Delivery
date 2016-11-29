@@ -21,7 +21,7 @@ import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.basic.IBasePresenter;
-import com.std.framework.business.main.contract.RxBusContract;
+import com.std.framework.business.home.contract.RxBusContract;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.core.RxBus;
 import com.std.framework.databinding.FragmentAnimationBinding;

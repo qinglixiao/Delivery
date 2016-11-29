@@ -50,10 +50,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".business.main.view.activity.MainActivity"
+            android:name=".business.home.view.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
         <activity
-            android:name=".business.main.view.activity.MainTabActivity"
+            android:name=".business.home.view.activity.MainTabActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
 
         <receiver android:name=".comm.view.desk.DeskWidgetProvider">

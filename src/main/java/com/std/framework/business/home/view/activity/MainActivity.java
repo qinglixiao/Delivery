@@ -1,4 +1,4 @@
-package com.std.framework.business.main.view.activity;
+package com.std.framework.business.home.view.activity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.std.framework.business.main.model;
+package com.std.framework.business.home.model;
 
 import android.databinding.BaseObservable;
 

@@ -18,7 +18,9 @@ public abstract class BaseFragment extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
             if (getActivity() instanceof BaseTitleActivity) {
-                onNavigationBar(((BaseTitleActivity) getActivity()).getNavigationBar());
+                NavigationBar navigationBar = ((BaseTitleActivity) getActivity()).getNavigationBar();
+                navigationBar.resetMenu();
+                onNavigationBar(navigationBar);
             }
             loadData();
         }

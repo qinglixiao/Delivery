@@ -1,4 +1,4 @@
-package com.std.framework.business.main.view.fragment;
+package com.std.framework.business.mine.view;
 
 import android.os.Bundle;
 import android.view.Gravity;

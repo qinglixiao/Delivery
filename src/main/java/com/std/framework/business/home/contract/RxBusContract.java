@@ -1,4 +1,4 @@
-package com.std.framework.business.main.contract;
+package com.std.framework.business.home.contract;
 
 import com.std.framework.basic.IBasePresenter;
 import com.std.framework.basic.IBaseView;

@@ -1,4 +1,4 @@
-package com.std.framework.business.main.view.activity;
+package com.std.framework.business.home.view.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -7,10 +7,10 @@ import android.view.View;
 import com.std.framework.R;
 import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.business.call.view.fragment.CallFragment;
-import com.std.framework.business.main.view.fragment.ContactFragment;
+import com.std.framework.business.contact.view.ContactFragment;
 import com.std.framework.business.explore.view.fragment.ExploreMainFragment;
-import com.std.framework.business.main.view.fragment.MainFragment;
-import com.std.framework.business.main.view.fragment.MineFragment;
+import com.std.framework.business.home.view.fragment.MainFragment;
+import com.std.framework.business.mine.view.MineFragment;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.ActivityTabMain;
 import com.std.framework.util.ThemeUtil;
@@ -73,7 +73,7 @@ public class MainTabActivity extends BaseTitleActivity {
     @Override
     public void onNavigationBar(NavigationBar navigation) {
         navigation.setTitle(R.string.app_name);
-        navigation.setNavigationIcon(R.drawable.icon);
+        navigation.setIcon(R.drawable.icon);
     }
 
 }

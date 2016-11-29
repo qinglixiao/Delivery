@@ -1,4 +1,4 @@
-package com.std.framework.business.main.view.fragment;
+package com.std.framework.business.contact.view;
 
 import java.io.IOException;
 
@@ -22,7 +22,6 @@ public class ContactFragment extends BaseFragment implements OnClickListener{
 	private View view;
 	private EditText editText;
 	private Button button;
-	private ShapeView shapeView;
 
 	@Override
 	public void onNavigationBar(NavigationBar navigationBar) {
@@ -35,9 +34,7 @@ public class ContactFragment extends BaseFragment implements OnClickListener{
 		view = inflater.inflate(R.layout.fragment_three, null);
 		editText = (EditText) view.findViewById(R.id.frag3_edt);
 		button = (Button) view.findViewById(R.id.frag3_btn);
-		shapeView = (ShapeView) view.findViewById(R.id.shapeView1);
 		button.setOnClickListener(this);
-		shapeView.setImageDrawable(getResources().getDrawable(R.drawable.call));
 		registerListener();
 		return view;
 	}

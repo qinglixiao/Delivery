@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.business.call.mutual.ConfigCall;
+import com.std.framework.comm.view.RecordVoiceDialog;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentCallBinding;
 
@@ -27,6 +30,13 @@ public class CallFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void onNavigationBar(NavigationBar navigationBar) {
         navigationBar.setTitle(R.string.main_tab_communicate);
+        navigationBar.addRightButton(R.drawable.rich_edit_add, new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                new RecordVoiceDialog(getContext()).show();
+                return false;
+            }
+        });
     }
 
     @Override

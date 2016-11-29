@@ -23,13 +23,4 @@
         android:layout_alignParentTop="true"
         android:text="Button" />
 
-    <com.std.framework.comm.view.ShapeView
-        android:id="@+id/shapeView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/frag3_btn"
-        android:layout_marginTop="40dp" 
-        />
-
 </RelativeLayout>

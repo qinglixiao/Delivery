@@ -3,6 +3,8 @@ package com.std.framework.core;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.MenuRes;
 import android.support.annotation.StringRes;
+import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 
@@ -26,40 +28,40 @@ public class NavigationBar {
         wrapper.setTitle(title);
     }
 
-    public void setTitle(@StringRes int resId){
+    public void setTitle(@StringRes int resId) {
         wrapper.setTitle(resId);
     }
 
-    public void setOnMenuItemClickListener(OnMenuItemWrapClickListener listener) {
-        wrapper.getToolbar().setOnMenuItemClickListener(listener);
-    }
-
-    public void setOnNavigationClickListener(View.OnClickListener listener){
+    public void setOnClickListener(View.OnClickListener listener) {
         wrapper.getToolbar().setNavigationOnClickListener(listener);
     }
 
-    public void setNavigationIcon(@DrawableRes int resId) {
+    public void setIcon(@DrawableRes int resId) {
         wrapper.getToolbar().setNavigationIcon(resId);
     }
 
-    public void setNavigationContentDescription(CharSequence txt){
+    public void setDescription(CharSequence txt) {
         wrapper.getToolbar().setNavigationContentDescription(txt);
     }
 
-    public void setMenu(@MenuRes int resId) {
-        wrapper.getToolbar().inflateMenu(resId);
-    }
-
-    public Menu makeMenu() {
-        return wrapper.getToolbar().getMenu();
-    }
-
-    public void setLogo(@DrawableRes int resId){
+    public void setLogo(@DrawableRes int resId) {
         wrapper.getToolbar().setLogo(resId);
     }
 
-    public void setVisibility(int visibility){
+    public void setVisibility(int visibility) {
         wrapper.getToolbar().setVisibility(visibility);
+    }
+
+    public void addRightButton(String name, @DrawableRes int iconRes, Toolbar.OnMenuItemClickListener callback) {
+        wrapper.addMenu(name, iconRes, callback);
+    }
+
+    public void addRightButton(@DrawableRes int iconRes, Toolbar.OnMenuItemClickListener callback) {
+        wrapper.addMenu("", iconRes, callback);
+    }
+
+    public void resetMenu() {
+        wrapper.clearMenu();
     }
 
 }

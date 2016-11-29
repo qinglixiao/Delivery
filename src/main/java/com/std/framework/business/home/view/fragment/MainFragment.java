@@ -1,4 +1,4 @@
-package com.std.framework.business.main.view.fragment;
+package com.std.framework.business.home.view.fragment;
 
 import com.library.core.ThreadPool;
 import com.library.util.About;

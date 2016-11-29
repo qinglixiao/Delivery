@@ -212,4 +212,9 @@ public class JunitMethod {
             JunitUtil.log("index:"+index+ " time:" + (System.nanoTime() - start));
     }
 
+    @Test
+    public void gson(){
+
+    }
+
 }
