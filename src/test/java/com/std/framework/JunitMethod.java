@@ -82,6 +82,13 @@ public class JunitMethod {
     @Test
     public void testEnum() {
         A a = A.valueOf(B.Choole.name());
+        JunitUtil.print(RichEditFuntion.TEXT.ordinal());
+        JunitUtil.print(RichEditFuntion.VIDEO.ordinal());
+        JunitUtil.print(RichEditFuntion.IMAGE.ordinal());
+
+        JunitUtil.print(RichEditFuntion.TEXT.getValue());
+        JunitUtil.print(RichEditFuntion.VIDEO.getValue());
+        JunitUtil.print(RichEditFuntion.IMAGE.getValue());
     }
 
     enum A {
@@ -215,6 +222,24 @@ public class JunitMethod {
     @Test
     public void gson(){
 
+    }
+
+    public enum RichEditFuntion {
+        TEXT(1),
+        IMAGE(2),
+        VIDEO(3),
+        VOICE(4),
+        MAP(5);
+
+        int value;
+
+        public int getValue() {
+            return value;
+        }
+
+        RichEditFuntion(int value) {
+            this.value = value;
+        }
     }
 
 }

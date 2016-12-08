@@ -3,7 +3,9 @@ package com.std.framework.comm.view;
 import android.app.Dialog;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.std.framework.R;
 import com.std.framework.databinding.RecordVoiceBinding;
@@ -20,6 +22,7 @@ public class RecordVoiceDialog extends Dialog {
     public RecordVoiceDialog(Context context) {
         super(context);
         initView();
+        getWindow().setWindowAnimations(R.style.AnimationAlpha);
     }
 
     public RecordVoiceDialog(Context context, int themeResId) {
