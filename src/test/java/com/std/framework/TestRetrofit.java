@@ -84,18 +84,18 @@ public class TestRetrofit {
 
     @Test
     public void testJson() throws InterruptedException {
-        getSample().getTopMovie(0, 10).enqueue(new Callback<MoveEntity>() {
-            @Override
-            public void onResponse(Call<MoveEntity> call, Response<MoveEntity> response) {
-                JunitUtil.log(response.body() == null ? "null" : response.body().title);
-            }
-
-            @Override
-            public void onFailure(Call<MoveEntity> call, Throwable t) {
-
-            }
-        });
-        Thread.sleep(3000);
+//        getSample().getTopMovie(0, 10).enqueue(new Callback<MoveEntity>() {
+//            @Override
+//            public void onResponse(Call<MoveEntity> call, Response<MoveEntity> response) {
+//                JunitUtil.log(response.body() == null ? "null" : response.body().title);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<MoveEntity> call, Throwable t) {
+//
+//            }
+//        });
+//        Thread.sleep(3000);
     }
 
     class MoveEntity {

@@ -89,6 +89,8 @@ public class JunitMethod {
         JunitUtil.print(RichEditFuntion.TEXT.getValue());
         JunitUtil.print(RichEditFuntion.VIDEO.getValue());
         JunitUtil.print(RichEditFuntion.IMAGE.getValue());
+
+        JunitUtil.print(RichEditFuntion.IMAGE.name());
     }
 
     enum A {
@@ -127,7 +129,7 @@ public class JunitMethod {
 
     @Test
     public void testMeta() {
-        JunitUtil.log(AppUtil.getMetaData("com.baidu.lbsapi.API_KEY"));
+//        JunitUtil.log(AppUtil.getMetaData("com.baidu.lbsapi.API_KEY"));
     }
 
     @Test

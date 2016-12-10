@@ -1,5 +1,9 @@
 package com.std.framework.util;
 
+import android.widget.Toast;
+
+import com.std.framework.basic.App;
+
 /**
  * Description:
  * Created by 李晓 ON 2016/12/8.
@@ -10,4 +14,8 @@ package com.std.framework.util;
  * Leader:
  */
 public class ToastUtil {
+
+    public static void show(String message) {
+        Toast.makeText(App.instance, message, Toast.LENGTH_SHORT).show();
+    }
 }
