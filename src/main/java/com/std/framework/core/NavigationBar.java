@@ -1,14 +1,9 @@
 package com.std.framework.core;
 
 import android.support.annotation.DrawableRes;
-import android.support.annotation.MenuRes;
 import android.support.annotation.StringRes;
-import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
-
-import com.std.framework.comm.interfaces.OnMenuItemWrapClickListener;
 
 /**
  * Created by gfy on 2016/4/16.
