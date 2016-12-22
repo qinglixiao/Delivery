@@ -12,22 +12,23 @@ import android.view.WindowManager;
 import com.std.framework.R;
 
 /**
- * Description : 底部弹出dialog, 内容可以由用户传入
+ * Description : 底部弹出dialog, 内容由用户传入
  * Author:       lx
  * Create on:  2016/12/10.
  * Modify by：lx
  */
-public class BottomPopView extends Dialog {
+public class BottomPopContainer extends Dialog {
+    private Context context;
     private View view;
 
-    public BottomPopView(Context context, @LayoutRes int layoutId) {
-        super(context, R.style.BottomPopViewStyle);
-        initWindow();
-        view = LayoutInflater.from(context).inflate(layoutId, null, false);
-        setContentView(view);
+    public BottomPopContainer(Context context, @LayoutRes int layoutId) {
+        super(context, R.style.BottomPopDialogStyle);
+        this.context = context;
+        setWindowAttribute();
+        setView(layoutId);
     }
 
-    private void initWindow() {
+    private void setWindowAttribute() {
         Window window = getWindow();
         WindowManager.LayoutParams params = window.getAttributes();
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
@@ -35,6 +36,11 @@ public class BottomPopView extends Dialog {
         params.gravity = Gravity.LEFT | Gravity.BOTTOM;
         window.setAttributes(params);
         setCanceledOnTouchOutside(true);
+    }
+
+    private void setView(@LayoutRes int layoutId){
+        view = LayoutInflater.from(context).inflate(layoutId, null, false);
+        setContentView(view);
     }
 
     public View getView() {

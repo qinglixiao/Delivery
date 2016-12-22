@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.business.call.mutual.ConfigCall;
-import com.std.framework.comm.view.RecordVoiceDialog;
+import com.std.framework.business.call.view.RecordVoiceDialog;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentCallBinding;
 

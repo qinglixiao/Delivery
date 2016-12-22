@@ -12,6 +12,7 @@ import com.library.util.LibUtil;
 import com.library.util.LogUtil;
 import com.std.framework.comm.clazz.STDActivityManager;
 import com.std.framework.comm.clazz.STDUncaughtExceptionHandler;
+import com.std.framework.util.AppUtil;
 
 public class App extends Application {
     /**
@@ -44,7 +45,7 @@ public class App extends Application {
      */
     private void configLogSystem() {
         if (LibUtil.isExternalStorageAvailable())
-            LogUtil.configureOnlyLogFile(LibUtil.getAppDirectory(this));
+            LogUtil.configureOnlyLogFile(AppUtil.getAppDirectory());
         else
             Log.e("APP", "日志系统配置失败---[设备无存储卡]");
     }

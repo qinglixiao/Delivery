@@ -43,7 +43,7 @@ public class VoiceRecordHelper {
     /* 系统声音改变监听 */
     private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener;
 
-    public VoiceRecordHelper(Activity context) {
+    public VoiceRecordHelper(Context context) {
         mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         initListener();
     }

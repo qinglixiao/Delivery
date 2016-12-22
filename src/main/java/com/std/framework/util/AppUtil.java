@@ -1,14 +1,63 @@
 package com.std.framework.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 
 import com.std.framework.basic.App;
 
+import java.io.File;
+
 public class AppUtil {
+    /**
+     * 描          述 ：获取应用在SD卡的安装目录
+     *
+     * @return
+     * @version : 1.0
+     */
+    public static String getAppDirectory() {
+        String mApplicationName = App.instance.getPackageManager().getApplicationLabel(App.instance.getApplicationInfo()).toString();
+        String dir = Environment.getExternalStoragePublicDirectory(mApplicationName).getPath();
+        File file = new File(dir);
+        if (!file.exists())
+            file.mkdirs();
+        return dir;
+    }
+
+    /**
+     * 描          述 ：获取SD卡根目录
+     *
+     * @return
+     * @version : 1.0
+     */
+    public static String getSdCardRootDirectory() {
+        return Environment.getExternalStorageDirectory().getAbsolutePath();
+    }
+
+    /**
+     * 描          述 ：获取应用缓存目录(内存)
+     *
+     * @return
+     * @version : 1.0
+     */
+    public static String getCacheDirectory() {
+        return App.instance.getCacheDir().getPath();
+    }
+
+    /**
+     * 描          述 ：获取SD卡上的下载目录
+     *
+     * @return
+     * @version : 1.0
+     */
+    public static String getDownLoadDirectory() {
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+    }
+
     /**
      * 点击返回按键
      *

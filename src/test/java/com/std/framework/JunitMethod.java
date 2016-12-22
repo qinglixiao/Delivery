@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.library.core.Reflect;
 import com.std.framework.assist.JunitUtil;
 import com.std.framework.util.AppUtil;
+import com.std.framework.util.TimeUtil;
 
 import junit.framework.Assert;
 
@@ -242,6 +243,11 @@ public class JunitMethod {
         RichEditFuntion(int value) {
             this.value = value;
         }
+    }
+
+    @Test
+    public void testTimeUtil(){
+        long millcount = 10*1000;
     }
 
 }
