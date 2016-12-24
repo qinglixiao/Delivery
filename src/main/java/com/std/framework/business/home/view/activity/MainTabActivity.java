@@ -76,4 +76,13 @@ public class MainTabActivity extends BaseTitleActivity {
         navigation.setIcon(R.drawable.icon);
     }
 
+    @Override
+    protected void onGranted(int requestCode) {
+        activityTabMain.tabContainer.getCurrentTab().getFragment().onGranted(requestCode);
+    }
+
+    @Override
+    protected void onDenied(int requestCode) {
+        activityTabMain.tabContainer.getCurrentTab().getFragment().onDenied(requestCode);
+    }
 }

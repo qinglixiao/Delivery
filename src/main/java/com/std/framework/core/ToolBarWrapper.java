@@ -5,6 +5,8 @@ import android.support.annotation.StringRes;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -34,18 +36,22 @@ public class ToolBarWrapper {
         mTitle.setText(title);
     }
 
-    public void addMenu(String name, @DrawableRes int iconRes, Toolbar.OnMenuItemClickListener callback) {
-        toolbar.getMenu().add(name).setIcon(iconRes).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    public void addMenu(String title, @DrawableRes int iconRes, Toolbar.OnMenuItemClickListener callback) {
+        MenuItem menuItem = toolbar.getMenu().add(title);
+        if (iconRes != -1) {
+            menuItem.setIcon(iconRes);
+        }
+        menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         if (callback != null) {
             toolbar.setOnMenuItemClickListener(callback);
         }
     }
 
-    public void clearMenu(){
+    public void clearMenu() {
         toolbar.getMenu().clear();
     }
 
-    public void removeMenu(int menuId){
+    public void removeMenu(int menuId) {
         toolbar.getMenu().removeItem(menuId);
     }
 

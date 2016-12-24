@@ -3,6 +3,7 @@ package com.std.framework.core;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
 /**
@@ -47,8 +48,12 @@ public class NavigationBar {
         wrapper.getToolbar().setVisibility(visibility);
     }
 
-    public void addRightButton(String name, @DrawableRes int iconRes, Toolbar.OnMenuItemClickListener callback) {
-        wrapper.addMenu(name, iconRes, callback);
+    public void addRightButton(String title, @DrawableRes int iconRes, Toolbar.OnMenuItemClickListener callback) {
+        wrapper.addMenu(title, iconRes, callback);
+    }
+
+    public void addRightButton(String title, Toolbar.OnMenuItemClickListener callback) {
+        wrapper.addMenu(title, -1, callback);
     }
 
     public void addRightButton(@DrawableRes int iconRes, Toolbar.OnMenuItemClickListener callback) {

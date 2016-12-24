@@ -1,8 +1,9 @@
 package com.std.framework.business.call.view.fragment;
 
-import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -12,8 +13,9 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
-import com.std.framework.business.call.mutual.ConfigCall;
+import com.std.framework.business.call.mutual.CallAssist;
 import com.std.framework.business.call.view.RecordVoiceDialog;
+import com.std.framework.comm.clazz.PermissionAssist;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentCallBinding;
 
@@ -33,7 +35,11 @@ public class CallFragment extends BaseFragment implements View.OnClickListener {
         navigationBar.addRightButton(R.drawable.rich_edit_add, new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                new RecordVoiceDialog(getContext()).show();
+                if (PermissionAssist.checkPermission(getContext(), PermissionAssist.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                    PermissionAssist.requestPermissions(getActivity(), PermissionAssist.RECORD_AUDIO);
+                } else {
+                    new RecordVoiceDialog(getContext()).show();
+                }
                 return false;
             }
         });
@@ -81,8 +87,18 @@ public class CallFragment extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.layout_choose_voice:
-                startActivity(new Intent(ConfigCall.ACTION_VOICE_RECORD));
+                CallAssist.openRecordListActivity(getActivity(), 0);
                 break;
         }
+    }
+
+    @Override
+    public void onGranted(int requestCode) {
+        new RecordVoiceDialog(getActivity()).show();
+    }
+
+    @Override
+    public void onDenied(int requestCode) {
+        super.onDenied(requestCode);
     }
 }

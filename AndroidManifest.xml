@@ -52,8 +52,7 @@
         </activity>
         <activity
             android:name=".business.home.view.activity.MainActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
         <activity
             android:name=".business.home.view.activity.MainTabActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
@@ -186,17 +185,12 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!--================== 个推SDK配置结束================= -->
 
-        <activity
-            android:name=".business.call.view.activity.VoiceRecordActivity"
-            android:theme="@style/AppDialog">
-            <intent-filter>
-                <action android:name="com.std.framework.VoiceRecordActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".business.rich.view.RichMainActivity" />
         <activity android:name=".business.rich.gallery.GalleryActivity" />
         <activity android:name=".business.rich.other.EditorActivity" />
+        <activity
+            android:name=".business.call.view.activity.VoiceListActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

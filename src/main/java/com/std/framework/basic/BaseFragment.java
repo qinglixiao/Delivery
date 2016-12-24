@@ -40,4 +40,18 @@ public abstract class BaseFragment extends Fragment {
     protected void loadData() {
     }
 
+    /**
+     * 请求权限被允许执行方法
+     */
+    public void onGranted(int requestCode) {
+
+    }
+
+    /**
+     * 请求权限被拒绝执行方法
+     */
+    public void onDenied(int requestCode) {
+
+    }
+
 }
