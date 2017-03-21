@@ -96,26 +96,6 @@ public class AnimationFragment2 extends BaseFragment implements View.OnClickList
     }
 
     private void performCircleAnima() {
-//        ObjectAnimator animator_alpha = ObjectAnimator.ofFloat(animation2Binding.imgCircleLight, "alpha", 0);
-//        ObjectAnimator animator_y = ObjectAnimator.ofFloat(animation2Binding.imgCircleLight, "scaleY", 1.5f);
-//        ObjectAnimator animator_x = ObjectAnimator.ofFloat(animation2Binding.imgCircleLight, "scaleX", 1.5f);
-//        animator_x.setRepeatMode(ValueAnimator.INFINITE);
-//        animator_y.setRepeatMode(ValueAnimator.INFINITE);
-//        animator_alpha.setRepeatMode(ValueAnimator.INFINITE);
-//        animator_x.setDuration(300);
-//        animator_y.setDuration(300);
-//        AnimatorSet animator = new AnimatorSet();
-//        animator.setInterpolator(new AnticipateOvershootInterpolator());
-//        animator.playTogether(animator_alpha, animator_x, animator_y);
-//        animator.start();
-
-//        AlphaAnimation anim_alpha = new AlphaAnimation(1, 0);
-//        ScaleAnimation anim_scale = new ScaleAnimation(0, 1.5f, 0, 1.5f,Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-//        AnimationSet anim_set = new AnimationSet(true);
-//        anim_set.setRepeatMode(Animation.INFINITE);
-//        anim_set.addAnimation(anim_alpha);
-//        anim_set.addAnimation(anim_scale);
-//        animation2Binding.imgCircleLight.startAnimation(anim_set);
         final AnimationSet animation_light = (AnimationSet) AnimationUtils.loadAnimation(getContext(), R.anim.guide_zoom_out);
         final Animation animation_dark = AnimationUtils.loadAnimation(getContext(), R.anim.alpha_out_half);
         animation2Binding.imgCircleLight.startAnimation(animation_light);
