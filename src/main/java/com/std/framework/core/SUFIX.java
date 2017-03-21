@@ -6,7 +6,7 @@ package com.std.framework.core;
  * Create on:  2016/11/28.
  * Modify by：lx
  */
-public interface SUFFIX {
+public interface SUFIX {
     String PNG = ".png";
 
     String MP3 = ".mp3";

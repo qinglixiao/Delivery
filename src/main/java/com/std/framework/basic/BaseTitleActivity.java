@@ -10,12 +10,15 @@ import com.std.framework.R;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.core.ToolBarWrapper;
 
-
 /**
  * Created by gfy on 2016/4/13.
  */
 public abstract class BaseTitleActivity extends BaseActivity {
     private NavigationBar navigationBar;
+
+    protected void setNavigationBar(Toolbar toolbar) {
+        navigationBar = new NavigationBar(new ToolBarWrapper(toolbar));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +40,6 @@ public abstract class BaseTitleActivity extends BaseActivity {
             throw new NullPointerException(getClass().getSimpleName() + ":container is null");
         }
         container.addView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-    }
-
-    protected void setNavigationBar(Toolbar toolbar) {
-        navigationBar = new NavigationBar(new ToolBarWrapper(toolbar));
     }
 
     public NavigationBar getNavigationBar() {

@@ -1,8 +1,5 @@
 package com.std.framework.comm.dao.user;
 
-import com.cn.sale.dao.entity.User;
-import com.library.db.GreenDaoAccess;
-import com.library.db.IDBAccess;
 import com.std.framework.comm.dao.BaseDao;
 
 /**
@@ -11,7 +8,7 @@ import com.std.framework.comm.dao.BaseDao;
 public class UserDbManager extends BaseDao {
     private static UserDbManager instance;
 
-    IDBAccess<User, String> userTableAccess;
+//    IDBAccess<User, String> userTableAccess;
 
     public static UserDbManager getInstance() {
         if (null == instance) {
@@ -27,12 +24,12 @@ public class UserDbManager extends BaseDao {
 
     @Override
     public void initAccess() {
-        userTableAccess = new GreenDaoAccess<>(innerDB.getSession().getUserDao());
+//        userTableAccess = new GreenDaoAccess<>(innerDB.getSession().getUserDao());
     }
 
-    public int save(User user){
-        //TODO
-        return 0;
-    }
+//    public int save(User user){
+//        TODO
+//        return 0;
+//    }
 
 }

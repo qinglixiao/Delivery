@@ -15,6 +15,7 @@ import com.library.util.SecurityUtil.SHA1;
 import com.std.framework.assist.Bean;
 import com.std.framework.core.Logger;
 import com.std.framework.business.call.view.fragment.CallFragment;
+import com.std.framework.util.AppUtil;
 import com.std.framework.util.SharedPreferencesUtil;
 
 import org.json.JSONException;
@@ -33,7 +34,6 @@ public class TestMethod extends AndroidTestCase {
         Logger.m(f_str);
     }
 
-
     public void testMD5() {
         String ss = "信息来源";
         Log.d("LX", SHA1.encrypt(ss));
@@ -41,7 +41,6 @@ public class TestMethod extends AndroidTestCase {
         Log.d("LX", SHA1.encrypt(ss));
         Log.d("LX", MD5.encrypt(ss));
     }
-
 
     public void movebit() {
         int MODE_SHIFT = 30;
@@ -144,6 +143,25 @@ public class TestMethod extends AndroidTestCase {
 //        for (File f : file1.listFiles()) {
 //            Logger.m(f.getName());
 //        }
+    }
+
+    public void testCreateFile() {
+        String file = "/storage/emulated/0/宝宝家/voice/1482569331849.amr";
+        try {
+            File file1 = new File(file);
+            if (file1.isFile()) {
+                file1.getParentFile().mkdirs();
+            }
+            file1.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testMemery() {
+        Logger.m(String.format("max:%d total:%d free:%d", AppUtil.getMaxMemoryAllocated() / 1024 / 1024, AppUtil.getTotalMemoryAllocated() / 1024 / 1024, AppUtil.getFreeMemoryAllocated() / 1024 / 1024));
+
+
     }
 
 }

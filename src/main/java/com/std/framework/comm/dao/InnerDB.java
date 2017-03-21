@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 
-import com.cn.sale.dao.entity.DaoMaster;
-import com.cn.sale.dao.entity.DaoSession;
 import com.std.framework.basic.App;
 
 public class InnerDB {
@@ -29,7 +27,7 @@ public class InnerDB {
 
     private SQLiteDatabase db;
 
-    private static DaoSession session;
+//    private static DaoSession session;
 
     private String userId;
 
@@ -37,7 +35,7 @@ public class InnerDB {
         String name = userId + DATABASE_NAME_SUFFIX;
         helper = new InnerSQLiteOpenhelper(App.instance, name, null);
         db = helper.getWritableDatabase();
-        session = new DaoMaster(db).newSession();
+//        session = new DaoMaster(db).newSession();
     }
 
     /**
@@ -82,12 +80,12 @@ public class InnerDB {
         if (helper != null)
             helper.close();
         helper = null;
-        session = null;
+//        session = null;
     }
 
-    public DaoSession getSession() {
-        return session;
-    }
+//    public DaoSession getSession() {
+//        return session;
+//    }
 
     static class InnerSQLiteOpenhelper extends SQLiteOpenHelper {
 
@@ -97,7 +95,7 @@ public class InnerDB {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            DaoMaster.createAllTables(db, false);
+//            DaoMaster.createAllTables(db, false);
         }
 
         @Override

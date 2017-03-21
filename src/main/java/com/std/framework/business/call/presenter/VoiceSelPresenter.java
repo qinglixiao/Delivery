@@ -9,8 +9,14 @@ import com.std.framework.business.call.contract.VoiceSelContract;
  * Modify by：lx
  */
 public class VoiceSelPresenter implements VoiceSelContract.Presenter {
+
     @Override
-    public void start() {
+    public void init(Object data) {
+
+    }
+
+    @Override
+    public void destroy() {
 
     }
 }

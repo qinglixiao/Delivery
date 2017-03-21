@@ -18,7 +18,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/rich_edit_add_bg">
+            android:background="@drawable/rich_edit_add_bg"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,5 +96,73 @@
             </LinearLayout>
 
         </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.std.framework.comm.view.GuideBackGround xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/fl_out_frame"
+                android:alpha="0.5"
+                android:src="@color/black"
+                app:InnerShapeHeight="80dp"
+                app:InnerShapeTop="80dp"
+                app:InnerShapeWidth="80dp" />
+
+            <ImageView
+                android:id="@+id/img_circle_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="98dp"
+                android:src="@drawable/circle_light" />
+
+            <ImageView
+                android:id="@+id/img_circle_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="105dp"
+                android:src="@drawable/circle_dark" />
+
+            <ImageView
+                android:id="@+id/img_hand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="120dp"
+                android:src="@drawable/hand" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="200dp"
+                android:src="@drawable/long_press_content" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="244dp"
+                android:src="@drawable/order_content" />
+
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_width="100dp"
+                android:layout_height="33dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="61dp"
+                android:background="@drawable/btn_guide"
+                android:text="知道了"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+        </FrameLayout>
     </RelativeLayout>
+
+
 </layout>

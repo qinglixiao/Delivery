@@ -8,10 +8,10 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:layout_margin="@dimen/edge_normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_margin="@dimen/edge_normal"
             android:background="@drawable/white_round_bg">
 
             <TextView
@@ -28,6 +28,13 @@
                 android:layout_below="@+id/v_record_time"
                 android:layout_centerInParent="true"
                 android:text="开始" />
+
+            <Button
+                android:id="@+id/btn_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/btn_start"
+                android:text="结束" />
         </RelativeLayout>
     </RelativeLayout>
 </layout>

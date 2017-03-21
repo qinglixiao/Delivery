@@ -1,5 +1,6 @@
 package com.std.framework.business.call.view.activity;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -38,5 +39,10 @@ public class VoiceRecordActivity extends BaseTitleActivity implements VoiceSelCo
     @Override
     public void setPresenter(VoiceSelContract.Presenter presenter) {
 
+    }
+
+    @Override
+    public Context getContext() {
+        return null;
     }
 }

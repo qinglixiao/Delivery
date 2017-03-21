@@ -2,17 +2,17 @@ package com.std.framework.business.call.view;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
-import android.os.CountDownTimer;
 import android.view.View;
 
+import com.library.util.FileUtil;
 import com.std.framework.R;
 import com.std.framework.comm.view.BottomPopContainer;
 import com.std.framework.core.GlobalConfig;
-import com.std.framework.core.SUFFIX;
+import com.std.framework.core.SUFIX;
 import com.std.framework.core.VoiceRecordHelper;
-import com.std.framework.util.TimeUtil;
+import com.std.framework.databinding.RecordVoiceBinding;
 
-import java.text.SimpleDateFormat;
+import java.io.File;
 
 /**
  * Description :
@@ -23,10 +23,11 @@ import java.text.SimpleDateFormat;
 public class RecordVoiceDialog implements View.OnClickListener {
     private static final int RECORDTIME = 10 * 1000; //录音时长
 
-    private com.std.framework.databinding.RecordVoiceBinding recordVoiceBinding;
+    private RecordVoiceBinding recordVoiceBinding;
     private BottomPopContainer popWindow;
     private Context context;
     private VoiceRecordHelper recordHelper;
+    private File recordFile;
 
     public RecordVoiceDialog(Context context) {
         this.context = context;
@@ -38,6 +39,7 @@ public class RecordVoiceDialog implements View.OnClickListener {
         popWindow = new BottomPopContainer(context, R.layout.view_record_voice);
         recordVoiceBinding = DataBindingUtil.bind(popWindow.getView());
         recordVoiceBinding.btnStart.setOnClickListener(this);
+        recordVoiceBinding.btnStop.setOnClickListener(this);
     }
 
     private void initRecord() {
@@ -52,28 +54,33 @@ public class RecordVoiceDialog implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_start:
-                recordHelper.startVoiceRecord(generateName());
-                beginTimer();
+                beginRecording();
+                break;
+            case R.id.btn_stop:
+                stopRecording();
                 break;
         }
     }
 
+    private void beginRecording() {
+        //创建本地文件
+        String voiceName = generateName();
+        recordFile = FileUtil.create(voiceName);
+        if (recordFile != null) {
+            recordHelper.startVoiceRecord(voiceName);
+        }
+    }
+
+    private void stopRecording() {
+        recordHelper.stopVoiceRecord(false, null);
+    }
+
     private String generateName() {
-        return GlobalConfig.VOICE_DIR + TimeUtil.milliseconds2String(System.currentTimeMillis()) + SUFFIX.AMR;
+        return GlobalConfig.VOICE_DIR + System.currentTimeMillis() + SUFIX.AMR;
     }
 
-    private void beginTimer() {
-        new CountDownTimer(RECORDTIME, 1000) {
+    private void tick(){
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                recordVoiceBinding.vRecordTime.setText(TimeUtil.milliseconds2String(millisUntilFinished, new SimpleDateFormat("mm:ss")) + "");
-            }
-
-            @Override
-            public void onFinish() {
-                recordVoiceBinding.vRecordTime.setText("录音结束！");
-            }
-        }.start();
     }
+
 }

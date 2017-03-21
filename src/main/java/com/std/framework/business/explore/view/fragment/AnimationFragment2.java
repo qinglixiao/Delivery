@@ -7,11 +7,19 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.view.animation.AnticipateOvershootInterpolator;
 import android.view.animation.BounceInterpolator;
+import android.view.animation.ScaleAnimation;
 
+import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
+import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.databinding.FragmentAnimation2Binding;
@@ -23,28 +31,112 @@ import com.std.framework.util.DimenUtil;
  * Create on:  2016/11/13.
  * Modify by：lx
  */
-public class AnimationFragment2 extends BaseFragment implements View.OnClickListener{
+public class AnimationFragment2 extends BaseFragment implements View.OnClickListener {
     private FragmentAnimation2Binding animation2Binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_animation2,null);
+        View view = inflater.inflate(R.layout.fragment_animation2, null);
         animation2Binding = DataBindingUtil.bind(view);
         setListener();
         return view;
     }
 
-    private void setListener(){
+    private void setListener() {
         animation2Binding.llAdd.setOnClickListener(this);
+        animation2Binding.btnClose.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.ll_add:
                 performAnima();
                 break;
+            case R.id.btn_close:
+                performGuideAnima();
+                break;
         }
+    }
+
+    private void performGuideAnima() {
+        ObjectAnimator animator_x = ObjectAnimator.ofFloat(animation2Binding.imgHand, "scaleX", 1.2f);
+        ObjectAnimator animator_y = ObjectAnimator.ofFloat(animation2Binding.imgHand, "scaleY", 1.2f);
+        animator_x.setRepeatMode(ValueAnimator.REVERSE);
+        animator_y.setRepeatMode(ValueAnimator.REVERSE);
+        animator_x.setRepeatCount(1);
+        animator_y.setRepeatCount(1);
+        animator_x.setDuration(400);
+        animator_y.setDuration(400);
+        AnimatorSet animator = new AnimatorSet();
+        animator.setInterpolator(new AnticipateOvershootInterpolator());
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                performCircleAnima();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        animator.playTogether(animator_x, animator_y);
+        animator.start();
+    }
+
+    private void performCircleAnima() {
+//        ObjectAnimator animator_alpha = ObjectAnimator.ofFloat(animation2Binding.imgCircleLight, "alpha", 0);
+//        ObjectAnimator animator_y = ObjectAnimator.ofFloat(animation2Binding.imgCircleLight, "scaleY", 1.5f);
+//        ObjectAnimator animator_x = ObjectAnimator.ofFloat(animation2Binding.imgCircleLight, "scaleX", 1.5f);
+//        animator_x.setRepeatMode(ValueAnimator.INFINITE);
+//        animator_y.setRepeatMode(ValueAnimator.INFINITE);
+//        animator_alpha.setRepeatMode(ValueAnimator.INFINITE);
+//        animator_x.setDuration(300);
+//        animator_y.setDuration(300);
+//        AnimatorSet animator = new AnimatorSet();
+//        animator.setInterpolator(new AnticipateOvershootInterpolator());
+//        animator.playTogether(animator_alpha, animator_x, animator_y);
+//        animator.start();
+
+//        AlphaAnimation anim_alpha = new AlphaAnimation(1, 0);
+//        ScaleAnimation anim_scale = new ScaleAnimation(0, 1.5f, 0, 1.5f,Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+//        AnimationSet anim_set = new AnimationSet(true);
+//        anim_set.setRepeatMode(Animation.INFINITE);
+//        anim_set.addAnimation(anim_alpha);
+//        anim_set.addAnimation(anim_scale);
+//        animation2Binding.imgCircleLight.startAnimation(anim_set);
+        final AnimationSet animation_light = (AnimationSet) AnimationUtils.loadAnimation(getContext(), R.anim.guide_zoom_out);
+        final Animation animation_dark = AnimationUtils.loadAnimation(getContext(), R.anim.alpha_out_half);
+        animation2Binding.imgCircleLight.startAnimation(animation_light);
+        animation2Binding.imgCircleDark.startAnimation(animation_dark);
+        animation_light.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                animation2Binding.imgCircleLight.startAnimation(animation_light);
+                animation2Binding.imgCircleDark.startAnimation(animation_dark);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 
     private void performAnima() {
@@ -96,7 +188,7 @@ public class AnimationFragment2 extends BaseFragment implements View.OnClickList
         voice_set.setStartDelay(fun_btn_delay + 150);
         map_set.setStartDelay(fun_btn_delay + 200);
 
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(animation2Binding.flOutFrame.getHeight(), animation2Binding.flOutFrame.getHeight() + (int)DimenUtil.dpToPx(37));
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(animation2Binding.flOutFrame.getHeight(), animation2Binding.flOutFrame.getHeight() + (int) DimenUtil.dpToPx(37));
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {

@@ -46,4 +46,11 @@
         <attr name="right_bottom_src" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="GuideBackGround">
+        <attr name="InnerShapeLeft" format="dimension" />
+        <attr name="InnerShapeTop" format="dimension" />
+        <attr name="InnerShapeWidth" format="dimension" />
+        <attr name="InnerShapeHeight" format="dimension" />
+    </declare-styleable>
+
 </resources>

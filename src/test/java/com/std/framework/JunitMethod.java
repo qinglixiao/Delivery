@@ -2,6 +2,8 @@ package com.std.framework;
 
 import com.google.gson.Gson;
 import com.library.core.Reflect;
+import com.library.util.LibUtil;
+import com.library.util.LogUtil;
 import com.std.framework.assist.JunitUtil;
 import com.std.framework.util.AppUtil;
 import com.std.framework.util.TimeUtil;
@@ -10,6 +12,8 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -129,11 +133,6 @@ public class JunitMethod {
     }
 
     @Test
-    public void testMeta() {
-//        JunitUtil.log(AppUtil.getMetaData("com.baidu.lbsapi.API_KEY"));
-    }
-
-    @Test
     public void testRef() {
         One one = new One();
         one.set(new Three());
@@ -188,12 +187,6 @@ public class JunitMethod {
     }
 
     @Test
-    public void testFoure() {
-        int t = 103100;
-        JunitUtil.log(t / 100000 + "");
-    }
-
-    @Test
     public void testParseInteger() {
         String i = "-1";
         JunitUtil.log(Integer.parseInt(i) + "");
@@ -219,12 +212,7 @@ public class JunitMethod {
 //                || code == 100006
 //                || code == 100010
 //                )
-            JunitUtil.log("index:"+index+ " time:" + (System.nanoTime() - start));
-    }
-
-    @Test
-    public void gson(){
-
+        JunitUtil.log("index:" + index + " time:" + (System.nanoTime() - start));
     }
 
     public enum RichEditFuntion {
@@ -246,8 +234,14 @@ public class JunitMethod {
     }
 
     @Test
-    public void testTimeUtil(){
-        long millcount = 10*1000;
+    public void testMath() {
+        long n = 3400;
+
+
+        int t = (int) Math.ceil(3400 / 1000f);
+//        int t = Math.floor( 3400 / 1000);
+        JunitUtil.log(t + "");
     }
+
 
 }
