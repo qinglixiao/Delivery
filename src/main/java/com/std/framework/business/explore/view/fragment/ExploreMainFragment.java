@@ -34,6 +34,7 @@ public class ExploreMainFragment extends BaseFragment {
         fragments.put("RecyclerView",RecyclerViewFragment.class);
         fragments.put("EffectView",EffectFragment.class);
         fragments.put("Animation2",AnimationFragment2.class);
+        fragments.put("Finger",FingerIdentifyFragment.class);
     }
 
     @Override
