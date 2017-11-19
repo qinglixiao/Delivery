@@ -1,0 +1,19 @@
+<resources>
+    <!--<style name="AppTheme" parent="BaseAppTheme">-->
+        <!--&lt;!&ndash;<item name="android:windowTranslucentStatus">true</item>&ndash;&gt;-->
+        <!--&lt;!&ndash;<item name="android:windowTranslucentNavigation">true</item>&ndash;&gt;-->
+    <!--</style>-->
+
+    <!--透明背景主题-->
+    <!--<style name="AppTransparentTheme" parent="AppTheme">-->
+        <!--<item name="android:windowBackground">@color/transparent</item>-->
+        <!--<item name="android:colorBackgroundCacheHint">@null</item>-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+    <!--</style>-->
+
+    <!--半透明背景主题-->
+    <!--<style name="AppTranslucentTheme" parent="AppTransparentTheme">-->
+        <!--<item name="android:windowBackground">@color/translucent</item>-->
+    <!--</style>-->
+
+</resources>

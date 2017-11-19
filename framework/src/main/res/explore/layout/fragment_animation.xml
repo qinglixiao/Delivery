@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data class="FragmentAnimationBinding">
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/frag4_target"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="false"
+            android:background="@drawable/circle_shape"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/frag4_btn_obj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="放大" />
+
+        <Button
+            android:id="@+id/frag4_btn_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/frag4_btn_obj"
+            android:text="property" />
+
+        <Button
+            android:id="@+id/frag4_btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="23dp"
+            android:layout_toRightOf="@+id/frag4_btn_pro"
+            android:text="add" />
+
+        <Button
+            android:id="@+id/frag4_btn_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/frag4_btn_obj"
+            android:text="color" />
+
+        <TextView
+            android:id="@+id/frag4_color"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp"
+            android:background="@color/red"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/frag4_btn_after"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/frag4_btn_color"
+            android:layout_alignBottom="@+id/frag4_btn_color"
+            android:layout_alignLeft="@+id/frag4_btn_pro"
+            android:text="after" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/frameLayout">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/beacon_shake" />
+
+            <ImageView
+                android:id="@+id/circle"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/beacon_circle" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+</layout>

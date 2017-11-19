@@ -1,1 +1,1 @@
-include ':STDlibrary'
+include ':STDlibrary', ':framework'
