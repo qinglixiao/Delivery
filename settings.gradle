@@ -1,1 +1,1 @@
-include ':STDlibrary', ':framework'
+include ':STDlibrary', ':app'
