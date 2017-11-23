@@ -23,7 +23,7 @@ public class DimenUtil {
      * @version : 1.0
      */
     public static float dpToPx(float dp) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, App.instance.getResources().getDisplayMetrics());
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, AppUtil.getAppContext().getResources().getDisplayMetrics());
     }
 
     /**
@@ -38,7 +38,7 @@ public class DimenUtil {
      * @version : 1.0
      */
     public static float pxTodp(float px) {
-        final float scale = App.instance.getResources().getDisplayMetrics().density;
+        final float scale = AppUtil.getAppContext().getResources().getDisplayMetrics().density;
         return px / scale;
     }
 
@@ -53,7 +53,7 @@ public class DimenUtil {
      * @version : 1.0
      */
     public static float spToPx(float sp) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, App.instance.getResources().getDisplayMetrics());
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, AppUtil.getAppContext().getResources().getDisplayMetrics());
     }
 
 }

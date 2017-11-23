@@ -1,14 +1,16 @@
-package com.std.framework.comm.dao.user;
+package com.std.framework.business.user.db.manager;
 
-import com.std.framework.comm.dao.BaseDao;
+import com.std.framework.business.user.db.entity.User;
+import com.std.framework.core.db.BaseDao;
+
+import db.table.UserDao;
 
 /**
  * Created by gfy on 2016/4/6.
  */
 public class UserDbManager extends BaseDao {
     private static UserDbManager instance;
-
-//    IDBAccess<User, String> userTableAccess;
+    private UserDao userDao;
 
     public static UserDbManager getInstance() {
         if (null == instance) {
@@ -24,12 +26,11 @@ public class UserDbManager extends BaseDao {
 
     @Override
     public void initAccess() {
-//        userTableAccess = new GreenDaoAccess<>(innerDB.getSession().getUserDao());
+        userDao = getSession().getUserDao();
     }
 
-//    public int save(User user){
-//        TODO
-//        return 0;
-//    }
+    public void insert(User user){
+        userDao.insert(user);
+    }
 
 }

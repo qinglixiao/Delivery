@@ -19,7 +19,7 @@ public class SharedPreferencesUtil {
     private static final String START_FIRST = "start_first";
 
     static {
-        sp = App.instance.getSharedPreferences(file, Context.MODE_PRIVATE);
+        sp = AppUtil.getAppContext().getSharedPreferences(file, Context.MODE_PRIVATE);
         sp_edit = sp.edit();
     }
 

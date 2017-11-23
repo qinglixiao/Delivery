@@ -5,8 +5,6 @@ import android.util.Log;
 
 import com.library.core.God;
 import com.library.core.Reflect;
-import com.library.util.About;
-import com.library.util.LibUtil;
 import com.library.util.SecurityUtil;
 import com.std.framework.assist.Bean;
 import com.std.framework.business.call.view.fragment.CallFragment;
@@ -20,6 +18,9 @@ import org.json.JSONTokener;
 
 import java.io.File;
 import java.io.IOException;
+
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 
 /**
  * Description:
@@ -62,13 +63,13 @@ public class TestMethod {
     }
 
     public void testPhoneNumber() {
-        String phone = LibUtil.getPhoneNumber(getContext());
-        try {
-            Runtime.getRuntime().exec("input text fuytfrdrsxgf");
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+//        String phone = LibUtil.getPhoneNumber(getContext());
+//        try {
+//            Runtime.getRuntime().exec("input text fuytfrdrsxgf");
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
     }
 
     public void testRuntime() {
@@ -98,7 +99,7 @@ public class TestMethod {
     }
 
     public void testPrivider() {
-        String provider = About.getNetProvider(getContext());
+//        String provider = About.getNetProvider(getContext());
     }
 
     public void testSharedPreferences() {
@@ -124,15 +125,15 @@ public class TestMethod {
     }
 
     public void testLibPhone() {
-        LibUtil.getPhoneNumber(getContext());
+//        LibUtil.getPhoneNumber(getContext());
     }
 
     public void testIMEI() {
-        LibUtil.getDeviceIMEI(getContext());
+//        LibUtil.getDeviceIMEI(getContext());
     }
 
     public void testNetProvider() {
-        About.getNetProvider(getContext());
+//        About.getNetProvider(getContext());
     }
 
     public void testFileUtil() {

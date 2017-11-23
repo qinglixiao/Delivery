@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.std.framework.basic.App;
+import com.std.framework.util.AppUtil;
 import com.std.framework.util.DimenUtil;
 
 /**
@@ -36,7 +37,7 @@ public class RecyclerItemDivider extends RecyclerView.ItemDecoration {
     }
 
     public RecyclerItemDivider(int orientation) {
-        final TypedArray a = App.instance.obtainStyledAttributes(ATTRS);
+        final TypedArray a = AppUtil.getAppContext().obtainStyledAttributes(ATTRS);
         mDivider = a.getDrawable(0);
         a.recycle();
         setOrientation(orientation);

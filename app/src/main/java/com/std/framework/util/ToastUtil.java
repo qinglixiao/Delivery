@@ -16,6 +16,6 @@ import com.std.framework.basic.App;
 public class ToastUtil {
 
     public static void show(String message) {
-        Toast.makeText(App.instance, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(AppUtil.getAppContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

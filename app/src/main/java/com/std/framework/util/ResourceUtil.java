@@ -1,11 +1,7 @@
 package com.std.framework.util;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-
-import com.std.framework.basic.App;
 
 /**
  * 项目资源工具类
@@ -19,7 +15,7 @@ public class ResourceUtil {
      * @return
      */
     public static Resources getResource() {
-        return App.instance.getResources();
+        return AppUtil.getAppContext().getResources();
     }
 
     /**
@@ -33,7 +29,7 @@ public class ResourceUtil {
         if (id == -1 || id == 0)
             return null;
         else
-            return App.instance.getResources().getDrawable(id);
+            return AppUtil.getAppContext().getResources().getDrawable(id);
     }
 
     /**
@@ -47,7 +43,7 @@ public class ResourceUtil {
         if (id == -1 || id == 0)
             return "";
         else
-            return App.instance.getResources().getString(id);
+            return AppUtil.getAppContext().getResources().getString(id);
     }
 
     /**
@@ -61,7 +57,7 @@ public class ResourceUtil {
         if (id == -1 || id == 0)
             return -1;
         else
-            return App.instance.getResources().getColor(id);
+            return AppUtil.getAppContext().getResources().getColor(id);
     }
 
     /**
@@ -72,7 +68,7 @@ public class ResourceUtil {
      */
     private static int getColorId(String colorName) {
         try {
-            return App.instance.getResources().getIdentifier(colorName, "color", App.instance.getPackageName());
+            return AppUtil.getAppContext().getResources().getIdentifier(colorName, "color", AppUtil.getAppContext().getPackageName());
         } catch (Exception ex) {
             return -1;
         }
@@ -86,7 +82,7 @@ public class ResourceUtil {
      */
     private static int getStringId(String stringName) {
         try {
-            return App.instance.getResources().getIdentifier(stringName, "string", App.instance.getPackageName());
+            return AppUtil.getAppContext().getResources().getIdentifier(stringName, "string", AppUtil.getAppContext().getPackageName());
         } catch (Exception ex) {
             return -1;
         }
@@ -100,7 +96,7 @@ public class ResourceUtil {
      */
     private static int getDrawableId(String drawableName) {
         try {
-            return App.instance.getResources().getIdentifier(drawableName, "drawable", App.instance.getPackageName());
+            return AppUtil.getAppContext().getResources().getIdentifier(drawableName, "drawable", AppUtil.getAppContext().getPackageName());
         } catch (Exception ex) {
             return -1;
         }
@@ -119,7 +115,7 @@ public class ResourceUtil {
      */
     public static int getLayoutId(String layoutName) {
         try {
-            return App.instance.getResources().getIdentifier(layoutName, "layout", App.instance.getPackageName());
+            return AppUtil.getAppContext().getResources().getIdentifier(layoutName, "layout", AppUtil.getAppContext().getPackageName());
         }catch (Exception ex){
             return -1;
         }

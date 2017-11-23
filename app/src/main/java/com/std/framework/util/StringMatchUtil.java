@@ -105,7 +105,7 @@ public class StringMatchUtil {
          */
         private Set<String> readSensitiveWordFile() throws Exception {
             Set<String> set = null;
-            InputStreamReader read = new InputStreamReader(App.instance
+            InputStreamReader read = new InputStreamReader(AppUtil.getAppContext()
                     .getAssets().open(ILLEGALFILE), ENCODING);
             BufferedReader bufferedReader = null;
             try {

@@ -192,7 +192,7 @@ public class ThemeUtil {
      * @return
      */
     public static Drawable getOperatorDrawableSelector(int pressedResId, int normalResId) {
-        Resources res = App.instance.getResources();
+        Resources res = AppUtil.getAppContext().getResources();
         TouchColorChangedDrawable drawable = new TouchColorChangedDrawable();
         Drawable pressed = res.getDrawable(pressedResId);
         Drawable normal = res.getDrawable(normalResId);
@@ -346,7 +346,7 @@ public class ThemeUtil {
         try {
             return ResourceUtil.getColor("title_bar_txt_color");
         } catch (Exception ex) {
-            return App.instance.getResources().getColor(R.color.c19);
+            return AppUtil.getAppContext().getResources().getColor(R.color.c19);
         }
     }
 

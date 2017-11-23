@@ -1,6 +1,7 @@
 package com.std.framework.util;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -13,6 +14,20 @@ import com.std.framework.basic.App;
 import java.io.File;
 
 public class AppUtil {
+
+    private static Context mContext;
+
+    public static Context getAppContext() {
+        if (mContext == null) {
+            throw new IllegalStateException("AppUtil 's initApp not called!!!");
+        }
+        return mContext;
+    }
+
+    public static void initApp(Application app) {
+        mContext = app.getApplicationContext();
+    }
+
     /**
      * 描          述 ：获取应用在SD卡的安装目录
      *
@@ -20,11 +35,12 @@ public class AppUtil {
      * @version : 1.0
      */
     public static String getAppDirectory() {
-        String mApplicationName = App.instance.getPackageManager().getApplicationLabel(App.instance.getApplicationInfo()).toString();
+        String mApplicationName = mContext.getPackageManager().getApplicationLabel(mContext.getApplicationInfo()).toString();
         String dir = Environment.getExternalStoragePublicDirectory(mApplicationName).getPath();
         File file = new File(dir);
-        if (!file.exists())
+        if (!file.exists()) {
             file.mkdirs();
+        }
         return dir;
     }
 
@@ -45,7 +61,7 @@ public class AppUtil {
      * @version : 1.0
      */
     public static String getCacheDirectory() {
-        return App.instance.getCacheDir().getPath();
+        return mContext.getCacheDir().getPath();
     }
 
     /**
@@ -77,10 +93,10 @@ public class AppUtil {
     public static String getMetaData(String metaName) {
         String meta_value = "";
         try {
-            PackageManager packageManager = App.instance.getPackageManager();
+            PackageManager packageManager = mContext.getPackageManager();
             if (packageManager != null) {
                 ApplicationInfo applicationInfo = packageManager.getApplicationInfo(
-                        App.instance.getPackageName(),
+                        mContext.getPackageName(),
                         PackageManager.GET_META_DATA);
                 if (applicationInfo != null && applicationInfo.metaData != null && !TextUtils.isEmpty(metaName)) {
                     meta_value = applicationInfo.metaData.getString(metaName);

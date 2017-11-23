@@ -22,13 +22,13 @@ import db.table.DaoSession;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class FrameDB {
-    private static FrameDB instance;
+public class InnerDB {
+    private static InnerDB instance;
 
     /**
      * 数据库统一后缀名
      */
-    public static final String DATABASE_NAME_SUFFIX = "_frame.db";
+    public static final String DATABASE_NAME_SUFFIX = "_inner.db";
 
     private static final int DEFAULT_VERSION = 1;
 
@@ -37,7 +37,7 @@ public class FrameDB {
      */
     public static final int VERSION = 1;
 
-    private static ToonSQLiteOpenhelper helper;
+    private static InnerSQLiteOpenhelper helper;
 
     private Database db;
 
@@ -49,9 +49,9 @@ public class FrameDB {
 
     private void open(String userId) {
         String name = userId + DATABASE_NAME_SUFFIX;
-        helper = new ToonSQLiteOpenhelper(AppUtil.getAppContext(), name, null);
+        helper = new InnerSQLiteOpenhelper(AppUtil.getAppContext(), name, null);
         db = helper.getEncryptedWritableDb("");
-        sdb = (SQLiteDatabase)db.getRawDatabase();
+        sdb = (SQLiteDatabase) db.getRawDatabase();
         session = new DaoMaster(db).newSession();
     }
 
@@ -60,11 +60,11 @@ public class FrameDB {
      *
      * @param userId 用户id
      */
-    public synchronized static FrameDB create(String userId) {
+    public synchronized static InnerDB create(String userId) {
         // 用户未登录调用，不创建数据库
         try {
             if (instance == null) {
-                instance = new FrameDB();
+                instance = new InnerDB();
                 instance.userId = userId;
                 instance.open(userId);
             } else {
@@ -73,7 +73,7 @@ public class FrameDB {
                         && !TextUtils.equals(userId, instance.userId)) {
                     AppUtil.getAppContext().deleteDatabase("null" + DATABASE_NAME_SUFFIX);
                     close();
-                    instance = new FrameDB();
+                    instance = new InnerDB();
                     instance.userId = userId;
                     instance.open(userId);
                 }
@@ -103,8 +103,8 @@ public class FrameDB {
         session = null;
     }
 
-    public static String getDBName(){
-        if(helper != null) {
+    public static String getDBName() {
+        if (helper != null) {
             return helper.getDatabaseName();
         }
         return "";
@@ -115,16 +115,16 @@ public class FrameDB {
     }
 
     public SQLiteDatabase getDatabase() {
-        if(sdb == null || sdb.isOpen() == false){
+        if (sdb == null || sdb.isOpen() == false) {
             create(userId);
-            sdb = (SQLiteDatabase)db.getRawDatabase();
+            sdb = (SQLiteDatabase) db.getRawDatabase();
         }
         return sdb;
     }
 
-    static class ToonSQLiteOpenhelper extends DatabaseOpenHelper {
+    static class InnerSQLiteOpenhelper extends DatabaseOpenHelper {
 
-        public ToonSQLiteOpenhelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
+        public InnerSQLiteOpenhelper(Context context, String name, SQLiteDatabase.CursorFactory factory) {
             super(context, name, factory, VERSION);
         }
 
@@ -156,7 +156,6 @@ public class FrameDB {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
     }
 }

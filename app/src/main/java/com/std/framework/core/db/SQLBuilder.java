@@ -1,4 +1,4 @@
-package com.std.framework.comm.dao;
+package com.std.framework.core.db;
 
 import com.std.framework.comm.entity.SampleTable.SampleTableColumn;
 

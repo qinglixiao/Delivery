@@ -15,16 +15,11 @@ import com.std.framework.comm.clazz.STDUncaughtExceptionHandler;
 import com.std.framework.util.AppUtil;
 
 public class App extends Application {
-    /**
-     * 全局应用实例
-     */
-    public static App instance;
-
     @Override
     public void onCreate() {
         // TODO Auto-generated method stub
         super.onCreate();
-        instance = this;
+        AppUtil.initApp(this);
         configLogSystem();
         setExceptionHandle();
 //        initImageLoader(this);
