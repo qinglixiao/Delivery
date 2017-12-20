@@ -4,19 +4,27 @@ import android.os.Looper;
 
 import com.std.framework.assist.JunitUtil;
 import com.std.framework.comm.net.basic.ToStringConverterFactory;
+import com.std.framework.util.SharedPreferencesUtil;
 
 import org.junit.Test;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 import rx.Observable;
 import rx.functions.Action1;
@@ -33,6 +41,7 @@ import rx.schedulers.Schedulers;
  */
 public class TestRetrofit {
     String url = "https://api.douban.com/v2/movie/";
+    String toon = "api.app.systoon.com";
 
     interface Sample {
 //        @GET("top250")
@@ -43,6 +52,9 @@ public class TestRetrofit {
 
         @GET("top250")
         Observable<String> getTopMovieString(@Query("start") int start, @Query("count") int count);
+
+        @POST("/user/generateCypherTextForBJToon")
+        Observable<String> generate(@Body TNPSecretKeyForBJInput input);
     }
 
     private Sample getSample() {
@@ -56,20 +68,19 @@ public class TestRetrofit {
         return retrofit.create(Sample.class);
     }
 
+
+
     @Test
     public void testInit() throws IOException, InterruptedException {
-//        getSample().getTopMovieString(0, 10).enqueue(new Callback<String>() {
-//            @Override
-//            public void onResponse(Call<String> call, Response<String> response) {
-//                JunitUtil.log(response.body());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<String> call, Throwable t) {
-//
-//            }
-//        });
-//        Thread.sleep(3000);
+        getSample().getTopMovieString(0, 10)
+                .subscribe(new Action1<String>() {
+                               @Override
+                               public void call(String s) {
+                                    JunitUtil.log(s);
+                               }
+                           }
+                );
+        Thread.sleep(3000);
     }
 
     @Test
@@ -88,18 +99,18 @@ public class TestRetrofit {
 
     @Test
     public void testJson() throws InterruptedException {
-//        getSample().getTopMovie(0, 10).enqueue(new Callback<MoveEntity>() {
-//            @Override
-//            public void onResponse(Call<MoveEntity> call, Response<MoveEntity> response) {
-//                JunitUtil.log(response.body() == null ? "null" : response.body().title);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<MoveEntity> call, Throwable t) {
-//
-//            }
-//        });
-//        Thread.sleep(3000);
+        getSample().getTopMovie(0, 10).enqueue(new Callback<MoveEntity>() {
+            @Override
+            public void onResponse(Call<MoveEntity> call, Response<MoveEntity> response) {
+                JunitUtil.log(response.body() == null ? "null" : response.body().title);
+            }
+
+            @Override
+            public void onFailure(Call<MoveEntity> call, Throwable t) {
+
+            }
+        });
+        Thread.sleep(3000);
     }
 
     class MoveEntity {
@@ -116,9 +127,13 @@ public class TestRetrofit {
         public okhttp3.Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
             Request.Builder builder = request.newBuilder();
-            builder.addHeader("name", "value");
-
-
+            Map<String,String> headers = buildHeader();
+            for (final String name : headers.keySet()) {
+                if (headers.get(name) == null){
+                    continue;
+                }
+                builder.addHeader(name, headers.get(name));
+            }
             return chain.proceed(request);
         }
     }
@@ -152,5 +167,47 @@ public class TestRetrofit {
                 .addInterceptor(new HeaderInterceptor())
                 .addInterceptor(new HostSelectionInterceptor());
         return builder.build();
+    }
+
+    public static Map<String, String> buildHeader() {
+        Map<String, String> header = new HashMap<>();
+        header.put("Accept-Encoding", "gzip");
+        header.put("Accept", "application/json");
+        header.put("X-Toon-User-ID", "");
+        header.put("X-Toon-User-Token", "aebf1421-3191-4b3b-b7b9-8fa61e2def8f");
+        StringBuilder userAgent = new StringBuilder("platform:");
+        userAgent.append("android,").append("deviceId:")
+                .append(",").append("platformVersion:").append(android.os.Build.VERSION.SDK_INT)
+                .append(",").append("toonType:").append("102");
+        header.put("X-Toon-User-Agent", "platform:android,deviceId:FFK0217705003490,appVersion:1.8.0,platformVersion:24,toonType:102");
+        return header;
+    }
+
+    class TNPSecretKeyForBJInput implements Serializable {
+        /**
+         * 应用id
+         */
+        private String appId;
+
+        /**
+         * 要加密的字符串
+         */
+        private String toonNo;
+
+        public String getAppId() {
+            return appId;
+        }
+
+        public void setAppId(String appId) {
+            this.appId = appId;
+        }
+
+        public String getToonNo() {
+            return toonNo;
+        }
+
+        public void setToonNo(String toonNo) {
+            this.toonNo = toonNo;
+        }
     }
 }

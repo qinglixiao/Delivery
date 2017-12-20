@@ -18,7 +18,6 @@ public class MainModel extends RetrofitNetBase {
     private User user;
 
     public MainModel() {
-        user = wrap(User.class);
     }
 
 

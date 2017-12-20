@@ -5,19 +5,18 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.std.framework.util.SharedPreferencesUtil;
 
-import db.table.DaoSession;
+import table.DaoSession;
 
-public abstract class BaseDao {
+public abstract class BaseDao<T extends Object> {
     protected InnerDB innerDB;
+
+    public BaseDao(){
+        connectionInnerDB();
+    }
 
     public void connectionInnerDB() {
         innerDB = InnerDB.create(SharedPreferencesUtil.getUser());
-        if (innerDB != null && innerDB.getDatabase() != null) {
-            initAccess();
-        }
     }
-
-    public abstract void initAccess();
 
     public DaoSession getSession(){
         if(innerDB != null){

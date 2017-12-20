@@ -3,7 +3,8 @@ package com.std.framework.business.user.db.manager;
 import com.std.framework.business.user.db.entity.User;
 import com.std.framework.core.db.BaseDao;
 
-import db.table.UserDao;
+import table.UserDao;
+
 
 /**
  * Created by gfy on 2016/4/6.
@@ -11,6 +12,11 @@ import db.table.UserDao;
 public class UserDbManager extends BaseDao {
     private static UserDbManager instance;
     private UserDao userDao;
+
+    private UserDbManager() {
+        super();
+        userDao = getSession().getUserDao();
+    }
 
     public static UserDbManager getInstance() {
         if (null == instance) {
@@ -20,16 +26,10 @@ public class UserDbManager extends BaseDao {
                 }
             }
         }
-        instance.connectionInnerDB();
         return instance;
     }
 
-    @Override
-    public void initAccess() {
-        userDao = getSession().getUserDao();
-    }
-
-    public void insert(User user){
+    public void insert(User user) {
         userDao.insert(user);
     }
 

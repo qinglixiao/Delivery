@@ -10,8 +10,8 @@ import com.std.framework.util.AppUtil;
 import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.database.DatabaseOpenHelper;
 
-import db.table.DaoMaster;
-import db.table.DaoSession;
+import table.DaoMaster;
+import table.DaoSession;
 
 /**
  * Description:
@@ -133,6 +133,12 @@ public class InnerDB {
             DaoMaster.createAllTables(db, false);
         }
 
+        /**
+         * 数据库表升级
+         * @param db
+         * @param oldVersion
+         * @param newVersion
+         */
         @Override
         @SuppressWarnings("unchecked")
         public void onUpgrade(Database db, int oldVersion, int newVersion) {
