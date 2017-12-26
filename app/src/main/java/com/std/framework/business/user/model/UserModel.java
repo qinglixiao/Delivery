@@ -1,14 +1,12 @@
 package com.std.framework.business.user.model;
 
-import com.std.framework.business.user.db.entity.User;
+import com.google.gson.Gson;
 import com.std.framework.comm.net.AbstractModule;
 
-import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 import retrofit2.http.Query;
 import rx.Observable;
+import rx.functions.Func1;
 
 /**
  * Description:
@@ -19,8 +17,23 @@ import rx.Observable;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class UserModel<IUser> extends AbstractModule<IUser> {
-    private static final String base = "";
+public class UserModel extends AbstractModule {
+    private static final String base = "https://api.douban.com/v2/movie/";
+    private UserModel.IUser user;
+
+    @Override
+    public void init() {
+        baseUrl = base;
+        type = 1;
+        user = attach(UserModel.IUser.class);
+    }
+
+    public class MoveEntity {
+        String count;
+        String start;
+        String total;
+        String title;
+    }
 
     public interface IUser {
 //        @GET("top250")
@@ -32,5 +45,17 @@ public class UserModel<IUser> extends AbstractModule<IUser> {
 //        @POST("/user/generateCypherTextForBJToon")
 //        Observable<String> generate(@Body TNPSecretKeyForBJInput input);
     }
+
+    public Observable<MoveEntity> getTopMovieString(int start, int count) {
+        return user.getTopMovieString(start, count)
+                .flatMap(new Func1<String, Observable<MoveEntity>>() {
+                    @Override
+                    public Observable<MoveEntity> call(String s) {
+                        return Observable.just(new Gson().fromJson(s, MoveEntity.class));
+                    }
+                });
+
+    }
+
 
 }

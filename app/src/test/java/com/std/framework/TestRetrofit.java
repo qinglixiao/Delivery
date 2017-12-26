@@ -3,6 +3,7 @@ package com.std.framework;
 import android.os.Looper;
 
 import com.std.framework.assist.JunitUtil;
+import com.std.framework.business.user.model.UserModel;
 import com.std.framework.comm.net.basic.ToStringConverterFactory;
 import com.std.framework.util.SharedPreferencesUtil;
 
@@ -69,14 +70,13 @@ public class TestRetrofit {
     }
 
 
-
     @Test
     public void testInit() throws IOException, InterruptedException {
         getSample().getTopMovieString(0, 10)
                 .subscribe(new Action1<String>() {
                                @Override
                                public void call(String s) {
-                                    JunitUtil.log(s);
+                                   JunitUtil.log(s);
                                }
                            }
                 );
@@ -113,6 +113,10 @@ public class TestRetrofit {
         Thread.sleep(3000);
     }
 
+    @Test
+    public void testUserModel() {
+    }
+
     class MoveEntity {
         String count;
         String start;
@@ -127,9 +131,9 @@ public class TestRetrofit {
         public okhttp3.Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
             Request.Builder builder = request.newBuilder();
-            Map<String,String> headers = buildHeader();
+            Map<String, String> headers = buildHeader();
             for (final String name : headers.keySet()) {
-                if (headers.get(name) == null){
+                if (headers.get(name) == null) {
                     continue;
                 }
                 builder.addHeader(name, headers.get(name));

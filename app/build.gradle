@@ -61,9 +61,9 @@ greendao {
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.9.5'
-    testCompile 'org.robolectric:robolectric:3.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile project(':STDlibrary')
     compile project(':Annotate-api')
     annotationProcessor project(':InnerAnnotate-compiler')

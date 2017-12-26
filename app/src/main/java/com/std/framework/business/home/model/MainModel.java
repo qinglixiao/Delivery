@@ -1,6 +1,6 @@
 package com.std.framework.business.home.model;
 
-import com.std.framework.comm.net.RetrofitNetBase;
+import com.std.framework.comm.net.NetBase;
 
 import retrofit2.Call;
 import retrofit2.http.POST;
@@ -8,7 +8,7 @@ import retrofit2.http.POST;
 /**
  * Created by Administrator on 2016/6/11.
  */
-public class MainModel extends RetrofitNetBase {
+public class MainModel extends NetBase {
 
     interface User {
         @POST

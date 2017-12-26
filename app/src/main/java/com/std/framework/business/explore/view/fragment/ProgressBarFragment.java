@@ -15,6 +15,7 @@ import android.widget.SeekBar;
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.comm.view.ProgressWheel;
+import com.std.framework.core.NavigationBar;
 
 import java.util.Random;
 
@@ -32,6 +33,11 @@ public class ProgressBarFragment extends BaseFragment {
     private boolean wasSpinning = false;
     private SeekBar seekBarProgress;
     private Button btnSpin, btnIncrement, btnRandom;
+
+    @Override
+    protected void onNavigationBar(NavigationBar navigationBar) {
+        navigationBar.setTitle("进度条");
+    }
 
     @Nullable
     @Override

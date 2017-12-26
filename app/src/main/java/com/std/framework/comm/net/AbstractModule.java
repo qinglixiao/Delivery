@@ -9,8 +9,13 @@ package com.std.framework.comm.net;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public abstract class AbstractModule<T> extends RetrofitNetBase<T> {
-    public AbstractModule(){
+public abstract class AbstractModule extends NetBase {
+    public AbstractModule() {
+        super();
+        init();
+    }
+
+    public void init() {
 
     }
 

@@ -36,7 +36,7 @@ public class ExploreMainFragment extends BaseFragment {
         fragments.put("Animation2",AnimationFragment2.class);
         fragments.put("Finger",FingerIdentifyFragment.class);
         fragments.put("progress",ProgressBarFragment.class);
-
+        fragments.put("Invoke",InvokeFragment.class);
     }
 
     @Override
