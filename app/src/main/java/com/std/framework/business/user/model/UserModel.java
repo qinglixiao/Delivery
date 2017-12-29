@@ -3,6 +3,7 @@ package com.std.framework.business.user.model;
 import com.google.gson.Gson;
 import com.std.framework.comm.net.AbstractModule;
 
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -24,7 +25,7 @@ public class UserModel extends AbstractModule {
     @Override
     public void init() {
         baseUrl = base;
-        type = 1;
+//        type = 1;
         user = attach(UserModel.IUser.class);
     }
 
@@ -36,8 +37,8 @@ public class UserModel extends AbstractModule {
     }
 
     public interface IUser {
-//        @GET("top250")
-//        Call<MoveEntity> getTopMovie(@Query("start") int start, @Query("count") int count);
+        @GET("top250")
+        Observable<MoveEntity> getTopMovie(@Query("start") int start, @Query("count") int count);
 
         @GET("top250")
         Observable<String> getTopMovieString(@Query("start") int start, @Query("count") int count);
@@ -55,6 +56,10 @@ public class UserModel extends AbstractModule {
                     }
                 });
 
+    }
+
+    public Observable<MoveEntity> getTopMovie(int start,int count){
+        return user.getTopMovie(start,count);
     }
 
 

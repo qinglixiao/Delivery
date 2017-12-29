@@ -45,7 +45,7 @@
 
         <activity
             android:name=".business.login.view.activity.LaunchActivity"
-            android:theme="@style/AppTransparentTheme">
+            android:theme="@style/BottomVirtualBordTransparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

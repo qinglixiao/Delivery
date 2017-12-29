@@ -55,7 +55,16 @@ public class InvokeFragment extends BaseFragment implements View.OnClickListener
     @Override
     public void onClick(View view) {
         if (view.getId() == invokeBinding.btnUser.getId()) {
-            new UserModel().getTopMovieString(0, 10)
+//            new UserModel().getTopMovieString(0, 10)
+//                    .subscribeOn(Schedulers.io())
+//                    .observeOn(AndroidSchedulers.mainThread())
+//                    .subscribe(new Action1<UserModel.MoveEntity>() {
+//                        @Override
+//                        public void call(UserModel.MoveEntity moveEntity) {
+//                            invokeBinding.tvShow.setText(moveEntity.toString());
+//                        }
+//                    });
+            new UserModel().getTopMovie(0, 10)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Action1<UserModel.MoveEntity>() {
@@ -63,11 +72,8 @@ public class InvokeFragment extends BaseFragment implements View.OnClickListener
                         public void call(UserModel.MoveEntity moveEntity) {
                             invokeBinding.tvShow.setText(moveEntity.toString());
                         }
-//                        @Override
-//                        public void call(String s) {
-//                            invokeBinding.tvShow.setText(s);
-//                        }
                     });
+
         }
     }
 }

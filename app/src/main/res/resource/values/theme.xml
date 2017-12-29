@@ -30,12 +30,14 @@
 
     <!--透明背景主题-->
     <style name="AppTransparentTheme" parent="AppTheme">
-        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowBackground">@drawable/welcome_bg</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
-        <item name="android:windowIsTranslucent">true</item>
+        <!--<item name="android:windowIsTranslucent">true</item>-->
 
         <!--<item name="android:windowAnimationStyle">@style/ScaleOutAnimation</item>-->
     </style>
+    
+    <style name="BottomVirtualBordTransparent" parent="AppTransparentTheme"/>
 
     <style name="DefaultThemeAnimation">
         <item name="android:activityOpenEnterAnimation">@anim/flat_in</item>
