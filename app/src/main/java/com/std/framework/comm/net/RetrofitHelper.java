@@ -1,13 +1,17 @@
 package com.std.framework.comm.net;
 
 import com.std.framework.comm.net.basic.ToStringConverterFactory;
+import com.std.framework.core.Logger;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -22,6 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Leader: 李晓
  */
 public class RetrofitHelper {
+    private static final int TIMEOUT = 6;//second
     private int type = 0; // 0:Json  1:String
     private String baseUrl;
 
@@ -37,21 +42,45 @@ public class RetrofitHelper {
     }
 
     public Retrofit get() {
-        if (type == 0) {
-            return new Retrofit.Builder()
-                    .baseUrl(baseUrl)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                    .build();
-        } else if (type == 1) {
-            return new Retrofit.Builder()
-                    .baseUrl(baseUrl)
-                    .addConverterFactory(new ToStringConverterFactory())
-                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                    .build();
-        } else {
-            throw new IllegalArgumentException("RetrofitHelper === not set return type");
-        }
+        return new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .client(createClient())
+                .addConverterFactory(new ToStringConverterFactory())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+
+//        if (type == 0) {
+//            return new Retrofit.Builder()
+//                    .baseUrl(baseUrl)
+//                    .client(createClient())
+//                    .addConverterFactory(GsonConverterFactory.create())
+//                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+//                    .build();
+//        } else if (type == 1) {
+//            return new Retrofit.Builder()
+//                    .baseUrl(baseUrl)
+//                    .client(createClient())
+//                    .addConverterFactory(new ToStringConverterFactory())
+//                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+//                    .build();
+//        } else {
+//            throw new IllegalArgumentException("RetrofitHelper === not set return type");
+//        }
+    }
+
+    private OkHttpClient createClient() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient.Builder builder = new OkHttpClient.Builder()
+                .addInterceptor(new HeaderInterceptor())
+                .addInterceptor(new HostSelectionInterceptor())
+                .addInterceptor(logging)
+                .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
+                .retryOnConnectionFailure(true);
+
+        return builder.build();
     }
 
     //为请求添加header
@@ -59,43 +88,15 @@ public class RetrofitHelper {
 
         @Override
         public okhttp3.Response intercept(Chain chain) throws IOException {
-            Request request = chain.request();
-            Request.Builder builder = request.newBuilder();
-            builder.headers(buildHeader());
-//            Map<String, String> headers = buildHeader();
-//            for (final String name : headers.keySet()) {
-//                if (headers.get(name) == null) {
-//                    continue;
-//                }
-//                builder.addHeader(name, headers.get(name));
-//            }
+            Request request = chain.request().newBuilder()
+                    .addHeader("Accept-Encoding", "gzip")
+                    .addHeader("Accept", "application/json")
+                    .addHeader("X-Toon-User-ID", "305212")
+                    .addHeader("X-Toon-User-Token", "5f2d37cd-33c4-4b43-9a19-1c36b7d7348b")
+                    .addHeader("X-Toon-User-Agent", "platform:android,deviceId:FFK0217705003490,appVersion:2.0.0,platformVersion:24,toonType:102")
+                    .build();
             return chain.proceed(request);
         }
-
-//        public Map<String, String> buildHeader() {
-//            Map<String, String> header = new HashMap<>();
-//            header.put("Accept-Encoding", "gzip");
-//            header.put("Accept", "application/json");
-//            header.put("X-Toon-User-ID", "");
-//            header.put("X-Toon-User-Token", "aebf1421-3191-4b3b-b7b9-8fa61e2def8f");
-//            StringBuilder userAgent = new StringBuilder("platform:");
-//            userAgent.append("android,").append("deviceId:")
-//                    .append(",").append("platformVersion:").append(android.os.Build.VERSION.SDK_INT)
-//                    .append(",").append("toonType:").append("102");
-//            header.put("X-Toon-User-Agent", "platform:android,deviceId:FFK0217705003490,appVersion:1.8.0,platformVersion:24,toonType:102");
-//            return header;
-//        }
-
-        public Headers buildHeader() {
-            return Headers.of(
-                    "Accept-Encoding", "gzip",
-                    "Accept", "application/json",
-                    "X-Toon-User-ID", "",
-                    "X-Toon-User-Token", "aebf1421-3191-4b3b-b7b9-8fa61e2def8f",
-                    "X-Toon-User-Agent", "platform:android,deviceId:FFK0217705003490,appVersion:1.8.0,platformVersion:24,toonType:102"
-            );
-        }
-
     }
 
     //动态改变baseUrl
@@ -109,6 +110,19 @@ public class RetrofitHelper {
         @Override
         public okhttp3.Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
+            String header = request.headers().toString();
+            String url = request.url().toString();
+
+            Logger.i("request",
+                    "=========network========="
+                            + "\n" +
+
+                            "header " + header + "\n" +
+                            "url " + url + "\n" +
+
+                            "==========network========="
+            );
+
             String host = this.host;
             if (host != null) {
                 HttpUrl newUrl = request.url().newBuilder()
@@ -118,7 +132,9 @@ public class RetrofitHelper {
                         .url(newUrl)
                         .build();
             }
-            return chain.proceed(request);
+            okhttp3.Response response =  chain.proceed(request);
+
+            return response;
         }
     }
 

@@ -24,6 +24,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="IUserModel" />
+
+                <Button
+                    android:id="@+id/btn_toon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_user"
+                    android:text="IToonModel" />
+
+                <Button
+                    android:id="@+id/btn_feed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/btn_toon"
+                    android:text="IFeedList" />
             </RelativeLayout>
         </ScrollView>
 

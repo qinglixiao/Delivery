@@ -18,6 +18,7 @@
 
     <!--底部虚拟按键透明-->
     <style name="BottomVirtualBordTransparent" parent="AppTransparentTheme">
-        <item name="android:windowTranslucentNavigation">true</item>
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <item name="android:windowFullscreen">true</item>
     </style>
 </resources>

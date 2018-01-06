@@ -14,8 +14,10 @@ import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.business.user.model.UserModel;
 import com.std.framework.comm.view.ProgressWheel;
+import com.std.framework.core.Logger;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentInvokeBinding;
+import com.std.framework.study.other.module.ToonModule;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -50,30 +52,74 @@ public class InvokeFragment extends BaseFragment implements View.OnClickListener
 
     private void viewAction() {
         invokeBinding.btnUser.setOnClickListener(this);
+        invokeBinding.btnToon.setOnClickListener(this);
+        invokeBinding.btnFeed.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == invokeBinding.btnUser.getId()) {
-//            new UserModel().getTopMovieString(0, 10)
-//                    .subscribeOn(Schedulers.io())
-//                    .observeOn(AndroidSchedulers.mainThread())
-//                    .subscribe(new Action1<UserModel.MoveEntity>() {
-//                        @Override
-//                        public void call(UserModel.MoveEntity moveEntity) {
-//                            invokeBinding.tvShow.setText(moveEntity.toString());
-//                        }
-//                    });
             new UserModel().getTopMovie(0, 10)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Action1<UserModel.MoveEntity>() {
+                    .subscribe(new Subscriber<UserModel.MoveEntity>() {
                         @Override
-                        public void call(UserModel.MoveEntity moveEntity) {
+                        public void onCompleted() {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onNext(UserModel.MoveEntity moveEntity) {
                             invokeBinding.tvShow.setText(moveEntity.toString());
                         }
                     });
 
+        } else if (view.getId() == invokeBinding.btnToon.getId()) {
+            new ToonModule().getCommonList()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Subscriber<String>() {
+                        @Override
+                        public void onCompleted() {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onNext(String s) {
+                            invokeBinding.tvShow.setText(s);
+                        }
+                    });
+        }
+        else if(view.getId() == invokeBinding.btnFeed.getId()){
+            new ToonModule().obtainFeedList()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Subscriber<String>() {
+                        @Override
+                        public void onCompleted() {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onNext(String s) {
+                            invokeBinding.tvShow.setText(s);
+                        }
+                    });
         }
     }
 }

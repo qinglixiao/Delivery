@@ -15,8 +15,9 @@ public abstract class AbstractModule extends NetBase {
         init();
     }
 
-    public void init() {
-
-    }
+    /**
+     * 初始化网络参数
+     */
+    public abstract void init();
 
 }
