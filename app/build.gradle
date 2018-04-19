@@ -3,35 +3,29 @@ apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
-
+//    buildToolsVersion '25.0.2'
     dexOptions {
         javaMaxHeapSize "4g"
     }
-
     dataBinding {
         enabled true
     }
-
-
     defaultConfig {
         applicationId "com.std.framework"
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     sourceSets {
         main {
             java.srcDirs = ['src/main/java', 'src-gen']
@@ -40,7 +34,6 @@ android {
             assets.srcDirs = ['assets']
         }
     }
-
     // Move the build types to build-types/<type>
     // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
     // This moves them out of them default location under src/<type>/... which would
@@ -50,7 +43,11 @@ android {
 //        debug.setRoot('build-types/debug')
 //        release.setRoot('build-types/release')
 //    }
-
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    buildToolsVersion '26.0.2'
 }
 
 greendao {

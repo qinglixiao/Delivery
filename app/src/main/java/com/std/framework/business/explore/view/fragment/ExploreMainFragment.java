@@ -37,6 +37,7 @@ public class ExploreMainFragment extends BaseFragment {
         fragments.put("Finger",FingerIdentifyFragment.class);
         fragments.put("progress",ProgressBarFragment.class);
         fragments.put("Invoke",InvokeFragment.class);
+        fragments.put("VPN",VPNFragment.class);
     }
 
     @Override

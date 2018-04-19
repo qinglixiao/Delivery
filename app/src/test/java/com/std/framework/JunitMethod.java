@@ -1,6 +1,7 @@
 package com.std.framework;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.library.core.Reflect;
 import com.std.framework.assist.JunitUtil;
 import com.std.framework.util.AppUtil;
@@ -9,6 +10,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -242,6 +244,193 @@ public class JunitMethod {
         int t = (int) Math.ceil(3400 / 1000f);
 //        int t = Math.floor( 3400 / 1000);
         JunitUtil.log(t + "");
+    }
+
+    private static final Gson gson = new Gson();
+    @Test
+    public void testFace(){
+        for(int i = 0;i < 10;i++) {
+            long start = System.currentTimeMillis();
+            JunitUtil.log("org:"+gson.hashCode()+"");
+            Gson n1 = new Gson();
+            JunitUtil.log("new:"+n1.hashCode()+"");
+            TNPFaceRecommendListOutputForm result = (TNPFaceRecommendListOutputForm) (gson).fromJson("{\"data\":[],\"version\":1507542995000}", (new TypeToken<TNPFaceRecommendListOutputForm>() {
+            }).getType());
+            long time = System.currentTimeMillis() - start;
+            JunitUtil.log(time + "");
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public class TNPFaceRecommendListOutputForm implements Serializable {
+        private List<TNPFaceShopOutputForm> data;
+        private String version;
+
+        public TNPFaceRecommendListOutputForm() {
+        }
+
+        public List<TNPFaceShopOutputForm> getData() {
+            return this.data;
+        }
+
+        public void setData(List<TNPFaceShopOutputForm> data) {
+            this.data = data;
+        }
+
+        public String getVersion() {
+            return this.version;
+        }
+
+        public void setVersion(String version) {
+            this.version = version;
+        }
+    }
+
+    public class TNPFaceShopOutputForm implements Serializable {
+        private String faceBagId;
+        private String name;
+        private int price;
+        public int totals;
+        private int remain;
+        private int status;
+        public String lineTime;
+        private int amount;
+        private String slogan;
+        private String intro;
+        private String mark;
+        private int orderBy;
+        private String picId;
+        private String picUrl;
+        private String zipId;
+        private String zipUrl;
+        private int recommend;
+
+        public TNPFaceShopOutputForm() {
+        }
+
+        public String getZipId() {
+            return this.zipId;
+        }
+
+        public void setZipId(String zipId) {
+            this.zipId = zipId;
+        }
+
+        public String getZipUrl() {
+            return this.zipUrl;
+        }
+
+        public void setZipUrl(String zipUrl) {
+            this.zipUrl = zipUrl;
+        }
+
+        public String getFaceBagId() {
+            return this.faceBagId;
+        }
+
+        public void setFaceBagId(String faceBagId) {
+            this.faceBagId = faceBagId;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getPrice() {
+            return this.price;
+        }
+
+        public void setPrice(int price) {
+            this.price = price;
+        }
+
+        public int getRemain() {
+            return this.remain;
+        }
+
+        public void setRemain(int remain) {
+            this.remain = remain;
+        }
+
+        public int getStatus() {
+            return this.status;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
+
+        public int getAmount() {
+            return this.amount;
+        }
+
+        public void setAmount(int amount) {
+            this.amount = amount;
+        }
+
+        public String getSlogan() {
+            return this.slogan;
+        }
+
+        public void setSlogan(String slogan) {
+            this.slogan = slogan;
+        }
+
+        public String getIntro() {
+            return this.intro;
+        }
+
+        public void setIntro(String intro) {
+            this.intro = intro;
+        }
+
+        public String getMark() {
+            return this.mark;
+        }
+
+        public void setMark(String mark) {
+            this.mark = mark;
+        }
+
+        public int getOrderBy() {
+            return this.orderBy;
+        }
+
+        public void setOrderBy(int orderBy) {
+            this.orderBy = orderBy;
+        }
+
+        public String getPicId() {
+            return this.picId;
+        }
+
+        public void setPicId(String picId) {
+            this.picId = picId;
+        }
+
+        public String getPicUrl() {
+            return this.picUrl;
+        }
+
+        public void setPicUrl(String picUrl) {
+            this.picUrl = picUrl;
+        }
+
+        public int getRecommend() {
+            return this.recommend;
+        }
+
+        public void setRecommend(int recommend) {
+            this.recommend = recommend;
+        }
     }
 
 }

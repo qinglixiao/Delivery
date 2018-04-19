@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="FragmentVPNBinding">
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="host :"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/host"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="vpn.syswin.com"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="user :"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/user"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="137289"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pwd :"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/pwd"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="qingsbjat_3"
+                android:password="true"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="连接" />
+
+    </LinearLayout>
+</layout>
