@@ -1,7 +1,11 @@
 package com.std.framework.basic;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
 import android.util.Log;
 
 import com.library.imageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -12,6 +16,7 @@ import com.library.util.LibUtil;
 import com.library.util.LogUtil;
 import com.std.framework.comm.clazz.STDActivityManager;
 import com.std.framework.comm.clazz.STDUncaughtExceptionHandler;
+import com.std.framework.core.Logger;
 import com.std.framework.util.AppUtil;
 
 public class App extends Application {
@@ -23,6 +28,18 @@ public class App extends Application {
         configLogSystem();
         setExceptionHandle();
 //        initImageLoader(this);
+        Logger.d("LX", "App-onCreate");
+        registerActivityLifecycleCallbacks(lifecycleCallbacks);
+    }
+
+    private boolean isBackground = false;
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        //应用切到后台
+        if(level == TRIM_MEMORY_UI_HIDDEN){
+            isBackground = true;
+        }
     }
 
     private void setExceptionHandle() {
@@ -74,5 +91,44 @@ public class App extends Application {
         // Initialize ImageLoader with configuration.
         ImageLoader.getInstance().init(config.build());
     }
+
+    private ActivityLifecycleCallbacks lifecycleCallbacks = new ActivityLifecycleCallbacks() {
+        @Override
+        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityResumed(Activity activity) {
+            if(isBackground){
+                isBackground = false;
+            }
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+        }
+
+        @Override
+        public void onActivityDestroyed(Activity activity) {
+
+        }
+    };
 
 }

@@ -10,6 +10,7 @@ import com.std.framework.business.login.view.fragment.GuideFragment;
 import com.std.framework.business.home.view.activity.MainTabActivity;
 import com.std.framework.comm.clazz.STDActivityManager;
 import com.std.framework.comm.clazz.STDFragmentManager;
+import com.std.framework.core.Logger;
 import com.std.framework.util.SharedPreferencesUtil;
 
 public class LaunchActivity extends BaseActivity {
@@ -24,6 +25,7 @@ public class LaunchActivity extends BaseActivity {
             SharedPreferencesUtil.putStartSign();
         } else
             ThreadPool.postOnUiThreadDelayed(waiting, 1000);
+        Logger.d("LX","LaunchActivity-onCreate");
     }
 
     @Override

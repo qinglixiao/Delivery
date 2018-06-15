@@ -21,11 +21,11 @@ public class FingerUtil {
 
     public static void callFingerPrint(final OnCallBackListenr listener) {
         FingerprintManagerCompat managerCompat = FingerprintManagerCompat.from(AppUtil.getAppContext());
-        if (!managerCompat.isHardwareDetected()) { //判断设备是否支持
-            if (listener != null)
-                listener.onSupportFailed();
-            return;
-        }
+//        if (!managerCompat.isHardwareDetected()) { //判断设备是否支持
+//            if (listener != null)
+//                listener.onSupportFailed();
+//            return;
+//        }
         KeyguardManager keyguardManager = (KeyguardManager) AppUtil.getAppContext().getSystemService(AppUtil.getAppContext().KEYGUARD_SERVICE);
         if (!keyguardManager.isKeyguardSecure()) {//判断设备是否处于安全保护中
             if (listener != null)

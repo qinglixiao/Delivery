@@ -38,6 +38,8 @@ public class ExploreMainFragment extends BaseFragment {
         fragments.put("progress",ProgressBarFragment.class);
         fragments.put("Invoke",InvokeFragment.class);
         fragments.put("VPN",VPNFragment.class);
+        fragments.put("Profiler",ProfilerFragment.class);
+        fragments.put("Service",ServiceFragment.class);
     }
 
     @Override

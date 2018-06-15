@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.library.core.Reflect;
 import com.std.framework.assist.JunitUtil;
 import com.std.framework.util.AppUtil;
+import com.std.framework.util.FingerUtil;
 
 import junit.framework.Assert;
 
@@ -12,6 +13,9 @@ import org.junit.Test;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -19,6 +23,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Description:
@@ -247,13 +253,14 @@ public class JunitMethod {
     }
 
     private static final Gson gson = new Gson();
+
     @Test
-    public void testFace(){
-        for(int i = 0;i < 10;i++) {
+    public void testFace() {
+        for (int i = 0; i < 10; i++) {
             long start = System.currentTimeMillis();
-            JunitUtil.log("org:"+gson.hashCode()+"");
+            JunitUtil.log("org:" + gson.hashCode() + "");
             Gson n1 = new Gson();
-            JunitUtil.log("new:"+n1.hashCode()+"");
+            JunitUtil.log("new:" + n1.hashCode() + "");
             TNPFaceRecommendListOutputForm result = (TNPFaceRecommendListOutputForm) (gson).fromJson("{\"data\":[],\"version\":1507542995000}", (new TypeToken<TNPFaceRecommendListOutputForm>() {
             }).getType());
             long time = System.currentTimeMillis() - start;
@@ -264,6 +271,50 @@ public class JunitMethod {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Test
+    public void testReflect() {
+        FingerUtil util = Reflect.on(FingerUtil.class).create().get();
+        JunitUtil.print(util.hashCode());
+        try {
+            Class<?> clz = Class.forName(FingerUtil.class.getName());
+            FingerUtil util1 = (FingerUtil) clz.getDeclaredConstructor().newInstance();
+            JunitUtil.print(util1.hashCode());
+
+            FingerUtil util2 = (FingerUtil) clz.newInstance();
+            JunitUtil.print(util2.hashCode());
+
+            Class[] type = new Class[1];
+            type[0] = int.class;
+            Class[] type1 = new Class[1];
+            type[0] = String.class;
+            Constructor<?> c1 = Class.forName(ReflectClazz.class.getName()).getDeclaredConstructor();
+            Constructor<?> c2 = Class.forName(ReflectClazz.class.getName()).getConstructor();
+            Constructor<?> c3 = Class.forName(ReflectClazz.class.getName()).getDeclaredConstructor(type);
+
+            Reflect.on(ReflectClazz.class.getName()).create().call("del");
+            JunitUtil.print("");
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void testString() {
+        String src = "";
+        src = src.replace("搜索小组", "好");
+        JunitUtil.print(src);
     }
 
     public class TNPFaceRecommendListOutputForm implements Serializable {
@@ -431,6 +482,47 @@ public class JunitMethod {
         public void setRecommend(int recommend) {
             this.recommend = recommend;
         }
+    }
+
+    @Test
+    public void testRegex() {
+        // 按指定模式在字符串查找
+        String line = "hell工o${CARD}晃悄烛光${fewafe}hytsf${8989}srgr一年${fe尿}的";
+        String pattern = "\\$\\{\\w*[\\u4E00-\\u9FA5]*\\}";
+
+        // 创建 Pattern 对象\
+        Pattern r = Pattern.compile(pattern);
+
+        // 现在创建 matcher 对象
+        Matcher m = r.matcher(line);
+
+        JunitUtil.log("match" + m.matches());
+
+        JunitUtil.log(line.replaceFirst("\\$\\{(CARD)}", "名片"));
+        while (m.find()) {
+            String s = m.group();
+            System.out.println("Found value: " + s);
+            if (s.substring(2, s.length() - 1).equals("CARD")) {
+                line = line.replace(s, "名片***");
+            }
+        }
+        JunitUtil.log(line);
+
+    }
+
+    @Test
+    public void testClassLoader() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        FingerUtil one = (FingerUtil) Class.forName(FingerUtil.class.getName()).newInstance();
+        FingerUtil fingerUtil = FingerUtil.class.newInstance();
+        Field[] fields = ReflectClazz.class.getDeclaredFields();
+        ReflectClazz reflectClazz = ReflectClazz.class.newInstance();
+        for (Field field : fields) {
+            field.setAccessible(true);
+            JunitUtil.log(field.get(reflectClazz).toString());
+            if (field.getName().equals("age"))
+                field.set(reflectClazz, 300);
+        }
+//        Reflect.on(One.class.getName()).create();
     }
 
 }
