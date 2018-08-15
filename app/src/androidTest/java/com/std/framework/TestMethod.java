@@ -15,6 +15,7 @@ import com.std.framework.util.SharedPreferencesUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,6 +48,7 @@ public class TestMethod {
         Log.d("LX", SecurityUtil.MD5.encrypt(ss));
     }
 
+    @Test
     public void movebit() {
         int MODE_SHIFT = 30;
         int MODE_MASK = 3 << MODE_SHIFT;
@@ -102,9 +104,12 @@ public class TestMethod {
 //        String provider = About.getNetProvider(getContext());
     }
 
+    @Test
     public void testSharedPreferences() {
         SharedPreferencesUtil.putUser("LX");
         assertEquals(SharedPreferencesUtil.getUser(), "LX");
+
+
     }
 
     public void testLogger() {

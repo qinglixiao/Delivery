@@ -1,15 +1,13 @@
 package com.std.framework;
 
-import com.library.core.ThreadPool;
-import com.library.util.LogUtil;
 import com.std.framework.assist.JunitUtil;
 
 import org.junit.Test;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
-import static org.junit.Assert.*;
+import static junit.framework.Assert.assertEquals;
+
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -24,11 +22,19 @@ public class ExampleUnitTest {
 
     @Test
     public void testFuture() throws ExecutionException, InterruptedException {
-        JunitUtil.print(ThreadPool.submit(new Callable<Integer>() {
-            @Override
-            public Integer call() throws Exception {
-                return 10;
-            }
-        }).get());
+//        JunitUtil.print(ThreadPool.submit(new Callable<Integer>() {
+//            @Override
+//            public Integer call() throws Exception {
+//                return 10;
+//            }
+//        }).get());
+    }
+
+    @Test
+    public void testNum() {
+//        assertEquals(36 % 2, 0);
+        Object a ;
+        a = System.currentTimeMillis();
+        JunitUtil.print(a.getClass().getSimpleName());
     }
 }
