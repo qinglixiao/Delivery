@@ -1,6 +1,11 @@
+apply from:'util.gradle'
 buildscript {
     repositories {
+        maven{
+            url 'repo'
+        }
         jcenter()
+        mavenCentral()
         maven {
             url 'https://maven.google.com/'
             name 'Google'
@@ -13,6 +18,7 @@ buildscript {
         //分包插件
         classpath 'com.library.tangxiaolv:dexknife-plus:1.0.2'
         classpath 'com.networkbench.newlens.agent.android:agent-gradle-plugin:2.5.9'
+        classpath 'com.std.plugin:StdPlugin:1.0.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -27,4 +33,52 @@ allprojects {
     }
 }
 
+project.beforeEvaluate {
+    println("开始配置")
+}
 
+project.afterEvaluate {
+    println("结束配置")
+}
+
+//def getRootDir(){
+//    println 'rootName :' + project.getRootProject().name
+//}
+
+def getSubProject(){
+    project.subprojects {
+        println 'subName:'+it.name
+    }
+}
+
+project('STDlibrary'){
+    println 'prjName:'+it.name
+    println ''
+}
+
+//subprojects {
+//    compileSdkVersion 26
+//    defaultConfig {
+//        minSdkVersion 19
+//        targetSdkVersion 26
+//    }
+//}
+//getRootDir()
+getSubProject()
+
+println getRootDir().absolutePath
+println getBuildDir().absolutePath
+//showFile("build.gradle")
+
+//def showFile(String path){
+//    File file = file(path)
+//    println file.text
+//}
+
+//copy {
+//    from file('app/src/main/java/com/std/framework/basic/App.java')
+//    into getRootDir().absolutePath
+//    rename {
+//        it.replace('App.java','AppCopy.java')
+//    }
+//}

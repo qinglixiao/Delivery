@@ -24,7 +24,7 @@ public class LaunchActivity extends BaseActivity {
             STDFragmentManager.getInstance(this).add(R.id.guide_content, new GuideFragment());
             SharedPreferencesUtil.putStartSign();
         } else
-            ThreadPool.postOnUiThreadDelayed(waiting, 1000);
+            ThreadPool.postDelay(waiting, 1000);
         Logger.d("LX","LaunchActivity-onCreate");
     }
 

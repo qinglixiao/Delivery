@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.std.plugin.configs'
 
 android {
     compileSdkVersion 26
@@ -97,6 +98,11 @@ def readDependence(){
     project.dependencies {
         println(it)
     }
-
-    project.getDependencies().getComponents()
 }
+
+println 'app absolutePath :'+getProjectDir().absolutePath
+
+
+
+
+

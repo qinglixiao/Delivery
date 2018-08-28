@@ -4,6 +4,8 @@ import com.std.framework.assist.JunitUtil;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import static junit.framework.Assert.assertEquals;
@@ -33,8 +35,34 @@ public class ExampleUnitTest {
     @Test
     public void testNum() {
 //        assertEquals(36 % 2, 0);
-        Object a ;
+        Object a;
         a = System.currentTimeMillis();
         JunitUtil.print(a.getClass().getSimpleName());
     }
+
+    @Test
+    public void testList(){
+        List args = new ArrayList();
+        args.add("args");
+        args.add(20);
+        args.add("arg2");
+        args.add(40);
+        print(args);
+    }
+
+    private void print(Object... args) {
+        if (args != null) {
+            for (Object arg : args)
+                JunitUtil.print(arg.toString());
+        }
+//        assertEquals(args,null);
+//        assertEquals(args.length,0);
+    }
+
+    @Test
+    public void testNull(){
+        print(new Object[0]);
+    }
+
+
 }

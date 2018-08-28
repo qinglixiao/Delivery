@@ -1,1 +1,2 @@
-include ':STDlibrary', ':app', ':InnerAnnotate-compiler', ':Annotate-api'
+include ':STDlibrary', ':app', ':InnerAnnotate-compiler', ':Annotate-api', ':StdPlugin'
+
