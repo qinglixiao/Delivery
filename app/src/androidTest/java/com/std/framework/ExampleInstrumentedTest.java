@@ -5,10 +5,13 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
+import com.library.core.ThreadPool;
 import com.std.framework.assist.JunitUtil;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.concurrent.CountDownLatch;
 
 import static org.junit.Assert.assertEquals;
 
@@ -30,5 +33,23 @@ public class ExampleInstrumentedTest {
         Log.d("LX",appContext.getPackageName());
 //        JunitUtil.log(appContext.getPackageName());
 //        assertEquals("trends.systoon.com.myapplication", appContext.getPackageName());
+    }
+    @Test
+    public void testThreadPool(){
+        CountDownLatch latch = new CountDownLatch(1);
+        ThreadPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                JunitUtil.print("执行线程任务...");
+                latch.countDown();
+            }
+        });
+        try {
+            latch.await();
+            JunitUtil.print("任务执行完成!");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 }

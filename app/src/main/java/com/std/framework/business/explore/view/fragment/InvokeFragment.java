@@ -4,24 +4,18 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.SeekBar;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.business.user.model.UserModel;
-import com.std.framework.comm.view.ProgressWheel;
-import com.std.framework.core.Logger;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentInvokeBinding;
 import com.std.framework.study.other.module.ToonModule;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**

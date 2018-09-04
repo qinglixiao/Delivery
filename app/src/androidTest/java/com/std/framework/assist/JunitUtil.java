@@ -1,5 +1,7 @@
 package com.std.framework.assist;
 
+import com.std.framework.core.Logger;
+
 /**
  * Description:
  * Created by 李晓 ON 2017/11/20.
@@ -15,7 +17,7 @@ public class JunitUtil {
     }
 
     public static void print(String info) {
-        System.out.println(info);
+        Logger.d("LX",info);
     }
 
     public static void print(int info) {
