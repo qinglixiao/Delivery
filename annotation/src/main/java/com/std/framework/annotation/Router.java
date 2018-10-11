@@ -1,12 +1,14 @@
-package com.std.framework.annotate;
+package com.std.framework.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.METHOD})
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.CLASS)
-public @interface Path {
-    String value();
+public @interface Router {
+    String host();
+
+    String schema();
 }

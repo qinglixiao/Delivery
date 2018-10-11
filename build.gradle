@@ -1,4 +1,5 @@
 apply from:'config.gradle'
+apply from: 'script.gradle'
 buildscript {
     repositories {
         maven{
@@ -31,14 +32,6 @@ allprojects {
             name 'Google'
         }
     }
-}
-
-project.beforeEvaluate {
-    println("开始配置")
-}
-
-project.afterEvaluate {
-    println("结束配置")
 }
 
 //def getRootDir(){
@@ -82,3 +75,7 @@ println getBuildDir().absolutePath
 //        it.replace('App.java','AppCopy.java')
 //    }
 //}
+
+gradle.afterProject {
+    println 'task 数量：'+tasks.size()
+}

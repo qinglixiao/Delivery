@@ -1,6 +1,11 @@
 package com.std.framework;
 
+import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+
+import java.util.List;
 
 /**
  * Description:
@@ -39,5 +44,14 @@ public class XmlParse {
 //        stream.addImplicitCollection(TestCase.class,"tests");
 //        TestCase testCase1 = (TestCase) stream.fromXML(buffer.toString());
 
+    }
+
+    @Mock
+    private List list;
+
+    @Test
+    public void testMock(){
+        List list = Mockito.mock(List.class);
+        Assert.assertNotNull(list);
     }
 }

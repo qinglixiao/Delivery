@@ -1,0 +1,35 @@
+ext {
+    input = new File(':app/build/outputs/apk')
+
+}
+
+task outputRedirect(type: Copy, group: 'def') << {
+    from "$project.path/app/build/outputs/apk"
+    into "$project.path/apks"
+    println "copy: $project.path/app/build/outputs/apk"
+    println "to:$project.path/apks"
+}
+
+gradle.taskGraph.afterTask{
+//    task last = tasks.last()
+//    println last.name
+//    tasks.add(outputRedirect)
+        println "task----------:"+ it.name
+}
+
+def srcFile = input
+
+project.gradle.buildFinished {
+    println 'task 执行完成'
+}
+
+
+def copy(String from, String to) {
+    def srcFile = new File(from)
+    def targetFile = new File(to)
+    targetFile.withDataOutputStream { out ->
+        srcFile.withDataInputStream { input ->
+            out << input
+        }
+    }
+}

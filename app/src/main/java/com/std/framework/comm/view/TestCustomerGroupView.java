@@ -31,7 +31,7 @@ public class TestCustomerGroupView extends LinearLayout {
     }
 
     private void init() {
-//        setWillNotDraw(false);
+        setWillNotDraw(false);
         paint = new Paint();
         paint.setColor(getContext().getResources().getColor(R.color.blue));
         paint.setStrokeWidth(3);
@@ -62,15 +62,15 @@ public class TestCustomerGroupView extends LinearLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
-        int count = getChildCount();
-        for (int i = 0; i < count; i++) {
-            int width = getChildAt(i).getMeasuredWidth();
-            int height = getChildAt(i).getMeasuredHeight();
-            getChildAt(i).layout(l, t, width + l, height);
-            l += width + line_length;
-        }
-    }
+//    @Override
+//    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+//        super.onLayout(changed, l, t, r, b);
+//        int count = getChildCount();
+//        for (int i = 0; i < count; i++) {
+//            int width = getChildAt(i).getMeasuredWidth();
+//            int height = getChildAt(i).getMeasuredHeight();
+//            getChildAt(i).layout(l, t, width + l, height);
+//            l += width + line_length;
+//        }
+//    }
 }

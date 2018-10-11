@@ -1,6 +1,6 @@
 package com.std.framework.study.annotate;
 
-import com.std.framework.annotate.Router;
+import com.std.framework.router.Router;
 
 /**
  * Description:
@@ -13,4 +13,5 @@ import com.std.framework.annotate.Router;
  */
 @Router(schema = "android", host = "login")
 public class LoginProvider {
+
 }

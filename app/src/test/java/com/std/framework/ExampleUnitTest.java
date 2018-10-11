@@ -4,6 +4,7 @@ import com.library.core.ThreadPool;
 import com.std.framework.assist.JunitUtil;
 
 import org.junit.Test;
+import org.mockito.Mock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 
 import static junit.framework.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 
 /**
@@ -43,7 +46,7 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void testList(){
+    public void testList() {
         List args = new ArrayList();
         args.add("args");
         args.add(20);
@@ -62,8 +65,15 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void testNull(){
+    public void testNull() {
         print(new Object[0]);
+    }
+
+    @Test
+    public void testMock() {
+        List list = mock(List.class);
+        list.add(1);
+        verify(list).add(2);
     }
 
 }
