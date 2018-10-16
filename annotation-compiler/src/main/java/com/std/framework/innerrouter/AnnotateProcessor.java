@@ -1,7 +1,7 @@
 package com.std.framework.innerrouter;
 
 import com.google.auto.service.AutoService;
-import com.std.framework.router.Router;
+import com.std.framework.annotation.Router;
 import com.std.framework.utils.Consts;
 import com.std.framework.utils.Logger;
 

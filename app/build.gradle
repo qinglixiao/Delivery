@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+apply from:  '../unit_test_script.gradle'
 //apply plugin: 'com.std.plugin.configs'
 
 android {
@@ -17,9 +18,6 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"//将 AndroidJUnitRunner 设置为 Gradle 项目中的默认测试仪器运行器
-
     }
     buildTypes {
         release {
@@ -59,12 +57,8 @@ greendao {
 
 dependencies {
     implementation fileTree(include: '*.jar', dir: 'libs')
-    implementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    androidTestImplementation "org.mockito:mockito-android:2.21.0"
-    testImplementation "org.mockito:mockito-inline:2.21.0"
     implementation project(':STDlibrary')
-    implementation project(':annotation-api')
+    implementation project(':annotation')
     annotationProcessor project(':annotation-compiler')
     implementation 'org.greenrobot:eventbus:3.0.0'
     //    compile 'com.facebook.fresco:fresco:0.8.1+'
@@ -80,13 +74,14 @@ dependencies {
     implementation depend['greendao']
 }
 
-task test_demo{
+task test_demo {
 //    println("hello groovy "+ x)
 //    readXml()
     readDependence()
 }
 import groovy.util.slurpersupport.GPathResult
-def readXml(){
+
+def readXml() {
     File file = projects.project.file("src/main/AndroidManifest.xml")
     GPathResult result = new XmlSlurper().parse(file)
     def find = result.depthFirst().find {
@@ -95,13 +90,13 @@ def readXml(){
     println(find['@android:name'])
 }
 
-def readDependence(){
+def readDependence() {
     project.dependencies {
         println(it)
     }
 }
 
-println 'app absolutePath :'+getProjectDir().absolutePath
+println 'app absolutePath :' + getProjectDir().absolutePath
 
 
 
