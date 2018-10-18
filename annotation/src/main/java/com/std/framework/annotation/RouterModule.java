@@ -5,8 +5,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.METHOD})
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.CLASS)
-public @interface Path {
-    String value();
+public @interface RouterModule {
+    String host();
+
+    String schema() default "chunyu";
 }

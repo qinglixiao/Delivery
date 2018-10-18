@@ -60,6 +60,7 @@ dependencies {
     implementation project(':STDlibrary')
     implementation project(':annotation')
     annotationProcessor project(':annotation-compiler')
+    implementation project(':annotation-api')
     implementation 'org.greenrobot:eventbus:3.0.0'
     //    compile 'com.facebook.fresco:fresco:0.8.1+'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'

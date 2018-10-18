@@ -11,18 +11,18 @@ import com.std.framework.router.interfaces.Resolve;
  * Phone: 18611867932
  * Email: lixiao@chunyu.me
  */
-public class CPromise {
+public class CPromise<T> {
     private Promise target;
 
     public CPromise(Promise promise) {
         target = promise;
     }
 
-    public void call(Resolve resolve) {
+    public void call(Resolve<T> resolve) {
         target.call(resolve, null);
     }
 
-    public void call(Resolve resolve, Capture capture) {
+    public void call(Resolve<T> resolve, Capture capture) {
         target.call(resolve, capture);
     }
 

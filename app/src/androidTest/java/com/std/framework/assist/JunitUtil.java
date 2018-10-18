@@ -17,7 +17,7 @@ public class JunitUtil {
     }
 
     public static void print(String info) {
-        Logger.d("LX",info);
+        Logger.d("LX", info);
     }
 
     public static void print(int info) {

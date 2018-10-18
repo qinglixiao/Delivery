@@ -3,15 +3,18 @@ package com.std.framework;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.google.gson.JsonArray;
 import com.library.core.God;
 import com.library.core.Reflect;
 import com.library.util.SecurityUtil;
 import com.std.framework.assist.Bean;
+import com.std.framework.assist.JunitUtil;
 import com.std.framework.business.call.view.fragment.CallFragment;
 import com.std.framework.core.Logger;
 import com.std.framework.util.AppUtil;
 import com.std.framework.util.SharedPreferencesUtil;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -19,6 +22,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
@@ -117,6 +121,7 @@ public class TestMethod {
         Logger.m("logger_debug");
     }
 
+    @Test
     public void testJson() {
         String json = "{\"code\":500,\"message\":\"指定的审批人不是设备管理员\"}";
         JSONTokener jsonTokener = new JSONTokener(json);
@@ -170,7 +175,40 @@ public class TestMethod {
 
     public void testMemery() {
         Logger.m(String.format("max:%d total:%d free:%d", AppUtil.getMaxMemoryAllocated() / 1024 / 1024, AppUtil.getTotalMemoryAllocated() / 1024 / 1024, AppUtil.getFreeMemoryAllocated() / 1024 / 1024));
+    }
 
+    @Test
+    public void testParseJson() {
+        String json = "{\n" +
+                "    \"l1\": {\n" +
+                "        \"l1_1\": [\n" +
+                "            \"l1_1_1\",\n" +
+                "            \"l1_1_2\"\n" +
+                "        ],\n" +
+                "        \"l1_2\": {\n" +
+                "            \"l1_2_1\": 121\n" +
+                "        }\n" +
+                "    },\n" +
+                "    \"l2\": {\n" +
+                "        \"l2_1\": null,\n" +
+                "        \"l2_2\": true,\n" +
+                "        \"l2_3\": {}\n" +
+                "    }\n" +
+                "}";
 
+        try {
+            JSONObject object = new JSONObject(json);
+            Iterator<String> keys = object.keys();
+            StringBuffer buffer = new StringBuffer();
+            while (keys.hasNext()) {
+                String key = keys.next();
+                object.get(key);
+                buffer.append(key);
+            }
+            JunitUtil.print(buffer.toString());
+
+        } catch (Exception e) {
+
+        }
     }
 }

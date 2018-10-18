@@ -1,7 +1,7 @@
 package com.std.framework.innerrouter;
 
 import com.google.auto.service.AutoService;
-import com.std.framework.annotation.Router;
+import com.std.framework.annotation.RouterModule;
 import com.std.framework.utils.Consts;
 import com.std.framework.utils.Logger;
 
@@ -50,11 +50,11 @@ public class AnnotateProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         if(annotations != null && annotations.size() > 0){
-            Set<? extends Element> elementsAnnotatedWith = roundEnv.getElementsAnnotatedWith(Router.class);
+            Set<? extends Element> elementsAnnotatedWith = roundEnv.getElementsAnnotatedWith(RouterModule.class);
             parseRouter(elementsAnnotatedWith);
 
         }
-        return true;
+        return false;
     }
 
     private void parseRouter(Set<? extends Element> elements){
@@ -76,10 +76,10 @@ public class AnnotateProcessor extends AbstractProcessor {
         return SourceVersion.latestSupported();
     }
 
-    @Override
-    public Set<String> getSupportedAnnotationTypes() {
-        Set<String> anns = new LinkedHashSet<>();
-        anns.add(Router.class.getCanonicalName());
-        return anns;
-    }
+//    @Override
+//    public Set<String> getSupportedAnnotationTypes() {
+//        Set<String> anns = new LinkedHashSet<>();
+//        anns.add(RouterModule.class.getCanonicalName());
+//        return anns;
+//    }
 }

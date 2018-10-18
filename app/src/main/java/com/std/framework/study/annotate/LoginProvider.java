@@ -1,6 +1,7 @@
 package com.std.framework.study.annotate;
 
-import com.std.framework.router.Router;
+import com.std.framework.annotation.RouterPath;
+import com.std.framework.annotation.RouterModule;
 
 /**
  * Description:
@@ -11,7 +12,16 @@ import com.std.framework.router.Router;
  * Person in charge:李晓
  * Leader: 李晓
  */
-@Router(schema = "android", host = "login")
+@RouterModule(schema = "chunyu", host = "login")
 public class LoginProvider {
 
+    @RouterPath(value = "/toMain")
+    public void toMain() {
+
+    }
+
+    @RouterPath(value = "/toAD")
+    public void openAd(int type) {
+
+    }
 }

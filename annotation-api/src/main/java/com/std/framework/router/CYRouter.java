@@ -2,8 +2,8 @@ package com.std.framework.router;
 
 import android.app.Application;
 
-import com.std.framework.router.interfaces.Capture;
-import com.std.framework.router.interfaces.Resolve;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Description:
@@ -22,22 +22,46 @@ public class CYRouter {
         isInit = true;
     }
 
-    public static <T> CPromise open(String url) {
+    public static <T> CPromise<T> open(String url) {
         Promise promise = new Promise(new Ask(url));
         promise.setContext(context);
         return new CPromise(promise);
     }
 
-    public static <T> void open(String url, Resolve<T> resolve) {
-        Promise promise = new Promise(new Ask(url));
+    public static <T> CPromise<T> open(String url, String paramJson) {
+        Promise promise = new Promise(new Ask(url, paramJson));
         promise.setContext(context);
-        promise.call(resolve, null);
+        return new CPromise(promise);
     }
 
-    public static <T> void open(String url, Resolve<T> resolve, Capture capture){
-        Promise promise = new Promise(new Ask(url));
+    public static <T> CPromise<T> open(String url, Map<String,Object> paramMap) {
+        Promise promise = new Promise(new Ask(url, paramMap));
         promise.setContext(context);
-        promise.call(resolve, null);
+        return new CPromise(promise);
+    }
+
+    public static <T> CPromise<T> open(String schema, String host, String path) {
+        Promise promise = new Promise(new Ask(schema, host, path));
+        promise.setContext(context);
+        return new CPromise<>(promise);
+    }
+
+    public static <T> CPromise<T> open(String schema, String host, String path, String paramJson) {
+        Promise promise = new Promise(new Ask(schema, host, path, paramJson));
+        promise.setContext(context);
+        return new CPromise<>(promise);
+    }
+
+    public static <T> CPromise<T> open(String schema, String host, String path, List paramList) {
+        Promise promise = new Promise(new Ask(schema, host, path, paramList));
+        promise.setContext(context);
+        return new CPromise<>(promise);
+    }
+
+    public static <T> CPromise<T> open(String schema, String host, String path, Map<String,Object> paramMap) {
+        Promise promise = new Promise(new Ask(schema, host, path, paramMap));
+        promise.setContext(context);
+        return new CPromise<>(promise);
     }
 
 

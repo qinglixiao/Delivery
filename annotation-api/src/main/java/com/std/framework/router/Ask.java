@@ -26,11 +26,33 @@ public class Ask {
     private String path;
 
     private RPromise promise;
-    private ParamsWrapper paramsWrapper;
     private Exception _e;
+    private ParamsWrapper paramsWrapper = new ParamsWrapper();
 
     public Ask(String url) {
         parse(url);
+    }
+
+    public Ask(String url, Object params) {
+        parse(url);
+        paramsWrapper.append(params);
+    }
+
+    public Ask(String schema, String host, String path) {
+        this(schema, host, path, null);
+    }
+
+    public Ask(String schema, String host, String path, Object params) {
+        if (TextUtils.isEmpty(schema)) {
+            this.schema = Constant.SCHEMA;
+        }
+        if (TextUtils.isEmpty(host) || TextUtils.isEmpty(path)) {
+            _e = new CYRouterException("host or path is empty!");
+        } else {
+            this.host = host;
+            this.path = path;
+            paramsWrapper.append(params);
+        }
     }
 
     public void request() {
@@ -72,7 +94,7 @@ public class Ask {
             schema = uri.getScheme();
             host = uri.getHost();
             path = uri.getPath();
-            paramsWrapper = createParamsWrapper(uri.getQuery());
+            paramsWrapper.withQueryString(uri.getQuery());
         } catch (UnsupportedEncodingException e) {
             this._e = new CYRouterException("router url is not supported encoding");
         } catch (Exception e) {
@@ -80,15 +102,9 @@ public class Ask {
         }
     }
 
-    private ParamsWrapper createParamsWrapper(String query) {
-        ParamsWrapper params = new ParamsWrapper();
-        params.setPromise(promise);
-        params.append(query);
-        return params;
-    }
-
     public void setPromise(RPromise promise) {
         this.promise = promise;
+        paramsWrapper.setPromise(promise);
     }
 
     private void capture(Exception ex) {
