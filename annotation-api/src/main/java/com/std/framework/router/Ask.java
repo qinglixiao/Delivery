@@ -85,7 +85,7 @@ public class Ask {
 
     private void parse(String url) {
         if (TextUtils.isEmpty(url)) {
-            capture(new CYRouterException("url is empty !"));
+            _e = new CYRouterException("url is empty !");
             return;
         }
         try {
