@@ -73,6 +73,7 @@ dependencies {
     implementation depend['recyclerview']
     implementation depend['nineoldandroids']
     implementation depend['greendao']
+    implementation 'com.android.support:multidex:1.0.1'
 }
 
 task test_demo {
