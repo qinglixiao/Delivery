@@ -1,9 +1,12 @@
 package com.std.annotation;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Description:
@@ -15,7 +18,7 @@ import java.net.URISyntaxException;
  */
 public class URITest {
     @Test
-    public void TestUri() {
+    public void testUri() {
         try {
             URI uri = new URI("android://login/path?param='1'&param2=2");
             String schema = uri.getScheme();
@@ -43,4 +46,21 @@ public class URITest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testString(){
+        String str1 = "ABcD";
+        String str2 = "abcd";
+        Assert.assertTrue(str1.equalsIgnoreCase(str2));
+    }
+
+    @Test
+    public void testMap(){
+        Object map = new HashMap();
+        ((HashMap) map).put("arg1",1);
+        ((HashMap) map).put("arg2",2);
+
+
+    }
+
 }

@@ -17,4 +17,8 @@ public class CYRouterException extends Exception {
     public CYRouterException(Exception e) {
         super(e);
     }
+
+    public CYRouterException(Throwable throwable) {
+        super(throwable);
+    }
 }

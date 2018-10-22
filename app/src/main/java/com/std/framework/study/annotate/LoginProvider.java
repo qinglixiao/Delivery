@@ -21,7 +21,7 @@ public class LoginProvider {
     }
 
     @RouterPath(value = "/toAD")
-    public void openAd(int type) {
-
+    public int openAd(int type) {
+        return type + 1;
     }
 }

@@ -1,6 +1,9 @@
 package com.std.framework.router;
 
 import android.app.Application;
+import android.content.Context;
+
+import com.std.framework.router.exceptions.CYRouterException;
 
 import java.util.List;
 import java.util.Map;
@@ -14,10 +17,16 @@ import java.util.Map;
  * Email: lixiao@chunyu.me
  */
 public class CYRouter {
-    private static Application context;
+    private static Context context;
     private static boolean isInit = false;
 
-    public static void init(Application application) {
+    public static void init(Context application) {
+        if (isInit) {
+            return;
+        }
+        if (!(application instanceof Application)) {
+            throw new IllegalStateException("CYRouter context is not application!!!");
+        }
         context = application;
         isInit = true;
     }
@@ -25,7 +34,7 @@ public class CYRouter {
     public static <T> CPromise<T> open(String url) {
         Promise promise = new Promise(new Ask(url));
         promise.setContext(context);
-        return new CPromise(promise);
+        return new CPromise<>(promise);
     }
 
     public static <T> CPromise<T> open(String url, String paramJson) {
@@ -34,7 +43,7 @@ public class CYRouter {
         return new CPromise(promise);
     }
 
-    public static <T> CPromise<T> open(String url, Map<String,Object> paramMap) {
+    public static <T> CPromise<T> open(String url, Map<String, Object> paramMap) {
         Promise promise = new Promise(new Ask(url, paramMap));
         promise.setContext(context);
         return new CPromise(promise);
@@ -58,7 +67,7 @@ public class CYRouter {
         return new CPromise<>(promise);
     }
 
-    public static <T> CPromise<T> open(String schema, String host, String path, Map<String,Object> paramMap) {
+    public static <T> CPromise<T> open(String schema, String host, String path, Map<String, Object> paramMap) {
         Promise promise = new Promise(new Ask(schema, host, path, paramMap));
         promise.setContext(context);
         return new CPromise<>(promise);

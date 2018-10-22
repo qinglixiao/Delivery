@@ -18,11 +18,20 @@ public class CPromise<T> {
         target = promise;
     }
 
-    public void call(Resolve<T> resolve) {
-        target.call(resolve, null);
+    public CPromise showTime() {
+        target.showTime();
+        return this;
     }
 
-    public void call(Resolve<T> resolve, Capture capture) {
+    public <R> void done(Resolve<R> resolve) {
+        done(resolve, null);
+    }
+
+    public <R> void done(Capture capture) {
+        done(null, capture);
+    }
+
+    public <R> void done(Resolve<R> resolve, Capture capture) {
         target.call(resolve, capture);
     }
 

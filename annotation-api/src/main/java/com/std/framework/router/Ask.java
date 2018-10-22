@@ -6,9 +6,10 @@ import com.std.framework.router.exceptions.CYRouterException;
 import com.std.framework.router.utils.RouterHelper;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URI;
-import java.net.URLEncoder;
+import java.net.URLDecoder;
 
 /**
  * Description:
@@ -19,7 +20,7 @@ import java.net.URLEncoder;
  * Email: lixiao@chunyu.me
  */
 public class Ask {
-    private static final String PACKAGE = "me.shunyu.router.module";
+    private static final String PACKAGE = "me.chunyu.lixiao.router";
 
     private String schema;
     private String host;
@@ -43,12 +44,10 @@ public class Ask {
     }
 
     public Ask(String schema, String host, String path, Object params) {
-        if (TextUtils.isEmpty(schema)) {
-            this.schema = Constant.SCHEMA;
-        }
         if (TextUtils.isEmpty(host) || TextUtils.isEmpty(path)) {
             _e = new CYRouterException("host or path is empty!");
         } else {
+            this.schema = schema;
             this.host = host;
             this.path = path;
             paramsWrapper.append(params);
@@ -78,8 +77,12 @@ public class Ask {
             capture(new CYRouterException(schema + "$$" + host + " not found !"));
         } catch (NoSuchMethodException e) {
             capture(new CYRouterException(schema + "$$" + host + ":invoke not found !"));
+        } catch (IllegalAccessException e) {
+            capture(new CYRouterException(e));
+        } catch (InvocationTargetException e) {
+            capture(new CYRouterException(e.getTargetException()));
         } catch (Exception e) {
-            capture(new CYRouterException(e.getMessage()));
+            capture(new CYRouterException(e));
         }
     }
 
@@ -89,8 +92,8 @@ public class Ask {
             return;
         }
         try {
-            String encoder = URLEncoder.encode(url, "UTF-8");
-            URI uri = new URI(encoder);
+            String decode = URLDecoder.decode(url, "UTF-8");
+            URI uri = new URI(decode);
             schema = uri.getScheme();
             host = uri.getHost();
             path = uri.getPath();

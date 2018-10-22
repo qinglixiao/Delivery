@@ -46,7 +46,7 @@ public class MethodDelegate {
 
     private static void doReturn(Method method, ParamsWrapper params, Object result) {
         Type type = method.getReturnType();
-        if ("void".equals(type)) {
+        if ("void".equals(((Class) type).getName())) {
             params.getPromise().resolve(void.class);
         } else {
             params.getPromise().resolve(result);
