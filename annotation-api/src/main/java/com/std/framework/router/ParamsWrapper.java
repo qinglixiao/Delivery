@@ -2,6 +2,7 @@ package com.std.framework.router;
 
 import android.text.TextUtils;
 
+import com.std.framework.router.exceptions.CYRouterException;
 import com.std.framework.router.interfaces.IPromise;
 
 import org.json.JSONException;
@@ -53,11 +54,22 @@ public class ParamsWrapper {
 
     }
 
-    public void append(Object params) {
+    public void append(Object params) throws Exception {
         if (params instanceof Map) {
             this.params.putAll((Map) params);
         } else if (params instanceof List) {
             this.params.put(_CPARAM_, params);
+        } else if (params instanceof Object[]) {
+            Object[] p = (Object[]) params;
+            int length = p.length;
+            if (length % 2 != 0) {
+                throw new CYRouterException("object[] must be dual!!");
+            }
+            for (int i = 0; i < length; i += 2) {
+                if (p[i] != null) {
+                    this.params.put(p[i].toString(), p[i + 1]);
+                }
+            }
         } else if (params instanceof String) {
             try {
                 JSONObject jsonObject = new JSONObject(params.toString());
@@ -68,12 +80,17 @@ public class ParamsWrapper {
                     this.params.put(key, value);
                 }
             } catch (JSONException e) {
-                e.printStackTrace();
+                throw new CYRouterException(e);
             }
         }
+
     }
 
     public Object get(String key) {
         return params.get(key);
+    }
+
+    public void clear() {
+        params.clear();
     }
 }

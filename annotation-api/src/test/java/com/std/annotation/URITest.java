@@ -59,7 +59,7 @@ public class URITest {
         Object map = new HashMap();
         ((HashMap) map).put("arg1",1);
         ((HashMap) map).put("arg2",2);
-
+        System.out.println(map);
 
     }
 

@@ -2,6 +2,7 @@ package com.std.framework.study.annotate;
 
 import android.app.Activity;
 
+import com.google.gson.Gson;
 import com.std.framework.annotation.RouterModule;
 import com.std.framework.annotation.RouterPath;
 
@@ -27,7 +28,12 @@ public class BusinessProvider {
 
     @RouterPath(value = "/list")
     public void mm(Integer n, List arg) {
+        System.out.println(arg.toArray());
+    }
 
+    @RouterPath(value = "/listGene")
+    public List<Input> listGene(Integer n, List<Input> arg) {
+        return arg;
     }
 
     @RouterPath(value = "/openContract")
@@ -51,9 +57,8 @@ public class BusinessProvider {
     }
 
     @RouterPath(value = "/getHashMap")
-    public String getHashMap(String url1, String url2, HashMap<String,Object> map) {
-        return url1 + url2;
+    public String getHashMap(String url1, String url2, HashMap<String, Object> map) {
+        return url1 + url2 + ";;;" + new Gson().toJson(map);
     }
-
 
 }

@@ -36,7 +36,11 @@ public class Ask {
 
     public Ask(String url, Object params) {
         parse(url);
-        paramsWrapper.append(params);
+        try {
+            paramsWrapper.append(params);
+        } catch (Exception e) {
+            _e = e;
+        }
     }
 
     public Ask(String schema, String host, String path) {
@@ -50,7 +54,11 @@ public class Ask {
             this.schema = schema;
             this.host = host;
             this.path = path;
-            paramsWrapper.append(params);
+            try {
+                paramsWrapper.append(params);
+            } catch (Exception e) {
+                _e = e;
+            }
         }
     }
 
@@ -112,6 +120,10 @@ public class Ask {
 
     private void capture(Exception ex) {
         promise.capture(ex);
+    }
+
+    public void release() {
+        paramsWrapper.clear();
     }
 
 }

@@ -23,6 +23,26 @@ public class CPromise<T> {
         return this;
     }
 
+    public CPromise runOnMainThread(){
+        target.setRunFlag(Promise.FLAG_CALL_MAIN_THREAD);
+        return this;
+    }
+
+    public CPromise runOnSubThread(){
+        target.setRunFlag(Promise.FLAG_CALL_SUB_THREAD);
+        return this;
+    }
+
+    public CPromise returnOnMainThread(){
+        target.setRunFlag(Promise.FLAG_RETURN_MAIN_THREAD);
+        return this;
+    }
+
+    public CPromise returnOnSubThread(){
+        target.setRunFlag(Promise.FLAG_RETURN_SUB_THREAD);
+        return this;
+    }
+
     public <R> void done(Resolve<R> resolve) {
         done(resolve, null);
     }

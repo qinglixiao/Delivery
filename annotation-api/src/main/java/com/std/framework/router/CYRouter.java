@@ -43,6 +43,13 @@ public class CYRouter {
         return new CPromise(promise);
     }
 
+    //params->(String key,Object value)
+    public static <T> CPromise<T> open(String url, Object... params) {
+        Promise promise = new Promise(new Ask(url, params));
+        promise.setContext(context);
+        return new CPromise(promise);
+    }
+
     public static <T> CPromise<T> open(String url, Map<String, Object> paramMap) {
         Promise promise = new Promise(new Ask(url, paramMap));
         promise.setContext(context);
@@ -61,17 +68,10 @@ public class CYRouter {
         return new CPromise<>(promise);
     }
 
-    public static <T> CPromise<T> open(String schema, String host, String path, List paramList) {
-        Promise promise = new Promise(new Ask(schema, host, path, paramList));
-        promise.setContext(context);
-        return new CPromise<>(promise);
-    }
-
     public static <T> CPromise<T> open(String schema, String host, String path, Map<String, Object> paramMap) {
         Promise promise = new Promise(new Ask(schema, host, path, paramMap));
         promise.setContext(context);
         return new CPromise<>(promise);
     }
-
 
 }
