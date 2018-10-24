@@ -2,7 +2,6 @@ package com.std.framework.router;
 
 import android.content.Context;
 import android.os.Looper;
-import android.widget.Toast;
 
 import com.std.framework.router.exceptions.CYRouterException;
 import com.std.framework.router.exceptions.ValueParseException;
@@ -40,7 +39,6 @@ public class Promise<T> implements IPromise<T> {
      */
     public static final int FLAG_RETURN_MAIN_THREAD = 1 << 3;
 
-    private Context context;
     private Resolve resolve;
     private Capture capture;
     private Ask ask;
@@ -159,19 +157,15 @@ public class Promise<T> implements IPromise<T> {
         }
     }
 
-    public void setContext(Context application) {
-        this.context = application;
-    }
-
     private void showToast() {
         if (timer == null) {
             return;
         }
-        Toast.makeText(context, timer.time(), Toast.LENGTH_SHORT).show();
+        timer.show();
     }
 
-    public void showTime() {
-        timer = new PromiseTimer();
+    public void showTime(Context context) {
+        timer = new PromiseTimer(context);
     }
 
     public void setRunFlag(int flag) {

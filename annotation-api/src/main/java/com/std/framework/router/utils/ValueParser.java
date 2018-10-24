@@ -311,7 +311,8 @@ public class ValueParser {
                 targetClass = targetClass.getSuperclass();
             } while (!(targetClass == Object.class));
             from = target;
-        } catch (JSONException ignored) {
+        } catch (JSONException e) {
+            throw new ValueParseException(e);
         } catch (Exception e) {
             throw new ValueParseException("parse to " + expectType + " type fail.", e);
         }
@@ -344,6 +345,9 @@ public class ValueParser {
     //from obj => to obj
     private static Object parseObjToTarget(Object from, String expectType) throws ValueParseException {
         try {
+            if (isInherit(from.getClass(), expectType)) {
+                return from;
+            }
             Class<?> targetClass = Class.forName(getNoGenericTypeName(expectType));
             Object target = targetClass.newInstance();
             Map<String, Object> kvs = extractKeyValue(from);
@@ -361,6 +365,17 @@ public class ValueParser {
             throw new ValueParseException("parse to " + expectType + " type fail.", e);
         }
         return from;
+    }
+
+    private static boolean isInherit(Class<?> from, String parentType) {
+        while (from != null) {
+            if (from.getCanonicalName().equals(parentType)) {
+                return true;
+            } else {
+                from = from.getSuperclass();
+            }
+        }
+        return false;
     }
 
     private static Map<String, Object> extractKeyValue(Object obj) throws IllegalAccessException {
@@ -388,7 +403,6 @@ public class ValueParser {
 
     public static String getFieldTypeWithGeneric(Field f) {
         Class fieldType = f.getType();
-        //TODO Anonymous Inner Class Cant be find By Class.fromName,but getName could.
         String type = fieldType.getCanonicalName();
         if (fieldType.isAssignableFrom(List.class)) {
             try {

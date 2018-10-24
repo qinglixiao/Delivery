@@ -40,6 +40,7 @@ public class ExploreMainFragment extends BaseFragment {
         fragments.put("VPN",VPNFragment.class);
         fragments.put("Profiler",ProfilerFragment.class);
         fragments.put("Service",ServiceFragment.class);
+        fragments.put("Router",RouterFragment.class);
     }
 
     @Override

@@ -12,6 +12,11 @@ public class ValueParseException extends Exception {
     public ValueParseException(String message) {
         super(message);
     }
+
+    public ValueParseException(Exception e) {
+        super(e);
+    }
+
     public ValueParseException(String message, Throwable cause) {
         super(message, cause);
     }

@@ -1,5 +1,8 @@
 package com.std.framework.router.utils;
 
+import android.content.Context;
+import android.widget.Toast;
+
 /**
  * Description:
  * Author: lixiao
@@ -9,13 +12,15 @@ package com.std.framework.router.utils;
  * Email: lixiao@chunyu.me
  */
 public class PromiseTimer {
+    private Context context;
     private long start;
 
-    public PromiseTimer() {
+    public PromiseTimer(Context context) {
+        this.context = context;
         start = System.currentTimeMillis();
     }
 
-    public String time() {
-        return (System.currentTimeMillis() - start) + " ms";
+    public void show() {
+        Toast.makeText(context, (System.currentTimeMillis() - start) + " ms", Toast.LENGTH_SHORT).show();
     }
 }

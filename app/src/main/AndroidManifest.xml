@@ -232,6 +232,8 @@
         <service
             android:name=".comm.service.MessageByService"
             android:process=":messager" />
+
+        <activity android:name=".business.explore.view.activity.DemoRouterActivity"/>
     </application>
 
 </manifest>

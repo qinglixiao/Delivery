@@ -1,5 +1,7 @@
 package com.std.framework.router;
 
+import android.content.Context;
+
 import com.std.framework.router.interfaces.Capture;
 import com.std.framework.router.interfaces.Resolve;
 
@@ -18,29 +20,33 @@ public class CPromise<T> {
         target = promise;
     }
 
-    public CPromise showTime() {
-        target.showTime();
+    public CPromise showTime(Context context) {
+        target.showTime(context);
         return this;
     }
 
-    public CPromise runOnMainThread(){
+    public CPromise runOnMainThread() {
         target.setRunFlag(Promise.FLAG_CALL_MAIN_THREAD);
         return this;
     }
 
-    public CPromise runOnSubThread(){
+    public CPromise runOnSubThread() {
         target.setRunFlag(Promise.FLAG_CALL_SUB_THREAD);
         return this;
     }
 
-    public CPromise returnOnMainThread(){
+    public CPromise returnOnMainThread() {
         target.setRunFlag(Promise.FLAG_RETURN_MAIN_THREAD);
         return this;
     }
 
-    public CPromise returnOnSubThread(){
+    public CPromise returnOnSubThread() {
         target.setRunFlag(Promise.FLAG_RETURN_SUB_THREAD);
         return this;
+    }
+
+    public void done() {
+        done(null, null);
     }
 
     public <R> void done(Resolve<R> resolve) {

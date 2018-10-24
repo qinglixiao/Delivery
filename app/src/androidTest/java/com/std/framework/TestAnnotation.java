@@ -10,6 +10,8 @@ import com.std.framework.util.AppUtil;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,14 +26,10 @@ import java.util.Map;
  * Email: lixiao@chunyu.me
  */
 public class TestAnnotation {
-    @Before
-    public void init() {
-        CYRouter.init(AppUtil.getAppContext());
-    }
 
     @Test
     public void testCall() {
-        CYRouter.open("chunyu://lib/getApiLevel")
+        CYRouter.build("chunyu://lib/getApiLevel")
                 .done(new Resolve<Integer>() {
 
                           @Override
@@ -45,7 +43,7 @@ public class TestAnnotation {
 
     @Test
     public void testCallJson() {
-        CYRouter.open("chunyu://lib/getApiLevel")
+        CYRouter.build("chunyu://lib/getApiLevel")
                 .done(new Resolve<Integer>() {
 
                           @Override
@@ -58,7 +56,7 @@ public class TestAnnotation {
 
     @Test
     public void testCallInt() {
-        CYRouter.open("chunyu://login/toAD?type=10")
+        CYRouter.build("chunyu://login/toAD?type=10")
                 .done(new Resolve<Integer>() {
 
                           @Override
@@ -74,7 +72,7 @@ public class TestAnnotation {
         Map param = new HashMap();
         param.put("type1", 10);
         param.put("type", 2);
-        CYRouter.open("chunyu://login/toAD", param)
+        CYRouter.build("chunyu://login/toAD", param)
 
                 .done(new Resolve<Integer>() {
 
@@ -97,7 +95,7 @@ public class TestAnnotation {
         Map param = new HashMap();
         param.put("path2", "path2");
         param.put("path1", "path1");
-        CYRouter.open("chunyu://lib/mergePath", param)
+        CYRouter.build("chunyu://lib/mergePath", param)
 
                 .done(new Resolve<String>() {
 
@@ -120,7 +118,7 @@ public class TestAnnotation {
         param2.put("key1", "key1");
         param2.put("key2", "key2");
         param.put("map", param2);
-        CYRouter.open("chunyu://business/getMap", param)
+        CYRouter.build("chunyu://business/getMap", param)
 
                 .done(new Resolve<String>() {
 
@@ -143,7 +141,7 @@ public class TestAnnotation {
         param2.put("key1", "key1");
         param2.put("key2", "key2");
         param.put("map", new Gson().toJson(param2));
-        CYRouter.open("chunyu://business/getHashMap", param)
+        CYRouter.build("chunyu://business/getHashMap", param)
 
                 .done(new Resolve<String>() {
 
@@ -164,7 +162,7 @@ public class TestAnnotation {
         Map map = new HashMap();
         map.put("n", 100);
         map.put("arg", param);
-        CYRouter.open("chunyu://business/list", map)
+        CYRouter.build("chunyu://business/list", map)
 
                 .done(new Resolve<String>() {
 
@@ -185,7 +183,7 @@ public class TestAnnotation {
         Map map = new HashMap();
         map.put("n", 100);
         map.put("arg", param);
-        CYRouter.open("chunyu://business/listGene", map)
+        CYRouter.build("chunyu://business/listGene", map)
                 .runOnSubThread()
                 .returnOnMainThread()
                 .done(new Resolve<List<Input>>() {
@@ -199,13 +197,13 @@ public class TestAnnotation {
     }
 
     @Test
-    public void testKeyValue() {
+    public void testKeyValue() throws UnsupportedEncodingException {
         List<Input> param = new ArrayList();
         param.add(new Input());
         param.add(new Input());
-        CYRouter.open("chunyu://business/listGene"
+        CYRouter.build("chunyu://business/listGene"
                 , "n", 100
-                , "arg", param)
+                , "arg", new Gson().toJson(param))
                 .done(new Resolve<List<Input>>() {
 
                     @Override
@@ -219,6 +217,7 @@ public class TestAnnotation {
                         System.out.println(ex.getMessage());
                     }
                 });
+
     }
 
 
