@@ -33,3 +33,109 @@ def copy(String from, String to) {
         }
     }
 }
+
+//更改app的outputFile
+//方法一：编译完成之后，copy到指定目录，同时重命名
+android {
+    applicationVariants.all { variant ->
+        if (variant.buildType.name == 'release') {
+            variant.assemble.doLast {
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('release.apk')) {
+                        def fileName = "${project.name}${variant.flavorName}_${defaultConfig.versionName}_${releaseTime()}"
+                        def outputPath = "../output/apk";
+                        copy {
+                            from outputFile
+                            into outputPath
+                            rename { fileName + ".apk" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//方法二 直接改变output.outputFile的目录并重命名
+//注意：没有 doLast{}
+
+android {
+    applicationVariants.all { variant ->
+        if (variant.buildType.name == 'release') {
+            variant.outputs.each { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('release.apk')) {
+                    def fileName = "${project.name}${variant.flavorName}_${defaultConfig.versionName}_${releaseTime()}"
+                    def outputPath = "../output/apk";
+                    output.outputFile = new File(outputPath, fileName + ".apk")
+                }
+            }
+        }
+    }
+}
+
+//更改library的outputFile
+//方法一：编译完成之后，copy到指定目录，同时重命名
+android{
+    libraryVariants.all { variant ->
+        if (variant.buildType.name == 'release') {
+            variant.assemble.doLast {
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('release.aar')) {
+                        def fileName = "${project.name}${variant.flavorName}_${android.defaultConfig.versionName}_${releaseTime()}"
+                        def outputPath = "../output/aar"
+                        copy {
+                            from outputFile
+                            into outputPath
+                            rename { fileName + ".aar" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//方法二：直接改变output.outputFile的目录并重命名
+android {
+    libraryVariants.all { variant ->
+        if (variant.buildType.name == 'release') {
+            variant.outputs.each { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('release.aar')) {
+                    def fileName = "${project.name}${variant.flavorName}_${android.defaultConfig.versionName}_${releaseTime()}"
+                    def outputPath = "../output/aar"
+                    output.outputFile = new File(outputPath, fileName + ".aar")
+                }
+            }
+        }
+    }
+}
+
+//方法三：如果想要最终打出jar，兼容eclipse。
+android {
+    libraryVariants.all { variant ->
+        if (variant.buildType.name == 'release') {
+            variant.assemble.doLast {
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('release.aar')) {
+                        def fileName = "${project.name}${variant.flavorName}_${android.defaultConfig.versionName}_${releaseTime()}"
+                        def outputPath = "../output/jar"
+                        def flavorBundlesPath = "build/intermediates/bundles/$variant.flavorName"
+                        tasks.create(name: "export", type: Jar) {
+                            from zipTree(flavorBundlesPath + '/release/classes.jar')
+                            from fileTree(dir: flavorBundlesPath + '/release', includes: ['assets/**'])
+                            baseName = fileName
+                            destinationDir = file(outputPath)
+                        }
+                        export.execute()
+                    }
+                }
+            }
+        }
+    }
+}
+

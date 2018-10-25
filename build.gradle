@@ -1,5 +1,4 @@
 apply from:'config.gradle'
-apply from: 'script.gradle'
 buildscript {
     repositories {
         maven{
