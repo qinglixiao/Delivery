@@ -28,6 +28,10 @@ public class AppUtil {
         mContext = app.getApplicationContext();
     }
 
+    public boolean isDebug() {
+        return (0 != (mContext.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
+    }
+
     /**
      * 描          述 ：获取应用在SD卡的安装目录
      *
@@ -42,6 +46,15 @@ public class AppUtil {
             file.mkdirs();
         }
         return dir;
+    }
+
+    /**
+     * 获取app内存安装目录下/files目录
+     * @return
+     */
+    public static File getMemoryFileDir(){
+        //app内存安装目录/files
+        return mContext.getFilesDir();
     }
 
     /**

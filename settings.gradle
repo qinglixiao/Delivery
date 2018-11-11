@@ -1,2 +1,2 @@
-include ':STDlibrary', ':app', ':annotation-compiler', ':annotation-api', ':StdPlugin', ':annotation'
+include ':STDlibrary', ':app', ':annotation-compiler', ':annotation-api', ':StdPlugin', ':annotation', ':ffmpeg'
 

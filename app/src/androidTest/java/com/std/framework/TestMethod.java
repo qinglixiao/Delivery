@@ -39,13 +39,14 @@ import static junit.framework.Assert.assertNotNull;
 public class TestMethod {
     private static final String TAG = "LX";
 
+    @Test
     public void testformatStr() {
         String f_str = String.format("hello_%s%s", "wold", "你好");
         Logger.m(f_str);
     }
 
     public void testMD5() {
-        String ss = "信息来源";
+        String ss = "信息来源";`1
         Log.d("LX", SecurityUtil.SHA1.encrypt(ss));
         ss = "MD5加密";
         Log.d("LX", SecurityUtil.SHA1.encrypt(ss));
