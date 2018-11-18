@@ -1,67 +1,148 @@
 package com.std.framework.core;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.IntegerRes;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.ViewUtils;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import com.std.framework.R;
+import com.std.framework.comm.interfaces.INavigation;
+import com.std.framework.util.AppUtil;
+import com.std.framework.util.ViewUtil;
 
 /**
  * Created by gfy on 2016/4/16.
  */
 public class NavigationBar {
-    private ToolBarWrapper wrapper;
+    private View vHeader;
+    private TextView vTitle;
+    private TextView vBack;
+    private TextView vRightButton1;
 
-    public NavigationBar(ToolBarWrapper wrapper) {
-        this.wrapper = wrapper;
+    private NavigationBar(Context context) {
+        vHeader = LayoutInflater.from(context).inflate(R.layout.navigation_bar, null);
+        vTitle = vHeader.findViewById(R.id.tv_title);
+        vBack = vHeader.findViewById(R.id.tv_back);
+        vRightButton1 = vHeader.findViewById(R.id.tv_right_button_1);
+        defaultSetting();
     }
 
-    public void setSubTitle(CharSequence subTitle) {
-        wrapper.getToolbar().setSubtitle(subTitle);
+    private void defaultSetting() {
+        vBack.setVisibility(View.GONE);
     }
 
     public void setTitle(CharSequence title) {
-        wrapper.setTitle(title);
+        ViewUtil.visible(vTitle);
+        vTitle.setText(title);
     }
 
-    public void setTitle(@StringRes int resId) {
-        wrapper.setTitle(resId);
+    public void setBackIcon(Drawable leftDrawable) {
+        ViewUtil.visible(vBack);
+        vBack.setCompoundDrawables(leftDrawable, null, null, null);
+    }
+
+    public void setBackText(String text) {
+        ViewUtil.visible(vBack);
+        vBack.setText(text);
+    }
+
+    public void setBackText(String text, View.OnClickListener onClickListener) {
+        ViewUtil.visible(vBack);
+        vBack.setText(text);
+        vBack.setOnClickListener(onClickListener);
     }
 
     public void setOnClickListener(View.OnClickListener listener) {
-        wrapper.getToolbar().setNavigationOnClickListener(listener);
+
     }
 
     public void setIcon(@DrawableRes int resId) {
-        wrapper.getToolbar().setNavigationIcon(resId);
     }
 
     public void setDescription(CharSequence txt) {
-        wrapper.getToolbar().setNavigationContentDescription(txt);
     }
 
     public void setLogo(@DrawableRes int resId) {
-        wrapper.getToolbar().setLogo(resId);
     }
 
     public void setVisibility(int visibility) {
-        wrapper.getToolbar().setVisibility(visibility);
     }
 
     public void addRightButton(String title, @DrawableRes int iconRes, Toolbar.OnMenuItemClickListener callback) {
-        wrapper.addMenu(title, iconRes, callback);
     }
 
     public void addRightButton(String title, Toolbar.OnMenuItemClickListener callback) {
-        wrapper.addMenu(title, -1, callback);
     }
 
     public void addRightButton(@DrawableRes int iconRes, Toolbar.OnMenuItemClickListener callback) {
-        wrapper.addMenu("", iconRes, callback);
     }
 
-    public void resetMenu() {
-        wrapper.clearMenu();
+    public TextView getBackButton() {
+        return vBack;
+    }
+
+    public void reset() {
+        defaultSetting();
+    }
+
+    public View getHeader() {
+        return vHeader;
+    }
+
+    public static class Builder {
+        private NavigationBar navigationBar;
+        private String title;
+        private Context context;
+
+        public Builder(Context context) {
+            this.context = context;
+            navigationBar = new NavigationBar(context);
+        }
+
+        public Builder setTitle(@StringRes int resId) {
+            return setTitle(context.getResources().getString(resId));
+        }
+
+        public Builder setTitle(String title) {
+            this.title = title;
+            navigationBar.setTitle(title);
+            return this;
+        }
+
+        public Builder setBackIcon(@DrawableRes int resId) {
+            navigationBar.setBackIcon(context.getResources().getDrawable(resId));
+            return this;
+        }
+
+        public Builder setBackText(@StringRes int resId) {
+            navigationBar.setBackText(context.getResources().getString(resId));
+            return this;
+        }
+
+        public Builder setBackText(String text) {
+            navigationBar.setBackText(text);
+            return this;
+        }
+
+        public Builder setBackText(String text, View.OnClickListener onClickListener) {
+            navigationBar.setBackText(text, onClickListener);
+            return this;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public NavigationBar build() {
+            return navigationBar;
+        }
     }
 
 }

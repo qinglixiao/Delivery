@@ -17,7 +17,7 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        src/main/jni/native-lib.cpp src/main/jni/decode_audio.c src/main/jni/encode_audio.c)
+        jni/native-lib.cpp jni/decode_audio.c jni/encode_audio.c)
 
 
 find_library(log-lib
@@ -50,7 +50,7 @@ set_target_properties(
         ${CMAKE_SOURCE_DIR}/libs/armeabi-v7a/libswresample-3.so
 )
 
-include_directories(${CMAKE_SOURCE_DIR}/src/main/jni/include)
+include_directories(${CMAKE_SOURCE_DIR}/jni/include)
 
 target_link_libraries(
         native-lib

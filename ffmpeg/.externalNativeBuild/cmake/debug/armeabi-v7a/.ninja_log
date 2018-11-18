@@ -1,5 +1,5 @@
 # ninja log v5
-0	111	0	CMakeFiles/native-lib.dir/src/main/jni/decode_audio.c.o	1483d10c3b012d0c
-0	114	0	CMakeFiles/native-lib.dir/src/main/jni/encode_audio.c.o	b4e25fec3451f080
-0	181	0	CMakeFiles/native-lib.dir/src/main/jni/native-lib.cpp.o	dcac3c868b6fde9d
-181	241	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	dd3e213e138fe21e
+0	100	0	CMakeFiles/native-lib.dir/jni/encode_audio.c.o	57b259bfa0e66568
+0	168	0	CMakeFiles/native-lib.dir/jni/native-lib.cpp.o	57010dbfa75ba35f
+1	77	0	CMakeFiles/native-lib.dir/jni/decode_audio.c.o	a76bdd6114d4cebf
+77	149	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	fcbfd966daf3cfc6

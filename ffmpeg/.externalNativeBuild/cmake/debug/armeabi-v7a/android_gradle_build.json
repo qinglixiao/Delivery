@@ -35,20 +35,20 @@
 			[
 				
 				{
-					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=/Users/chunyu/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -I../../../../src/main/jni/include -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sources/android/support/include -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11  -O0 -fno-limit-debug-info  -fPIC    -c ",
-					"src" : "/Users/chunyu/personal/Delivery/ffmpeg/src/main/jni/native-lib.cpp",
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=/Users/chunyu/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -I../../../../jni/include -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sources/android/support/include -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include  -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mthumb -Wa,--noexecstack -Wformat -Werror=format-security -std=c++11  -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "/Users/chunyu/personal/Delivery/ffmpeg/jni/native-lib.cpp",
 					"workingDirectory" : "/Users/chunyu/personal/Delivery/ffmpeg/.externalNativeBuild/cmake/debug/armeabi-v7a"
 				},
 				
 				{
-					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=/Users/chunyu/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot -Dnative_lib_EXPORTS -I../../../../src/main/jni/include  -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC      -c ",
-					"src" : "/Users/chunyu/personal/Delivery/ffmpeg/src/main/jni/decode_audio.c",
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=/Users/chunyu/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot -Dnative_lib_EXPORTS -I../../../../jni/include  -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC      -c ",
+					"src" : "/Users/chunyu/personal/Delivery/ffmpeg/jni/decode_audio.c",
 					"workingDirectory" : "/Users/chunyu/personal/Delivery/ffmpeg/.externalNativeBuild/cmake/debug/armeabi-v7a"
 				},
 				
 				{
-					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=/Users/chunyu/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot -Dnative_lib_EXPORTS -I../../../../src/main/jni/include  -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC      -c ",
-					"src" : "/Users/chunyu/personal/Delivery/ffmpeg/src/main/jni/encode_audio.c",
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=/Users/chunyu/Library/Android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot -Dnative_lib_EXPORTS -I../../../../jni/include  -isystem /Users/chunyu/Library/Android/sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC      -c ",
+					"src" : "/Users/chunyu/personal/Delivery/ffmpeg/jni/encode_audio.c",
 					"workingDirectory" : "/Users/chunyu/personal/Delivery/ffmpeg/.externalNativeBuild/cmake/debug/armeabi-v7a"
 				}
 			],

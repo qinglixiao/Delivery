@@ -46,7 +46,7 @@ public class TestMethod {
     }
 
     public void testMD5() {
-        String ss = "信息来源";`1
+        String ss = "信息来源";
         Log.d("LX", SecurityUtil.SHA1.encrypt(ss));
         ss = "MD5加密";
         Log.d("LX", SecurityUtil.SHA1.encrypt(ss));
@@ -212,4 +212,11 @@ public class TestMethod {
 
         }
     }
+
+    @Test
+    public  String getDeviceBrand() {
+        String brand = android.os.Build.BRAND;
+        return brand;
+    }
+
 }

@@ -9,16 +9,17 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentProfilerBinding;
 
 
-public class ProfilerFragment extends BaseFragment implements View.OnClickListener{
+public class ProfilerFragment extends BaseTitleFragment implements View.OnClickListener{
     private FragmentProfilerBinding profilerBinding;
 
     @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle("profiler analysis");
+    public void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("profiler analysis");
     }
 
     @Nullable
@@ -78,4 +79,6 @@ public class ProfilerFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View v) {
         methodA();
     }
+
+
 }

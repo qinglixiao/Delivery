@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.core.NavigationBar;
 
 /**
@@ -17,13 +18,12 @@ import com.std.framework.core.NavigationBar;
  * Create on:  2017/5/8.
  * Modify by：lx
  */
-public class StepRecordFragment extends BaseFragment {
+public class StepRecordFragment extends BaseTitleFragment {
     private TextView tv_device;
 
-
     @Override
-    protected void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle("android 计步");
+    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("android 计步");
     }
 
     @Override

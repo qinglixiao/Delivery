@@ -12,6 +12,7 @@ import android.widget.PopupWindow;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.BindingCustomerView;
 
@@ -21,13 +22,12 @@ import com.std.framework.databinding.BindingCustomerView;
  * Create on:  2016/8/31
  * Modify by：lx
  */
-public class CustomerViewFragment extends BaseFragment implements View.OnClickListener {
+public class CustomerViewFragment extends BaseTitleFragment implements View.OnClickListener {
     private BindingCustomerView bindingCustomerView;
-
     @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-    }
+    public void onNavigationBar(NavigationBar.Builder navBuilder) {
 
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,4 +56,6 @@ public class CustomerViewFragment extends BaseFragment implements View.OnClickLi
             }
         });
     }
+
+
 }

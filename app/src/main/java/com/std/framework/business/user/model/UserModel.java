@@ -3,6 +3,10 @@ package com.std.framework.business.user.model;
 import com.google.gson.Gson;
 import com.std.framework.comm.net.AbstractModule;
 
+import org.reactivestreams.Publisher;
+
+import io.reactivex.Flowable;
+import io.reactivex.functions.Function;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -38,28 +42,27 @@ public class UserModel extends AbstractModule {
 
     public interface IUser {
         @GET("top250")
-        Observable<MoveEntity> getTopMovie(@Query("start") int start, @Query("count") int count);
+        Flowable<MoveEntity> getTopMovie(@Query("start") int start, @Query("count") int count);
 
         @GET("top250")
-        Observable<String> getTopMovieString(@Query("start") int start, @Query("count") int count);
+        Flowable<String> getTopMovieString(@Query("start") int start, @Query("count") int count);
 
 //        @POST("/user/generateCypherTextForBJToon")
 //        Observable<String> generate(@Body TNPSecretKeyForBJInput input);
     }
 
-    public Observable<MoveEntity> getTopMovieString(int start, int count) {
+    public Flowable<MoveEntity> getTopMovieString(int start, int count) {
         return user.getTopMovieString(start, count)
-                .flatMap(new Func1<String, Observable<MoveEntity>>() {
+                .flatMap(new Function<String, Publisher<MoveEntity>>() {
                     @Override
-                    public Observable<MoveEntity> call(String s) {
-                        return Observable.just(new Gson().fromJson(s, MoveEntity.class));
+                    public Publisher<MoveEntity> apply(String s) throws Exception {
+                        return Flowable.just(new Gson().fromJson(s, MoveEntity.class));
                     }
                 });
-
     }
 
-    public Observable<MoveEntity> getTopMovie(int start,int count){
-        return user.getTopMovie(start,count);
+    public Flowable<MoveEntity> getTopMovie(int start, int count) {
+        return user.getTopMovie(start, count);
     }
 
 

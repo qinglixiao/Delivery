@@ -1,48 +1,44 @@
 package com.std.framework.business.call.view.fragment;
 
-import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.business.call.mutual.CallAssist;
 import com.std.framework.business.call.view.RecordVoiceDialog;
-import com.std.framework.comm.clazz.PermissionAssist;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentCallBinding;
 
 import java.util.concurrent.TimeUnit;
 
-import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
-public class CallFragment extends BaseFragment implements View.OnClickListener {
+public class CallFragment extends BaseTitleFragment implements View.OnClickListener {
     private FragmentCallBinding fragmentCallBinding;
 
     @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle(R.string.main_tab_communicate);
-        navigationBar.addRightButton(R.drawable.rich_edit_add, new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if (PermissionAssist.checkPermission(getContext(), PermissionAssist.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                    PermissionAssist.requestPermissions(getActivity(), PermissionAssist.RECORD_AUDIO);
-                } else {
-                    new RecordVoiceDialog(getContext()).show();
-                }
-                return false;
-            }
-        });
+    public void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle(R.string.main_tab_communicate);
+//        navBuilder.addRightButton(R.drawable.rich_edit_add, new Toolbar.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                if (PermissionAssist.checkPermission(getContext(), PermissionAssist.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+//                    PermissionAssist.requestPermissions(getActivity(), PermissionAssist.RECORD_AUDIO);
+//                } else {
+//                    new RecordVoiceDialog(getContext()).show();
+//                }
+//                return false;
+//            }
+//        });
     }
 
     @Override
@@ -58,30 +54,20 @@ public class CallFragment extends BaseFragment implements View.OnClickListener {
         fragmentCallBinding.layoutChooseVoice.setOnClickListener(this);
     }
 
-    private Subscriber<Long> subscribe = new Subscriber<Long>() {
+    private Consumer<Long> subscribe = new Consumer<Long>() {
         @Override
-        public void onCompleted() {
-
-        }
-
-        @Override
-        public void onError(Throwable e) {
-
-        }
-
-        @Override
-        public void onNext(Long aLong) {
+        public void accept(Long aLong) throws Exception {
             fragmentCallBinding.vPlayVoice.pbPlay.setProgress(aLong.intValue());
         }
     };
 
+
     private void playImitate() {
-        Observable
+        Flowable
                 .interval(1, 1, TimeUnit.SECONDS, Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscribe);
     }
-
 
     @Override
     public void onClick(View v) {
@@ -93,12 +79,8 @@ public class CallFragment extends BaseFragment implements View.OnClickListener {
     }
 
     @Override
-    public void onGranted(int requestCode) {
+    public void onPermissionGranted(int requestCode) {
         new RecordVoiceDialog(getActivity()).show();
     }
-
-    @Override
-    public void onDenied(int requestCode) {
-        super.onDenied(requestCode);
-    }
 }
+

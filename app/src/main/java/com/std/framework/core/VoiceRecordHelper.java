@@ -13,10 +13,12 @@ import com.std.framework.util.ToastUtil;
 import java.io.File;
 import java.io.IOException;
 
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
+import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
+import io.reactivex.schedulers.Schedulers;
+
 
 /**
  * Description:
@@ -136,56 +138,59 @@ public class VoiceRecordHelper {
      *
      * @param voicePath 语音录制的路径
      */
-    public Observable<Boolean> startVoiceRecordAsObservable(final String voicePath) {
+    public Flowable<Boolean> startVoiceRecordAsObservable(final String voicePath) {
         if (TextUtils.isEmpty(voicePath)) {
-            return Observable.empty();
+            return Flowable.empty();
         }
-        return Observable.just(voicePath).subscribeOn(Schedulers.io()).filter(new Func1<String, Boolean>() {
-            @Override
-            public Boolean call(String s) {
-                boolean isFocus = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
-                        AudioManager.STREAM_MUSIC,
-                        AudioManager.AUDIOFOCUS_GAIN_TRANSIENT) == AudioManager.AUDIOFOCUS_REQUEST_GRANTED;
-                if (!isFocus) {
-                    Logger.e(TAG, "request Audio Focus failed.");
-                }
-                return isFocus;
-            }
-        }).map(new Func1<String, Boolean>() {
-            @Override
-            public Boolean call(String s) {
-                Logger.d(TAG, "file name = " + voicePath);
-                try {
-                    //重新初始化mMediaRecorder
-                    if (mMediaRecorder != null) {
-                        mMediaRecorder.stop();
-                        mMediaRecorder.release();
-                        mMediaRecorder = null;
-                        Logger.e("mediaRecorder is not null", "");
+        return Flowable.just(voicePath)
+                .subscribeOn(Schedulers.io())
+                .filter(new Predicate<String>() {
+                    @Override
+                    public boolean test(String s) throws Exception {
+                        boolean isFocus = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
+                                AudioManager.STREAM_MUSIC,
+                                AudioManager.AUDIOFOCUS_GAIN_TRANSIENT) == AudioManager.AUDIOFOCUS_REQUEST_GRANTED;
+                        if (!isFocus) {
+                            Logger.e(TAG, "request Audio Focus failed.");
+                        }
+                        return isFocus;
                     }
-                    mMediaRecorder = new MediaRecorder();
-                    // 第1步：设置音频来源（MIC表示麦克风）
-                    mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-                    Logger.d(TAG, "file setAudioSource = MediaRecorder.AudioSource.MIC");
-                    // 第2步：设置音频输出格式（默认的输出格式）
-                    mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB); // for
-                    // 第3步：设置音频编码方式（默认的编码方式）
-                    mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-                    Logger.d(TAG, "file setAudioEncoder = ");
-                    // 第4步：指定音频输出文件
-                    mMediaRecorder.setOutputFile(voicePath);
-                    // 第5步：调用prepare方法
-                    mMediaRecorder.prepare();
-                    // 第6步：调用start方法开始录音
-                    mMediaRecorder.start();
-                } catch (Exception e) {
-                    mMediaRecorder = null;
-                    Logger.d(TAG, "message = " + e.getMessage());
-                    return false;
-                }
-                return true;
-            }
-        }).observeOn(AndroidSchedulers.mainThread());
+                }).map(new Function<String, Boolean>() {
+                           @Override
+                           public Boolean apply(String s) throws Exception {
+                               Logger.d(TAG, "file name = " + voicePath);
+                               try {
+                                   //重新初始化mMediaRecorder
+                                   if (mMediaRecorder != null) {
+                                       mMediaRecorder.stop();
+                                       mMediaRecorder.release();
+                                       mMediaRecorder = null;
+                                       Logger.e("mediaRecorder is not null", "");
+                                   }
+                                   mMediaRecorder = new MediaRecorder();
+                                   // 第1步：设置音频来源（MIC表示麦克风）
+                                   mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                                   Logger.d(TAG, "file setAudioSource = MediaRecorder.AudioSource.MIC");
+                                   // 第2步：设置音频输出格式（默认的输出格式）
+                                   mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB); // for
+                                   // 第3步：设置音频编码方式（默认的编码方式）
+                                   mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+                                   Logger.d(TAG, "file setAudioEncoder = ");
+                                   // 第4步：指定音频输出文件
+                                   mMediaRecorder.setOutputFile(voicePath);
+                                   // 第5步：调用prepare方法
+                                   mMediaRecorder.prepare();
+                                   // 第6步：调用start方法开始录音
+                                   mMediaRecorder.start();
+                               } catch (Exception e) {
+                                   mMediaRecorder = null;
+                                   Logger.d(TAG, "message = " + e.getMessage());
+                                   return false;
+                               }
+                               return true;
+                           }
+                       }
+                ).observeOn(AndroidSchedulers.mainThread());
     }
 
     /**

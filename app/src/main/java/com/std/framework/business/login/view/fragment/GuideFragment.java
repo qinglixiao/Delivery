@@ -31,11 +31,6 @@ public class GuideFragment extends BaseFragment {
 		viewPager.setAdapter(new Pager(getActivity().getSupportFragmentManager()));
 	}
 
-	@Override
-	public void onNavigationBar(NavigationBar navigationBar) {
-
-	}
-
 	public class Pager extends FragmentPagerAdapter {
 		private final int[] resId = new int[] { R.drawable.welcome_p1, R.drawable.welcome_p2, R.drawable.welcome_p3, R.drawable.welcome_p4 };
 

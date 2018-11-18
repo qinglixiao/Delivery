@@ -14,14 +14,19 @@ public class MainActivity extends BaseTitleActivity {
 	private long mExitTime = 0;
 
 	@Override
-	public void onNavigationBar(NavigationBar navigation) {
-		navigation.setTitle(R.string.app_name);
-	}
-
-	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+	}
+
+	/**
+	 * 定义title
+	 *
+	 * @param builder
+	 */
+	@Override
+	public void onNavigationBar(NavigationBar.Builder builder) {
+		builder.setTitle(R.string.app_name);
 	}
 
 	public void remove(BaseFragment fragment) {

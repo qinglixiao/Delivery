@@ -20,20 +20,21 @@ import android.widget.Toast;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.business.contact.shortcut_lib.LauncherUtil;
 import com.std.framework.business.home.view.activity.MainTabActivity;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.util.ToastUtil;
 
-public class ContactFragment extends BaseFragment implements OnClickListener {
+public class ContactFragment extends BaseTitleFragment implements OnClickListener {
     private View view;
     private EditText editText;
     private Button button;
     private Button btn_short;
 
     @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle(R.string.main_tab_contact);
+    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle(R.string.main_tab_contact);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

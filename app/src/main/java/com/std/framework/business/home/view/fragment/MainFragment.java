@@ -4,6 +4,7 @@ import com.library.core.ThreadPool;
 import com.library.util.About;
 import com.library.util.LibUtil;
 import com.std.framework.R;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.comm.clazz.BaiduLocationProvider;
 import com.std.framework.comm.clazz.BaiduLocationProvider.LocationListener;
 import com.std.framework.comm.service.aidl.ICallBack;
@@ -12,6 +13,7 @@ import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentMainBinding;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.comm.service.InnerService;
+import com.std.framework.util.ToastUtil;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -35,14 +37,21 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
-public class MainFragment extends BaseFragment implements OnClickListener {
+public class MainFragment extends BaseTitleFragment implements OnClickListener {
     public View view;
     private IRemoteService remoteService;
     private FragmentMainBinding fragmentMainBinding;
 
     @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle(R.string.main_tab_home);
+    public void onNavigationBar(NavigationBar.Builder navBuild) {
+        navBuild
+                .setTitle(R.string.main_tab_home)
+                .setBackText("返回", new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ToastUtil.show("点击返回");
+                    }
+                });
     }
 
     @Override

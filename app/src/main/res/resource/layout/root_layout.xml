@@ -6,6 +6,10 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <include layout="@layout/navigation_action_bar" />
+    <!--系统默认标题栏-->
+    <FrameLayout
+        android:id="@+id/v_app_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

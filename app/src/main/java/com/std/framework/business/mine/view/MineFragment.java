@@ -21,10 +21,6 @@ public class MineFragment extends BaseFragment implements OnClickListener {
     private Button button;
     private TouchSlopView slopView;
 
-    @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle(R.string.main_tab_me);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

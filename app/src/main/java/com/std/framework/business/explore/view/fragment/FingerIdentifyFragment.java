@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.util.FingerUtil;
 import com.std.framework.util.ToastUtil;
@@ -24,14 +25,9 @@ import com.std.framework.util.ToastUtil;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class FingerIdentifyFragment extends BaseFragment {
+public class FingerIdentifyFragment extends BaseTitleFragment {
     private View view;
     private TextView tv_device;
-
-    @Override
-    protected void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle("指纹识别");
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,5 +86,10 @@ public class FingerIdentifyFragment extends BaseFragment {
 
             }
         });
+    }
+
+    @Override
+    public void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("指纹识别").build();
     }
 }

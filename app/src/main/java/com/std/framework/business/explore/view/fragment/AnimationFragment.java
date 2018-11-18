@@ -1,6 +1,5 @@
 package com.std.framework.business.explore.view.fragment;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,7 +22,6 @@ import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.basic.IBasePresenter;
 import com.std.framework.business.home.contract.RxBusContract;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.core.RxBus;
 import com.std.framework.databinding.FragmentAnimationBinding;
 import com.std.framework.databinding.FragmentRxbusBinding;
@@ -43,10 +41,6 @@ import rx.Subscriber;
 public class AnimationFragment extends BaseFragment implements View.OnClickListener {
     private FragmentAnimationBinding fragmentAnimationBinding;
     private View view;
-
-    @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -194,10 +188,6 @@ public class AnimationFragment extends BaseFragment implements View.OnClickListe
             //            }
             //        });
             observable.subscribe(subscriber);
-        }
-
-        @Override
-        public void onNavigationBar(NavigationBar navigationBar) {
         }
 
         private void setListener() {

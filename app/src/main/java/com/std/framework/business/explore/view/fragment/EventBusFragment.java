@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.std.framework.R;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.basic.BaseFragment;
 
@@ -18,7 +19,7 @@ import org.greenrobot.eventbus.ThreadMode;
 /**
  * Created by gfy on 2016/4/1.
  */
-public class EventBusFragment extends BaseFragment implements View.OnClickListener {
+public class EventBusFragment extends BaseTitleFragment implements View.OnClickListener {
     private static final String TAG = "LX";
     private View view;
     private Button btn_send;
@@ -39,10 +40,6 @@ public class EventBusFragment extends BaseFragment implements View.OnClickListen
         btn_asyn = (Button) view.findViewById(R.id.btn_asyn);
         btn_send.setOnClickListener(this);
         btn_asyn.setOnClickListener(this);
-    }
-
-    @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
     }
 
     @Override
@@ -89,6 +86,12 @@ public class EventBusFragment extends BaseFragment implements View.OnClickListen
         super.onPause();
         EventBus.getDefault().unregister(this);
     }
+
+    @Override
+    public void onNavigationBar(NavigationBar.Builder navBuilder) {
+
+    }
+
 
     class Param {
         String message;

@@ -22,17 +22,17 @@ public class VoiceRecordActivity extends BaseTitleActivity implements VoiceSelCo
     private VoiceRecordBinding voiceRecordBinding;
 
     @Override
-    public void onNavigationBar(NavigationBar navigation) {
-        navigation.setTitle("录制");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View view = View.inflate(this, R.layout.activity_voice_record, null);
         voiceRecordBinding = DataBindingUtil.bind(view);
         setContentView(view);
         findViewById(R.id.parent).setBackgroundColor(getResources().getColor(R.color.transparent));
+    }
+
+    @Override
+    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("录制");
     }
 
     @Override

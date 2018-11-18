@@ -31,8 +31,14 @@
 #include <libavutil/frame.h>
 #include <libavutil/mem.h>
 #include <libavcodec/avcodec.h>
+
 #define AUDIO_INBUF_SIZE 20480
 #define AUDIO_REFILL_THRESH 4096
+
+#define LOG_TAG "LX"
+#define d(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
+#define i(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+
 static void decode(AVCodecContext *dec_ctx, AVPacket *pkt, AVFrame *frame,
                    FILE *outfile)
 {
@@ -83,16 +89,20 @@ int input(int argc, char **argv)
     }
     filename    = argv[1];
     outfilename = argv[2];
+//    d("input");
     pkt = av_packet_alloc();
     /* find the MPEG audio decoder */
     codec = avcodec_find_decoder(AV_CODEC_ID_AMR_NB);
+
     if (!codec) {
         fprintf(stderr, "Codec not found\n");
+//        d("Codec not found\n");
         exit(1);
     }
     parser = av_parser_init(codec->id);
     if (!parser) {
         fprintf(stderr, "Parser not found\n");
+//        d("Parser not found\n");
         exit(1);
     }
     c = avcodec_alloc_context3(codec);
@@ -108,6 +118,7 @@ int input(int argc, char **argv)
     f = fopen(filename, "rb");
     if (!f) {
         fprintf(stderr, "Could not open %s\n", filename);
+//        d("Could not open %s\n", filename);
         exit(1);
     }
     outfile = fopen(outfilename, "wb");

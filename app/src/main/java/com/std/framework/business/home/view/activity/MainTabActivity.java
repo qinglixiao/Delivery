@@ -16,6 +16,8 @@ import com.std.framework.databinding.ActivityTabMain;
 import com.std.framework.util.ThemeUtil;
 import com.std.framework.comm.view.MainBottomView;
 
+import java.util.List;
+
 public class MainTabActivity extends BaseTitleActivity {
     private ActivityTabMain activityTabMain;
 
@@ -33,6 +35,12 @@ public class MainTabActivity extends BaseTitleActivity {
         activityTabMain = DataBindingUtil.bind(view);
         setContentView(view);
         initTab();
+    }
+
+    @Override
+    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle(R.string.app_name);
+//        navigation.setIcon(R.drawable.icon);
     }
 
     private void initTab() {
@@ -71,18 +79,13 @@ public class MainTabActivity extends BaseTitleActivity {
     }
 
     @Override
-    public void onNavigationBar(NavigationBar navigation) {
-        navigation.setTitle(R.string.app_name);
-        navigation.setIcon(R.drawable.icon);
+    protected void onPermissionGranted(int requestCode) {
+        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionGranted(requestCode);
     }
 
     @Override
-    protected void onGranted(int requestCode) {
-        activityTabMain.tabContainer.getCurrentTab().getFragment().onGranted(requestCode);
+    protected void onPermissionDenied(List<String> permissions, int requestCode) {
+        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionDenied(permissions, requestCode);
     }
 
-    @Override
-    protected void onDenied(int requestCode) {
-        activityTabMain.tabContainer.getCurrentTab().getFragment().onDenied(requestCode);
-    }
 }

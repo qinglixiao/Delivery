@@ -13,15 +13,15 @@ import com.std.framework.core.NavigationBar;
  * Modify by：lx
  */
 public class VoiceListActivity extends BaseTitleActivity {
-    @Override
-    public void onNavigationBar(NavigationBar navigation) {
-        navigation.setTitle("语音选择");
-        navigation.addRightButton("确定", new OnMenuItemWrapClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                return false;
-            }
-        });
-    }
 
+    @Override
+    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("语音选择");
+//        navBuilder.addRightButton("确定", new OnMenuItemWrapClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                return false;
+//            }
+//        });
+    }
 }

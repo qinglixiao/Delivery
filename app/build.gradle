@@ -25,7 +25,10 @@ android {
         main {
             java.srcDirs = ['src/main/java', 'src-gen']
             aidl.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', 'src/main/res/resource', 'src/main/res/main', 'src/main/res/explore', 'src/main/res/call', 'src/main/res/rich']
+            res.srcDirs = ['src/main/res', 'src/main/res/resource',
+                           'src/main/res/main', 'src/main/res/explore',
+                           'src/main/res/call', 'src/main/res/rich',
+                           'src/main/res/chunyu']
             assets.srcDirs = ['assets']
         }
     }

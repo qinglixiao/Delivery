@@ -102,7 +102,7 @@ public class EditorActivity extends BaseTitleActivity {
 	}
 
 	@Override
-	public void onNavigationBar(NavigationBar navigation) {
+	protected void onNavigationBar(NavigationBar.Builder navBuilder) {
 
 	}
 

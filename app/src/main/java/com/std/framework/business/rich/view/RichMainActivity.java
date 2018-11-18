@@ -39,8 +39,8 @@ public class RichMainActivity extends BaseTitleActivity implements View.OnClickL
     }
 
     @Override
-    public void onNavigationBar(NavigationBar navigation) {
-        navigation.setTitle("富文本编辑器");
+    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("富文本编辑器");
     }
 
     private void initView() {

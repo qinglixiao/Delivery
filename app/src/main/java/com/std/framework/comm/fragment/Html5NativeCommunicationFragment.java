@@ -27,13 +27,13 @@ import com.std.framework.basic.BaseFragment;
 import com.std.framework.comm.clazz.JSRemoteProvider;
 import com.std.framework.core.NavigationBar;
 
-public class Html5NativeCommunicationFragment extends BaseFragment implements OnClickListener{
+public class Html5NativeCommunicationFragment extends BaseFragment implements OnClickListener {
 	private View view;
 	private WebView webView = null;
 	private Button btn_bom;
 	private Button btn_dom;
 	private TextView tv_bom;
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -41,7 +41,7 @@ public class Html5NativeCommunicationFragment extends BaseFragment implements On
 		initWebView();
 		return view;
 	}
-	
+
 	private void initWebView() {
 		btn_bom = (Button) view.findViewById(R.id.btn_bom);
 		btn_dom = (Button) view.findViewById(R.id.btn_dom);
@@ -106,7 +106,9 @@ public class Html5NativeCommunicationFragment extends BaseFragment implements On
 				builder.create();
 				builder.show();
 				return true;
-			};
+			}
+
+			;
 
 			//处理javascript中的confirm
 			public boolean onJsConfirm(WebView view, String url, String message, final JsResult result) {
@@ -127,7 +129,9 @@ public class Html5NativeCommunicationFragment extends BaseFragment implements On
 				builder.create();
 				builder.show();
 				return true;
-			};
+			}
+
+			;
 
 			@Override
 			//设置网页加载的进度条  
@@ -143,7 +147,7 @@ public class Html5NativeCommunicationFragment extends BaseFragment implements On
 			}
 
 			public void onExceededDatabaseQuota(String url, String databaseIdentifier, long currentQuota, long estimatedSize,
-					long totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater) {
+												long totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater) {
 				quotaUpdater.updateQuota(estimatedSize * 2);
 			}
 
@@ -175,12 +179,11 @@ public class Html5NativeCommunicationFragment extends BaseFragment implements On
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		switch(v.getId()){
+		switch (v.getId()) {
 			case R.id.btn_bom:
 				try {
 					JSRemoteProvider.bom(webView, Integer.parseInt(tv_bom.getText().toString()));
-				}
-				catch (NumberFormatException e) {
+				} catch (NumberFormatException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -191,8 +194,4 @@ public class Html5NativeCommunicationFragment extends BaseFragment implements On
 		}
 	}
 
-	@Override
-	public void onNavigationBar(NavigationBar navigationBar) {
-
-	}
 }

@@ -14,6 +14,7 @@ import android.widget.SeekBar;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.comm.view.ProgressWheel;
 import com.std.framework.core.NavigationBar;
 
@@ -28,16 +29,11 @@ import java.util.Random;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class ProgressBarFragment extends BaseFragment {
+public class ProgressBarFragment extends BaseTitleFragment {
     private ProgressWheel pwOne;
     private boolean wasSpinning = false;
     private SeekBar seekBarProgress;
     private Button btnSpin, btnIncrement, btnRandom;
-
-    @Override
-    protected void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle("进度条");
-    }
 
     @Nullable
     @Override
@@ -80,6 +76,11 @@ public class ProgressBarFragment extends BaseFragment {
             pwOne.startSpinning();
         }
         wasSpinning = false;
+    }
+
+    @Override
+    public void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("进度条");
     }
 
     private static final class SpinListener implements View.OnClickListener {

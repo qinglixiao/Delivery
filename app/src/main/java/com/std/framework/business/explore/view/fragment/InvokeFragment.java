@@ -9,14 +9,15 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.business.user.model.UserModel;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentInvokeBinding;
 import com.std.framework.study.other.module.ToonModule;
 
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Description:
@@ -27,12 +28,12 @@ import rx.schedulers.Schedulers;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class InvokeFragment extends BaseFragment implements View.OnClickListener {
+public class InvokeFragment extends BaseTitleFragment implements View.OnClickListener {
     private FragmentInvokeBinding invokeBinding;
 
     @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle("接口调用");
+    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("接口调用");
     }
 
     @Nullable
@@ -56,19 +57,15 @@ public class InvokeFragment extends BaseFragment implements View.OnClickListener
             new UserModel().getTopMovie(0, 10)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Subscriber<UserModel.MoveEntity>() {
+                    .subscribe(new Consumer<UserModel.MoveEntity>() {
+                        /**
+                         * Consume the given value.
+                         *
+                         * @param moveEntity the value
+                         * @throws Exception on error
+                         */
                         @Override
-                        public void onCompleted() {
-
-                        }
-
-                        @Override
-                        public void onError(Throwable e) {
-
-                        }
-
-                        @Override
-                        public void onNext(UserModel.MoveEntity moveEntity) {
+                        public void accept(UserModel.MoveEntity moveEntity) throws Exception {
                             invokeBinding.tvShow.setText(moveEntity.toString());
                         }
                     });
@@ -77,40 +74,19 @@ public class InvokeFragment extends BaseFragment implements View.OnClickListener
             new ToonModule().getCommonList()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Subscriber<String>() {
+                    .subscribe(new Consumer<String>() {
                         @Override
-                        public void onCompleted() {
-
-                        }
-
-                        @Override
-                        public void onError(Throwable e) {
-
-                        }
-
-                        @Override
-                        public void onNext(String s) {
+                        public void accept(String s) throws Exception {
                             invokeBinding.tvShow.setText(s);
                         }
                     });
-        }
-        else if(view.getId() == invokeBinding.btnFeed.getId()){
+        } else if (view.getId() == invokeBinding.btnFeed.getId()) {
             new ToonModule().obtainFeedList()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Subscriber<String>() {
+                    .subscribe(new Consumer<String>() {
                         @Override
-                        public void onCompleted() {
-
-                        }
-
-                        @Override
-                        public void onError(Throwable e) {
-
-                        }
-
-                        @Override
-                        public void onNext(String s) {
+                        public void accept(String s) throws Exception {
                             invokeBinding.tvShow.setText(s);
                         }
                     });

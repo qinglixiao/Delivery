@@ -22,15 +22,15 @@ public class GestureActivity extends BaseTitleActivity {
     private GestureDetector gestureDetector;
 
     @Override
-    public void onNavigationBar(NavigationBar navigation) {
-        navigation.setTitle("手势");
-    }
-
-    @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         setContentView(R.layout.activity_gesture);
         gestureDetector = new GestureDetector(simpleOnGestureListener);
+    }
+
+    @Override
+    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("手势");
     }
 
     private GestureDetector.SimpleOnGestureListener simpleOnGestureListener = new GestureDetector.SimpleOnGestureListener() {

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentVPNBinding;
 
@@ -28,12 +29,12 @@ import java.lang.reflect.Method;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class VPNFragment extends BaseFragment implements View.OnClickListener {
+public class VPNFragment extends BaseTitleFragment implements View.OnClickListener {
     private FragmentVPNBinding vpnBinding;
 
     @Override
-    public void onNavigationBar(NavigationBar navigationBar) {
-        navigationBar.setTitle("vpn连接测试");
+    public void onNavigationBar(NavigationBar.Builder navBuilder) {
+        navBuilder.setTitle("vpn连接测试");
     }
 
     @Nullable
@@ -71,6 +72,8 @@ public class VPNFragment extends BaseFragment implements View.OnClickListener {
 //            VpnUtil.disconnect(getContext());
 //        }
     }
+
+
 
     public static class VpnUtil {
         private static Class vpnProfileClz;

@@ -3,13 +3,20 @@ package com.std.framework.basic;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.library.comm.RuntimePermissions;
 import com.std.framework.comm.clazz.STDActivityManager;
 import com.std.framework.comm.clazz.STDFragmentManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class BaseActivity extends AppCompatActivity {
+    private static final int PERMISSION_REQUEST_CODE = 0x1000;
+
     /**
      * 视图管理器
      */
@@ -25,6 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle arg0) {
         // TODO Auto-generated method stub
         super.onCreate(arg0);
+        permissionRequest();
     }
 
     @Override
@@ -38,38 +46,50 @@ public abstract class BaseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBack();
                 return true;
         }
         return true;
     }
 
-    public void onBack() {
-        finish();
+    private void permissionRequest() {
+        String[] permissions = {
+                RuntimePermissions.WRITE_EXTERNAL_STORAGE,
+                RuntimePermissions.READ_EXTERNAL_STORAGE,
+                RuntimePermissions.CALL_PHONE
+        };
+        ActivityCompat.requestPermissions(this, permissions, PERMISSION_REQUEST_CODE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            //权限已被允许
-            onGranted(requestCode);
-        } else {
-            //权限被拒绝
-            onDenied(requestCode);
+        List<String> denied = new ArrayList<>();
+        int count = grantResults.length;
+        for (int i = 0; i < count; i++) {
+            //权限被拒
+            if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
+                denied.add(permissions[i]);
+            }
         }
+
+        if (denied.size() > 0) {
+            this.onPermissionDenied(denied, requestCode);
+        } else {
+            this.onPermissionGranted(requestCode);
+        }
+
     }
 
     /**
      * 请求权限被允许执行方法
      */
-    protected void onGranted(int requestCode) {
+    protected void onPermissionGranted(int requestCode) {
 
     }
 
     /**
      * 请求权限被拒绝执行方法
      */
-    protected void onDenied(int requestCode) {
+    protected void onPermissionDenied(List<String> permissions, int requestCode) {
 
     }
 }

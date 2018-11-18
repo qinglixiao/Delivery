@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+
+    <!--&lt;!&ndash;record_button&ndash;&gt;-->
+    <!--<color name="record_button_tip_normal_bg">#dd1fac4a</color>-->
+    <!--<color name="record_button_tip_cancel_bg">#ddce2f2f</color>-->
+
+    <!--&lt;!&ndash;dialog&ndash;&gt;-->
+    <!--<color name="cy_widget_text_white">#fff</color>-->
+    <!--<color name="cy_widget_text_gray">#8d9299</color>-->
+    <!--<color name="cy_widget_text_black">#061218</color>-->
+
+    <!--&lt;!&ndash;购物车加减&ndash;&gt;-->
+    <!--<color name="cl_snappingstepper_button_normal">#FFFFFF</color>-->
+    <!--<color name="cl_snappingstepper_button_press">#F1F1F1</color>-->
+    <!--<color name="cl_snappingstepper_text_bg">#FFFFFF</color>-->
+    <!--<color name="cl_snappingstepper_text">#666666</color>-->
+
+    <!--&lt;!&ndash;timewheel&ndash;&gt;-->
+    <!--<color name="toolbar_bg">#FBFBFB</color>-->
+    <!--<color name="item_selector_line">#C2C2C2</color>-->
+    <!--<color name="item_selector_rect">#FFFFFF</color>-->
+    <!--<color name="toolbar_line">#E7E7E7</color>-->
+
+    <!--<color name="toolbar_text_cancel">#323232</color>-->
+    <!--<color name="toolbar_text_ok">#39D167</color>-->
+
+
+    <!--<color name="timepicker_dialog_bg">#80000000</color>-->
+    <!--<color name="timepicker_line">#e8e8e8</color>-->
+
+    <!--=======-->
+    <!--&lt;!&ndash; Action Bar &ndash;&gt;-->
+    <!--<color name="action_bar_title">#3a3a3a</color>-->
+    <!--<color name="action_bar_transparent_btn_pressed">#f0f0f0</color>-->
+    <!--<color name="action_bar_separator">#b6b6b6</color>-->
+    <!--<color name="actionbar_button_stroke">#d3cac3</color>-->
+
+    <!--&lt;!&ndash; Tab Bar &ndash;&gt;-->
+    <!--<color name="tab_bar_button_bg_normal">#ffffff</color>-->
+    <!--<color name="tab_bar_button_bg_selected">#f0f0f0</color>-->
+    <!--<color name="tab_bar_button_border">#e4e4e4</color>-->
+    <!--<color name="tab_bar_ask_doc_bar_bg">#f7a84e</color>-->
+    <!--<color name="tab_bar_self_check_bar_bg">#c74170</color>-->
+    <!--<color name="tab_bar_news_bar_bg">#2a60d9</color>-->
+    <!--<color name="tab_bar_user_center_bar_bg">#52ccd6</color>-->
+
+    <!--<color name="badge_bkg_orange">#f8be34</color>-->
+    <!--<color name="badge_bkg_green">#20be53</color>-->
+
+    <!--<color name="search_bkg_gray">#FBFBFB</color>-->
+    <!--<color name="search_text_gray">#6B6E73</color>-->
+
+    <!--<color name="text_shadow">#70000000</color>-->
+
+    <!--&lt;!&ndash; divider &ndash;&gt;-->
+    <!--<color name="divider_gray">#dddee0</color>-->
+
+    <!--&lt;!&ndash; activity background &ndash;&gt;-->
+    <!--<color name="activity_background">#f1f1f1</color>-->
+
+    <!--&lt;!&ndash; grouped list的 &ndash;&gt;-->
+    <!--<color name="grouped_list_border">#b6b6b6</color>-->
+    <!--<color name="grouped_list_divider">#e7e7e7</color>-->
+    <!--<color name="grouped_list_section_title_divider">#b6b6b6</color>-->
+    <!--<color name="grouped_list_normal_bkg">#ffffff</color>-->
+    <!--<color name="grouped_list_pressed_bkg">#d6d6d6</color>-->
+    <!--<color name="grouped_list_section_title_bkg">#efefef</color>-->
+
+    <!--&lt;!&ndash; 仿iphone的grouped list view的相关颜色 &ndash;&gt;-->
+    <!--<color name="grouped_list_outer_border">#ccced5</color>-->
+    <!--<color name="grouped_list_inner_border">#ccced5</color>-->
+    <!--<color name="grouped_list_background">#e6f3fa</color>-->
+    <!--<color name="grouped_list_cell_normal_bkg">#f7f7f7</color>-->
+
+    <!--&lt;!&ndash; 普通listview的 &ndash;&gt;-->
+    <!--<color name="listview_gray_bkg_40">#f1ebe6</color>-->
+    <!--<color name="listview_gray_bkg_pressed_40">#e7dbd2</color>-->
+    <!--<color name="listview_divider_40">#d2cdc8</color>-->
+    <!--<color name="listview_pressed_bkg">#d6d6d6</color>-->
+    <!--<color name="listview_cell_gray">#F0F0F0</color>-->
+    <!--<color name="list_cell_press_bkg">#5291d6</color>-->
+
+    <!--&lt;!&ndash; 医生头像的背景的边框颜色 &ndash;&gt;-->
+    <!--<color name="portrait_view_border">#b6b6b6</color>-->
+
+    <!--&lt;!&ndash; 文字颜色 &ndash;&gt;-->
+    <!--<color name="text_blue">#5291d6</color>-->
+    <!--<color name="text_blue_1">#507daf</color>-->
+    <!--<color name="text_green">#63b60f</color>-->
+    <!--<color name="text_green_2">#42ce50</color>-->
+    <!--<color name="text_green_3">#2fb244</color>-->
+    <!--<color name="text_green_4">#4dd363</color>-->
+    <!--<color name="text_green_5">#39d167</color>-->
+    <!--<color name="text_black">#061218</color>-->
+    <!--<color name="text_black_1">#000000</color>-->
+    <!--<color name="text_black_2">#323232</color>-->
+    <!--<color name="text_black_3">#666666</color>-->
+    <!--<color name="text_black_4">#c2c2c2</color>-->
+    <!--<color name="text_brown">#d8cabd</color>-->
+
+    <!--<color name="transparent_white">#aaffffff</color>-->
+    <!--<color name="text_dark">#848484</color>-->
+    <!--<color name="text_darker">#606060</color>-->
+    <!--<color name="text_gray_1">#9c9b9a</color>-->
+    <!--<color name="text_gray_2">#898989</color>-->
+    <!--<color name="text_gray_3">#666666</color>-->
+    <!--<color name="text_gray_4">#706f74</color>-->
+    <!--<color name="text_gray_5">#7d7d7d</color>-->
+    <!--<color name="text_gray_6">#5a5b5d</color>-->
+    <!--<color name="text_gray_7">#c2c2c2</color>-->
+    <!--<color name="text_gray_8">#999999</color>-->
+    <!--<color name="text_gray_10">#BFC1C2</color>-->
+    <!--<color name="light_gray">#e5e5e5</color>-->
+    <!--<color name="list_selected">#a9ddf8</color>-->
+    <!--<color name="text_red">#ff0000</color>-->
+    <!--<color name="text_red_2">#ff3631</color>-->
+    <!--<color name="text_red_3">#ff5000</color>-->
+    <!--<color name="text_pink">#fa87ad</color>-->
+    <!--<color name="blue_bkg">#66bfea</color>-->
+    <!--<color name="transparent_dark_bg">#f0302f2c</color>-->
+    <!--<color name="transparent_light_bg">#99000000</color>-->
+    <!--<color name="text_blue_2">#6dc6fb</color>-->
+    <!--<color name="text_blue_3">#3190cf</color>-->
+    <!--<color name="text_blue_4">#0698dd</color>-->
+    <!--<color name="text_blue_5">#5291d6</color>-->
+    <!--<color name="text_orange">#ff7800</color>-->
+    <!--<color name="text_orange_2">#ff9500</color>-->
+    <!--<color name="text_orange_3">#FF6134</color>-->
+    <!--<color name="plain_cell_bkg_color">#f1f5f7</color>-->
+    <!--<color name="plain_cell_unselbkg_color">#eaf5fc</color>-->
+    <!--<color name="backgroud_orange">#ff6134</color>-->
+    <!--<color name="background_orange_2">#DF4422</color>-->
+
+    <!--&lt;!&ndash; 各种按钮 &ndash;&gt;-->
+    <!--<color name="button_bkg_lightblue_solid_normal">#46b9da</color>-->
+    <!--<color name="button_bkg_lightblue_solid_press">#36aacb</color>-->
+    <!--<color name="button_bkg_lightblue_stroke">#34a2c2</color>-->
+    <!--<color name="button_bkg_green_solid_normal">#48ce55</color>-->
+    <!--<color name="button_bkg_green_solid_press">#30b746</color>-->
+    <!--<color name="button_bkg_green_stroke">#35c24d</color>-->
+    <!--<color name="button_bkg_green_solid_v2">#39D167</color>-->
+    <!--<color name="button_bkg_blue_solid_normal">#4d99d3</color>-->
+    <!--<color name="button_bkg_blue_solid_press">#3783bd</color>-->
+    <!--<color name="button_bkg_blue_stroke">#2a67a2</color>-->
+    <!--<color name="button_bkg_gray_solid_normal">#d7c9bd</color>-->
+    <!--<color name="button_bkg_gray_solid_press">#b79b80</color>-->
+    <!--<color name="button_bkg_gray_stroke">#bcafa1</color>-->
+    <!--<color name="button_bkg_darkgray_solid_normal">#e7ddd3</color>-->
+    <!--<color name="button_bkg_darkgray_solid_press">#efe8e3</color>-->
+    <!--<color name="button_bkg_darkgray_stroke">#d3cac3</color>-->
+    <!--<color name="button_bkg_brown_text_color">#ab6111</color>-->
+    <!--<color name="button_bkg_brown_solid_normal">#e69827</color>-->
+    <!--<color name="button_bkg_brown_solid_press">#d28a1c</color>-->
+    <!--<color name="button_bkg_brown_stroke">#d18a1b</color>-->
+    <!--<color name="button_bkg_orange_solid_normal">#ff6134</color>-->
+    <!--<color name="button_bkg_orange_solid_press">#f45223</color>-->
+    <!--<color name="button_bkg_orange_stroke">#df5010</color>-->
+    <!--<color name="button_bkg_red_solid_normal">#e4202c</color>-->
+    <!--<color name="button_bkg_red_solid_press">#c8111b</color>-->
+    <!--<color name="button_bkg_red_stroke">#bf000b</color>-->
+    <!--<color name="button_bkg_yellow_solid_normal">#f9cf29</color>-->
+    <!--<color name="button_bkg_yellow_solid_press">#e8be18</color>-->
+    <!--<color name="button_bkg_yellow_stroke">#c89f0f</color>-->
+
+    <!--<color name="button_bkg_light_brown_solid_normal">#e3dbd2</color>-->
+    <!--<color name="button_bkg_light_brown_stroke">#c2b6a7</color>-->
+
+    <!--<color name="button_bkg_silver_solid_normal">#f9f9f9</color>-->
+    <!--<color name="button_bkg_silver_stroke">#b5b0aa</color>-->
+
+    <!--<color name="button_bkg_light_gray_solid_normal">#f7f7f7</color>-->
+    <!--<color name="button_bkg_light_gray_solid_pressed">#e8e8e8</color>-->
+    <!--<color name="button_bkg_light_gray_stroke">#c2beb9</color>-->
+
+    <!--<color name="button_bkg_whitegrey_solid_pressed">#d3c6ba</color>-->
+
+    <!--<color name="edtitext_bkg_gray_solid">#f7f7f7</color>-->
+    <!--<color name="edtitext_bkg_gray_stroke">#ff631e</color>-->
+
+    <!--&lt;!&ndash; 文字颜色 &ndash;&gt;-->
+    <!--<color name="text_hint">#cccccc</color>-->
+    <!--<color name="text_black_40">#282828</color>-->
+    <!--<color name="text_link">#5b9aca</color>-->
+    <!--<color name="home_input">#707070</color>-->
+    <!--<color name="text_khaki">#f19e1c</color>-->
+    <!--<color name="text_white">#ffffff</color>-->
+    <!--<color name="text_gray">#999999</color>-->
+    <!--<color name="text_gray_999999">#999999</color>-->
+    <!--<color name="text_yellow">#ffa800</color>-->
+
+    <!--<color name="ad_text_color_orange">#FC5220</color>-->
+
+    <!--&lt;!&ndash; 描边 &ndash;&gt;-->
+    <!--<color name="inner_stroke_default">#e7e7e7</color>-->
+    <!--<color name="stroke_default">#e7e7e7</color>-->
+    <!--<color name="stroke_for_doc_service">#f1f1f1</color>-->
+    <!--<color name="cell_background">#efe8e3</color>-->
+    <!--<color name="cell_pressed">#dacfc7</color>-->
+    <!--<color name="section_pressed">#f1eeea</color>-->
+
+    <!--&lt;!&ndash; divider &ndash;&gt;-->
+    <!--<color name="divider_list_item">#ffe9e9e9</color>-->
+    <!--<color name="divider_darker">#e1e1e1</color>-->
+    <!--<color name="gray_divider">#dddee0</color>-->
+
+    <!--&lt;!&ndash; edittext &ndash;&gt;-->
+    <!--<color name="textedit_search_bkg">#f5f5f5</color>-->
+    <!--<color name="textedit_search_stroke">#cccccc</color>-->
+
+    <!--<color name="cy_activity_bg">#f1f1f1</color>-->
+    <!--<color name="list_section_bkg">#3f0998dd</color>-->
+    <!--<color name="welcome_webview_bkg">#1c0998dd</color>-->
+    <!--<color name="community_topic_bg">#f1f0ee</color>-->
+    <!--&lt;!&ndash;导航栏&ndash;&gt;-->
+    <!--<color name="action_bar_bg">#39d167</color>-->
+    <!--<color name="action_bar_bg_2">#fbfbfb</color>-->
+
+    <!--<color name="title_bar_line_bg">#dddddd</color>-->
+    <!--<color name="action_bar_line_bg">#dbdbdb</color>-->
+
+    <!--<color name="bg_webview_progress_bar">#39d167</color>-->
+
+    <!--<color name="myservice_selected_tv">#ff60d781</color>-->
+    <!--<color name="myservice_unselected_tv">#666666</color>-->
+    <!--<color name="color_666666">#666666</color>-->
+    <!--<color name="color_cecece">#cecece</color>-->
+    <!--<color name="color_9c9c9c">#9c9c9c</color>-->
+    <!--<color name="color_3f3f3f">#3f3f3f</color>-->
+    <!--<color name="color_323232">#323232</color>-->
+    <!--<color name="color_999999">#999999</color>-->
+    <!--<color name="color_a2a2a2">#a2a2a2</color>-->
+    <!--<color name="color_b2b2b2">#b2b2b2</color>-->
+    <!--<color name="color_808080">#808080</color>-->
+    <!--<color name="color_fafafa">#fafafa</color>-->
+    <!--<color name="color_979797">#979797</color>-->
+    <!--<color name="color_222222">#222222</color>-->
+    <!--<color name="color_0b0b0b">#0b0b0b</color>-->
+    <!--<color name="color_cccccc">#cccccc</color>-->
+    <!--<color name="color_f8f8f8">#f8f8f8</color>-->
+    <!--<color name="color_f0e0d5">#f0e0d5</color>-->
+    <!--<color name="color_ff8714">#ff8714</color>-->
+    <!--<color name="color_279de5">#279de5</color>-->
+    <!--<color name="color_ed8719">#ed8719</color>-->
+    <!--<color name="color_21c753">#21c753</color>-->
+    <!--<color name="color_ee8719">#ee8719</color>-->
+    <!--<color name="color_fdf8ee">#fdf8ee</color>-->
+
+    <!--<color name="A1">#39d167</color>-->
+    <!--<color name="A2">#323232</color>-->
+    <!--<color name="A3">#666666</color>-->
+    <!--<color name="A4">#999999</color>-->
+
+    <!--&lt;!&ndash;hint&ndash;&gt;-->
+    <!--<color name="A5">#c2c2c2</color>-->
+
+    <!--&lt;!&ndash;divider&ndash;&gt;-->
+    <!--<color name="A6">#e7e7e7</color>-->
+    <!--<color name="A7">#eeeeee</color>-->
+    <!--<color name="A8">#f1f1f1</color>-->
+    <!--<color name="A9">#ffffff</color>-->
+
+    <!--&lt;!&ndash;红色，多用于强调&ndash;&gt;-->
+    <!--<color name="A10">#ff0000</color>-->
+    <!--&lt;!&ndash;橘红，多用于钱&ndash;&gt;-->
+    <!--<color name="A11">#ff6134</color>-->
+
+
+    <!--<color name="A14">#ffa800</color>-->
+    <!--<color name="A15">#00bf3a</color>-->
+    <!--<color name="A16">#eeeeee</color>-->
+    <!--<color name="A17">#7ac762</color>-->
+    <!--<color name="A18">#ff6666</color>-->
+    <!--<color name="A19">#FCFCFC</color>-->
+    <!--<color name="A20">#F4F4F4</color>-->
+
+    <!--<color name="buble_user_text_color">#a2a2a2</color>-->
+    <!--<color name="buble_doc_text_color">#175b83</color>-->
+
+    <!--<color name="color_qa_user_text_content">#175b83</color>-->
+    <!--<color name="default_loading_tip">#999999</color>-->
+
+    <!--<color name="color_banner">#79d695</color>-->
+    <!--<color name="textview_bkg_yellow">#ffa800</color>-->
+    <!--<color name="textview_bkg_red">#FF6134</color>-->
+    <!--&lt;!&ndash;专用描边&ndash;&gt;-->
+    <!--<color name="slide_button_stroke">#f4f3f3</color>-->
+    <!--&lt;!&ndash;专用黄色&ndash;&gt;-->
+    <!--<color name="slide_btton_bkg">#fec339</color>-->
+    <!--&lt;!&ndash;首页文字绿色&ndash;&gt;-->
+    <!--<color name="text_green_title">#71b900</color>-->
+    <!--&lt;!&ndash;首页的分割线&ndash;&gt;-->
+    <!--<color name="health_plan_divider">@color/stroke_default</color>-->
+    <!--<color name="dot">#19000000</color>-->
+    <!--<color name="health_plan_status_completed_bkg">#e2e1e1</color>-->
+
+    <!--<color name="default_image_bkg">#eeeeee</color>-->
+
+    <!--<color name="press_background">#f8f8f8</color>-->
+
+    <!--<color name="default_url_span_color">#ff6134</color>-->
+
+    <!--<color name="span_color_for_unrecognized_message">#ff6134</color>-->
+
+    <!--<color name="color_df">#dfdfdf</color>-->
+
+    <!--<color name="green_39d167">#39d167</color>-->
+
+    <!--<drawable name="list_divider_line_bkg">#dddddd</drawable>-->
+
+    <!--<color name="vertical_gray_bar">#d8d8d8</color>-->
+
+</resources>

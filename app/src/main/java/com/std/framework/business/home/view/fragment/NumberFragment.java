@@ -14,12 +14,13 @@ import android.widget.TextView;
 
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
+import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.business.home.view.activity.MainActivity;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.comm.view.TouchSlopView;
 import com.std.framework.comm.view.TouchSlopView.OnSlopListener;
 
-public class NumberFragment extends BaseFragment {
+public class NumberFragment extends BaseTitleFragment {
 	private int number = 1;
 	private TextView tv_page;
 	private ListView listView;
@@ -93,7 +94,7 @@ public class NumberFragment extends BaseFragment {
 	}
 
 	@Override
-	public void onNavigationBar(NavigationBar navigationBar) {
+	public void onNavigationBar(NavigationBar.Builder navBuilder) {
 
 	}
 }
