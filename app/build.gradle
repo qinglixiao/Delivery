@@ -58,7 +58,7 @@ dependencies {
     implementation fileTree(include: '*.jar', dir: 'libs')
     implementation project(':STDlibrary')
     implementation project(':annotation')
-    implementation project(':ffmpeg')
+//    implementation project(':ffmpeg')
     annotationProcessor project(':annotation-compiler')
     implementation project(':annotation-api')
     implementation 'org.greenrobot:eventbus:3.0.0'

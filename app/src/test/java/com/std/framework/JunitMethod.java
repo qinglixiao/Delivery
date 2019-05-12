@@ -1,5 +1,7 @@
 package com.std.framework;
 
+import android.net.Uri;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.library.core.Reflect;
@@ -55,6 +57,8 @@ public class JunitMethod {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+
+
     }
 
     @Test
@@ -185,6 +189,7 @@ public class JunitMethod {
     @Test
     public void reflect() {
         JunitMethod junitMethod = Reflect.on("com.std.framework.JunitMethod").create().get();
+
     }
 
     @Test
@@ -523,6 +528,22 @@ public class JunitMethod {
                 field.set(reflectClazz, 300);
         }
 //        Reflect.on(One.class.getName()).create();
+    }
+
+    @Test
+    public void testCalc() {
+        int a = 7;
+        int b = 2;
+        int c = a ^ b;
+
+        int FLAG_CALL_SUB_THREAD = 1;
+        int FLAG_CALL_MAIN_THREAD = 1 << 1;
+        int FLAG_RETURN_SUB_THREAD = 1 << 2;
+        int FLAG_RETURN_MAIN_THREAD = 1 << 3;
+
+        int flag = FLAG_RETURN_SUB_THREAD | FLAG_RETURN_MAIN_THREAD;
+
+        JunitUtil.print(flag & FLAG_RETURN_SUB_THREAD);
     }
 
 }

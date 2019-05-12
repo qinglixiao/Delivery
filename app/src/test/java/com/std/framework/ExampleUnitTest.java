@@ -6,6 +6,7 @@ import com.std.framework.assist.JunitUtil;
 import org.junit.Test;
 import org.mockito.Mock;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -74,6 +75,20 @@ public class ExampleUnitTest {
         List list = mock(List.class);
         list.add(1);
         verify(list).add(2);
+    }
+
+    @Test
+    public void testType() {
+        Define define = new Define();
+        Serializable.class.isAssignableFrom(define.getClass());
+    }
+
+    public static class Define implements A {
+
+    }
+
+    interface A extends Serializable {
+
     }
 
 }

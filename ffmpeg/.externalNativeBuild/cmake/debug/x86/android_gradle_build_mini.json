@@ -1,0 +1,26 @@
+{
+  "buildFiles": [
+    "/Users/chunyu/personal/Delivery/ffmpeg/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/chunyu/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/chunyu/personal/Delivery/ffmpeg/.externalNativeBuild/cmake/debug/x86 --target clean"
+  ],
+  "libraries": {
+    "avutil-56-Debug-x86": {
+      "artifactName": "avutil-56",
+      "abi": "x86",
+      "output": "/Users/chunyu/personal/Delivery/ffmpeg/src/main/jni/ffmpeg/armeabi-v7a/libavutil-56.so"
+    },
+    "swresample-3-Debug-x86": {
+      "artifactName": "swresample-3",
+      "abi": "x86",
+      "output": "/Users/chunyu/personal/Delivery/ffmpeg/src/main/jni/ffmpeg/armeabi-v7a/libswresample-3.so"
+    },
+    "native-lib-Debug-x86": {
+      "artifactName": "native-lib",
+      "buildCommand": "/Users/chunyu/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/chunyu/personal/Delivery/ffmpeg/.externalNativeBuild/cmake/debug/x86 --target native-lib",
+      "abi": "x86",
+      "output": "/Users/chunyu/personal/Delivery/ffmpeg/build/intermediates/cmake/debug/obj/x86/libnative-lib.so"
+    }
+  }
+}

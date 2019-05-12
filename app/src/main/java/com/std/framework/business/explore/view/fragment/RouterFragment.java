@@ -50,11 +50,15 @@ public class RouterFragment extends BaseFragment implements View.OnClickListener
     public void onClick(View v) {
         if (v == binding.btnOpen1) {
             HashMap map = new HashMap();
-            map.put("activity",getActivity());
-            map.put("request",2);
-            CYRouter.build(binding.path1.getText().toString(),map)
-                    .showTime(getContext())
-                    .done();
+//            map.put("activity",getActivity());
+//            map.put("request",2);
+//            CYRouter.build(binding.path1.getText().toString(),map)
+//                    .showTime(getContext())
+//                    .done();
+            Bundle bundle = new Bundle();
+            bundle.putString("arg","100");
+            map.put("bundle",bundle);
+            CYRouter.build("chunyu://lib/bundle",map).done();
         } else if (v == binding.btnOpen2) {
             CYRouter.build(binding.path2.getText().toString(),
                     "path1", "ss"

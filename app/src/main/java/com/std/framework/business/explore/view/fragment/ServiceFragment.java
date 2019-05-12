@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.std.framework.R;
 import com.std.framework.basic.BaseFragment;
 import com.std.framework.comm.service.MessageByService;
-import com.std.framework.ffmpeg.FFMediaConvert;
 
 /**
  * Description :
@@ -92,7 +91,7 @@ public class ServiceFragment extends BaseFragment implements View.OnClickListene
             case R.id.btn_jni:
                 String src = Environment.getExternalStorageDirectory() + "/audio.amr";
                 String target = Environment.getExternalStorageDirectory() + "/audio.mp3";
-                FFMediaConvert.audioToMp3(src, target);
+//                FFMediaConvert.audioToMp3(src, target);
                 break;
         }
 

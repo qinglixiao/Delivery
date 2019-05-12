@@ -1,5 +1,6 @@
 package com.std.framework;
 
+import android.net.Uri;
 import android.os.SystemClock;
 import android.util.Log;
 
@@ -213,10 +214,18 @@ public class TestMethod {
         }
     }
 
+//    @Test
+//    public  String getDeviceBrand() {
+//        String brand = android.os.Build.BRAND;
+//        return brand;
+//    }
+
     @Test
-    public  String getDeviceBrand() {
-        String brand = android.os.Build.BRAND;
-        return brand;
+    public void uri(){
+        String url = "https://www.hi.com?problemId=123&confirm=true";
+        Uri uri = Uri.parse(url);
+        String toon = uri.getQueryParameter("toonKey");
+        JunitUtil.log(toon);
     }
 
 }
