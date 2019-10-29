@@ -6,6 +6,7 @@ import com.std.framework.assist.JunitUtil;
 import org.junit.Test;
 import org.mockito.Mock;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +90,12 @@ public class ExampleUnitTest {
 
     interface A extends Serializable {
 
+    }
+
+    @Test
+    public void testFile(){
+        File file = new File("../source/a.txt");
+        JunitUtil.log("exist "+file.exists());
     }
 
 }

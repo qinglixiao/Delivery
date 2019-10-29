@@ -99,6 +99,9 @@ def readDependence() {
 }
 
 println 'app absolutePath :' + getProjectDir().absolutePath
+repositories {
+    mavenCentral()
+}
 
 
 
