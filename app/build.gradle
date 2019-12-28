@@ -12,8 +12,7 @@ android {
     }
     defaultConfig {
         applicationId "com.std.framework"
-        versionCode 1
-        versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -45,6 +44,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 
@@ -56,7 +60,7 @@ greendao {
 
 dependencies {
     implementation fileTree(include: '*.jar', dir: 'libs')
-    implementation project(':STDlibrary')
+    implementation project(':STLibrary')
     implementation project(':annotation')
 //    implementation project(':ffmpeg')
     annotationProcessor project(':annotation-compiler')
@@ -69,11 +73,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     implementation depend['rxandroid']
     implementation depend['rxjava']
-    implementation depend['appcompat']
     implementation depend['recyclerview']
     implementation depend['nineoldandroids']
     implementation depend['greendao']
-    implementation 'com.android.support:multidex:1.0.1'
+    implementation depend['STCommon']
+    implementation 'com.android.support:multidex:1.0.3'
 }
 
 task test_demo {
@@ -81,16 +85,16 @@ task test_demo {
 //    readXml()
     readDependence()
 }
-import groovy.util.slurpersupport.GPathResult
-
-def readXml() {
-    File file = projects.project.file("src/main/AndroidManifest.xml")
-    GPathResult result = new XmlSlurper().parse(file)
-    def find = result.depthFirst().find {
-        it['@android:process'] == ":messager"
-    }
-    println(find['@android:name'])
-}
+//import groovy.util.slurpersupport.GPathResult
+//
+//def readXml() {
+//    File file = projects.project.file("src/main/AndroidManifest.xml")
+//    GPathResult result = new XmlSlurper().parse(file)
+//    def find = result.depthFirst().find {
+//        it['@android:process'] == ":messager"
+//    }
+//    println(find['@android:name'])
+//}
 
 def readDependence() {
     project.dependencies {

@@ -1,6 +1,7 @@
 //单元测试库配置
 android {
     defaultConfig {
+        multiDexEnabled true
         //将 AndroidJUnitRunner 设置为 Gradle 项目中的默认测试仪器运行器
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -10,7 +11,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     androidTestImplementation "org.mockito:mockito-android:2.21.0"
-//    testImplementation "org.mockito:mockito-inline:2.21.0"
     testImplementation 'org.powermock:powermock-api-mockito2:1.7.4'
     testImplementation 'org.powermock:powermock-module-junit4:1.7.4'
     testImplementation 'org.powermock:powermock-module-junit4-rule:1.7.4'

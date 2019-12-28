@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LayoutEx">
+        <attr name="hwRatio" format="float" />
+    </declare-styleable>
+    <declare-styleable name="LineWrapLayout">
+        <attr name="spacingHorizontal" format="dimension" />
+        <attr name="spacingVertical" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="TriangleView">
+        <attr name="triangleColor" format="color" />
+        <attr name="rotateDegree" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MaxLinearLayout">
+        <attr name="maxHeight" format="dimension" />
+        <attr name="maxWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="numberpicker">
+        <attr name="startRange" format="integer" />
+        <attr name="endRange" format="integer" />
+        <attr name="defaultValue" format="integer" />
+        <attr name="maxValue" format="integer" />
+        <attr name="wrap" format="boolean" />
+    </declare-styleable>
+
+    <!--TimerCount-->
+    <attr name="TimerCountDown" format="reference" />
+
+    <declare-styleable name="TimerCountDown">
+        <attr name="timerTextSize" format="dimension" />
+        <attr name="timerCellBkg" format="reference|color" />
+        <attr name="timerTextColor" format="color" />
+        <attr name="timerDividerColor" format="color" />
+        <attr name="timerDividerPadding" format="dimension" />
+        <attr name="timerCellPadding" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="PedometerArcView">
+        <attr name="torusWidth" format="dimension" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="processAngle" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CYNumberSwitcher">
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="AudioLengthView">
+        <attr name="audioLen" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CheckableImageView">
+        <attr name="checked" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AutoFeedLineLayout">
+        <attr name="childMargin" format="dimension" />
+        <attr name="maxLines" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="AutoFeedLineLayout2">
+        <attr name="childMargin2" format="dimension" />
+        <attr name="lineMargin" format="dimension" />
+        <attr name="maxLines2" format="integer" />
+    </declare-styleable>
+
+    <!-- IconTextView中的icon资源id -->
+    <declare-styleable name="IconTextView">
+        <attr name="g7_icon" />
+    </declare-styleable>
+
+
+    <!--购物车增减按钮-->
+    <declare-styleable name="IncreaseOrDecreaseButton">
+        <attr name="stepper_min" format="integer" />
+        <attr name="stepper_max" format="integer" />
+        <attr name="stepper_value" format="integer" />
+        <attr name="stepper_step" format="integer" />
+        <attr name="stepper_text" format="string" />
+        <attr name="stepper_mode" format="enum">
+            <enum name="auto" value="0" />
+            <enum name="custom" value="1" />
+        </attr>
+        <attr name="stepper_background" format="color|reference" />
+        <attr name="stepper_buttonBackground" format="color|reference" />
+        <attr name="stepper_contentBackground" format="color|reference" />
+        <attr name="stepper_contentTextColor" format="color" />
+        <attr name="stepper_contentTextSize" format="float" />
+        <attr name="stepper_leftButtonBackground" format="color|reference" />
+        <attr name="stepper_rightButtonBackground" format="color|reference" />
+        <attr name="stepper_leftButtonResources" format="color|reference" />
+        <attr name="stepper_rightButtonResources" format="color|reference" />
+    </declare-styleable>
+
+    <!--滑动后退的属性值-->
+    <declare-styleable name="DragBackLayout">
+        <attr name="edge_size" format="dimension" />
+        <attr name="edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <!--reference表示引用ID-->
+        <attr name="shadow_left" format="reference" />
+        <attr name="shadow_right" format="reference" />
+        <attr name="shadow_bottom" format="reference" />
+    </declare-styleable>
+    <!--用于构造器创建样式-->
+    <attr name="DragBackLayoutStyle" format="reference" />
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="corner_radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="default_image" format="color|reference"/>
+        <attr name="round_background" format="boolean" />
+        <attr name="is_oval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+
+    <declare-styleable name="WheelView">
+        <attr name="wvTextSize" format="dimension" />
+        <attr name="wvTextColor" format="color" />
+        <attr name="wvTextPadding" format="dimension" />
+        <attr name="wvTextMaxScale" format="float" />
+        <attr name="wvTextMinAlpha" format="float" />
+        <attr name="wvRecycleMode" format="boolean" />
+        <attr name="wvMaxShowNum" format="integer" />
+    </declare-styleable>
+
+    <!--下划线导航-->
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="item_count" format="integer" />
+        <attr name="item_default_text_color" format="integer" />
+        <attr name="item_selected_text_color" format="integer" />
+        <attr name="item_indicator_color" format="integer" />
+        <attr name="item_indicator_text_size" format="integer" />
+    </declare-styleable>
+
+
+</resources>

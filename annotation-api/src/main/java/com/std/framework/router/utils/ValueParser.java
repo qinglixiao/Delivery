@@ -1,7 +1,5 @@
 package com.std.framework.router.utils;
 
-import android.text.TextUtils;
-
 import com.std.framework.router.ParamsWrapper;
 import com.std.framework.router.exceptions.ValueParseException;
 
@@ -18,6 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  * Description:
  * Author: lixiao
@@ -29,9 +28,7 @@ import java.util.Map;
 public class ValueParser {
 
     public static Object parse(Object arg, String expectedType) throws ValueParseException {
-        if (TextUtils.isEmpty(expectedType) || arg == null) {
-            return arg;
-        } else if ("int".equals(expectedType) || "java.lang.Integer".equals(expectedType)) {
+        if ("int".equals(expectedType) || "java.lang.Integer".equals(expectedType)) {
             arg = toInteger(arg, 0);
         } else if ("float".equals(expectedType) || "java.lang.Float".equals(expectedType)) {
             arg = toFloat(arg, 0f);
@@ -282,12 +279,17 @@ public class ValueParser {
     }
 
     private static Object toTargetObj(Object from, String expectType) throws ValueParseException {
-        if (from instanceof String || from instanceof JSONObject) {
+        if (from == null) {
+            return from;
+        }
+        if (from instanceof String) {
+            return from;
+        } else if (from instanceof JSONObject) {
             from = parseJsonToTarget(from, expectType);
         } else if (from instanceof Map) {
             from = parseMapToTarget(from, expectType);
         } else if (!expectType.equalsIgnoreCase(from.getClass().getCanonicalName())) {
-            from = parseObjToTarget(from, expectType);
+//            from = parseObjToTarget(from, expectType);
         }
         return from;
     }
@@ -368,12 +370,11 @@ public class ValueParser {
     }
 
     private static boolean isInherit(Class<?> from, String parentType) {
-        while (from != null) {
-            if (from.getCanonicalName().equals(parentType)) {
-                return true;
-            } else {
-                from = from.getSuperclass();
-            }
+        try {
+            return Class.forName(parentType).isAssignableFrom(from);
+        } catch (ClassNotFoundException e) {
+        } catch (Exception e) {
+
         }
         return false;
     }

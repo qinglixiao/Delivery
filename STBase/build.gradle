@@ -1,0 +1,11 @@
+apply plugin: 'com.android.library'
+apply from: '../unit_test_script.gradle'
+apply from: '../comm.gradle'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api depend['STCommon']
+    implementation depend['gson']
+    implementation depend['v4']
+    implementation depend['STNetwork']
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="211dp"
+    android:layout_height="169dp"
+    android:background="@drawable/share_mini_bg">
+
+    <TextView
+        android:id="@+id/tv_doctor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen15"
+        android:layout_marginTop="37dp"
+        android:textColor="@color/A9"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="哈哈哈" />
+
+    <me.chunyu.common.view.RoundedImageView
+        android:id="@+id/iv_img_doctor"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="18dp"
+        app:corner_radius="28dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_des_topic"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="@dimen/dimen15"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="3"
+        android:textColor="@color/A9"
+        android:textSize="13dp"
+        tools:text="测试的话题测试的话题合唱的话题安抚测试的话题测试的话题合唱的话题安抚测试的话题测试的话题合唱的话题安抚" />
+
+    <ImageView
+        android:id="@+id/iv_share_bg_default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/share_mini_bg_default"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

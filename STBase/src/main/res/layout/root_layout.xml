@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!--系统默认标题栏-->
+    <FrameLayout
+        android:id="@+id/v_app_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <me.chunyu.cybase.view.EmptyView
+        android:id="@+id/v_base_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</LinearLayout>

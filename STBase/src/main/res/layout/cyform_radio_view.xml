@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/A9"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+    android:paddingTop="17dp"
+    android:background="@color/A9"
+    android:paddingBottom="17dp">
+
+    <TextView
+        android:id="@+id/cy_form_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        tools:text="性别"
+        android:textColor="@color/text_black_2"
+        android:textSize="14sp"/>
+
+    <RadioGroup
+        android:id="@+id/cy_form_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/cy_form_radio_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radio_button"
+            android:paddingLeft="10dp"
+            tools:text="男"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"/>
+
+        <RadioButton
+            android:id="@+id/cy_form_radio_v2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:button="@drawable/radio_button"
+            android:paddingLeft="10dp"
+            tools:text="女"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"/>
+    </RadioGroup>
+
+</RelativeLayout>
+
+<View
+android:id="@+id/cy_form_separator"
+android:background="@color/A16"
+android:layout_width="match_parent"
+android:layout_height="@dimen/dimen1"/>
+    </LinearLayout>

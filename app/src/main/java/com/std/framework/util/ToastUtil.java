@@ -2,8 +2,6 @@ package com.std.framework.util;
 
 import android.widget.Toast;
 
-import com.std.framework.basic.App;
-
 /**
  * Description:
  * Created by 李晓 ON 2016/12/8.

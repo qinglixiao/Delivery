@@ -1,5 +1,7 @@
 package com.std.framework.router;
 
+import org.json.JSONObject;
+
 import java.util.Map;
 
 /**
@@ -17,14 +19,8 @@ public class CYRouter {
         return new CPromise<>(promise);
     }
 
-    public static <T> CPromise<T> build(String url, String paramJson) {
+    public static <T> CPromise<T> build(String url, JSONObject paramJson) {
         Promise promise = new Promise(new Ask(url, paramJson));
-        return new CPromise(promise);
-    }
-
-    //params->(String key,Object value)
-    public static <T> CPromise<T> build(String url, Object... params) {
-        Promise promise = new Promise(new Ask(url, params));
         return new CPromise(promise);
     }
 
@@ -38,13 +34,18 @@ public class CYRouter {
         return new CPromise<>(promise);
     }
 
-    public static <T> CPromise<T> build(String schema, String host, String path, String paramJson) {
+    public static <T> CPromise<T> build(String schema, String host, String path, JSONObject paramJson) {
         Promise promise = new Promise(new Ask(schema, host, path, paramJson));
         return new CPromise<>(promise);
     }
 
     public static <T> CPromise<T> build(String schema, String host, String path, Map<String, Object> paramMap) {
         Promise promise = new Promise(new Ask(schema, host, path, paramMap));
+        return new CPromise<>(promise);
+    }
+
+    public static <T> CPromise<T> build(String schema, String host, String path, Object... params) {
+        Promise promise = new Promise(new Ask(schema, host, path, params));
         return new CPromise<>(promise);
     }
 

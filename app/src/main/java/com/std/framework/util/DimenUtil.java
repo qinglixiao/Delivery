@@ -2,8 +2,6 @@ package com.std.framework.util;
 
 import android.util.TypedValue;
 
-import com.std.framework.basic.App;
-
 /**
  * Description :
  * Author:       lx

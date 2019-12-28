@@ -198,25 +198,25 @@ public class TestAnnotation {
 
     @Test
     public void testKeyValue() throws UnsupportedEncodingException {
-        List<Input> param = new ArrayList();
-        param.add(new Input());
-        param.add(new Input());
-        CYRouter.build("chunyu://business/listGene"
-                , "n", 100
-                , "arg", new Gson().toJson(param))
-                .done(new Resolve<List<Input>>() {
-
-                    @Override
-                    public void call(List<Input> data) {
-                        System.out.println();
-                    }
-
-                }, new Capture() {
-                    @Override
-                    public void exception(Exception ex) {
-                        System.out.println(ex.getMessage());
-                    }
-                });
+//        List<Input> param = new ArrayList();
+//        param.add(new Input());
+//        param.add(new Input());
+//        CYRouter.build("chunyu://business/listGene"
+//                , "n", 100
+//                , "arg", new Gson().toJson(param))
+//                .done(new Resolve<List<Input>>() {
+//
+//                    @Override
+//                    public void call(List<Input> data) {
+//                        System.out.println();
+//                    }
+//
+//                }, new Capture() {
+//                    @Override
+//                    public void exception(Exception ex) {
+//                        System.out.println(ex.getMessage());
+//                    }
+//                });
 
     }
 

@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.std.framework.basic.App;
 import com.std.framework.util.AppUtil;
 import com.std.framework.util.DimenUtil;
 

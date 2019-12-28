@@ -73,9 +73,9 @@ public class ExampleUnitTest {
 
     @Test
     public void testMock() {
-        List list = mock(List.class);
-        list.add(1);
-        verify(list).add(2);
+//        List list = mock(List.class);
+////        list.add(1);
+////        verify(list).add(2);
     }
 
     @Test

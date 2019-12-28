@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dimen15"
+        android:layout_marginTop="@dimen/dimen7"
+        android:layout_marginBottom="@dimen/dimen7"
+        android:layout_weight="1"
+        android:background="@drawable/round_search"
+        android:paddingLeft="@dimen/dimen13">
+
+        <EditText
+            android:id="@+id/edt_search_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dimen8"
+            android:layout_marginBottom="@dimen/dimen8"
+            android:layout_toLeftOf="@+id/img_search_del"
+            android:background="#00000000"
+            android:drawableLeft="@drawable/icon_search"
+            android:drawablePadding="@dimen/dimen8"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="@color/A3"
+            android:textColorHint="@color/A5"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/img_search_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="@dimen/dimen2"
+            android:paddingTop="@dimen/dimen8"
+            android:paddingRight="@dimen/dimen7"
+            android:paddingBottom="@dimen/dimen8"
+            android:src="@drawable/icon_del" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="@dimen/dimen9"
+        android:paddingRight="@dimen/dimen15"
+        android:paddingTop="@dimen/dimen7"
+        android:paddingBottom="@dimen/dimen7"
+        android:text="取消"
+        android:textColor="@color/A17"
+        android:textSize="14sp" />
+
+</LinearLayout>

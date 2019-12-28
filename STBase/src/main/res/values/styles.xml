@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--默认带状态icon的toast的tip样式-->
+    <style name="CYToastTip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/A9</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:layout_marginBottom">@dimen/dimen10</item>
+        <item name="android:maxWidth">@dimen/dimen246</item>
+        <item name="android:paddingLeft">@dimen/dimen12</item>
+        <item name="android:paddingRight">@dimen/dimen12</item>
+    </style>
+
+    <!--默认loading提示语的样式-->
+    <style name="CYLoadingTip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dimen10</item>
+        <item name="android:text">@string/default_loading_tip</item>
+        <item name="android:textColor">@color/A4</item>
+        <item name="android:textSize">@dimen/text_size_15</item>
+    </style>
+
+    <!-- Widget -->
+    <style name="Widget" />
+
+    <!--832统一并重新定义了默认loading的样式-->
+    <style name="Widget.CYProgressBar">
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">3500</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_bar_default_loading</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:minWidth">20dip</item>
+        <item name="android:maxHeight">240dip</item>
+        <item name="android:maxWidth">240dip</item>
+    </style>
+
+    <!--loadding 框样式-->
+    <style name="CYLoaddingDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+</resources>

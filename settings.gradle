@@ -1,2 +1,2 @@
-include ':STDlibrary', ':app', ':annotation-compiler', ':annotation-api', ':StdPlugin', ':annotation', ':STDNetwork'
+include ':STLibrary', ':app', ':annotation-compiler', ':annotation-api', ':annotation', ':STNetwork', ':STBase', ':STCommon', ':STDb'
 

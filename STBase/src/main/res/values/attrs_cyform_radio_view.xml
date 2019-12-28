@@ -1,0 +1,8 @@
+<resources>
+    <declare-styleable name="CYFormRadioView">
+
+        <attr name="radioIconTextSpace" format="dimension" />
+        <attr name="radioButtonSpace" format="dimension" />
+
+    </declare-styleable>
+</resources>

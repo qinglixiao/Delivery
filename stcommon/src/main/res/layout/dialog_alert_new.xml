@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:id="@+id/cy_alert_dialog"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/dialog_alert_new_background"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dimen8"
+        android:paddingLeft="@dimen/dimen20"
+        android:paddingRight="@dimen/dimen20"
+        android:paddingTop="@dimen/dimen20">
+
+        <!--提示窗标题-->
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="6dp"
+            android:text="健康助手"
+            android:textColor="@color/A2"
+            android:textSize="@dimen/dimen17"
+            android:textStyle="bold" />
+
+        <!--提示窗内容-->
+        <TextView
+            android:id="@+id/dialog_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="3dp"
+            android:text="关闭将导致无法显示计步、睡眠和通知栏提醒"
+            android:textColor="@color/A3"
+            android:textSize="@dimen/dimen16"
+            tools:text="关闭将导致无法显示计步关闭,关闭将导致无法显示计步关闭,关闭将导致无法显示计步关闭" />
+
+        <!--提示窗按钮栏-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen18">
+
+            <TextView
+                android:id="@+id/positive_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/selector_white_and_gray"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="@dimen/dimen10"
+                android:text="保持开启"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/dimen15"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/negative_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/positive_button"
+                android:background="@drawable/selector_white_and_gray"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="@dimen/dimen10"
+                android:text="坚持关闭"
+                android:textColor="@color/A3"
+                android:textSize="@dimen/dimen15"
+                android:visibility="visible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

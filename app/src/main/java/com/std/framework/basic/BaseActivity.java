@@ -7,12 +7,13 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.library.comm.RuntimePermissions;
 import com.std.framework.comm.clazz.STDActivityManager;
 import com.std.framework.comm.clazz.STDFragmentManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import me.std.common.config.RuntimePermissions;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 0x1000;

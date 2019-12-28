@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="@dimen/dimen20"
+    android:layout_marginRight="@dimen/dimen20"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:background="@color/A9">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/toast_layout_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dimen10">
+
+        <ImageView
+            android:id="@+id/toast_status_icon"
+            style="@style/CYToastIcon"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/toast_tip"
+            style="@style/CYToastTip"
+            tools:text="测试内容测试\n内容测试内容测试内容测试内容测试内容测试内容" />
+    </LinearLayout>
+
+    <!--外面的LinearLayout的margin在设置Gravity.Botton时失效，用占位view代替-->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen70" />
+</LinearLayout>

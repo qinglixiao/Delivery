@@ -4,7 +4,6 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.view.View;
 
-import com.library.util.FileUtil;
 import com.std.framework.R;
 import com.std.framework.comm.view.BottomPopContainer;
 import com.std.framework.core.GlobalConfig;
@@ -13,6 +12,8 @@ import com.std.framework.core.VoiceRecordHelper;
 import com.std.framework.databinding.RecordVoiceBinding;
 
 import java.io.File;
+
+import me.std.common.utils.FileUtil;
 
 /**
  * Description :
@@ -65,7 +66,7 @@ public class RecordVoiceDialog implements View.OnClickListener {
     private void beginRecording() {
         //创建本地文件
         String voiceName = generateName();
-        recordFile = FileUtil.create(voiceName);
+        recordFile = FileUtil.newFile(voiceName);
         if (recordFile != null) {
             recordHelper.startVoiceRecord(voiceName);
         }

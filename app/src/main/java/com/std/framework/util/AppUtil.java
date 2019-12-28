@@ -9,8 +9,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 
-import com.std.framework.basic.App;
-
 import java.io.File;
 
 public class AppUtil {

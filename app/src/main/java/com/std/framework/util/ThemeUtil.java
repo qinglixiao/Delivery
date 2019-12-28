@@ -7,11 +7,9 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.annotation.DrawableRes;
 import android.util.StateSet;
 
 import com.std.framework.R;
-import com.std.framework.basic.App;
 
 import java.util.WeakHashMap;
 

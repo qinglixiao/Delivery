@@ -1,0 +1,26 @@
+<resources>
+    <declare-styleable name="CYFormItemView">
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="valueTextSize" format="dimension" />
+
+        <attr name="titleColor" format="color" />
+        <attr name="valueColor" format="color" />
+        <attr name="hintColor" format="color" />
+
+        <attr name="showArrow" format="boolean" />
+        <attr name="showSeparator" format="boolean" />
+        <attr name="separatorLeft" format="dimension"/>
+        <attr name="separatorRight" format="dimension"/>
+        <attr name="editable" format="boolean" />
+
+        <attr name="alignValueLeft" format="boolean" />
+
+        <attr name="titleWidth" format="dimension" />
+
+        <attr name="title" format="string"/>
+        <attr name="value" format="string"/>
+        <attr name="hint" format="string"/>
+
+        <attr name="formItemIcon" format="reference|color"/>
+    </declare-styleable>
+</resources>

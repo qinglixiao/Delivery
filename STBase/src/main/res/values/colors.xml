@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="A1">#39d167</color>
+    <color name="A2">#333333</color>
+    <color name="A3">#666666</color>
+    <color name="A4">#999999</color>
+    <color name="A5">#c2c2c2</color>
+    <color name="A6">#fbfbfb</color>
+    <color name="A7">#eeeeee</color>
+    <color name="A8">#f4f4f4</color>
+    <color name="A9">#ffffff</color>
+    <color name="A10">#ff0000</color>
+    <color name="A11">#ff6134</color>
+    <color name="A14">#ffa800</color>
+    <color name="A15">#00bf3a</color>
+    <color name="A16">#eeeeee</color>
+    <color name="A17">#7ac762</color>
+    <color name="A18">#ff6666</color>
+    <color name="A19">#FCFCFC</color>
+    <color name="A20">#F6F6F6</color>
+    <color name="A21">#5DC97C</color>
+    <color name="A22">#B3B3B3</color>
+
+    <color name="transparent">#00000000</color>
+</resources>

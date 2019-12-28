@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="136dp"
+    android:layout_height="150dp">
+
+    <me.chunyu.cycommon.view.WebImageView
+        android:id="@+id/iv_share_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/share_send_heart_circle" />
+
+    <me.chunyu.cycommon.view.CircleImageView
+        android:id="@+id/iv_share_qrcode"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/dimen25"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/shape_share_qrbg" />
+
+
+</RelativeLayout>

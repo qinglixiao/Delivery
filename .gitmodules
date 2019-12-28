@@ -1,3 +1,3 @@
-[submodule "STDlibrary"]
-	path = STDlibrary
+[submodule "STLibrary"]
+	path = STLibrary
 	url = git@github.com:qinglixiao/STDlibrary.git

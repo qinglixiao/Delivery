@@ -3,7 +3,6 @@ package com.std.framework.business.login.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.library.core.ThreadPool;
 import com.std.framework.R;
 import com.std.framework.basic.BaseActivity;
 import com.std.framework.business.login.view.fragment.GuideFragment;
@@ -12,6 +11,8 @@ import com.std.framework.comm.clazz.STDActivityManager;
 import com.std.framework.comm.clazz.STDFragmentManager;
 import com.std.framework.core.Logger;
 import com.std.framework.util.SharedPreferencesUtil;
+
+import me.std.common.core.ThreadPool;
 
 public class LaunchActivity extends BaseActivity {
 

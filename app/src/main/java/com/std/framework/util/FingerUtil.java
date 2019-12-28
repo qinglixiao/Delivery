@@ -4,8 +4,6 @@ import android.app.KeyguardManager;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v4.os.CancellationSignal;
 
-import com.std.framework.basic.App;
-
 /**
  *
  * 设备条件判断

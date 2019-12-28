@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--默认带状态icon的toast的icon样式-->
+    <style name="CYToastIcon">
+        <item name="android:layout_width">@dimen/dimen43</item>
+        <item name="android:layout_height">@dimen/dimen43</item>
+        <item name="android:layout_marginBottom">@dimen/dimen9</item>
+        <item name="android:layout_marginLeft">@dimen/dimen39</item>
+        <item name="android:layout_marginRight">@dimen/dimen39</item>
+        <item name="android:src">@drawable/toast_status_succeded</item>
+    </style>
+
+    <!--默认带状态icon的toast的tip样式-->
+    <style name="CYToastTip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/A9</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:layout_marginBottom">@dimen/dimen10</item>
+        <item name="android:maxWidth">@dimen/dimen246</item>
+        <item name="android:paddingLeft">@dimen/dimen12</item>
+        <item name="android:paddingRight">@dimen/dimen12</item>
+    </style>
+
+    <style name="Widget.Dialog.Theme" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="Widget.Dialog.Theme.Floating" parent="Widget.Dialog.Theme">
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="Widget.Dialog.Animation.Slide" parent="android:Theme.Dialog">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+    <!-- Widget -->
+    <style name="Widget"></style>
+
+    <style name="Widget.ProgressBar.WebView" parent="Widget">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progress_webview_horizontal</item>
+        <item name="android:maxHeight">5dp</item>
+        <item name="android:minHeight">2dp</item>
+    </style>
+
+    <style name="AnimationPicker" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+    <style name="Dialog.NoTitle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimationPicker</item>
+        <!--<item name="android:backgroundDimEnabled">false</item>-->
+    </style>
+
+    <style name="Widget.ProgressBar.ListViewHeader" parent="Widget.CYProgressBar">
+        <item name="android:indeterminateDuration">2000</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_bar_list_view_header</item>
+        <item name="android:maxHeight">40dip</item>
+        <item name="android:maxWidth">40dip</item>
+        <item name="android:minHeight">15dip</item>
+        <item name="android:minWidth">15dip</item>
+    </style>
+
+    <!--832统一并重新定义了默认loading的样式-->
+    <style name="Widget.CYProgressBar">
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:indeterminateDuration">3500</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_bar_default_loading</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:minWidth">20dip</item>
+        <item name="android:maxHeight">240dip</item>
+        <item name="android:maxWidth">240dip</item>
+    </style>
+
+    <style name="cyChoiceDialogTheme" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+</resources>

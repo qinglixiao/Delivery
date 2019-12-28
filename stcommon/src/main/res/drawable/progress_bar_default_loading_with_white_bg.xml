@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--带白色背景的loading-->
+    <item android:drawable="@drawable/loading_flower"></item>
+
+    <item
+        android:bottom="@dimen/dimen10"
+        android:left="@dimen/dimen10"
+        android:right="@dimen/dimen10"
+        android:top="@dimen/dimen10">
+
+        <rotate
+            android:drawable="@drawable/progress_default_loading"
+            android:fromDegrees="0"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:toDegrees="360"></rotate>
+
+    </item>
+
+</layer-list>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- server和ssl以及main_host需要严格对称-->
+    <string-array name="servers">
+        <item>https://biztest.chunyu.me</item>
+        <item>https://api.chunyuyisheng.com</item>
+        <item>https://devtest.chunyu.me</item>
+
+    </string-array>
+
+    <string-array name="ssls">
+        <item>https://biztest.chunyu.me</item>
+        <item>https://api.chunyuyisheng.com</item>
+        <item>https://devtest.chunyu.me</item>
+    </string-array>
+
+    <string-array name="main_host">
+        <item>@string/test_main_host</item>
+        <item>@string/online_main_host</item>
+        <item>@string/dev_host</item>
+    </string-array>
+</resources>

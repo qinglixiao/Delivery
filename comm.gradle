@@ -6,3 +6,14 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
     }
 }
+
+dependencies {
+    implementation depend['appcompat']
+    implementation depend['recyclerview']
+    implementation depend['cyrouterAnnotation']
+    implementation depend['cyrouterApi']
+    implementation depend['rxandroid']
+    implementation depend['rxjava']
+    implementation depend['constraint']
+    implementation depend['butterknife']
+}
