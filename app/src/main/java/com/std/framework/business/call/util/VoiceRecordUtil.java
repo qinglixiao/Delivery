@@ -8,10 +8,10 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 import android.text.TextUtils;
 
-import com.std.framework.core.Logger;
-
 import java.io.File;
 import java.io.IOException;
+
+import me.std.common.utils.Logger;
 
 /**
  * Description :
@@ -42,7 +42,7 @@ public class VoiceRecordUtil {
         mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
             @Override
             public void onAudioFocusChange(int focusChange) {
-                Logger.m("Audio Focus Change=" + focusChange);
+                Logger.d("Audio Focus Change=" + focusChange);
                 // 暂时失去了音频焦点，但很快会重新得到焦点
                 if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) {
                     // 你已经得到焦点了

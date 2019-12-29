@@ -1,12 +1,11 @@
 package com.std.framework.comm.net;
 
 import com.std.framework.comm.net.basic.ToStringConverterFactory;
-import com.std.framework.core.Logger;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.Headers;
+import me.std.common.utils.Logger;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;

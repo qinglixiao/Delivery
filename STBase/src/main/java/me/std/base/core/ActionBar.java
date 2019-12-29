@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import me.std.base.R;
 import me.std.common.utils.AppContextUtil;
-import me.std.common.utils.LogUtil;
+import me.std.common.utils.Logger;
 import me.std.common.utils.ViewUtil;
 
 /**
@@ -84,7 +84,7 @@ public class ActionBar {
             vBack.setCompoundDrawablesWithIntrinsicBounds(res.getDrawable(d_back), null, null, null);
 
         } catch (Exception ex) {
-            LogUtil.e("lx", ex.getMessage());
+            Logger.e("lx", ex.getMessage());
         }
 
     }

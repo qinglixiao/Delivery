@@ -40,4 +40,32 @@ public class VersionInfo {
         return version_name;
     }
 
+    /**
+     * 版本号比较
+     *
+     * @param version1
+     * @param version2
+     * @return version1 > version2 -> 1
+     * versoin1 < verison2 -> -1
+     * version1 = verion2 -> 0
+     */
+    public static int compare(String version1, String version2) {
+        String[] v1 = version1.split("\\.");
+        String[] v2 = version2.split("\\.");
+
+        int m = v1.length;
+        int n = v2.length;
+
+        for (int i = 0; i < Math.max(m, n); i++) {
+            int num1 = i < m ? Integer.valueOf(v1[i]) : 0;
+            int num2 = i < n ? Integer.valueOf(v2[i]) : 0;
+
+            if (num1 != num2) {
+                return num1 > num2 ? 1 : -1;
+            }
+        }
+
+        return 0;
+    }
+
 }

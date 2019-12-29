@@ -14,13 +14,14 @@ ext {
             gson              : 'com.google.code.gson:gson:2.7',
             design            : 'com.android.support:design:28.0.0',
             okhttp            : 'com.squareup.okhttp3:okhttp:3.9.1',
+            multidex          : 'com.android.support:multidex:1.0.3',
 
             STCommon          : project(':STCommon'),
             STNetwork         : project(':STNetwork'),
             cyrouterAnnotation: project(':annotation'),
             cyrouterCompiler  : project(':annotation-compiler'),
             cyrouterApi       : project(':annotation-api'),
-
+            STLibrary         : project(':STLibrary'),
     ]
 
     android = [

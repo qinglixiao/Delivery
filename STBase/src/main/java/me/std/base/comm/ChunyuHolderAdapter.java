@@ -14,7 +14,7 @@ import me.std.base.base.BaseViewHolder;
 import me.std.base.base.ChunyuListAdapter;
 import me.std.common.core.Reflect;
 import me.std.common.exception.ReflectException;
-import me.std.common.utils.LogUtil;
+import me.std.common.utils.Logger;
 
 /**
  * Description:
@@ -105,7 +105,7 @@ public class ChunyuHolderAdapter<T> extends ChunyuListAdapter<T> {
                             .call("inflater", getContext(), parent)
                             .get();
                 } catch (ReflectException e) {
-                    LogUtil.e("reflect", e.getMessage());
+                    Logger.e("reflect", e.getMessage());
                 }
             }
 

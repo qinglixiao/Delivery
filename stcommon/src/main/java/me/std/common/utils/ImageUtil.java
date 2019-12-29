@@ -620,7 +620,7 @@ public class ImageUtil {
         if (TextUtils.isEmpty(tip)) {
             tip = "图片URL : ";
         }
-        LogUtil.e(tag, tip + url);
+        Logger.e(tag, tip + url);
     }
 
     /**

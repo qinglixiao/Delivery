@@ -268,7 +268,6 @@ public class FileUtil {
             outputStream = new FileOutputStream(file);
             outputStream.write(content.getBytes());
         } catch (IOException ignored) {
-            LogUtil.v("CY_FILE", "saveStringToFile", ignored);
 
         } finally {
             closeSafely(outputStream);
@@ -287,13 +286,10 @@ public class FileUtil {
             outputStream = new FileOutputStream(file, true);
             outputStream.write(content.getBytes());
         } catch (IOException ignored) {
-            LogUtil.v("CY_FILE", "saveStringToFile", ignored);
-
         } finally {
             closeSafely(outputStream);
         }
     }
-
 
     public static boolean removeFile(File file) {
         if (file == null || !file.exists()) {

@@ -4,12 +4,12 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 
-import com.std.framework.core.Logger;
 import com.std.framework.util.AppUtil;
 
 import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.database.DatabaseOpenHelper;
 
+import me.std.common.utils.Logger;
 import table.DaoMaster;
 import table.DaoSession;
 

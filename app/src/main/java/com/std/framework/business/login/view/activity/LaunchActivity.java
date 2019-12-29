@@ -7,12 +7,11 @@ import com.std.framework.R;
 import com.std.framework.basic.BaseActivity;
 import com.std.framework.business.login.view.fragment.GuideFragment;
 import com.std.framework.business.home.view.activity.MainTabActivity;
-import com.std.framework.comm.clazz.STDActivityManager;
 import com.std.framework.comm.clazz.STDFragmentManager;
-import com.std.framework.core.Logger;
 import com.std.framework.util.SharedPreferencesUtil;
 
 import me.std.common.core.ThreadPool;
+import me.std.common.utils.Logger;
 
 public class LaunchActivity extends BaseActivity {
 
@@ -27,13 +26,6 @@ public class LaunchActivity extends BaseActivity {
         } else
             ThreadPool.postDelay(waiting, 1000);
         Logger.d("LX","LaunchActivity-onCreate");
-    }
-
-    @Override
-    protected void onDestroy() {
-        // TODO Auto-generated method stub
-        super.onDestroy();
-        STDActivityManager.getInstance().remove(this);
     }
 
     private Runnable waiting = new Runnable() {

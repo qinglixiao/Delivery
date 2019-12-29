@@ -7,7 +7,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.std.framework.comm.clazz.STDActivityManager;
 import com.std.framework.comm.clazz.STDFragmentManager;
 
 import java.util.ArrayList;
@@ -25,8 +24,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public BaseActivity() {
         FragmentManager = STDFragmentManager.getInstance(this);
-        /**添加activity到栈*/
-        STDActivityManager.getInstance().add(this);
     }
 
     @Override
@@ -34,14 +31,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         super.onCreate(arg0);
         permissionRequest();
-    }
-
-    @Override
-    protected void onDestroy() {
-        // TODO Auto-generated method stub
-        /**销毁栈信息*/
-        STDActivityManager.getInstance().remove(this);
-        super.onDestroy();
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

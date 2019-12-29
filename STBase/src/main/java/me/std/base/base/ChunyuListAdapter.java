@@ -11,7 +11,7 @@ import java.util.List;
 import me.std.base.R;
 import me.std.common.core.Reflect;
 import me.std.common.exception.ReflectException;
-import me.std.common.utils.LogUtil;
+import me.std.common.utils.Logger;
 
 /**
  * Description:
@@ -105,7 +105,7 @@ public abstract class ChunyuListAdapter<T> extends BaseAdapter {
                         .call("inflater", mContext, parent)
                         .get();
             } catch (ReflectException e) {
-                LogUtil.e("reflect", e.getMessage());
+                Logger.e("reflect", e.getMessage());
             }
         }
 

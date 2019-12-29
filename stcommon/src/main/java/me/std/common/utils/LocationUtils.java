@@ -24,7 +24,7 @@ import com.amap.api.location.AMapLocationListener;
  */
 public class LocationUtils {
 
-    private static final String LOG_TAG = "DEBUG-WCL: " + LocationUtils.class.getSimpleName();
+    private static final String LOG_TAG = "debug-WCL: " + LocationUtils.class.getSimpleName();
 
     private static final String PREF_KEY_LOCATION_LATITUDE =
             LocationUtils.class.getSimpleName() + "_latitude";

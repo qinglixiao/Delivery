@@ -45,7 +45,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.core.Logger;
+
+import me.std.common.utils.Logger;
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
     public interface IconTabProvider {
@@ -380,8 +381,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             currentPosition = position;
             currentPositionOffset = positionOffset;
-            Logger.m("position " + position + "   positionOffset " + positionOffset + "  positionOffsetPixels " + positionOffsetPixels);
-            Logger.m("length " + (int) (positionOffset * tabsContainer.getChildAt(position).getWidth()));
+            Logger.d("position " + position + "   positionOffset " + positionOffset + "  positionOffsetPixels " + positionOffsetPixels);
+            Logger.d("length " + (int) (positionOffset * tabsContainer.getChildAt(position).getWidth()));
             scrollToChild(position, (int) (positionOffset * tabsContainer.getChildAt(position).getWidth()));
 
             invalidate();

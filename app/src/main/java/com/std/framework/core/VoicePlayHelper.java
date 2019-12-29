@@ -15,6 +15,8 @@ import com.std.framework.util.ToastUtil;
 
 import java.io.File;
 
+import me.std.common.utils.Logger;
+
 /**
  * Description:
  * Created by 李晓 ON 2016/12/8.

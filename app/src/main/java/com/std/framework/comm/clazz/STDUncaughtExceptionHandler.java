@@ -1,8 +1,8 @@
 package com.std.framework.comm.clazz;
 
-import com.std.framework.core.Logger;
-
 import java.lang.Thread.UncaughtExceptionHandler;
+
+import me.std.common.utils.Logger;
 
 
 public class STDUncaughtExceptionHandler extends Exception implements UncaughtExceptionHandler {
