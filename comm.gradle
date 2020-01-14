@@ -14,8 +14,8 @@ android {
 dependencies {
     implementation depend['appcompat']
     implementation depend['recyclerview']
-    implementation depend['cyrouterAnnotation']
-    implementation depend['cyrouterApi']
+    implementation depend['routerAnnotation']
+    implementation depend['routerApi']
     implementation depend['rxandroid']
     implementation depend['rxjava']
     implementation depend['constraint']

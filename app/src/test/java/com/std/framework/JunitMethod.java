@@ -1,7 +1,5 @@
 package com.std.framework;
 
-import android.net.Uri;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.library.core.Reflect;
@@ -544,6 +542,11 @@ public class JunitMethod {
         int flag = FLAG_RETURN_SUB_THREAD | FLAG_RETURN_MAIN_THREAD;
 
         JunitUtil.print(flag & FLAG_RETURN_SUB_THREAD);
+    }
+
+    @Test
+    public void testGson(){
+        System.out.println(new Gson().fromJson("afdsfad",String.class));
     }
 
 }

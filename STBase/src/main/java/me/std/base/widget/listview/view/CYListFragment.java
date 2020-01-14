@@ -94,13 +94,7 @@ public abstract class CYListFragment<P> extends ChunyuFragment implements CYList
 
     @Override
     public void showNoMoreData() {
-        ThreadPool.postDelay(new Runnable() {
-            @Override
-            public void run() {
-                mPullRefreshListView.onRefreshComplete();
-            }
-        }, 10);
-
+        mPullRefreshListView.onRefreshComplete();
         ToastUtil.getInstance().showToast("没有更多数据");
     }
 

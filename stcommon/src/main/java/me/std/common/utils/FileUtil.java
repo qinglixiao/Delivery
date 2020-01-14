@@ -159,6 +159,16 @@ public class FileUtil {
     }
 
     /**
+     * 网络请求缓存
+     * /storage/emulated/0/Android/data/com.std.framework/files/http
+     *
+     * @return
+     */
+    public static File getOkHttpCacheFile() {
+        return createCacheDir("http");
+    }
+
+    /**
      * 地址：
      * /storage/emulated/0/Android/data/com.std.framework/files/${name}
      *

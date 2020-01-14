@@ -1,6 +1,6 @@
 package com.std.framework.assist;
 
-import com.std.framework.core.Logger;
+import me.std.common.utils.Logger;
 
 /**
  * Description:

@@ -44,13 +44,13 @@ greendao {
 dependencies {
     implementation fileTree(include: '*.jar', dir: 'libs')
     implementation depend['STLibrary']
-    implementation depend['cyrouterAnnotation']
-    implementation depend['cyrouterApi']
+    implementation depend['routerAnnotation']
+    implementation depend['routerApi']
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation('com.squareup.okhttp3:logging-interceptor:3.4.1')
     implementation depend['rxandroid']
     implementation depend['rxjava']
     implementation depend['recyclerview']
@@ -58,7 +58,13 @@ dependencies {
     implementation depend['greendao']
     implementation depend['STCommon']
     implementation depend['multidex']
-    annotationProcessor depend['cyrouterCompiler']
+    implementation depend['STNetwork']
+    annotationProcessor depend['routerCompiler']
+
+}
+
+configurations.all {
+    resolutionStrategy.force 'com.squareup.okhttp3:okhttp:3.9.1'
 }
 
 //import groovy.util.slurpersupport.GPathResult

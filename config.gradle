@@ -18,9 +18,9 @@ ext {
 
             STCommon          : project(':STCommon'),
             STNetwork         : project(':STNetwork'),
-            cyrouterAnnotation: project(':annotation'),
-            cyrouterCompiler  : project(':annotation-compiler'),
-            cyrouterApi       : project(':annotation-api'),
+            routerAnnotation  : project(':annotation'),
+            routerCompiler    : project(':annotation-compiler'),
+            routerApi         : project(':annotation-api'),
             STLibrary         : project(':STLibrary'),
     ]
 

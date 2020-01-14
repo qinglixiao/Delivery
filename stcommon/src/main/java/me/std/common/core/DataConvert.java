@@ -9,12 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import me.std.common.utils.Logger;
 
 /**
  * Description:
@@ -27,23 +30,27 @@ import java.util.Map;
 public class DataConvert {
     private static Gson gson = new Gson();
 
-    public static <T> T parseObjectFromJson(String objStr, Class<T> clazz) {
+    public static <T> T parseFromJson(String obj, Class<T> clazz) {
         try {
-            return gson.fromJson(objStr, clazz);
+            return gson.fromJson(obj, clazz);
         } catch (JsonSyntaxException ex) {
+            Logger.e(String.format("【%s】\n%s", ex.getMessage(), obj));
             ex.printStackTrace();
         } catch (Exception ex) {
+            Logger.e(String.format("【%s】\n%s", ex.getMessage(), obj));
             ex.printStackTrace();
         }
         return null;
     }
 
-    public static <T> T parseObjectFromJson(String objSrc, Type type) {
+    public static <T> T parseFromJson(String obj, Type type) {
         try {
-            return gson.fromJson(objSrc, type);
+            return gson.fromJson(obj, type);
         } catch (JsonSyntaxException ex) {
+            Logger.e(String.format("【%s】\n%s", ex.getMessage(), obj));
             ex.printStackTrace();
         } catch (Exception ex) {
+            Logger.e(String.format("【%s】\n%s", ex.getMessage(), obj));
             ex.printStackTrace();
         }
         return null;
@@ -53,31 +60,14 @@ public class DataConvert {
         try {
             return gson.toJson(obj);
         } catch (JsonSyntaxException ex) {
+            Logger.e(ex.getMessage());
             ex.printStackTrace();
         } catch (Exception ex) {
+            Logger.e(ex.getMessage());
             ex.printStackTrace();
         }
         return null;
     }
-
-//    public static Map<String, Object> toMap(JSONObject obj) {
-//        if (obj != null) {
-//            Map<String, Object> m = new HashMap<>();
-//            Iterator<String> i = obj.keys();
-//            while (i.hasNext()) {
-//                String k = i.next();
-//                try {
-//                    Object v = obj.get(k);
-//                    m.put(k, v);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//            return m;
-//        }
-//        return null;
-//    }
 
     public static Map<String, Object> toMap(JSONObject obj) {
         if (obj != null) {

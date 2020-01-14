@@ -55,15 +55,11 @@ public class VoiceRecordPresenter implements VoiceRecordContract.Presenter {
 
     @Override
     public void startRecord() {
-        if (!LibUtil.isExternalStorageAvailable()) {
-            ToastUtil.show("SD 不存在！");
-        } else {
-            try {
-                recordVoice();
-            } catch (IOException e) {
-            }
+        try {
+            recordVoice();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
     }
 
     private void recordVoice() throws IOException {

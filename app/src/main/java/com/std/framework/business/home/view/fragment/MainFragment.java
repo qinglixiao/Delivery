@@ -118,7 +118,6 @@ public class MainFragment extends BaseTitleFragment implements OnClickListener {
                     OutputStreamWriter writer = new OutputStreamWriter(socket.getOutputStream());
                     writer.write("来自于手机");
                     writer.write(LibUtil.getPhoneNumber(getContext()));
-                    writer.write(LibUtil.getDeviceIMEI(getContext()));
                     writer.flush();
                     writer.close();
                     socket.close();

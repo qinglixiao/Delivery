@@ -4,18 +4,18 @@ import android.net.Uri;
 import android.os.SystemClock;
 import android.util.Log;
 
-import com.google.gson.JsonArray;
 import com.library.core.God;
 import com.library.core.Reflect;
 import com.library.util.SecurityUtil;
 import com.std.framework.assist.Bean;
 import com.std.framework.assist.JunitUtil;
 import com.std.framework.business.call.view.fragment.CallFragment;
-import com.std.framework.core.Logger;
 import com.std.framework.util.AppUtil;
 import com.std.framework.util.SharedPreferencesUtil;
+import com.std.network.request.NetCallBack;
+import com.std.network.request.Result;
+import com.std.network.request.STRequest;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -24,6 +24,13 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+
+import me.std.common.utils.Logger;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
@@ -43,7 +50,7 @@ public class TestMethod {
     @Test
     public void testformatStr() {
         String f_str = String.format("hello_%s%s", "wold", "你好");
-        Logger.m(f_str);
+        Logger.d(f_str);
     }
 
     public void testMD5() {
@@ -119,8 +126,7 @@ public class TestMethod {
     }
 
     public void testLogger() {
-        Logger.PUT_OUT = true;
-        Logger.m("logger_debug");
+        Logger.d("logger_debug");
     }
 
     @Test
@@ -130,7 +136,7 @@ public class TestMethod {
         try {
             JSONObject object = (JSONObject) jsonTokener.nextValue();
             int error = object.getInt("code");
-            Logger.m(error + "");
+            Logger.d(error + "");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -176,7 +182,7 @@ public class TestMethod {
     }
 
     public void testMemery() {
-        Logger.m(String.format("max:%d total:%d free:%d", AppUtil.getMaxMemoryAllocated() / 1024 / 1024, AppUtil.getTotalMemoryAllocated() / 1024 / 1024, AppUtil.getFreeMemoryAllocated() / 1024 / 1024));
+        Logger.d(String.format("max:%d total:%d free:%d", AppUtil.getMaxMemoryAllocated() / 1024 / 1024, AppUtil.getTotalMemoryAllocated() / 1024 / 1024, AppUtil.getFreeMemoryAllocated() / 1024 / 1024));
     }
 
     @Test
@@ -221,11 +227,49 @@ public class TestMethod {
 //    }
 
     @Test
-    public void uri(){
+    public void uri() {
         String url = "https://www.hi.com?problemId=123&confirm=true";
         Uri uri = Uri.parse(url);
         String toon = uri.getQueryParameter("toonKey");
         JunitUtil.log(toon);
+    }
+
+    @Test
+    public void testHttp() {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .build();
+        Request request = new Request.Builder()
+                .url("http://www.hao123.com")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                System.out.println(response.body().string());
+            }
+        });
+    }
+
+
+    @Test
+    public void testOkhttp() {
+        STRequest request = new STRequest();
+        request.url("https://www.hao123.com/");
+        request.get(new NetCallBack<String>() {
+            @Override
+            public void onResult(Result<String> result, Error error) {
+                Logger.d(result.getData());
+            }
+        },String.class);
+    }
+
+    class UU {
+        public String name;
     }
 
 }
