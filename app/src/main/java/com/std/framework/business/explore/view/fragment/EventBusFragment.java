@@ -78,7 +78,6 @@ public class EventBusFragment extends BaseTitleFragment implements View.OnClickL
             case R.id.btn_request:
                 STRequest request = new STRequest.Builder()
                         .url("https://www.hao123.com")
-                        .setContentType(STRequest.ContentType.String)
                         .build();
                 request.get(new NetCallBack<String>() {
                     @Override

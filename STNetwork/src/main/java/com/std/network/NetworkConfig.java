@@ -3,6 +3,8 @@ package com.std.network;
 import com.std.network.client.STClientConfig;
 import com.std.network.client.STHttpClient;
 
+import java.util.List;
+
 /**
  * Description:
  * Author: lixiao
@@ -25,6 +27,10 @@ public class NetworkConfig {
 
     public static String getUserAgent() {
         return "platform:android,deviceId:FFK0217705003490,appVersion:1.8.0,platformVersion:24,toonType:102";
+    }
+
+    public static List<String> getHostList() {
+        return null;
     }
 
     public static void initNetClient() {

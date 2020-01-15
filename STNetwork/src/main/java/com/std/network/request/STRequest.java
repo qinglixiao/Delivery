@@ -17,7 +17,6 @@ import me.std.common.core.ThreadPool;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
-import okhttp3.MultipartBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
@@ -30,17 +29,11 @@ import okhttp3.Response;
  */
 public class STRequest extends BaseRequest {
     Map<String, String> parameters;
-    ContentType responceContentType;
 
-    public enum ContentType {
-        JSON, String
-    }
-
-    STRequest(Map<String, String> parameters, String url, ContentType contentType, Map<String, String> headers) {
+    STRequest(Map<String, String> parameters, String url, Map<String, String> headers) {
         super();
         this.parameters = parameters;
         this.url = url;
-        this.responceContentType = contentType;
         for (Map.Entry<String, String> header : headers.entrySet()) {
             requestBuilder.addHeader(header.getKey(), header.getValue());
         }
@@ -72,20 +65,6 @@ public class STRequest extends BaseRequest {
         requestBuilder.url(onBuildUrl())
                 .post(new ProgressRequestBody(RequestBody.create(MediaType.parse("application/octet-stream"), file), onProgressListener));
         return execute(null);
-    }
-
-    public Call upload(File file, NetCallBack netCallBack) {
-        MultipartBody.Builder partBody = new MultipartBody.Builder();
-        Map<String, String> data = getPostData();
-        if (data != null) {
-            for (Map.Entry<String, String> entry : data.entrySet()) {
-                partBody.addFormDataPart(entry.getKey(), entry.getValue());
-            }
-        }
-        partBody.setType(MultipartBody.FORM)
-                .addFormDataPart("file", file.getName(), RequestBody.create(MediaType.parse("application/octet-stream"), file))
-                .build();
-        return execute(netCallBack);
     }
 
     public Call down(File file, ProgressRequestBody.OnProgressListener onProgressListener) throws FileNotFoundException {
@@ -141,7 +120,7 @@ public class STRequest extends BaseRequest {
 
     protected void parseResult(String response, NetCallBack callBack) {
         Result result = new Result();
-        if (responceContentType == ContentType.String) {
+        if (clazz == String.class) {
             result.data = response;
         } else {
             result.data = DataConvert.parseFromJson(response, clazz);
@@ -153,8 +132,6 @@ public class STRequest extends BaseRequest {
         Map<String, String> parameters = new HashMap<>();
         Map<String, String> headers = new HashMap<>();
         String url;
-
-        ContentType responceContentType = ContentType.JSON;
 
         public Builder() {
         }
@@ -183,13 +160,8 @@ public class STRequest extends BaseRequest {
             return this;
         }
 
-        public Builder setContentType(ContentType contentType) {
-            this.responceContentType = contentType;
-            return this;
-        }
-
         public STRequest build() {
-            return new STRequest(parameters, url, responceContentType, headers);
+            return new STRequest(parameters, url, headers);
         }
     }
 }

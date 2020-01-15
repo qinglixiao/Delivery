@@ -1,5 +1,6 @@
 package com.std.network.client;
 
+import com.std.network.NetworkConfig;
 import com.std.network.dns.STCookieJar;
 import com.std.network.dns.STDns;
 
@@ -20,7 +21,7 @@ public abstract class ClientConfig {
     }
 
     Dns getDns() {
-        return new STDns();
+        return new STDns(NetworkConfig.getHostList());
     }
 
     void attach(OkHttpClient.Builder builder) {
