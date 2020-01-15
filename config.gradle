@@ -18,6 +18,7 @@ ext {
 
             STCommon          : project(':STCommon'),
             STNetwork         : project(':STNetwork'),
+            STBase            : project(':STBase'),
             routerAnnotation  : project(':annotation'),
             routerCompiler    : project(':annotation-compiler'),
             routerApi         : project(':annotation-api'),
