@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import io.flutter.plugin.common.PluginRegistry;
+
 public class CYFlutterFragment extends Fragment implements PluginRegistry {
     public static final String ARG_ROUTE = "route";
     CYFlutterView cyFlutterView;

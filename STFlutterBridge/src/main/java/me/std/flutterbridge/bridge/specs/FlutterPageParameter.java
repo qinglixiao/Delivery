@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import me.std.common.core.DataConvert;
+
 /**
  * Created by Roger Huang on 2019/3/15.
  */
@@ -21,12 +23,7 @@ public class FlutterPageParameter implements Serializable {
     public static FlutterPageParameter fromJson(JSONObject json) {
         if (json == null) return null;
 
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create();
-
-        FlutterPageParameter p = gson.fromJson(json.toString(), FlutterPageParameter.class);
-
+        FlutterPageParameter p = DataConvert.fromJson(json.toString(), FlutterPageParameter.class);
         return p;
     }
 

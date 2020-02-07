@@ -30,6 +30,7 @@ dependencies {
     implementation depend['STNetwork']
     implementation depend['STCommon']
     implementation depend["routerAnnotation"]
-    implementation depend["routerApi"]
+    implementation depend['routerApi']
+    implementation depend['flutterProject']
     annotationProcessor depend['routerCompiler']
 }

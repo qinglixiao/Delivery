@@ -23,6 +23,8 @@ ext {
             routerCompiler    : project(':annotation-compiler'),
             routerApi         : project(':annotation-api'),
             STLibrary         : project(':STLibrary'),
+            flutterProject    : project(':flutter'),
+
     ]
 
     android = [

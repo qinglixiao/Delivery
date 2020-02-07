@@ -30,7 +30,7 @@ import me.std.common.utils.Logger;
 public class DataConvert {
     private static Gson gson = new Gson();
 
-    public static <T> T parseFromJson(String obj, Class<T> clazz) {
+    public static <T> T fromJson(String obj, Class<T> clazz) {
         try {
             return gson.fromJson(obj, clazz);
         } catch (JsonSyntaxException ex) {
@@ -43,7 +43,7 @@ public class DataConvert {
         return null;
     }
 
-    public static <T> T parseFromJson(String obj, Type type) {
+    public static <T> T fromJson(String obj, Type type) {
         try {
             return gson.fromJson(obj, type);
         } catch (JsonSyntaxException ex) {
@@ -56,7 +56,7 @@ public class DataConvert {
         return null;
     }
 
-    public static <T> String toJsonString(T obj) {
+    public static <T> String toJson(T obj) {
         try {
             return gson.toJson(obj);
         } catch (JsonSyntaxException ex) {

@@ -27,7 +27,7 @@ public class BridgeResult {
                     r.put("data",new JSONObject((Map)result));
                 }
                 else {
-                    JSONObject o = new JSONObject(DataConvert.toJsonString(result));
+                    JSONObject o = new JSONObject(DataConvert.toJson(result));
                     r.put("data", o);
 //                    throw new Exception("unsupported data type");
                 }

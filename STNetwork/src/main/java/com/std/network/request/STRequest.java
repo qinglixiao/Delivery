@@ -30,10 +30,11 @@ import okhttp3.Response;
 public class STRequest extends BaseRequest {
     Map<String, String> parameters;
 
-    STRequest(Map<String, String> parameters, String url, Map<String, String> headers) {
+    STRequest(Map<String, String> parameters, String url, Map<String, String> headers, STMethod method) {
         super();
         this.parameters = parameters;
         this.url = url;
+        this.method = method;
         for (Map.Entry<String, String> header : headers.entrySet()) {
             requestBuilder.addHeader(header.getKey(), header.getValue());
         }
@@ -123,7 +124,7 @@ public class STRequest extends BaseRequest {
         if (clazz == String.class) {
             result.data = response;
         } else {
-            result.data = DataConvert.parseFromJson(response, clazz);
+            result.data = DataConvert.fromJson(response, clazz);
         }
         callBack.onResult(result, null);
     }
@@ -132,6 +133,7 @@ public class STRequest extends BaseRequest {
         Map<String, String> parameters = new HashMap<>();
         Map<String, String> headers = new HashMap<>();
         String url;
+        STMethod method;
 
         public Builder() {
         }
@@ -160,8 +162,13 @@ public class STRequest extends BaseRequest {
             return this;
         }
 
+        public Builder method(STMethod method) {
+            this.method = method;
+            return this;
+        }
+
         public STRequest build() {
-            return new STRequest(parameters, url, headers);
+            return new STRequest(parameters, url, headers, method);
         }
     }
 }

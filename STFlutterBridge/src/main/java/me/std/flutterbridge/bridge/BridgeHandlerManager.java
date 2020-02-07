@@ -5,6 +5,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.flutter.plugin.common.MethodCall;
+import io.flutter.plugin.common.MethodChannel;
 import me.std.flutterbridge.bridge.handlers.BridgeCallNativeHandler;
 import me.std.flutterbridge.bridge.handlers.BridgeCloseActivityHandler;
 import me.std.flutterbridge.bridge.handlers.BridgeEventHandler;
@@ -15,7 +17,6 @@ import me.std.flutterbridge.bridge.handlers.BridgeHttpHandler;
 import me.std.flutterbridge.bridge.handlers.BridgeNewArchiveHandler;
 import me.std.flutterbridge.bridge.handlers.BridgeOpenH5Handler;
 import me.std.flutterbridge.bridge.handlers.BridgePopHandler;
-import me.std.flutterbridge.bridge.handlers.BridgeSaveImageHandler;
 import me.std.flutterbridge.bridge.handlers.BridgeUpdatePageHandler;
 import me.std.flutterbridge.bridge.handlers.OpenFlutterHandler;
 import me.std.flutterbridge.bridge.specs.BridgeResult;
@@ -66,7 +67,6 @@ public class BridgeHandlerManager extends FlutterBridgeObject {
     }
 
     static {
-        nativeMethodManager.register(new BridgeSaveImageHandler());
         nativeMethodManager.register(new BridgeNewArchiveHandler());
         nativeMethodManager.register(new BridgeOpenH5Handler());
         nativeMethodManager.register(new BridgeCloseActivityHandler());

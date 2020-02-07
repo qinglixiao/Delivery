@@ -46,7 +46,7 @@ public class BridgeEventHandler extends BridgeHandler {
             return false;
         }
 
-        Event event = DataConvert.parseFromJson(arguments.toString(), Event.class);
+        Event event = DataConvert.fromJson(arguments.toString(), Event.class);
         event.bridgeContext = context;
         if (!event.isValid()) {
             callback.onResult(null, BridgeResult.invalidArguments(arguments));

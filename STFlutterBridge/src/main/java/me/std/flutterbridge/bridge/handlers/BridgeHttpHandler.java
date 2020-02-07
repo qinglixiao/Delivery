@@ -3,17 +3,20 @@ package me.std.flutterbridge.bridge.handlers;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import com.std.network.request.BaseRequest;
+import com.std.network.request.NetCallBack;
+import com.std.network.request.Result;
+import com.std.network.request.STRequest;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Iterator;
 
-import me.chunyu.cycommon.utils.LogUtil;
-import me.chunyu.cynetwork.CYRequest;
-import me.chunyu.flutter.MethodSpec;
-import me.chunyu.flutter.bridge.FlutterBridgeContext;
-import me.chunyu.g7network.G7HttpMethod;
+import me.std.common.utils.Logger;
+import me.std.flutterbridge.MethodSpec;
+import me.std.flutterbridge.bridge.FlutterBridgeContext;
 
 /**
  * Description:
@@ -38,8 +41,8 @@ public class BridgeHttpHandler extends BridgeHandler {
         final String url = arguments.optString("url");
         String method = arguments.has("method") ? arguments.optString("method") : "GET";
 
-        final CYRequest request = new CYRequest(url);
-        request.setMethod(G7HttpMethod.valueOf(method));
+        final STRequest.Builder request = new STRequest.Builder(url)
+                .method(BaseRequest.STMethod.valueOf(method));
         if (arguments.has("parameters")) {
             try {
                 JSONObject obj = arguments.getJSONObject("parameters");
@@ -51,35 +54,39 @@ public class BridgeHttpHandler extends BridgeHandler {
                     }
                 }
             } catch (JSONException e) {
-                LogUtil.e("BridgeHttpHandler", e.getMessage());
+                Logger.e("BridgeHttpHandler", e.getMessage());
             }
         }
 
-        request.request(new CYRequest.CYRequestCallback<String>() {
+        request.build().request(new NetCallBack<String>() {
+
             @Override
-            public void onResult(String result, Error error) {
+            public void onResult(Result<String> result, Error error) {
                 try {
                     if (error == null) {
-                        if (!TextUtils.isEmpty(result)) {
-                            if (result.startsWith("[") && result.endsWith("]")) {
-                                JSONArray d = new JSONArray(result);
+                        String s = result.getData();
+                        if (!TextUtils.isEmpty(result.getData())) {
+
+                            if (s.startsWith("[") && s.endsWith("]")) {
+                                JSONArray d = new JSONArray(s);
                                 callback.onResult(d, null);
                             } else {
-                                JSONObject o = new JSONObject(result);
+                                JSONObject o = new JSONObject(s);
                                 callback.onResult(o, null);
                             }
                         }
                     } else {
-                        Toast.makeText(context.context,error.getMessage(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context.context, error.getMessage(), Toast.LENGTH_SHORT).show();
 //                        callback.onResult(null, error);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(context.context,e.getMessage(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context.context, e.getMessage(), Toast.LENGTH_SHORT).show();
 //                    callback.onResult(null, new Error(e));
                 }
             }
-        });
+
+        }, String.class);
 
         return false;
     }

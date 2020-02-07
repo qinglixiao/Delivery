@@ -1,5 +1,9 @@
 package me.std.flutterbridge.bridge;
 
+import android.support.annotation.Nullable;
+
+import io.flutter.plugin.common.MethodChannel;
+
 /**
  * Created by Roger Huang on 2019/3/14.
  */

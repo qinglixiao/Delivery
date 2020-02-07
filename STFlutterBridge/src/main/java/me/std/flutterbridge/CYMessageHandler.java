@@ -1,5 +1,7 @@
 package me.std.flutterbridge;
 
+import io.flutter.plugin.common.BasicMessageChannel;
+
 /**
  * Description:
  * Author: lixiao

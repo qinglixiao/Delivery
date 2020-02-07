@@ -13,6 +13,14 @@ import android.support.v4.app.SupportActivity;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
+import io.flutter.plugin.common.BasicMessageChannel;
+import io.flutter.plugin.common.StringCodec;
+import io.flutter.plugins.GeneratedPluginRegistrant;
+import io.flutter.view.FlutterMain;
+import io.flutter.view.FlutterNativeView;
+import io.flutter.view.FlutterRunArguments;
+import io.flutter.view.FlutterView;
+
 /**
  * 供native使用的flutterview
  * 此view外面多包了一层LinearLayout

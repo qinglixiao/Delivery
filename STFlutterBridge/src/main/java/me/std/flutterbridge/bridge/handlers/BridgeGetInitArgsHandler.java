@@ -2,7 +2,7 @@ package me.std.flutterbridge.bridge.handlers;
 
 import org.json.JSONObject;
 
-import me.chunyu.flutter.bridge.FlutterBridgeContext;
+import me.std.flutterbridge.bridge.FlutterBridgeContext;
 
 /**
  * Created by Roger Huang on 2019/3/22.

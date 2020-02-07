@@ -2,13 +2,15 @@ package me.std.flutterbridge;
 
 import android.content.Context;
 
+import io.flutter.plugin.common.JSONMethodCodec;
+import io.flutter.plugin.common.MethodChannel;
+import io.flutter.view.FlutterView;
 import me.std.flutterbridge.bridge.BridgeInvoker;
 import me.std.flutterbridge.bridge.FlutterBridgeContext;
 
 /**
  * Created by Roger Huang on 2019/1/19.
  */
-
 public class CYFlutterChannel {
     public static final String CHANNEL = "flutter.chunyu.com.channel.method";
 
@@ -20,7 +22,7 @@ public class CYFlutterChannel {
         this(context, flutterView, CHANNEL);
     }
 
-    public CYFlutterChannel(Context context, FlutterView flutterView, String channel) {
+    public CYFlutterChannel(Context context, FlutterView flutterView,String channel) {
         methodChannel = new MethodChannel(flutterView, channel, JSONMethodCodec.INSTANCE);
         mBridgeContext = new FlutterBridgeContext(context, new BridgeInvoker(methodChannel));
         flutterHandler = new CYFlutterHandler(mBridgeContext);

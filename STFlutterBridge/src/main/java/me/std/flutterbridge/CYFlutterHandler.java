@@ -1,5 +1,7 @@
 package me.std.flutterbridge;
 
+import io.flutter.plugin.common.MethodCall;
+import io.flutter.plugin.common.MethodChannel;
 import me.std.common.utils.Logger;
 import me.std.flutterbridge.bridge.BridgeHandlerManager;
 import me.std.flutterbridge.bridge.FlutterBridgeContext;

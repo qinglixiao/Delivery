@@ -4,8 +4,8 @@ import android.app.Activity;
 
 import org.json.JSONObject;
 
-import me.chunyu.flutter.MethodSpec;
-import me.chunyu.flutter.bridge.FlutterBridgeContext;
+import me.std.flutterbridge.MethodSpec;
+import me.std.flutterbridge.bridge.FlutterBridgeContext;
 
 /**
  * Description:

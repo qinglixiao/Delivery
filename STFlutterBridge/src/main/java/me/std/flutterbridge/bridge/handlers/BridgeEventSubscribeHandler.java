@@ -42,7 +42,7 @@ public class BridgeEventSubscribeHandler extends BridgeHandler implements Bridge
             return false;
         }
 
-        Parameter parameter =  DataConvert.parseFromJson(arguments.toString(), Parameter.class);
+        Parameter parameter =  DataConvert.fromJson(arguments.toString(), Parameter.class);
         if (!parameter.isValid()) {
             callback.onResult(null, BridgeResult.invalidArguments(arguments));
             return false;

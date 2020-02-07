@@ -1,15 +1,16 @@
 package me.std.flutterbridge.bridge.handlers;
 
+import com.std.framework.router.CYRouter;
+import com.std.framework.router.interfaces.Capture;
+
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import me.chunyu.cycommon.utils.LogUtil;
-import me.chunyu.flutter.MethodSpec;
-import me.chunyu.flutter.bridge.FlutterBridgeContext;
-import me.chunyu.router.api.CYRouter;
-import me.chunyu.router.api.interfaces.Capture;
+import me.std.common.utils.Logger;
+import me.std.flutterbridge.MethodSpec;
+import me.std.flutterbridge.bridge.FlutterBridgeContext;
 
 /**
  * Description:
@@ -38,7 +39,7 @@ public class BridgeOpenH5Handler extends BridgeHandler {
                 new Capture() {
                     @Override
                     public void exception(Exception e) {
-                        LogUtil.e("lx", e.getMessage());
+                        Logger.e("lx", e.getMessage());
                     }
                 });
 

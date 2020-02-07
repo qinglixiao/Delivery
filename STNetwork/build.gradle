@@ -4,7 +4,7 @@ apply from: '../comm.gradle'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation depend['okhttp']
+    api depend['okhttp']
     implementation depend['STCommon']
     implementation depend['gson']
 }

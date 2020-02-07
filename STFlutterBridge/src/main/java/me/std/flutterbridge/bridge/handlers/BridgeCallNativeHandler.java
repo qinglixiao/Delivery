@@ -31,7 +31,7 @@ public class BridgeCallNativeHandler extends BridgeHandler {
     public boolean handle(FlutterBridgeContext context, JSONObject arguments, Callback callback) {
         BridgeParameterResolver resolver = new BridgeParameterResolver(arguments);
 
-        BridgeCallbackSpec callSpec = DataConvert.parseFromJson(arguments.toString(), BridgeCallbackSpec.class);
+        BridgeCallbackSpec callSpec = DataConvert.fromJson(arguments.toString(), BridgeCallbackSpec.class);
 
         BridgeHandler handler = BridgeHandlerManager.getNativeMethodManager().getHandler(callSpec.method);
 

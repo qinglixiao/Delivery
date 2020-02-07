@@ -25,6 +25,12 @@ public abstract class BaseRequest {
     protected Request.Builder requestBuilder;
     protected String url;
     protected Class<?> clazz;
+    protected STMethod method;
+
+    public enum STMethod {
+        GET,
+        POST
+    }
 
     public BaseRequest() {
         okHttpClient = NetworkConfig.httpClient.get();
@@ -63,6 +69,15 @@ public abstract class BaseRequest {
         requestBuilder.url(onBuildUrl())
                 .post(formBody.build());
         return execute(netCallBack);
+    }
+
+    public Call request(NetCallBack netCallBack, Class<?> clazz) {
+        if (method == STMethod.GET) {
+            return get(netCallBack, clazz);
+        } else if (method == STMethod.POST) {
+            return post(netCallBack, clazz);
+        }
+        throw new Error("has not request method!!!");
     }
 
     protected Call execute(NetCallBack netCallBack) {
