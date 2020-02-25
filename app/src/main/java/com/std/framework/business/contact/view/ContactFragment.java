@@ -26,11 +26,19 @@ import com.std.framework.business.home.view.activity.MainTabActivity;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.util.ToastUtil;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import me.std.common.config.RuntimePermissions;
+import me.std.common.utils.RuntimePermissionUtil;
+import me.std.location.MapLocationUtil;
+
 public class ContactFragment extends BaseTitleFragment implements OnClickListener {
     private View view;
     private EditText editText;
     private Button button;
     private Button btn_short;
+    private Button btn_location;
+    private TextView tv_location;
 
     @Override
     protected void onNavigationBar(NavigationBar.Builder navBuilder) {
@@ -43,6 +51,8 @@ public class ContactFragment extends BaseTitleFragment implements OnClickListene
         editText = (EditText) view.findViewById(R.id.frag3_edt);
         button = (Button) view.findViewById(R.id.frag3_btn);
         btn_short = view.findViewById(R.id.btn_short_cut);
+        btn_location = view.findViewById(R.id.button7);
+        tv_location = view.findViewById(R.id.tv_location);
         registerListener();
         return view;
     }
@@ -57,6 +67,7 @@ public class ContactFragment extends BaseTitleFragment implements OnClickListene
         });
         button.setOnClickListener(this);
         btn_short.setOnClickListener(this);
+        btn_location.setOnClickListener(this);
     }
 
     public void addShortcut(Context context, String shortcutName, Intent actionIntent, Intent.ShortcutIconResource icon, boolean allowRepeat) {
@@ -73,12 +84,28 @@ public class ContactFragment extends BaseTitleFragment implements OnClickListene
         switch (v.getId()) {
             case R.id.btn_short_cut:
                 Intent intent = new Intent(getContext(), MainTabActivity.class);
-                if(isShortCutExist(getContext(),"通讯录")){
+                if (isShortCutExist(getContext(), "通讯录")) {
                     ToastUtil.show("快捷方式已存在");
                     return;
                 }
 //                Intent intent = new Intent(getContext(), MainTabActivity.class);
                 addShortcut(getContext(), "通讯录", intent, Intent.ShortcutIconResource.fromContext(getContext(), R.drawable.main_app_home), true);
+                break;
+            case R.id.button7:
+                if (RuntimePermissionUtil.checkSelfPermission(getContext(), RuntimePermissions.ACCESS_FINE_LOCATION)) {
+                    MapLocationUtil.getInstance().startLocation(new MapLocationUtil.OnMapLocationListener() {
+                        @Override
+                        public void onLocationChanged(MapLocationUtil.STMapLocationInfo locationInfo, Error error) {
+                            if (locationInfo != null) {
+                                tv_location.setText(locationInfo.address);
+                            } else if (error != null) {
+                                tv_location.setText(error.getMessage());
+                            }
+                        }
+                    });
+                } else {
+                    ToastUtil.show("无定位权限");
+                }
                 break;
             default:
                 break;
@@ -91,6 +118,11 @@ public class ContactFragment extends BaseTitleFragment implements OnClickListene
 //            }
 //            break;
         }
+    }
+
+    @OnClick(R.id.button7)
+    public void location(View view) {
+        MapLocationUtil.getInstance().startLocation(null);
     }
 
     /**

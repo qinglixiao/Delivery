@@ -1,4 +1,4 @@
-include ':STLibrary', ':app', ':annotation-compiler', ':annotation-api', ':annotation', ':STNetwork', ':STBase', ':STCommon', ':STDb', ':STFlutterBridge'
+include ':STLibrary', ':app', ':annotation-compiler', ':annotation-api', ':annotation', ':STNetwork', ':STBase', ':STCommon', ':STDb', ':STFlutterBridge', ':STLocation'
 
 setBinding(new Binding([gradle: this]))
 evaluate(new File(

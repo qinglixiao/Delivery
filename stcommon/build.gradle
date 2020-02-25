@@ -14,11 +14,12 @@ dependencies {
     implementation depend['appcompat']
     implementation depend['butterknife']
     implementation depend['okhttp']
+    implementation depend['maplocation']
     annotationProcessor depend['butterknifeCompile']
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation('com.github.bumptech.glide:glide:4.9.0') {
         exclude group: "com.android.support"
     }
-    implementation files('libs/AMap_Location_V4.8.0_20191210.jar')
+//    implementation files('libs/AMap_Location_V4.8.0_20191210.jar')
 }
 

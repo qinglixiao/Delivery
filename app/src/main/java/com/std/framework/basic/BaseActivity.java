@@ -45,7 +45,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         String[] permissions = {
                 RuntimePermissions.WRITE_EXTERNAL_STORAGE,
                 RuntimePermissions.READ_EXTERNAL_STORAGE,
-                RuntimePermissions.CALL_PHONE
+                RuntimePermissions.CALL_PHONE,
+                RuntimePermissions.ACCESS_FINE_LOCATION,
+                RuntimePermissions.ACCESS_COARSE_LOCATION,
+                RuntimePermissions.ACCESS_BACKGROUND_LOCATION
         };
         ActivityCompat.requestPermissions(this, permissions, PERMISSION_REQUEST_CODE);
     }

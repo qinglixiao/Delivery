@@ -10,7 +10,12 @@ android {
     defaultConfig {
         applicationId "com.std.framework"
         multiDexEnabled true
+
+        manifestPlaceholders = [
+                GD_MAP_KEY: "087434fb31dd6c169a66309ad8daa47e"
+        ]
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -31,6 +36,22 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../stdkey')
+            storePassword "223891"
+            keyAlias "key"
+            keyPassword "223891"
+        }
+
+        debug {
+            storeFile file('../stdkey')
+            storePassword "223891"
+            keyAlias "key"
+            keyPassword "223891"
+        }
     }
 }
 
@@ -59,8 +80,10 @@ dependencies {
     implementation depend['STCommon']
     implementation depend['multidex']
     implementation depend['STNetwork']
+    implementation depend['STLocation']
+    implementation depend['butterknife']
     annotationProcessor depend['routerCompiler']
-
+    annotationProcessor depend['butterknifeCompile']
 }
 
 configurations.all {

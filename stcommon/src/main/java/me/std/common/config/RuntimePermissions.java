@@ -47,6 +47,10 @@ public class RuntimePermissions {
      */
     public static final String ACCESS_COARSE_LOCATION = "android.permission.ACCESS_COARSE_LOCATION";
     /**
+     * 后台定位权限
+     */
+    public static final String ACCESS_BACKGROUND_LOCATION = "android.permission.ACCESS_BACKGROUND_LOCATION";
+    /**
      * 录音
      */
     public static final String RECORD_AUDIO = "android.permission.RECORD_AUDIO";
