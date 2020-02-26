@@ -12,14 +12,14 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import me.std.base.R;
-import me.std.base.base.ChunyuFragment;
+import me.std.base.base.STFragment;
 import me.std.base.widget.toptab.adapter.CYViewPagerAdapter;
 
 /**
  * Created by Roger Huang on 2019/1/17.
  */
 
-public class CYTopTabFragment extends ChunyuFragment {
+public class CYTopTabFragment extends STFragment {
     TabLayout mTabLayout;
 
     ViewPager mViewPager;

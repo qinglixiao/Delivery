@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Shader;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +12,12 @@ import android.widget.Button;
 import android.widget.SeekBar;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.comm.view.ProgressWheel;
-import com.std.framework.core.NavigationBar;
 
 import java.util.Random;
+
+import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
 
 /**
  * Description:
@@ -29,16 +28,14 @@ import java.util.Random;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class ProgressBarFragment extends BaseTitleFragment {
+public class ProgressBarFragment extends STFragment {
     private ProgressWheel pwOne;
     private boolean wasSpinning = false;
     private SeekBar seekBarProgress;
     private Button btnSpin, btnIncrement, btnRandom;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.progress_wheel_activity, null);
         pwOne = (ProgressWheel) view.findViewById(R.id.progressBarTwo);
         seekBarProgress = (SeekBar) view.findViewById(R.id.progressAmount);
@@ -79,8 +76,8 @@ public class ProgressBarFragment extends BaseTitleFragment {
     }
 
     @Override
-    public void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle("进度条");
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle("进度条");
     }
 
     private static final class SpinListener implements View.OnClickListener {

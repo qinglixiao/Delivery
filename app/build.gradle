@@ -82,6 +82,7 @@ dependencies {
     implementation depend['STNetwork']
     implementation depend['STLocation']
     implementation depend['butterknife']
+    implementation depend['STBase']
     annotationProcessor depend['routerCompiler']
     annotationProcessor depend['butterknifeCompile']
 }

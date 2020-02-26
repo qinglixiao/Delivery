@@ -1,6 +1,6 @@
 package me.std.base.interfaces;
 
-import me.std.base.base.ChunyuListAdapter;
+import me.std.base.base.STListAdapter;
 import me.std.common.third.pulltorefresh.PullToRefreshBase;
 
 /**
@@ -12,7 +12,7 @@ import me.std.common.third.pulltorefresh.PullToRefreshBase;
  * Email: lixiao@chunyu.me
  */
 public interface OnRefreshListener {
-    void onPullDownToRefresh(PullToRefreshBase refreshView, ChunyuListAdapter adapter);
+    void onPullDownToRefresh(PullToRefreshBase refreshView, STListAdapter adapter);
 
-    void onPullUpToRefresh(PullToRefreshBase refreshView, ChunyuListAdapter adapter);
+    void onPullUpToRefresh(PullToRefreshBase refreshView, STListAdapter adapter);
 }

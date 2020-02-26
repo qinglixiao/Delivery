@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.library.core.God;
-import com.std.framework.basic.BaseFragment;
+
+import me.std.base.base.BaseFragment;
 
 /**
  * Created by gfy on 2016/3/31.
@@ -17,7 +18,7 @@ public class FragmentManufacture extends Fragment{
      * @param clazz
      * @return
      */
-    public static BaseFragment make(Bundle bundle,Class<? extends BaseFragment> clazz){
+    public static BaseFragment make(Bundle bundle, Class<? extends BaseFragment> clazz){
         BaseFragment fragment = God.love(clazz);
         fragment.setArguments(bundle);
         return fragment;

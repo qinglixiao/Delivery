@@ -12,9 +12,9 @@ import android.widget.PopupWindow;
 
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
-import com.std.framework.core.NavigationBar;
-import com.std.framework.basic.BaseFragment;
 import com.std.framework.comm.view.TouchSlopView;
+
+import me.std.base.base.BaseFragment;
 
 public class MineFragment extends BaseFragment implements OnClickListener {
     private View view;

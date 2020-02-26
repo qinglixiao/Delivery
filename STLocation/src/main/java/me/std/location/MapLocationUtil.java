@@ -1,5 +1,11 @@
 package me.std.location;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.graphics.Color;
+
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -9,11 +15,19 @@ import com.amap.api.location.AMapLocationQualityReport;
 import me.std.common.utils.AppContextUtil;
 
 /**
- * Description:
+ * Description：定位/后台定位
+ * 从Android 8.0开始，Android系统为了实现低功耗，Android 8.0系统对后台应用获取位置的频率进行了限制，只允许每小时几次位置更新。
+ * 根据Android 8.0的开发指引，为了适配这一系统特性，
+ * 高德定位SDK从8.0开始增加了两个新接口enableBackgroundLocation和disableBackgroundLocation用来控制是否开启后台定位。
+ * 开启后sdk会生成一个前台服务通知，告知用户应用正在后台运行，使得开发者自己的应用退到后台的时候，仍有前台通知在，提高应用切入后台后位置更新的频率。
+ * 示例中提供了两种方法启动和关闭后台定位功能,请根据业务场景进行相应的修改<br>
+ * 1、通过按钮触发，点击按钮调用相应的接口开开启或者关闭后台定位，此种方法主要是更直观的展示后台定位的功能
+ * 2、通过生命周期判断APP是否处于后台，当处于后台时才开启后台定位功能，恢复到前台后关闭后台定位功能
  * Author: lixiao
  * Create on: 2020-02-23.
  */
 public class MapLocationUtil {
+    private static int NOTIFICATOINID = 23;
     private static MapLocationUtil instance;
 
     private AMapLocationClient locationClient = null;
@@ -122,6 +136,56 @@ public class MapLocationUtil {
         locationClient.setLocationOption(locationOption);
         // 设置定位监听
         locationClient.setLocationListener(locationListener);
+    }
+
+    public void enableBackgroundLocation(boolean enable) {
+        if (enable) {
+            locationClient.enableBackgroundLocation(2001, buildNotification());
+        } else {
+            locationClient.disableBackgroundLocation(true);
+            if(notificationManager != null) {
+                notificationManager.cancel(NOTIFICATOINID);
+            }
+        }
+    }
+
+    boolean isCreateChannel = false;
+    NotificationManager notificationManager = null;
+
+    private Notification buildNotification() {
+        Notification.Builder builder = null;
+        Notification notification = null;
+        if (android.os.Build.VERSION.SDK_INT >= 26) {
+            //Android O上对Notification进行了修改，如果设置的targetSDKVersion>=26建议使用此种方式创建通知栏
+            if (null == notificationManager) {
+                notificationManager = (NotificationManager) AppContextUtil.getAppContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            }
+            String channelId = AppContextUtil.getPackageName();
+            if (!isCreateChannel) {
+                NotificationChannel notificationChannel = new NotificationChannel(channelId,
+                        "BackgroundLocation", NotificationManager.IMPORTANCE_DEFAULT);
+                notificationChannel.enableLights(true);//是否在桌面icon右上角展示小圆点
+                notificationChannel.setLightColor(Color.BLUE); //小圆点颜色
+                notificationChannel.setShowBadge(true); //是否在久按桌面图标时显示此渠道的通知
+                notificationManager.createNotificationChannel(notificationChannel);
+                isCreateChannel = true;
+            }
+            builder = new Notification.Builder(AppContextUtil.getAppContext(), channelId);
+        } else {
+            builder = new Notification.Builder(AppContextUtil.getAppContext());
+        }
+        builder.setSmallIcon(R.drawable.share_icon)
+                .setContentTitle(AppContextUtil.getAppName())
+                .setContentText("正在后台运行")
+                .setWhen(System.currentTimeMillis());
+
+        if (android.os.Build.VERSION.SDK_INT >= 16) {
+            notification = builder.build();
+        } else {
+            return builder.getNotification();
+        }
+        notificationManager.notify(NOTIFICATOINID, notification);
+        return notification;
     }
 
     /**

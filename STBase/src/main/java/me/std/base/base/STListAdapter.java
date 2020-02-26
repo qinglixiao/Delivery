@@ -21,15 +21,15 @@ import me.std.common.utils.Logger;
  * Phone: 18611867932
  * Email: lixiao@chunyu.me
  */
-public abstract class ChunyuListAdapter<T> extends BaseAdapter {
+public abstract class STListAdapter<T> extends BaseAdapter {
     protected List<T> dataSet;
     private Context mContext;
 
-    public ChunyuListAdapter() {
+    public STListAdapter() {
         this(null);
     }
 
-    public ChunyuListAdapter(Context context) {
+    public STListAdapter(Context context) {
         dataSet = new ArrayList<>();
         mContext = context;
     }

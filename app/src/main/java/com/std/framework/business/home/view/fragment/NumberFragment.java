@@ -1,6 +1,5 @@
 package com.std.framework.business.home.view.fragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +12,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.business.home.view.activity.MainActivity;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.comm.view.TouchSlopView;
 import com.std.framework.comm.view.TouchSlopView.OnSlopListener;
 
-public class NumberFragment extends BaseTitleFragment {
+import me.std.base.base.STFragment;
+
+public class NumberFragment extends STFragment {
 	private int number = 1;
 	private TextView tv_page;
 	private ListView listView;
@@ -33,10 +31,8 @@ public class NumberFragment extends BaseTitleFragment {
 		return fragment;
 	}
 	
-	@SuppressLint("NewApi")
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+	protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		touchSlopView = new TouchSlopView(getActivity());
 		touchSlopView.setOnSlopChangeListener(onSlopChangeListener);
 		touchSlopView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
@@ -50,7 +46,7 @@ public class NumberFragment extends BaseTitleFragment {
 		touchSlopView.addView(view);
 		return touchSlopView;
 	}
-	
+
 	OnClickListener onClickListener = new OnClickListener() {
 		
 		@Override
@@ -91,10 +87,5 @@ public class NumberFragment extends BaseTitleFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
-	}
-
-	@Override
-	public void onNavigationBar(NavigationBar.Builder navBuilder) {
-
 	}
 }

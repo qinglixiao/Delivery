@@ -10,16 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.comm.view.PagerSlidingTabStrip;
 import com.std.framework.core.FragmentManufacture;
-import com.std.framework.core.NavigationBar;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ExploreMainFragment extends BaseTitleFragment {
+import me.std.base.base.BaseFragment;
+import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
+
+public class ExploreMainFragment extends STFragment {
     private View view;
     private ViewPager viewPager;
     private PagerSlidingTabStrip tabStrip;
@@ -45,12 +46,12 @@ public class ExploreMainFragment extends BaseTitleFragment {
     }
 
     @Override
-    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle(R.string.main_tab_explore);
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle(R.string.main_tab_explore).build();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (view == null) {
             view = inflater.inflate(R.layout.fragment_second, null);
             viewPager = (ViewPager) view.findViewById(R.id.pager);

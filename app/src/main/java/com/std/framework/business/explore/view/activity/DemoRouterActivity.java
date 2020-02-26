@@ -3,7 +3,8 @@ package com.std.framework.business.explore.view.activity;
 import android.os.Bundle;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseActivity;
+
+import me.std.base.base.BaseActivity;
 
 /**
  * Description:

@@ -1,7 +1,6 @@
 package com.std.framework.business.explore.view.fragment;
 
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseTitleFragment;
-import com.std.framework.core.NavigationBar;
-import com.std.network.NetworkConfig;
 import com.std.network.request.NetCallBack;
 import com.std.network.request.Result;
 import com.std.network.request.STRequest;
@@ -20,20 +16,12 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.io.IOException;
-
-import me.std.common.core.ThreadPool;
-import me.std.common.utils.Logger;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import me.std.base.base.STFragment;
 
 /**
  * Created by gfy on 2016/4/1.
  */
-public class EventBusFragment extends BaseTitleFragment implements View.OnClickListener {
+public class EventBusFragment extends STFragment implements View.OnClickListener {
     private static final String TAG = "LX";
     private View view;
     private Button btn_send;
@@ -41,8 +29,7 @@ public class EventBusFragment extends BaseTitleFragment implements View.OnClickL
     private Button btn_request;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_event_bus, null);
         return view;
     }
@@ -130,12 +117,6 @@ public class EventBusFragment extends BaseTitleFragment implements View.OnClickL
         super.onPause();
         EventBus.getDefault().unregister(this);
     }
-
-    @Override
-    public void onNavigationBar(NavigationBar.Builder navBuilder) {
-
-    }
-
 
     class Param {
         String message;

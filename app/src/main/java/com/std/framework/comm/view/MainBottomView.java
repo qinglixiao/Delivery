@@ -19,13 +19,14 @@ import android.widget.TextView;
 
 import com.library.core.Reflect;
 import com.std.framework.R;
-import com.std.framework.basic.BaseTitleActivity;
-import com.std.framework.databinding.BottomTabLayout;
-import com.std.framework.basic.BaseFragment;
 import com.std.framework.comm.view.MainBottomView.TabSpec.OnTabClickListener;
+import com.std.framework.databinding.BottomTabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import me.std.base.base.BaseFragment;
+import me.std.base.base.STActivity;
 
 /**
  * Description :
@@ -34,7 +35,7 @@ import java.util.List;
  * Modify by：lx
  */
 public class MainBottomView extends LinearLayout {
-    private BaseTitleActivity context;
+    private STActivity context;
 
     protected List<TabSpec> tabs = new ArrayList<>();
 
@@ -79,7 +80,7 @@ public class MainBottomView extends LinearLayout {
         cur_tab_spec = tabs.get(default_index);
     }
 
-    public <T extends BaseTitleActivity> void apply(ViewPager viewPager, T context) {
+    public <T extends STActivity> void apply(ViewPager viewPager, T context) {
         this.viewPager = viewPager;
         this.context = context;
         if (viewPager != null) {

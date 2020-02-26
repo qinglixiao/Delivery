@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseTitleActivity;
-import com.std.framework.core.NavigationBar;
-import com.std.framework.basic.BaseFragment;
 
-public class MainActivity extends BaseTitleActivity {
+import me.std.base.base.BaseFragment;
+import me.std.base.base.STActivity;
+import me.std.base.core.ActionBar;
+
+public class MainActivity extends STActivity {
 	private static final String TAG = "LX";
 	private long mExitTime = 0;
 
@@ -19,18 +20,13 @@ public class MainActivity extends BaseTitleActivity {
 		setContentView(R.layout.activity_main);
 	}
 
-	/**
-	 * 定义title
-	 *
-	 * @param builder
-	 */
 	@Override
-	public void onNavigationBar(NavigationBar.Builder builder) {
+	protected void onActionBar(ActionBar.Builder builder) {
 		builder.setTitle(R.string.app_name);
 	}
 
 	public void remove(BaseFragment fragment) {
-		FragmentManager.remove(fragment);
+//		FragmentManager.remove(fragment);
 	}
 
 	@Override

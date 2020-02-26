@@ -19,13 +19,14 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
 import com.std.framework.basic.IBasePresenter;
 import com.std.framework.business.home.contract.RxBusContract;
 import com.std.framework.core.RxBus;
 import com.std.framework.databinding.FragmentAnimationBinding;
 import com.std.framework.databinding.FragmentRxbusBinding;
 
+import me.std.base.base.BaseFragment;
+import me.std.base.base.STFragment;
 import rx.Observable;
 import rx.Subscriber;
 
@@ -166,11 +167,11 @@ public class AnimationFragment extends BaseFragment implements View.OnClickListe
      * Person in charge : lx
      * Leader：lx
      */
-    public static class RxBusFragment extends BaseFragment implements RxBusContract.View, View.OnClickListener {
+    public static class RxBusFragment extends STFragment implements RxBusContract.View, View.OnClickListener {
         private FragmentRxbusBinding fragmentRxbusBinding;
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_rxbus, null);
             fragmentRxbusBinding = DataBindingUtil.bind(view);
             setListener();
@@ -219,9 +220,5 @@ public class AnimationFragment extends BaseFragment implements View.OnClickListe
                 fragmentRxbusBinding.tvShow.setText(s);
             }
         };
-
-
-
-
     }
 }

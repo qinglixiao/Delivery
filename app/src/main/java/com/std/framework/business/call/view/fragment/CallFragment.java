@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.business.call.mutual.CallAssist;
 import com.std.framework.business.call.view.RecordVoiceDialog;
 import com.std.framework.core.NavigationBar;
@@ -21,28 +19,19 @@ import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
 
-public class CallFragment extends BaseTitleFragment implements View.OnClickListener {
+public class CallFragment extends STFragment implements View.OnClickListener {
     private FragmentCallBinding fragmentCallBinding;
 
     @Override
-    public void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle(R.string.main_tab_communicate);
-//        navBuilder.addRightButton(R.drawable.rich_edit_add, new Toolbar.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                if (PermissionAssist.checkPermission(getContext(), PermissionAssist.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-//                    PermissionAssist.requestPermissions(getActivity(), PermissionAssist.RECORD_AUDIO);
-//                } else {
-//                    new RecordVoiceDialog(getContext()).show();
-//                }
-//                return false;
-//            }
-//        });
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle(R.string.main_tab_communicate);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_call, null);
         fragmentCallBinding = DataBindingUtil.bind(view);
         playImitate();

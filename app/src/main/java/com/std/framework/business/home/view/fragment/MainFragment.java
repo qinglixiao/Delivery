@@ -1,20 +1,5 @@
 package com.std.framework.business.home.view.fragment;
 
-import com.library.core.ThreadPool;
-import com.library.util.About;
-import com.library.util.LibUtil;
-import com.std.framework.R;
-import com.std.framework.basic.BaseTitleFragment;
-import com.std.framework.comm.clazz.BaiduLocationProvider;
-import com.std.framework.comm.clazz.BaiduLocationProvider.LocationListener;
-import com.std.framework.comm.service.aidl.ICallBack;
-import com.std.framework.comm.service.aidl.IRemoteService;
-import com.std.framework.core.NavigationBar;
-import com.std.framework.databinding.FragmentMainBinding;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.comm.service.InnerService;
-import com.std.framework.util.ToastUtil;
-
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -29,23 +14,37 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.library.core.ThreadPool;
+import com.library.util.LibUtil;
+import com.std.framework.R;
+import com.std.framework.comm.clazz.BaiduLocationProvider;
+import com.std.framework.comm.clazz.BaiduLocationProvider.LocationListener;
+import com.std.framework.comm.service.InnerService;
+import com.std.framework.comm.service.aidl.ICallBack;
+import com.std.framework.comm.service.aidl.IRemoteService;
+import com.std.framework.core.NavigationBar;
+import com.std.framework.databinding.FragmentMainBinding;
+import com.std.framework.util.ToastUtil;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
-public class MainFragment extends BaseTitleFragment implements OnClickListener {
+import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
+
+public class MainFragment extends STFragment implements OnClickListener {
     public View view;
     private IRemoteService remoteService;
     private FragmentMainBinding fragmentMainBinding;
 
     @Override
-    public void onNavigationBar(NavigationBar.Builder navBuild) {
-        navBuild
-                .setTitle(R.string.main_tab_home)
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle(R.string.main_tab_home)
                 .setBackText("返回", new OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -55,8 +54,7 @@ public class MainFragment extends BaseTitleFragment implements OnClickListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_main, null);
         fragmentMainBinding = DataBindingUtil.bind(view);
         fragmentMainBinding.btnOpen.setOnClickListener(this);

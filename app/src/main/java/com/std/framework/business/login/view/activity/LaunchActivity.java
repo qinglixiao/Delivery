@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseActivity;
 import com.std.framework.business.login.view.fragment.GuideFragment;
 import com.std.framework.business.home.view.activity.MainTabActivity;
 import com.std.framework.comm.clazz.STDFragmentManager;
 import com.std.framework.util.SharedPreferencesUtil;
 
+import me.std.base.base.BaseActivity;
 import me.std.common.core.ThreadPool;
 import me.std.common.utils.Logger;
 

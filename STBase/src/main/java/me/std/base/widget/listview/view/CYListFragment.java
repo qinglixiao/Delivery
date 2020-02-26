@@ -12,10 +12,9 @@ import android.widget.ListView;
 import java.util.List;
 
 import me.std.base.R;
-import me.std.base.base.ChunyuFragment;
-import me.std.base.base.ChunyuListAdapter;
+import me.std.base.base.STFragment;
+import me.std.base.base.STListAdapter;
 import me.std.base.widget.listview.contract.CYListViewContract;
-import me.std.common.core.ThreadPool;
 import me.std.common.third.pulltorefresh.PullToRefreshBase;
 import me.std.common.third.pulltorefresh.PullToRefreshListView;
 import me.std.common.utils.ToastUtil;
@@ -25,7 +24,7 @@ import me.std.common.utils.ToastUtil;
  * Created by Roger Huang on 2019/1/14.
  */
 
-public abstract class CYListFragment<P> extends ChunyuFragment implements CYListViewContract.View<P>, AdapterView.OnItemClickListener {
+public abstract class CYListFragment<P> extends STFragment implements CYListViewContract.View<P>, AdapterView.OnItemClickListener {
     public PullToRefreshListView mPullRefreshListView;
 
     @Override
@@ -71,7 +70,7 @@ public abstract class CYListFragment<P> extends ChunyuFragment implements CYList
         onRefresh();
     }
 
-    abstract protected ChunyuListAdapter getAdapter();
+    abstract protected STListAdapter getAdapter();
 
     abstract protected CYListViewContract.Presenter getPresenter();
 

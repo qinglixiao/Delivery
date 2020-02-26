@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import me.std.base.R;
 import me.std.base.base.BaseViewHolder;
-import me.std.base.base.ChunyuListAdapter;
+import me.std.base.base.STListAdapter;
 import me.std.common.core.Reflect;
 import me.std.common.exception.ReflectException;
 import me.std.common.utils.Logger;
@@ -24,7 +24,7 @@ import me.std.common.utils.Logger;
  * Phone: 18611867932
  * Email: lixiao@chunyu.me
  */
-public class ChunyuHolderAdapter<T> extends ChunyuListAdapter<T> {
+public class STHolderAdapter<T> extends STListAdapter<T> {
     //单个Holder Type
     private static final String SINGLEHOLDERDATATYPE = "singleholderdatatype";
 
@@ -44,7 +44,7 @@ public class ChunyuHolderAdapter<T> extends ChunyuListAdapter<T> {
     private HolderTypeKeyGenerater mHolderTypeKeyGenerater;
 
 
-    public ChunyuHolderAdapter(Context context) {
+    public STHolderAdapter(Context context) {
         super(context);
     }
 

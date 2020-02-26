@@ -1,20 +1,19 @@
 package com.std.framework.business.explore.view.fragment;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.util.FingerUtil;
 import com.std.framework.util.ToastUtil;
+
+import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
 
 /**
  * Description:
@@ -25,13 +24,12 @@ import com.std.framework.util.ToastUtil;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class FingerIdentifyFragment extends BaseTitleFragment {
+public class FingerIdentifyFragment extends STFragment {
     private View view;
     private TextView tv_device;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_finger, null);
         tv_device = (TextView) view.findViewById(R.id.tv_device_info);
         onFingerprintClick(tv_device);
@@ -89,7 +87,7 @@ public class FingerIdentifyFragment extends BaseTitleFragment {
     }
 
     @Override
-    public void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle("指纹识别").build();
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle("指纹识别").build();
     }
 }

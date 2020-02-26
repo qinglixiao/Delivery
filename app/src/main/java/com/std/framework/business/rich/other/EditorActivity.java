@@ -1,7 +1,6 @@
 package com.std.framework.business.rich.other;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -25,10 +24,11 @@ import com.library.imageloader.core.ImageLoader;
 import com.library.imageloader.core.ImageLoaderConfiguration;
 import com.library.imageloader.core.assist.QueueProcessingType;
 import com.std.framework.R;
-import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.core.NavigationBar;
 
 import java.lang.reflect.Field;
+
+import me.std.base.base.STActivity;
 
 /**
  * 灵感编辑
@@ -37,7 +37,7 @@ import java.lang.reflect.Field;
  * 
  */
 @SuppressLint("HandlerLeak")
-public class EditorActivity extends BaseTitleActivity {
+public class EditorActivity extends STActivity {
 
 	private ResizeLinearLayout baseContent;
 
@@ -99,11 +99,6 @@ public class EditorActivity extends BaseTitleActivity {
 		appHeight = getAppHeight();
 		initImageLoader(this);
 		init();
-	}
-
-	@Override
-	protected void onNavigationBar(NavigationBar.Builder navBuilder) {
-
 	}
 
 	private void init() {

@@ -16,23 +16,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.business.contact.shortcut_lib.LauncherUtil;
 import com.std.framework.business.home.view.activity.MainTabActivity;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.util.ToastUtil;
 
-import butterknife.ButterKnife;
 import butterknife.OnClick;
+import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
 import me.std.common.config.RuntimePermissions;
 import me.std.common.utils.RuntimePermissionUtil;
 import me.std.location.MapLocationUtil;
 
-public class ContactFragment extends BaseTitleFragment implements OnClickListener {
+public class ContactFragment extends STFragment implements OnClickListener {
     private View view;
     private EditText editText;
     private Button button;
@@ -41,12 +39,12 @@ public class ContactFragment extends BaseTitleFragment implements OnClickListene
     private TextView tv_location;
 
     @Override
-    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle(R.string.main_tab_contact);
+    protected void onActionBar(ActionBar.Builder builder) {
+       builder.setTitle(R.string.main_tab_contact);
     }
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+    @Override
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_three, null);
         editText = (EditText) view.findViewById(R.id.frag3_edt);
         button = (Button) view.findViewById(R.id.frag3_btn);
@@ -123,6 +121,18 @@ public class ContactFragment extends BaseTitleFragment implements OnClickListene
     @OnClick(R.id.button7)
     public void location(View view) {
         MapLocationUtil.getInstance().startLocation(null);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MapLocationUtil.getInstance().enableBackgroundLocation(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MapLocationUtil.getInstance().enableBackgroundLocation(false);
     }
 
     /**

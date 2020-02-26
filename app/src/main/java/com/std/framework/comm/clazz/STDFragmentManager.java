@@ -2,8 +2,8 @@ package com.std.framework.comm.clazz;
 
 import android.support.v4.app.FragmentManager;
 
-import com.std.framework.basic.BaseActivity;
-import com.std.framework.basic.BaseFragment;
+import me.std.base.base.BaseActivity;
+import me.std.base.base.BaseFragment;
 
 public class STDFragmentManager {
     private static STDFragmentManager instance;

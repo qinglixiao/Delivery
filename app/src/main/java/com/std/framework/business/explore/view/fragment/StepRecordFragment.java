@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.core.NavigationBar;
+
+import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
 
 /**
  * Description :
@@ -18,16 +19,16 @@ import com.std.framework.core.NavigationBar;
  * Create on:  2017/5/8.
  * Modify by：lx
  */
-public class StepRecordFragment extends BaseTitleFragment {
+public class StepRecordFragment extends STFragment {
     private TextView tv_device;
 
     @Override
-    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle("android 计步");
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle("android 计步");
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_step_record, null);
         tv_device = (TextView) view.findViewById(R.id.tv_device_info);
         return view;

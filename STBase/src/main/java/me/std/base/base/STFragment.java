@@ -27,7 +27,7 @@ import me.std.common.utils.ViewUtil;
  * Phone: 18611867932
  * Email: lixiao@chunyu.me
  */
-public abstract class ChunyuFragment extends BaseFragment implements IBaseOperation {
+public abstract class STFragment extends BaseFragment implements IBaseOperation {
     private ActionBar.Builder actionBuilder;
     public ActionBar actionBar;
     private boolean isFragmentVisiable;

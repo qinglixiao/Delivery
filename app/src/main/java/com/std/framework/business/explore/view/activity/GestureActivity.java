@@ -5,9 +5,9 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseActivity;
-import com.std.framework.basic.BaseTitleActivity;
-import com.std.framework.core.NavigationBar;
+
+import me.std.base.base.STActivity;
+import me.std.base.core.ActionBar;
 
 /**
  * Description:
@@ -18,7 +18,7 @@ import com.std.framework.core.NavigationBar;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class GestureActivity extends BaseTitleActivity {
+public class GestureActivity extends STActivity {
     private GestureDetector gestureDetector;
 
     @Override
@@ -29,8 +29,8 @@ public class GestureActivity extends BaseTitleActivity {
     }
 
     @Override
-    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle("手势");
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle("手势");
     }
 
     private GestureDetector.SimpleOnGestureListener simpleOnGestureListener = new GestureDetector.SimpleOnGestureListener() {

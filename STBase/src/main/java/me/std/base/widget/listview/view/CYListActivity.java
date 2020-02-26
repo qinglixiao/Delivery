@@ -9,15 +9,15 @@ import android.widget.ListView;
 import java.util.List;
 
 import me.std.base.R;
-import me.std.base.base.ChunyuActivity;
-import me.std.base.base.ChunyuListAdapter;
+import me.std.base.base.STActivity;
+import me.std.base.base.STListAdapter;
 import me.std.base.widget.listview.contract.CYListViewContract;
 import me.std.common.core.ThreadPool;
 import me.std.common.third.pulltorefresh.PullToRefreshBase;
 import me.std.common.third.pulltorefresh.PullToRefreshListView;
 import me.std.common.utils.ToastUtil;
 
-public class CYListActivity<P> extends ChunyuActivity implements CYListViewContract.View<P>, AdapterView.OnItemClickListener {
+public class CYListActivity<P> extends STActivity implements CYListViewContract.View<P>, AdapterView.OnItemClickListener {
 
     PullToRefreshListView mPullRefreshListView;
 
@@ -65,7 +65,7 @@ public class CYListActivity<P> extends ChunyuActivity implements CYListViewContr
         onRefresh();
     }
 
-    protected ChunyuListAdapter getAdapter() {
+    protected STListAdapter getAdapter() {
         return null;
     }
 

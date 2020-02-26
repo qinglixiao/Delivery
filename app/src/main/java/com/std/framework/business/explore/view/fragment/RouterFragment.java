@@ -8,12 +8,13 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
 import com.std.framework.databinding.FragmentRouterBinding;
 import com.std.framework.router.CYRouter;
 import com.std.framework.router.interfaces.Resolve;
 
 import java.util.HashMap;
+
+import me.std.base.base.BaseFragment;
 
 /**
  * Description:

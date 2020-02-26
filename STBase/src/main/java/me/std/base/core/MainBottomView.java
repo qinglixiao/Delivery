@@ -21,7 +21,7 @@ import java.util.List;
 
 import me.std.base.R;
 import me.std.base.base.BaseFragment;
-import me.std.base.base.ChunyuActivity;
+import me.std.base.base.STActivity;
 import me.std.common.core.Reflect;
 import me.std.common.exception.ReflectException;
 
@@ -89,7 +89,7 @@ public class MainBottomView extends LinearLayout {
         }
     }
 
-    public <T extends ChunyuActivity> void apply(ViewPager viewPager, T context) {
+    public <T extends STActivity> void apply(ViewPager viewPager, T context) {
         this.viewPager = viewPager;
         if (viewPager != null) {
             viewPager.setAdapter(new TabAdapter(context.getSupportFragmentManager()));

@@ -23,7 +23,7 @@ import me.std.common.utils.ViewUtil;
  * Phone: 18611867932
  * Email: lixiao@chunyu.me
  */
-public abstract class ChunyuActivity extends BaseActivity implements IActionBarRebuild, IBaseOperation {
+public abstract class STActivity extends BaseActivity implements IActionBarRebuild, IBaseOperation {
     private ActionBar.Builder actionBuilder;
     public ActionBar actionBar;
     private Unbinder unBinderKnife;

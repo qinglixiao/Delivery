@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.business.call.contract.VoiceSelContract;
 import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.VoiceRecordBinding;
+
+import me.std.base.base.STActivity;
+import me.std.base.core.ActionBar;
 
 /**
  * Description :
@@ -18,7 +20,7 @@ import com.std.framework.databinding.VoiceRecordBinding;
  * Modify by：lx
  *
  */
-public class VoiceRecordActivity extends BaseTitleActivity implements VoiceSelContract.View {
+public class VoiceRecordActivity extends STActivity implements VoiceSelContract.View {
     private VoiceRecordBinding voiceRecordBinding;
 
     @Override
@@ -31,8 +33,8 @@ public class VoiceRecordActivity extends BaseTitleActivity implements VoiceSelCo
     }
 
     @Override
-    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle("录制");
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle("录制");
     }
 
     @Override

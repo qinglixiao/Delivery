@@ -3,7 +3,6 @@ package com.std.framework.business.rich.view;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -11,20 +10,20 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.library.imageloader.core.ImageLoader;
 import com.library.util.BitmapUtil;
 import com.std.framework.R;
-import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.business.rich.adapter.ListViewAdapter;
 import com.std.framework.business.rich.dslv.DragSortListView;
 import com.std.framework.business.rich.gallery.GalleryActivity;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.util.DimenUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RichMainActivity extends BaseTitleActivity implements View.OnClickListener, MenuPopupView.OperateClickListener,CompoundButton.OnCheckedChangeListener{
+import me.std.base.base.STActivity;
+import me.std.base.core.ActionBar;
+
+public class RichMainActivity extends STActivity implements View.OnClickListener, MenuPopupView.OperateClickListener,CompoundButton.OnCheckedChangeListener{
     private View v_tool;
 //    private RecyclerView recyclerView;
     //    private RecyclerViewAdapter adapter;
@@ -39,8 +38,8 @@ public class RichMainActivity extends BaseTitleActivity implements View.OnClickL
     }
 
     @Override
-    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle("富文本编辑器");
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle("富文本编辑器");
     }
 
     private void initView() {

@@ -23,9 +23,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
 import com.std.framework.comm.clazz.JSRemoteProvider;
-import com.std.framework.core.NavigationBar;
+
+import me.std.base.base.BaseFragment;
 
 public class Html5NativeCommunicationFragment extends BaseFragment implements OnClickListener {
 	private View view;

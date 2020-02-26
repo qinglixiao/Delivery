@@ -3,12 +3,11 @@ package me.std.base.widget.toptab.view;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 
 import java.util.List;
 
 import me.std.base.R;
-import me.std.base.base.ChunyuActivity;
+import me.std.base.base.STActivity;
 import me.std.base.widget.toptab.adapter.CYViewPagerAdapter;
 
 
@@ -16,7 +15,7 @@ import me.std.base.widget.toptab.adapter.CYViewPagerAdapter;
  * Created by Roger Huang on 2019/1/17.
  */
 
-public abstract class CYTopTabActivity extends ChunyuActivity {
+public abstract class CYTopTabActivity extends STActivity {
 
     TabLayout mTabLayout;
 

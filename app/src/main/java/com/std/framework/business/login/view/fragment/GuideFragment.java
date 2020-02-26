@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.core.NavigationBar;
+
+import me.std.base.base.BaseFragment;
 
 public class GuideFragment extends BaseFragment {
 	private View view;

@@ -10,7 +10,7 @@ import android.view.View;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import me.std.base.base.ChunyuActivity;
+import me.std.base.base.STActivity;
 import me.std.base.core.ActionBar;
 import me.std.common.utils.Logger;
 import me.std.common.utils.ViewUtil;
@@ -20,7 +20,7 @@ import me.std.flutterbridge.bridge.specs.BridgeActionButtonSpec;
 import me.std.flutterbridge.bridge.specs.BridgeResult;
 import me.std.flutterbridge.bridge.specs.FlutterPageParameter;
 
-public class CYFlutterActivity extends ChunyuActivity implements IBridgeView {
+public class CYFlutterActivity extends STActivity implements IBridgeView {
     private CYFlutterChannel mChannel = null;
     private CYFlutterView mFlutterView = null;
 

@@ -5,20 +5,22 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseTitleActivity;
 import com.std.framework.business.call.view.fragment.CallFragment;
 import com.std.framework.business.contact.view.ContactFragment;
 import com.std.framework.business.explore.view.fragment.ExploreMainFragment;
 import com.std.framework.business.home.view.fragment.MainFragment;
 import com.std.framework.business.mine.view.MineFragment;
-import com.std.framework.core.NavigationBar;
+import com.std.framework.comm.view.MainBottomView;
 import com.std.framework.databinding.ActivityTabMain;
 import com.std.framework.util.ThemeUtil;
-import com.std.framework.comm.view.MainBottomView;
 
 import java.util.List;
 
-public class MainTabActivity extends BaseTitleActivity {
+import me.std.base.base.STActivity;
+import me.std.base.core.ActionBar;
+import me.std.location.fragment.STMapFragment;
+
+public class MainTabActivity extends STActivity {
     private ActivityTabMain activityTabMain;
 
     private MainBottomView.TabSpec exploreTab;
@@ -26,6 +28,7 @@ public class MainTabActivity extends BaseTitleActivity {
     private MainBottomView.TabSpec homeTab;
     private MainBottomView.TabSpec communicateTab;
     private MainBottomView.TabSpec settingTab;
+    private MainBottomView.TabSpec mapTab;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -38,12 +41,14 @@ public class MainTabActivity extends BaseTitleActivity {
     }
 
     @Override
-    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle(R.string.app_name);
-//        navigation.setIcon(R.drawable.icon);
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle(R.string.app_name);
     }
 
     private void initTab() {
+        //地图
+        mapTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_list, R.string.main_tab_explore, STMapFragment.class);
+        activityTabMain.tabContainer.addTab(mapTab);
         //探索
         exploreTab = activityTabMain.tabContainer.newTabSpec(R.drawable.main_app_list, R.string.main_tab_explore, ExploreMainFragment.class);
         activityTabMain.tabContainer.addTab(exploreTab);

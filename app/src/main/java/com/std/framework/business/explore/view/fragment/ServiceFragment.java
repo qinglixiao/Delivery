@@ -17,8 +17,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
 import com.std.framework.comm.service.MessageByService;
+
+import me.std.base.base.BaseFragment;
 
 /**
  * Description :

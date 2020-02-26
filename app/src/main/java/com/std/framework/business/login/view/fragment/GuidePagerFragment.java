@@ -1,7 +1,6 @@
 package com.std.framework.business.login.view.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
 import com.std.framework.business.login.view.activity.LaunchActivity;
-import com.std.framework.core.NavigationBar;
+
+import me.std.base.base.BaseFragment;
 
 public class GuidePagerFragment extends BaseFragment {
 	public boolean isLastPager;

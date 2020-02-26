@@ -2,22 +2,20 @@ package com.std.framework.business.explore.view.fragment;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.business.user.model.UserModel;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentInvokeBinding;
 import com.std.framework.study.other.module.ToonModule;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
 
 /**
  * Description:
@@ -28,17 +26,16 @@ import io.reactivex.schedulers.Schedulers;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class InvokeFragment extends BaseTitleFragment implements View.OnClickListener {
+public class InvokeFragment extends STFragment implements View.OnClickListener {
     private FragmentInvokeBinding invokeBinding;
 
     @Override
-    protected void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle("接口调用");
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle("接口调用");
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_invoke, null);
         invokeBinding = DataBindingUtil.bind(view);
         viewAction();

@@ -2,7 +2,6 @@ package com.std.framework.business.explore.view.fragment;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,12 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
 import com.std.framework.business.explore.adapter.RecyclerViewAdapter;
 import com.std.framework.comm.view.RecyclerItemDivider;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.RecyclerViewBinding;
+
+import me.std.base.base.STFragment;
 
 /**
  * Description :
@@ -24,7 +22,7 @@ import com.std.framework.databinding.RecyclerViewBinding;
  * Create on:  2016/9/27.
  * Modify by：lx
  */
-public class RecyclerViewFragment extends BaseTitleFragment {
+public class RecyclerViewFragment extends STFragment {
     private RecyclerViewBinding recyclerViewBinding;
     private RecyclerView recyclerView;
     private static final String[] data = new String[]{
@@ -32,7 +30,7 @@ public class RecyclerViewFragment extends BaseTitleFragment {
     };
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recycler_view, null);
         recyclerViewBinding = DataBindingUtil.bind(view);
         initView();
@@ -52,8 +50,4 @@ public class RecyclerViewFragment extends BaseTitleFragment {
         recyclerView.setAdapter(adapter);
     }
 
-    @Override
-    public void onNavigationBar(NavigationBar.Builder navBuilder) {
-
-    }
 }

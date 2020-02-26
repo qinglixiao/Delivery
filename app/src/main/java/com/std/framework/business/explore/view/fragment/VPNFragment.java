@@ -4,21 +4,20 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.std.framework.R;
-import com.std.framework.basic.BaseFragment;
-import com.std.framework.basic.BaseTitleFragment;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentVPNBinding;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
+import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
 
 /**
  * Description:
@@ -29,17 +28,16 @@ import java.lang.reflect.Method;
  * Person in charge:李晓
  * Leader: 李晓
  */
-public class VPNFragment extends BaseTitleFragment implements View.OnClickListener {
+public class VPNFragment extends STFragment implements View.OnClickListener {
     private FragmentVPNBinding vpnBinding;
 
     @Override
-    public void onNavigationBar(NavigationBar.Builder navBuilder) {
-        navBuilder.setTitle("vpn连接测试");
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle("vpn连接测试");
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_vpn, null);
         vpnBinding = DataBindingUtil.bind(view);
         viewAction();

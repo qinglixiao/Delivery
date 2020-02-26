@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import java.io.BufferedReader;
@@ -35,6 +37,31 @@ public class AppContextUtil {
             throw new IllegalStateException("AppContextUtil's initApp not called!!!");
         }
         return mContext;
+    }
+
+    public static String getAppName() {
+        try {
+            PackageManager packageManager = mContext.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(
+                    mContext.getPackageName(), 0);
+            int labelRes = packageInfo.applicationInfo.labelRes;
+            return mContext.getResources().getString(labelRes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public static String getPackageName() {
+        try {
+            PackageManager packageManager = mContext.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(
+                    mContext.getPackageName(), 0);
+            return packageInfo.packageName;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     /**
