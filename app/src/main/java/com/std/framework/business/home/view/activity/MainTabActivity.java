@@ -71,6 +71,8 @@ public class MainTabActivity extends STActivity {
     }
 
     private void applySkin() {
+        mapTab.applySkin(ThemeUtil.getDrawableSelector("main_app_list", "main_app_list")
+                , ThemeUtil.getTabTextSelector());
         exploreTab.applySkin(ThemeUtil.getDrawableSelector("main_app_list", "main_app_list")
                 , ThemeUtil.getTabTextSelector());
         contactTab.applySkin(ThemeUtil.getDrawableSelector("main_app_contact", "main_app_contact")

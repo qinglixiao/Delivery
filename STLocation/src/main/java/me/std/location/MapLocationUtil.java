@@ -35,7 +35,7 @@ public class MapLocationUtil {
     private OnMapLocationListener onMapLocationListener = null;
 
     private MapLocationUtil() {
-        initLocation();
+        initLocation(null);
     }
 
     public static MapLocationUtil getInstance() {
@@ -43,6 +43,10 @@ public class MapLocationUtil {
             instance = new MapLocationUtil();
         }
         return instance;
+    }
+
+    public MapLocationUtil(int LocationInterval) {
+        initLocation(getOption(LocationInterval));
     }
 
     /**
@@ -56,8 +60,8 @@ public class MapLocationUtil {
                 if (location.getErrorCode() == 0) {
                     if (onMapLocationListener != null) {
                         STMapLocationInfo locationInfo = new STMapLocationInfo();
-                        locationInfo.longitude = String.valueOf(location.getLongitude());
-                        locationInfo.latitude = String.valueOf(location.getLatitude());
+                        locationInfo.longitude = location.getLongitude();
+                        locationInfo.latitude = location.getLatitude();
                         locationInfo.address = location.getAddress();
                         locationInfo.poiName = location.getPoiName();
                         callBack(locationInfo, null);
@@ -128,10 +132,14 @@ public class MapLocationUtil {
      * @author hongming.wang
      * @since 2.8.0
      */
-    private void initLocation() {
+    private void initLocation(AMapLocationClientOption option) {
         //初始化client
         locationClient = new AMapLocationClient(AppContextUtil.getAppContext());
-        locationOption = getDefaultOption();
+        if (option == null) {
+            locationOption = getDefaultOption();
+        } else {
+            locationOption = option;
+        }
         //设置定位参数
         locationClient.setLocationOption(locationOption);
         // 设置定位监听
@@ -143,7 +151,7 @@ public class MapLocationUtil {
             locationClient.enableBackgroundLocation(2001, buildNotification());
         } else {
             locationClient.disableBackgroundLocation(true);
-            if(notificationManager != null) {
+            if (notificationManager != null) {
                 notificationManager.cancel(NOTIFICATOINID);
             }
         }
@@ -223,6 +231,29 @@ public class MapLocationUtil {
      * @author hongming.wang
      * @since 2.8.0
      */
+    private AMapLocationClientOption getOption(int interval) {
+        AMapLocationClientOption mOption = new AMapLocationClientOption();
+        mOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);//可选，设置定位模式，可选的模式有高精度、仅设备、仅网络。默认为高精度模式
+        mOption.setGpsFirst(false);//可选，设置是否gps优先，只在高精度模式下有效。默认关闭
+        mOption.setHttpTimeOut(30000);//可选，设置网络请求超时时间。默认为30秒。在仅设备模式下无效
+        mOption.setInterval(interval);//可选，设置定位间隔。默认为2秒
+        mOption.setNeedAddress(true);//可选，设置是否返回逆地理地址信息。默认是true
+        mOption.setOnceLocation(false);//可选，设置是否单次定位。默认是false
+        mOption.setOnceLocationLatest(false);//可选，设置是否等待wifi刷新，默认为false.如果设置为true,会自动变为单次定位，持续定位时不要使用
+        AMapLocationClientOption.setLocationProtocol(AMapLocationClientOption.AMapLocationProtocol.HTTP);//可选， 设置网络请求的协议。可选HTTP或者HTTPS。默认为HTTP
+        mOption.setSensorEnable(true);//可选，设置是否使用传感器。默认是false
+        mOption.setWifiScan(true); //可选，设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差
+        mOption.setLocationCacheEnable(true); //可选，设置是否使用缓存定位，默认为true
+        mOption.setGeoLanguage(AMapLocationClientOption.GeoLanguage.DEFAULT);//可选，设置逆地理信息的语言，默认值为默认语言（根据所在地区选择语言）
+        return mOption;
+    }
+
+    /**
+     * 默认的定位参数
+     *
+     * @author hongming.wang
+     * @since 2.8.0
+     */
     private AMapLocationClientOption getDefaultOption() {
         AMapLocationClientOption mOption = new AMapLocationClientOption();
         mOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);//可选，设置定位模式，可选的模式有高精度、仅设备、仅网络。默认为高精度模式
@@ -245,8 +276,8 @@ public class MapLocationUtil {
     }
 
     public class STMapLocationInfo {
-        public String longitude;//经度
-        public String latitude;//纬度
+        public double longitude;//经度
+        public double latitude;//纬度
         public String address;//地址
         public String poiName;//兴趣点
     }

@@ -2,7 +2,6 @@ package com.std.framework.business.call.view.fragment;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import com.std.framework.R;
 import com.std.framework.business.call.mutual.CallAssist;
 import com.std.framework.business.call.view.RecordVoiceDialog;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentCallBinding;
 
 import java.util.concurrent.TimeUnit;

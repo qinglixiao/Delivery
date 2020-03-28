@@ -40,7 +40,7 @@ public class ContactFragment extends STFragment implements OnClickListener {
 
     @Override
     protected void onActionBar(ActionBar.Builder builder) {
-       builder.setTitle(R.string.main_tab_contact);
+        builder.setTitle(R.string.main_tab_contact);
     }
 
     @Override
@@ -89,22 +89,6 @@ public class ContactFragment extends STFragment implements OnClickListener {
 //                Intent intent = new Intent(getContext(), MainTabActivity.class);
                 addShortcut(getContext(), "通讯录", intent, Intent.ShortcutIconResource.fromContext(getContext(), R.drawable.main_app_home), true);
                 break;
-            case R.id.button7:
-                if (RuntimePermissionUtil.checkSelfPermission(getContext(), RuntimePermissions.ACCESS_FINE_LOCATION)) {
-                    MapLocationUtil.getInstance().startLocation(new MapLocationUtil.OnMapLocationListener() {
-                        @Override
-                        public void onLocationChanged(MapLocationUtil.STMapLocationInfo locationInfo, Error error) {
-                            if (locationInfo != null) {
-                                tv_location.setText(locationInfo.address);
-                            } else if (error != null) {
-                                tv_location.setText(error.getMessage());
-                            }
-                        }
-                    });
-                } else {
-                    ToastUtil.show("无定位权限");
-                }
-                break;
             default:
                 break;
 //            // TODO Auto-generated method stub
@@ -120,19 +104,20 @@ public class ContactFragment extends STFragment implements OnClickListener {
 
     @OnClick(R.id.button7)
     public void location(View view) {
-        MapLocationUtil.getInstance().startLocation(null);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        MapLocationUtil.getInstance().enableBackgroundLocation(true);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        MapLocationUtil.getInstance().enableBackgroundLocation(false);
+        if (RuntimePermissionUtil.checkSelfPermission(getContext(), RuntimePermissions.ACCESS_FINE_LOCATION)) {
+            MapLocationUtil.getInstance().startLocation(new MapLocationUtil.OnMapLocationListener() {
+                @Override
+                public void onLocationChanged(MapLocationUtil.STMapLocationInfo locationInfo, Error error) {
+                    if (locationInfo != null) {
+                        tv_location.setText(locationInfo.address);
+                    } else if (error != null) {
+                        tv_location.setText(error.getMessage());
+                    }
+                }
+            });
+        } else {
+            ToastUtil.show("无定位权限");
+        }
     }
 
     /**

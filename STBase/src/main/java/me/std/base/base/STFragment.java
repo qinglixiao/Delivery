@@ -17,6 +17,7 @@ import me.std.base.interfaces.IActionBarRebuild;
 import me.std.base.interfaces.IBaseOperation;
 import me.std.base.view.EmptyView;
 import me.std.base.view.dialog.LoadingDialog;
+import me.std.common.utils.Logger;
 import me.std.common.utils.ViewUtil;
 
 /**
@@ -30,7 +31,7 @@ import me.std.common.utils.ViewUtil;
 public abstract class STFragment extends BaseFragment implements IBaseOperation {
     private ActionBar.Builder actionBuilder;
     public ActionBar actionBar;
-    private boolean isFragmentVisiable;
+        private boolean isFragmentVisiable;
     private Unbinder unBinderKnife;
     private ViewGroup mWrapView;
     private View mContentView;
@@ -42,15 +43,27 @@ public abstract class STFragment extends BaseFragment implements IBaseOperation 
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
-        isFragmentVisiable = isVisibleToUser;
-        attachNavigation();
         super.setUserVisibleHint(isVisibleToUser);
+        isFragmentVisiable = isVisibleToUser;
+        if (isVisibleToUser) {
+            attachNavigation();
+        }
+//        super.setUserVisibleHint(isVisibleToUser);
+        Logger.d(getClass().getName()+ " visible="+isVisibleToUser);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         attachNavigation();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (getUserVisibleHint()) {
+            attachNavigation();
+        }
     }
 
     @Nullable
@@ -67,12 +80,10 @@ public abstract class STFragment extends BaseFragment implements IBaseOperation 
     }
 
     private void attachNavigation() {
-        if (isFragmentVisiable) {
-            if (getActivity() != null && getActivity() instanceof IActionBarRebuild) {
-                actionBuilder = ((IActionBarRebuild) getActivity()).getBuilder();
-                actionBuilder.build().reset();
-                onActionBar(actionBuilder);
-            }
+        if (getActivity() != null && getActivity() instanceof IActionBarRebuild) {
+            actionBuilder = ((IActionBarRebuild) getActivity()).getBuilder();
+            actionBuilder.build().reset();
+            onActionBar(actionBuilder);
         }
     }
 

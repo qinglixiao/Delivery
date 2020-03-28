@@ -17,6 +17,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import me.std.base.base.STFragment;
+import me.std.base.core.ActionBar;
 
 /**
  * Created by gfy on 2016/4/1.
@@ -32,6 +33,11 @@ public class EventBusFragment extends STFragment implements View.OnClickListener
     protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_event_bus, null);
         return view;
+    }
+
+    @Override
+    protected void onActionBar(ActionBar.Builder builder) {
+        builder.setTitle("EventBus");
     }
 
     @Override

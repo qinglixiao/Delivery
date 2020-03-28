@@ -69,7 +69,14 @@ public class ActionBar {
         flagMark = FLAG_VISUAL_BACK;
         flagMark |= FLAG_VISUAL_BAR;
 
+        clearValue();
         vContainer.setBackgroundColor(Color.parseColor("#fdfdfd"));
+    }
+
+    private void clearValue() {
+        vTitle.setText("");
+        vBack.setText("");
+        vBack.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
     }
 
     private void applySkin() {
