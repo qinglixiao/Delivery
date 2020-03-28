@@ -44,7 +44,7 @@ android {
             minifyEnabled true
             // 混淆后去除暴露的无用资源
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     sourceSets {
