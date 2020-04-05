@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'
+apply from: '../unit_test_script.gradle'
+apply from: '../comm.gradle'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation depend['STCommon']
+    implementation depend['gson']
+    implementation depend['STBase']
+    implementation depend["routerAnnotation"]
+    implementation depend['routerApi']
+    implementation depend['STNetwork']
+    annotationProcessor depend['routerCompiler']
+}

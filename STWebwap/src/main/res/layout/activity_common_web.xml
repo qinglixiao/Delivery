@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <me.std.webwap.view.CYWebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ViewStub
+        android:id="@+id/v_empty_tag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/web_empty_view">
+    </ViewStub>
+
+</LinearLayout>

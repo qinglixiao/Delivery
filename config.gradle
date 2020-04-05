@@ -29,6 +29,7 @@ ext {
             flutterProject    : project(':flutter'),
             STLocation        : project(':STLocation'),
             STDb              : project(':STDb'),
+            STWebwap          : project(':STWebwap'),
 
     ]
 

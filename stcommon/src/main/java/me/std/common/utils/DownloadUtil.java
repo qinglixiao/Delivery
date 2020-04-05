@@ -39,7 +39,7 @@ public class DownloadUtil {
             long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
             if (downloadId == mDownloadId) {
                 Uri downloadFileUri = mDownloadManager.getUriForDownloadedFile(downloadId);
-                MashupAppUtils.installApp(mContext, downloadFileUri);
+                MashupAppUtil.installApp(mContext, downloadFileUri);
                 destroyArgs();
             }
         }

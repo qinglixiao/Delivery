@@ -12,6 +12,7 @@ import java.util.List;
  * Create on: 2019-12-27.
  */
 public class NetworkConfig {
+    private static NetworkConfig instance;
     public static final String APPID = "vtTDl6cxKNGoevpxKMCq";
     public static final String APPKEY = "0n0i32lXlRkHOP88aSaWAvmaEqVPgibB";
 
@@ -37,5 +38,20 @@ public class NetworkConfig {
         httpClient = new STHttpClient.Builder()
                 .addConfig(new STClientConfig())
                 .build();
+    }
+
+    public static NetworkConfig getInstance() {
+        if (instance == null) {
+            instance = new NetworkConfig();
+        }
+        return instance;
+    }
+
+    public String getOnLineHost() {
+        return getDomain();
+    }
+
+    public boolean isForbidHost(String host) {
+        return false;
     }
 }

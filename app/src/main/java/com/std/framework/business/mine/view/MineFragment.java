@@ -13,7 +13,13 @@ import android.widget.PopupWindow;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
 import com.std.framework.comm.view.TouchSlopView;
+import com.std.framework.router.CYRouter;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 import me.std.base.base.BaseFragment;
 
 public class MineFragment extends BaseFragment implements OnClickListener {
@@ -21,14 +27,15 @@ public class MineFragment extends BaseFragment implements OnClickListener {
     private Button button;
     private TouchSlopView slopView;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreateView(inflater, container, savedInstanceState);
         view = inflater.inflate(R.layout.fragment_five, null);
         button = (Button) view.findViewById(R.id.five_btn);
+        view.findViewById(R.id.btn_web).setOnClickListener(onClickListener);
         button.setOnClickListener(this);
+
         return view;
     }
 
@@ -51,7 +58,17 @@ public class MineFragment extends BaseFragment implements OnClickListener {
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
-            ss();
+            if (v.getId() == R.id.btn_web) {
+                Map<String, Object> param = new HashMap<>();
+                param.put("activity", getActivity());
+                param.put("title", "吃豆人游戏");
+                param.put("url", "https://passer-by.com/pacman/");
+                CYRouter.build("chunyu://CommonWebProvider/openH5"
+                        , param).done();
+                return;
+            } else {
+                ss();
+            }
         }
     };
 

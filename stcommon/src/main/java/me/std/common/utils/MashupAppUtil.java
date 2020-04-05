@@ -31,7 +31,7 @@ import java.util.List;
 
 import me.std.common.R;
 
-public final class MashupAppUtils {
+public final class MashupAppUtil {
 
     public static int SMS_REQUEST = 10086;
 
