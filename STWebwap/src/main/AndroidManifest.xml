@@ -2,6 +2,8 @@
     package="me.std.webwap">
 
     <application>
-        <activity android:name=".view.activity.CommonWebActivity" />
+        <activity
+            android:name=".view.activity.CommonWebActivity"
+            android:process=":webview" />
     </application>
 </manifest>

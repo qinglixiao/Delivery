@@ -8,6 +8,8 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import me.std.common.utils.Logger;
+
 /**
  * Description:
  * Author: lixiao
@@ -61,6 +63,7 @@ public class CYWebViewClient extends WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        Logger.d(url);
         if (delegate != null) {
             return delegate.shouldOverrideUrlLoading(view, url);
         }

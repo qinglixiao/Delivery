@@ -12,6 +12,7 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Process;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,7 @@ import me.std.webwap.view.CYWebView;
 import me.std.webwap.view.CYWebViewClient;
 
 /**
- * Description:
+ * Description: 需将webView放在独立进程
  * Author: lixiao
  * Create on: 2018/11/20.
  * Job number: 1800838
@@ -59,11 +60,8 @@ public class CommonWebActivity extends STActivity implements CYWebViewClient.Del
     private CommonWebActivityContract.Presenter presenter;
     private ValueCallback<Uri> mUploadMessage;
     private ValueCallback<Uri[]> mUploadCallbackAboveL;
-    //    @IntentArgs(key = Args.ARG_WEB_TITLE)
     private String mTitle = "";
-    //    @IntentArgs(key = ARG_AUTO_SET_TITLE)
     private boolean isAutoSetTitle = false;
-    //    @IntentArgs(key = ARG_ACTION_BAR_CLOSE)
     protected boolean mActionBarClose = false;//是否将返回按钮展示未关闭按钮
     private String mUrl = "";
     private boolean isLoadPageError = false;
@@ -154,6 +152,11 @@ public class CommonWebActivity extends STActivity implements CYWebViewClient.Del
                 startActivity(intent);
             }
         });
+        addWebViewAttribute(mWebView);
+    }
+
+    protected void addWebViewAttribute(CYWebView webView) {
+
     }
 
     @Override
@@ -255,9 +258,9 @@ public class CommonWebActivity extends STActivity implements CYWebViewClient.Del
         } catch (Exception e) {
 
         }
-
-        super.onDestroy();
         destroyWebView();
+        android.os.Process.killProcess(Process.myPid());//杀死此进程，防止内存泄漏（webview已经放在独立进程）
+        super.onDestroy();
     }
 
     public void destroyWebView() {
@@ -479,6 +482,4 @@ public class CommonWebActivity extends STActivity implements CYWebViewClient.Del
     }
 
     //===========================End====================================
-
-
 }

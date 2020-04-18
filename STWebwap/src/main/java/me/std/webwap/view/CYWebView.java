@@ -64,19 +64,14 @@ public class CYWebView extends WebView {
         settings.setAllowFileAccess(false);//禁止js访问本地文件
         settings.setAllowFileAccessFromFileURLs(false);//禁止通过file url加载的js代码，去读取其他的本地文件
         settings.setAllowUniversalAccessFromFileURLs(false);//// 禁止通过file url加载的js可以访问其他的源(包括http、https等源)
-        if (Build.VERSION.SDK_INT >= 21) {
-            try {
-                // There was a change in default WebView settings for mixed http/https content in Lollipop
-                // refrence at https://datatheorem.github.io/android/2014/12/20/webviews-andorid-lollipop/
-                Field alwaysAllow = WebSettings.class.getDeclaredField("MIXED_CONTENT_ALWAYS_ALLOW");
-                Method setMixedContentMode = settings.getClass().getDeclaredMethod("setMixedContentMode", int.class);
-                //原本5.1以上禁止了https和http混用，在这里重新开启
-                alwaysAllow.setAccessible(true);
-                setMixedContentMode.setAccessible(true);
-                setMixedContentMode.invoke(settings, alwaysAllow.get(null));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
+        settings.setBlockNetworkImage(true);
+        settings.setBlockNetworkLoads(true);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //允许https和http混用
+//            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
     }
 }
