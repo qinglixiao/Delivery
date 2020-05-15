@@ -92,6 +92,7 @@ dependencies {
     implementation depend['butterknife']
     implementation depend['STBase']
     implementation depend['STWebwap']
+    implementation depend['EachBeanHuman']
     annotationProcessor depend['routerCompiler']
     annotationProcessor depend['butterknifeCompile']
 }

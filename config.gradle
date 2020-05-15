@@ -30,6 +30,7 @@ ext {
             STLocation        : project(':STLocation'),
             STDb              : project(':STDb'),
             STWebwap          : project(':STWebwap'),
+            EachBeanHuman     : project(':EachBeanHuman'),
 
     ]
 

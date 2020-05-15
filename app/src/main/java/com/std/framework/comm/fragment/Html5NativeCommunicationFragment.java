@@ -172,7 +172,7 @@ public class Html5NativeCommunicationFragment extends BaseFragment implements On
 				return false;
 			}
 		});
-		//webView.loadUrl("file:///android_asset/index.html");
+		//webView.loadUrl("file:///android_asset/index_me.html");
 		webView.loadUrl("http://172.21.11.77:8000/1.html");
 	}
 

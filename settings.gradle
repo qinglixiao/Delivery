@@ -6,3 +6,5 @@ evaluate(new File(
         'flutter_module/.android/include_flutter.groovy'
 ))
 include ':STWebwap'
+include ':EachBeanHuman'
+include ':stbasemvvm'

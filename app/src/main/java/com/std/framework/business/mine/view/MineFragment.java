@@ -1,5 +1,6 @@
 package com.std.framework.business.mine.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.com.eachbeanhuman.MainPlayActivity;
 import me.std.base.base.BaseFragment;
 
 public class MineFragment extends BaseFragment implements OnClickListener {
@@ -59,12 +61,13 @@ public class MineFragment extends BaseFragment implements OnClickListener {
         public void onClick(View v) {
             // TODO Auto-generated method stub
             if (v.getId() == R.id.btn_web) {
-                Map<String, Object> param = new HashMap<>();
-                param.put("activity", getActivity());
-                param.put("title", "吃豆人游戏");
-                param.put("url", "https://passer-by.com/pacman/");
-                CYRouter.build("chunyu://CommonWebProvider/openH5"
-                        , param).done();
+//                Map<String, Object> param = new HashMap<>();
+//                param.put("activity", getActivity());
+//                param.put("title", "吃豆人游戏");
+//                param.put("url", "https://passer-by.com/pacman/");
+//                CYRouter.build("chunyu://CommonWebProvider/openH5"
+//                        , param).done();
+                startActivity(new Intent(getActivity(), MainPlayActivity.class));
                 return;
             } else {
                 ss();
