@@ -1,6 +1,7 @@
 package com.std.framework.comm.interfaces;
 
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * Created by gfy on 2016/4/26.

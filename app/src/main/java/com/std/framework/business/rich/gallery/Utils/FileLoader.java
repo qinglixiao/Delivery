@@ -1,6 +1,6 @@
 package com.std.framework.business.rich.gallery.Utils;
 
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 
 import com.std.framework.business.rich.gallery.DispatchQueue;
 import com.std.framework.business.rich.gallery.TL.Document;

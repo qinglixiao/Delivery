@@ -1,6 +1,6 @@
 package com.std.framework.business.home.model;
 
-import android.databinding.BaseObservable;
+import androidx.databinding.BaseObservable;
 
 /**
  * Created by gfy on 2016/5/29.

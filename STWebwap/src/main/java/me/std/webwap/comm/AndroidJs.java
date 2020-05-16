@@ -1,12 +1,13 @@
 package me.std.webwap.comm;
 
 import android.app.Activity;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+
+import androidx.fragment.app.FragmentActivity;
 
 import org.json.JSONObject;
 
@@ -16,11 +17,8 @@ import java.util.List;
 import java.util.Map;
 
 import me.std.common.core.DataConvert;
-import me.std.common.core.RxBus;
 import me.std.common.core.ThreadPool;
-import me.std.common.utils.AppContextUtil;
 import me.std.webwap.contract.CommonWebActivityContract;
-import me.std.webwap.mutual.CommonWebAssistant;
 
 
 /**

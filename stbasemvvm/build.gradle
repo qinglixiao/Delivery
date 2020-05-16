@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+apply from: '../comm.gradle'
+apply plugin: 'kotlin-kapt'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api kotlins["core_ktx"]
+    api kotlins["kotlin_stdlib"]
+    api jetpack["lifecycle_viewmodel"]
+    api jetpack["lifecycle_extensions"]
+    api jetpack["livedata"]
+    api jetpack["lifecycle_runtime"]
+    api jetpack["work_runtime"]
+    api kotlins["activity_ktx"]
+    api kotlins["kotlinx_coroutines_android"]
+    api kotlins["kotlinx_coroutines_core"]
+//    kapt jetpack['databinding_compiler']
+}

@@ -1,6 +1,6 @@
 package me.std.common.third.glide;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheWrapper;

@@ -7,8 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Shader;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.widget.EdgeEffectCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -18,6 +16,9 @@ import android.view.ViewParent;
 import android.view.animation.Interpolator;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
+
+import androidx.core.view.MotionEventCompat;
+import androidx.core.widget.EdgeEffectCompat;
 
 import com.std.framework.R;
 

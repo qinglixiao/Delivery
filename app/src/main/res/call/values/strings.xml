@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="sel_video">选择语音</string>
-    <string name="edit">编辑名称</string>
-    <string name="begin">开始录制</string>
-    <string name="stop">停止</string>
-    <string name="pause">暂停</string>
-</resources>

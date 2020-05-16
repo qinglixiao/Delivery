@@ -7,7 +7,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.util.ArrayMap;
+
+import androidx.collection.ArrayMap;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;

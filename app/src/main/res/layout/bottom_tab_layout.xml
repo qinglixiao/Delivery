@@ -1,0 +1,40 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/tab_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_tab_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ali144" />
+
+        <TextView
+            android:id="@+id/tv_tab_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_tab_icon"
+            android:layout_centerHorizontal="true"
+            android:text="菜单" />
+
+        <ImageView
+            android:id="@+id/img_tab_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/img_tab_icon"
+            android:layout_marginBottom="-8dp"
+            android:layout_marginLeft="-8dp"
+            android:layout_toRightOf="@+id/img_tab_icon"
+            android:src="@drawable/red_dot"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_tab_corner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </RelativeLayout>
+</layout>

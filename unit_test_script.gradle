@@ -3,7 +3,7 @@ android {
     defaultConfig {
         multiDexEnabled true
         //将 AndroidJUnitRunner 设置为 Gradle 项目中的默认测试仪器运行器
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 }
 

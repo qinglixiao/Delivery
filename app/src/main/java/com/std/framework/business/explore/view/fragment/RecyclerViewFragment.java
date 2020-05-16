@@ -1,18 +1,20 @@
 package com.std.framework.business.explore.view.fragment;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.std.framework.R;
 import com.std.framework.business.explore.adapter.RecyclerViewAdapter;
 import com.std.framework.comm.view.RecyclerItemDivider;
-import com.std.framework.databinding.RecyclerViewBinding;
+import com.std.framework.databinding.FragmentEffectBinding;
+import com.std.framework.databinding.FragmentRecyclerViewBinding;
 
 import me.std.base.base.STFragment;
 
@@ -23,7 +25,7 @@ import me.std.base.base.STFragment;
  * Modify by：lx
  */
 public class RecyclerViewFragment extends STFragment {
-    private RecyclerViewBinding recyclerViewBinding;
+    private FragmentRecyclerViewBinding recyclerViewBinding;
     private RecyclerView recyclerView;
     private static final String[] data = new String[]{
             "北京", "黑龙江", "吉林", "山东", "江苏", "河北", "山西", "内蒙古", "新疆", "西藏", "云南", "香港", "澳门"

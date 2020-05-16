@@ -20,7 +20,6 @@ import android.widget.TextView;
 import com.std.framework.R;
 import com.std.framework.business.contact.shortcut_lib.LauncherUtil;
 import com.std.framework.business.home.view.activity.MainTabActivity;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.util.ToastUtil;
 
 import butterknife.OnClick;

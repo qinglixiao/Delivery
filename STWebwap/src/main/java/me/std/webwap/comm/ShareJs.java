@@ -1,14 +1,14 @@
 package me.std.webwap.comm;
 
 import android.graphics.Bitmap;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
+
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import me.std.common.core.ThreadPool;

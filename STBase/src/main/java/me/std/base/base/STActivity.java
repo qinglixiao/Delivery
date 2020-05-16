@@ -1,9 +1,10 @@
 package me.std.base.base;
 
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.LayoutRes;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

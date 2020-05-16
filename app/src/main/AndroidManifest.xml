@@ -19,7 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+<!--    <uses-permission android:name="android.permission.RECORD_AUDIO" />-->
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
@@ -206,10 +206,10 @@
         <activity android:name=".business.rich.other.EditorActivity" />
         <activity
             android:name=".business.call.view.activity.VoiceListActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".business.explore.view.activity.GestureActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="fullSensor">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 

@@ -2,14 +2,7 @@ package com.std.framework.comm.view;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -17,10 +10,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.library.core.Reflect;
 import com.std.framework.R;
 import com.std.framework.comm.view.MainBottomView.TabSpec.OnTabClickListener;
-import com.std.framework.databinding.BottomTabLayout;
+import com.std.framework.databinding.BottomTabLayoutBindingImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,7 +139,7 @@ public class MainBottomView extends LinearLayout {
         private BaseFragment fragment;
         private OnTabClickListener onTabClickListener;
         private Context context;
-        private BottomTabLayout bottomTabLayout;
+        private BottomTabLayoutBindingImpl bottomTabLayout;
         private View view;
 
         private TabSpec(int drawableId, int strId, Class<? extends BaseFragment> clazz, Context context) {

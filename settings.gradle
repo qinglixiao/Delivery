@@ -1,4 +1,4 @@
-include ':STLibrary', ':app', ':annotation-compiler', ':annotation-api', ':annotation', ':STNetwork', ':STBase', ':STCommon', ':STDb', ':STFlutterBridge', ':STLocation'
+include ':STLibrary', ':app', ':annotation-compiler', ':annotation-api', ':annotation', ':STNetwork', ':STBase', ':STCommon', ':STDb', ':STLocation'
 
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
@@ -7,4 +7,5 @@ evaluate(new File(
 ))
 include ':STWebwap'
 include ':EachBeanHuman'
-include ':stbasemvvm'
+include ':STBaseMVVM'
+include ':STFlutterBridge'

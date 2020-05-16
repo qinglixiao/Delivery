@@ -1,7 +1,7 @@
 package com.std.framework.business.call.view;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.view.View;
 
 import com.std.framework.R;
@@ -9,7 +9,6 @@ import com.std.framework.comm.view.BottomPopContainer;
 import com.std.framework.core.GlobalConfig;
 import com.std.framework.core.SUFIX;
 import com.std.framework.core.VoiceRecordHelper;
-import com.std.framework.databinding.RecordVoiceBinding;
 
 import java.io.File;
 
@@ -24,7 +23,7 @@ import me.std.common.utils.FileUtil;
 public class RecordVoiceDialog implements View.OnClickListener {
     private static final int RECORDTIME = 10 * 1000; //录音时长
 
-    private RecordVoiceBinding recordVoiceBinding;
+//    private RecordVoiceBinding recordVoiceBinding;
     private BottomPopContainer popWindow;
     private Context context;
     private VoiceRecordHelper recordHelper;
@@ -38,9 +37,9 @@ public class RecordVoiceDialog implements View.OnClickListener {
 
     private void initView() {
         popWindow = new BottomPopContainer(context, R.layout.view_record_voice);
-        recordVoiceBinding = DataBindingUtil.bind(popWindow.getView());
-        recordVoiceBinding.btnStart.setOnClickListener(this);
-        recordVoiceBinding.btnStop.setOnClickListener(this);
+//        recordVoiceBinding = DataBindingUtil.bind(popWindow.getView());
+//        recordVoiceBinding.btnStart.setOnClickListener(this);
+//        recordVoiceBinding.btnStop.setOnClickListener(this);
     }
 
     private void initRecord() {

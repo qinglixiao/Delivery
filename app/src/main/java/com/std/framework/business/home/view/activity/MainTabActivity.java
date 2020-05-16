@@ -1,8 +1,9 @@
 package com.std.framework.business.home.view.activity;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.databinding.DataBindingUtil;
 
 import com.std.framework.R;
 import com.std.framework.business.call.view.fragment.CallFragment;
@@ -11,7 +12,7 @@ import com.std.framework.business.explore.view.fragment.ExploreMainFragment;
 import com.std.framework.business.home.view.fragment.MainFragment;
 import com.std.framework.business.mine.view.MineFragment;
 import com.std.framework.comm.view.MainBottomView;
-import com.std.framework.databinding.ActivityTabMain;
+import com.std.framework.databinding.ActivityTabMainBinding;
 import com.std.framework.util.ThemeUtil;
 
 import java.util.List;
@@ -21,7 +22,7 @@ import me.std.base.core.ActionBar;
 import me.std.location.fragment.STMapFragment;
 
 public class MainTabActivity extends STActivity {
-    private ActivityTabMain activityTabMain;
+    private ActivityTabMainBinding activityTabMain;
 
     private MainBottomView.TabSpec exploreTab;
     private MainBottomView.TabSpec contactTab;
@@ -32,7 +33,6 @@ public class MainTabActivity extends STActivity {
 
     @Override
     protected void onCreate(Bundle arg0) {
-        // TODO Auto-generated method stub
         super.onCreate(arg0);
         View view = View.inflate(this, R.layout.activity_tab_main, null);
         activityTabMain = DataBindingUtil.bind(view);
@@ -87,12 +87,12 @@ public class MainTabActivity extends STActivity {
 
     @Override
     protected void onPermissionGranted(int requestCode) {
-        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionGranted(requestCode);
+//        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionGranted(requestCode);
     }
 
     @Override
     protected void onPermissionDenied(List<String> permissions, int requestCode) {
-        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionDenied(permissions, requestCode);
+//        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionDenied(permissions, requestCode);
     }
 
 }

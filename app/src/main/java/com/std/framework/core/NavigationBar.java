@@ -2,15 +2,14 @@ package com.std.framework.core;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IntegerRes;
-import android.support.annotation.StringRes;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.ViewUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
+import androidx.appcompat.widget.Toolbar;
 
 import com.std.framework.R;
 import com.std.framework.comm.interfaces.INavigation;

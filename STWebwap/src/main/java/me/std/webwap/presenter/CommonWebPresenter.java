@@ -3,13 +3,14 @@ package me.std.webwap.presenter;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.JsResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
+
+import androidx.annotation.NonNull;
 
 import com.std.framework.router.CYRouter;
 import com.std.framework.router.interfaces.Capture;

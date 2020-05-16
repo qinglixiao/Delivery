@@ -12,12 +12,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+
+import androidx.annotation.RequiresApi;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;

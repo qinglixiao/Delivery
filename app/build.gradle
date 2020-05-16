@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'org.greenrobot.greendao'
 apply from: '../unit_test_script.gradle'
 apply from: '../comm.gradle'
+apply plugin: 'kotlin-kapt'
 
 android {
     dataBinding {
@@ -47,28 +47,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets {
-        main {
-            java.srcDirs = ['src/main/java', 'src-gen']
-            aidl.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', 'src/main/res/resource',
-                           'src/main/res/main', 'src/main/res/explore',
-                           'src/main/res/call', 'src/main/res/rich',
-                           'src/main/res/chunyu']
-            assets.srcDirs = ['assets']
-        }
-    }
 
     lintOptions {
         abortOnError false
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
-
-//greendao {
-//    schemaVersion 1
-//    daoPackage 'table'
-//    targetGenDir 'src-gen'
-//}
 
 dependencies {
     implementation fileTree(include: '*.jar', dir: 'libs')
@@ -95,6 +81,8 @@ dependencies {
     implementation depend['EachBeanHuman']
     annotationProcessor depend['routerCompiler']
     annotationProcessor depend['butterknifeCompile']
+    implementation jetpack['lifecycle_extensions']
+    implementation project(path: ':flutter')
 }
 
 configurations.all {

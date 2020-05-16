@@ -1,6 +1,6 @@
 package com.std.framework.business.explore.view.fragment;
 
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,6 +29,7 @@ import me.std.base.base.BaseFragment;
 import me.std.base.base.STFragment;
 import rx.Observable;
 import rx.Subscriber;
+import rx.functions.Action1;
 
 /**
  * Description :
@@ -182,12 +183,12 @@ public class AnimationFragment extends BaseFragment implements View.OnClickListe
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             Observable<String> observable = RxBus.getDefault().toObservable(String.class);
-            //        observable.subscribe(new Action1<String>() {
-            //            @Override
-            //            public void call(String s) {
-            //                fragmentRxbusBinding.tvShow.setText(s);
-            //            }
-            //        });
+                    observable.subscribe(new Action1<String>() {
+                        @Override
+                        public void call(String s) {
+                            fragmentRxbusBinding.tvShow.setText(s);
+                        }
+                    });
             observable.subscribe(subscriber);
         }
 

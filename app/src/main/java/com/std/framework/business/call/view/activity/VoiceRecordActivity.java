@@ -1,13 +1,12 @@
 package com.std.framework.business.call.view.activity;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
 
 import com.std.framework.R;
 import com.std.framework.business.call.contract.VoiceSelContract;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.VoiceRecordBinding;
 
 import me.std.base.base.STActivity;

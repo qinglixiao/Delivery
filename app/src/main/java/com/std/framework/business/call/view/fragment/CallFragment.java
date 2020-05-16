@@ -1,6 +1,6 @@
 package com.std.framework.business.call.view.fragment;
 
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.std.framework.R;
 import com.std.framework.business.call.mutual.CallAssist;
 import com.std.framework.business.call.view.RecordVoiceDialog;
-import com.std.framework.databinding.FragmentCallBinding;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +20,7 @@ import me.std.base.base.STFragment;
 import me.std.base.core.ActionBar;
 
 public class CallFragment extends STFragment implements View.OnClickListener {
-    private FragmentCallBinding fragmentCallBinding;
+//    private FragmentCallBinding fragmentCallBinding;
 
     @Override
     protected void onActionBar(ActionBar.Builder builder) {
@@ -31,20 +30,20 @@ public class CallFragment extends STFragment implements View.OnClickListener {
     @Override
     protected View onCreateLayout(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_call, null);
-        fragmentCallBinding = DataBindingUtil.bind(view);
+//        fragmentCallBinding = DataBindingUtil.bind(view);
         playImitate();
         setListener();
         return view;
     }
 
     private void setListener() {
-        fragmentCallBinding.layoutChooseVoice.setOnClickListener(this);
+//        fragmentCallBinding.layoutChooseVoice.setOnClickListener(this);
     }
 
     private Consumer<Long> subscribe = new Consumer<Long>() {
         @Override
         public void accept(Long aLong) throws Exception {
-            fragmentCallBinding.vPlayVoice.pbPlay.setProgress(aLong.intValue());
+//            fragmentCallBinding.vPlayVoice.pbPlay.setProgress(aLong.intValue());
         }
     };
 

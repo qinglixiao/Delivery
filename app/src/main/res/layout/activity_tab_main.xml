@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.std.framework.comm.view.NoSlideViewPager
+            android:id="@+id/tab_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/splid_line">
+
+        </com.std.framework.comm.view.NoSlideViewPager>
+
+        <View
+            android:id="@+id/splid_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_above="@+id/tab_container"
+            android:background="@color/light_gray" />
+
+        <com.std.framework.comm.view.MainBottomView
+            android:id="@+id/tab_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_bottom_tab_height"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+
+        </com.std.framework.comm.view.MainBottomView>
+    </RelativeLayout>
+</layout>

@@ -1,8 +1,8 @@
 package com.std.framework.business.explore.view.fragment;
 
-import android.databinding.DataBindingUtil;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +10,6 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 
 import com.std.framework.R;
-import com.std.framework.core.NavigationBar;
-import com.std.framework.databinding.BindingCustomerView;
 
 import me.std.base.base.BaseFragment;
 
@@ -22,14 +20,14 @@ import me.std.base.base.BaseFragment;
  * Modify by：lx
  */
 public class CustomerViewFragment extends BaseFragment implements View.OnClickListener {
-    private BindingCustomerView bindingCustomerView;
+//    private BindingCustomerView bindingCustomerView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_customer_view, null);
-        bindingCustomerView = DataBindingUtil.bind(view);
-        bindingCustomerView.btnPop.setOnClickListener(this);
+//        bindingCustomerView = DataBindingUtil.bind(view);
+//        bindingCustomerView.btnPop.setOnClickListener(this);
         return view;
     }
 

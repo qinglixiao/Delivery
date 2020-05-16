@@ -4,7 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -20,13 +20,12 @@ import android.widget.Toast;
 
 import com.library.core.ThreadPool;
 import com.library.util.LibUtil;
+import com.std.framework.ICallBack;
+import com.std.framework.IRemoteService;
 import com.std.framework.R;
 import com.std.framework.comm.clazz.BaiduLocationProvider;
 import com.std.framework.comm.clazz.BaiduLocationProvider.LocationListener;
 import com.std.framework.comm.service.InnerService;
-import com.std.framework.comm.service.aidl.ICallBack;
-import com.std.framework.comm.service.aidl.IRemoteService;
-import com.std.framework.core.NavigationBar;
 import com.std.framework.databinding.FragmentMainBinding;
 import com.std.framework.util.ToastUtil;
 

@@ -7,8 +7,6 @@ import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -17,6 +15,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.List;
 
@@ -227,7 +227,7 @@ public class ViewPagerIndicator extends LinearLayout {
      */
     public void setViewPager(ViewPager mViewPager, int pos) {
         this.mViewPager = mViewPager;
-        mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 // 设置字体颜色高亮

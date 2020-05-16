@@ -1,7 +1,8 @@
 package com.std.framework.business.rich.gallery;
 
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v4.util.ArrayMap;
+
+import androidx.collection.ArrayMap;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -2,16 +2,17 @@ package me.std.flutterbridge;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleObserver;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PixelFormat;
-import android.support.annotation.NonNull;
-import android.support.v4.app.SupportActivity;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ComponentActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.StringCodec;
@@ -54,10 +55,10 @@ public class CYFlutterView extends LinearLayout {
 
     @SuppressLint("RestrictedApi")
     private void onCreate(Context context) {
-        if (!(context instanceof SupportActivity)) {
+        if (!(context instanceof ComponentActivity)) {
             throw new Error("context not instanceof SupportActivity !!!");
         }
-        SupportActivity activity = (SupportActivity) context;
+        ComponentActivity activity = (ComponentActivity) context;
         flutterView = createView(activity, activity.getLifecycle(), mRoute);
         flutterChannel = new CYFlutterChannel(context, flutterView);
         addView(flutterView);

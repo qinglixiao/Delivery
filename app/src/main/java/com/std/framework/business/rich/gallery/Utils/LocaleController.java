@@ -4,7 +4,8 @@ package com.std.framework.business.rich.gallery.Utils;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.support.v4.util.ArrayMap;
+
+import androidx.collection.ArrayMap;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Xml;

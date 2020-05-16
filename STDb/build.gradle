@@ -1,18 +1,39 @@
 apply plugin: 'com.android.library'
 apply from: '../unit_test_script.gradle'
 apply from: '../comm.gradle'
-apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'kotlin-kapt'
 
 android {
-    greendao {
-        schemaVersion 1
-//        daoPackage 'table'
-//        targetGenDir 'src-gen'
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+            }
+        }
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    sourceSets {
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api depend['greendao']
     implementation depend['STCommon']
+    api kotlins["core_ktx"]
+    api kotlins["kotlin_stdlib"]
+    api jetpack["room_guava"]
+    api jetpack["room_runtime"]
+    api jetpack["room_ktx"]
+    api jetpack["room_guava"]
+    kapt jetpack["room_compiler"]
 }

@@ -3,9 +3,10 @@ package me.std.base.base;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +83,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+       super.onRequestPermissionsResult(requestCode,permissions,grantResults);
         List<String> denied = new ArrayList<>();
         int count = grantResults.length;
         for (int i = 0; i < count; i++) {
@@ -91,11 +93,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
 
-        if (denied.size() > 0) {
-            this.onPermissionDenied(denied, requestCode);
-        } else {
-            this.onPermissionGranted(requestCode);
-        }
+//        if (denied.size() > 0) {
+//            this.onPermissionDenied(denied, requestCode);
+//        } else {
+//            this.onPermissionGranted(requestCode);
+//        }
 
     }
 

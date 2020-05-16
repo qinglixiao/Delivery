@@ -1,7 +1,8 @@
 package com.std.framework.core;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
+import androidx.fragment.app.Fragment;
 
 import com.library.core.God;
 
@@ -10,7 +11,7 @@ import me.std.base.base.BaseFragment;
 /**
  * Created by gfy on 2016/3/31.
  */
-public class FragmentManufacture extends Fragment{
+public class FragmentManufacture extends Fragment {
 
     /**
      * 创建一个fragment

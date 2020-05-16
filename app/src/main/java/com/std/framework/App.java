@@ -2,8 +2,9 @@ package com.std.framework;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
 import android.text.TextUtils;
+
+import androidx.multidex.MultiDex;
 
 import com.library.imageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.library.imageloader.core.ImageLoader;

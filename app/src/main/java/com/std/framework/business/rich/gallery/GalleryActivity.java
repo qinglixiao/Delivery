@@ -4,9 +4,10 @@ package com.std.framework.business.rich.gallery;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.std.framework.R;
 import com.std.framework.business.rich.gallery.Actionbar.ActionBarLayout;

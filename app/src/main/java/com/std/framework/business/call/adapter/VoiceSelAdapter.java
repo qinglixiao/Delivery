@@ -1,9 +1,10 @@
 package com.std.framework.business.call.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.std.framework.R;
 import com.std.framework.comm.clazz.RecyclerHolder;

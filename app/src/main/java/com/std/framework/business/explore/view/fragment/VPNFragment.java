@@ -1,7 +1,7 @@
 package com.std.framework.business.explore.view.fragment;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;

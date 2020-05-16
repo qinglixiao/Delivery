@@ -1,7 +1,7 @@
 package me.std.common.view.timepicker.config;
 
 
-import android.support.annotation.ColorRes;
+import androidx.annotation.ColorRes;
 
 import me.std.common.view.timepicker.data.Type;
 import me.std.common.view.timepicker.data.WheelCalendar;

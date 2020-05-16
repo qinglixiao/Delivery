@@ -13,8 +13,9 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.util.ArrayMap;
 import android.util.Log;
+
+import androidx.collection.ArrayMap;
 
 import com.std.framework.business.rich.gallery.AnimatedFileDrawable;
 import com.std.framework.business.rich.gallery.DispatchQueue;

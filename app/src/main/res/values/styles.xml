@@ -1,0 +1,115 @@
+<resources>
+
+    <style name="Custom_Title_Style" parent="@android:style/TextAppearance.WindowTitle">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+    </style>
+
+    <style name="esg_btn_style" parent="android:style/Widget.Button">
+        <item name="android:background">@drawable/scanning_btn_selector</item>
+        <item name="android:textColor">@color/btn_text_selector</item>
+    </style>
+
+    <style name="popWindowAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/right_to_left_in</item>
+        <item name="android:windowExitAnimation">@anim/left_to_right_out</item>
+    </style>
+
+    <style name="ESGStyle.Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <style name="ESGStyle.Dialog.Message" parent="ESGStyle.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <!-- <item name="android:windowIsTranslucent">true</item> -->
+        <item name="android:windowNoTitle">true</item>
+        <!--  <item name="android:background">#00000000</item> -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="AnimationActivity" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/flat_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/zoom_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/flat_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/left_to_right_out</item>
+    </style>
+
+    <style name="AnimationAlpha" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/alpha_in</item>
+        <item name="android:windowExitAnimation">@anim/alpha_out</item>
+    </style>
+
+    <style name="BottomPopDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/in_down_to_up_alpha</item>
+        <item name="android:windowExitAnimation">@anim/out_up_to_down_alpha</item>
+    </style>
+
+    <!--字体加粗-->
+    <style name="TextBoldStyle" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--水平进度条样式-->
+    <style name="ProgressBar.H.Style" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_drawable</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+
+    <style name="BottomPopDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowAnimationStyle">@style/BottomPopDialogAnimation</item>
+    </style>
+
+    <style name="item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="AlbumPopupAnimation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/album_popup_in</item>
+        <item name="android:windowExitAnimation">@anim/album_popup_out</item>
+    </style>
+
+    <style name="Theme.TMessages" parent="@android:style/Theme.Holo.Light">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:itemTextAppearance">@style/ActionBar.Transparent.TMessages.Item</item>
+        <item name="android:listViewStyle">@style/Theme.TMessages.ListView</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/album_list_selector</item>
+        <item name="android:actionBarItemBackground">@drawable/album_bar_selector_style</item>
+    </style>
+
+    <style name="ActionBar.Transparent.TMessages.Item" parent="android:TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Theme.TMessages.ListView" parent="@android:style/Widget.ListView">
+        <item name="android:listSelector">@drawable/album_list_selector</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:divider">#dcdcdc</item>
+    </style>
+
+</resources>

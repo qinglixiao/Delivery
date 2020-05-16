@@ -6,6 +6,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api depend['STCommon']
     implementation depend['gson']
-    implementation depend['v4']
     implementation depend['STNetwork']
+    implementation depend['design']
+    api jetpack['lifecycle_extensions']
+    api kotlins['activity_ktx']
 }

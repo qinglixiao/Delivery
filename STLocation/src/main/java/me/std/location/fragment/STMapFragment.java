@@ -29,8 +29,6 @@ import me.std.base.base.STFragment;
 import me.std.base.core.ActionBar;
 import me.std.common.utils.AppContextUtil;
 import me.std.common.utils.Logger;
-import me.std.db.DbManager;
-import me.std.db.tables.SportLocation;
 import me.std.location.MapLocationUtil;
 import me.std.location.R;
 
@@ -198,11 +196,11 @@ public class STMapFragment extends STFragment implements LocationSource,
 
     @Override
     public void onClick(View v) {
-        DbManager manager = DbManager.getInstance(SportLocation.class);
-        SportLocation location = new SportLocation();
-        location.setDateTime("2020");
-        location.setId(new Random().nextLong());
-        manager.insert(location);
-        Logger.d(manager.count() + "");
+//        DbManager manager = DbManager.getInstance(SportLocation.class);
+//        SportLocation location = new SportLocation();
+//        location.setDateTime("2020");
+//        location.setId(new Random().nextLong());
+//        manager.insert(location);
+//        Logger.d(manager.count() + "");
     }
 }

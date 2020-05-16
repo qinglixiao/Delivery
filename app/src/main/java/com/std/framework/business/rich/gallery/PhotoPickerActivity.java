@@ -6,7 +6,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
-import android.support.v4.util.ArrayMap;
+
+import androidx.collection.ArrayMap;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;

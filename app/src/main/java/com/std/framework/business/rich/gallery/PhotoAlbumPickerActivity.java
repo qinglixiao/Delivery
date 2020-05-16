@@ -6,7 +6,8 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import android.support.v4.util.ArrayMap;
+
+import androidx.collection.ArrayMap;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.Surface;

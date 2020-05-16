@@ -1,14 +1,11 @@
 package com.std.framework.core;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.StringRes;
-import android.support.v7.view.menu.MenuBuilder;
-import android.support.v7.view.menu.MenuPresenter;
-import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
+import androidx.appcompat.widget.Toolbar;
 
 import com.std.framework.R;
 

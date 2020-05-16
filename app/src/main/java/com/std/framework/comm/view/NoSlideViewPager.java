@@ -1,9 +1,10 @@
 package com.std.framework.comm.view;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * Description : 禁止滑动翻页viewpager,解决与scrollview水平滑动冲突事件
@@ -15,24 +16,24 @@ import android.view.MotionEvent;
  * Leader：lx
  */
 public class NoSlideViewPager extends ViewPager {
-	private boolean isPagingEnabled = false;
+    private boolean isPagingEnabled = false;
 
-	public NoSlideViewPager(Context context) {
-		super(context);
-	}
+    public NoSlideViewPager(Context context) {
+        super(context);
+    }
 
-	public NoSlideViewPager(Context context, AttributeSet attrs) {
-		super(context, attrs);
-	}
+    public NoSlideViewPager(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 
-	@Override
-	public boolean onInterceptTouchEvent(MotionEvent event) {
-		return this.isPagingEnabled && super.onInterceptTouchEvent(event);
-	}
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        return this.isPagingEnabled && super.onInterceptTouchEvent(event);
+    }
 
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		return this.isPagingEnabled && super.onTouchEvent(event);
-	}
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return this.isPagingEnabled && super.onTouchEvent(event);
+    }
 
 }

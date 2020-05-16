@@ -7,8 +7,8 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 
-import com.std.framework.comm.service.aidl.ICallBack;
-import com.std.framework.comm.service.aidl.IRemoteService;
+import com.std.framework.ICallBack;
+import com.std.framework.IRemoteService;
 
 public class InnerService extends Service {
 //	private RemoteCallbackList<NetCallBack> callbackList = new RemoteCallbackList<NetCallBack>();
