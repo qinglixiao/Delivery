@@ -70,7 +70,6 @@ dependencies {
     implementation depend['rxjava']
     implementation depend['recyclerview']
     implementation depend['nineoldandroids']
-    implementation depend['greendao']
     implementation depend['STCommon']
     implementation depend['multidex']
     implementation depend['STNetwork']

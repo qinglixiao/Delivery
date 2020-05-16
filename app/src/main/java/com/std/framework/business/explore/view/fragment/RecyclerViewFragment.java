@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.std.framework.R;
 import com.std.framework.business.explore.adapter.RecyclerViewAdapter;
 import com.std.framework.comm.view.RecyclerItemDivider;
-import com.std.framework.databinding.FragmentEffectBinding;
 import com.std.framework.databinding.FragmentRecyclerViewBinding;
 
 import me.std.base.base.STFragment;
