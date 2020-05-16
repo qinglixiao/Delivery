@@ -1,6 +1,5 @@
 package com.std.framework.business.explore.view.fragment;
 
-import androidx.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,14 +12,14 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ArgbEvaluator;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.std.framework.R;
-import com.std.framework.basic.IBasePresenter;
-import com.std.framework.business.home.contract.RxBusContract;
 import com.std.framework.core.RxBus;
 import com.std.framework.databinding.FragmentAnimationBinding;
 import com.std.framework.databinding.FragmentRxbusBinding;
@@ -168,7 +167,7 @@ public class AnimationFragment extends BaseFragment implements View.OnClickListe
      * Person in charge : lx
      * Leader：lx
      */
-    public static class RxBusFragment extends STFragment implements RxBusContract.View, View.OnClickListener {
+    public static class RxBusFragment extends STFragment implements View.OnClickListener {
         private FragmentRxbusBinding fragmentRxbusBinding;
 
         @Override
@@ -194,10 +193,6 @@ public class AnimationFragment extends BaseFragment implements View.OnClickListe
 
         private void setListener() {
             fragmentRxbusBinding.btnSend.setOnClickListener(this);
-        }
-
-        @Override
-        public void setPresenter(IBasePresenter presenter) {
         }
 
         @Override

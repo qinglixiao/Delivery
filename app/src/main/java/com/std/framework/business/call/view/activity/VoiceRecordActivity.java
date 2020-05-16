@@ -1,12 +1,11 @@
 package com.std.framework.business.call.view.activity;
 
-import android.content.Context;
-import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.std.framework.R;
-import com.std.framework.business.call.contract.VoiceSelContract;
 import com.std.framework.databinding.VoiceRecordBinding;
 
 import me.std.base.base.STActivity;
@@ -19,7 +18,7 @@ import me.std.base.core.ActionBar;
  * Modify by：lx
  *
  */
-public class VoiceRecordActivity extends STActivity implements VoiceSelContract.View {
+public class VoiceRecordActivity extends STActivity {
     private VoiceRecordBinding voiceRecordBinding;
 
     @Override
@@ -36,13 +35,4 @@ public class VoiceRecordActivity extends STActivity implements VoiceSelContract.
         builder.setTitle("录制");
     }
 
-    @Override
-    public void setPresenter(VoiceSelContract.Presenter presenter) {
-
-    }
-
-    @Override
-    public Context getContext() {
-        return null;
-    }
 }
