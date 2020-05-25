@@ -23,8 +23,6 @@ import com.library.util.LibUtil;
 import com.std.framework.ICallBack;
 import com.std.framework.IRemoteService;
 import com.std.framework.R;
-import com.std.framework.comm.clazz.BaiduLocationProvider;
-import com.std.framework.comm.clazz.BaiduLocationProvider.LocationListener;
 import com.std.framework.comm.service.InnerService;
 import com.std.framework.databinding.FragmentMainBinding;
 import com.std.framework.util.ToastUtil;
@@ -96,9 +94,9 @@ public class MainFragment extends STFragment implements OnClickListener {
                 }
                 break;
             case R.id.btn_location:
-                BaiduLocationProvider locationProvider = new BaiduLocationProvider(getActivity());
-                locationProvider.setListener(locationListener);
-                locationProvider.start();
+//                BaiduLocationProvider locationProvider = new BaiduLocationProvider(getActivity());
+//                locationProvider.setListener(locationListener);
+//                locationProvider.start();
                 break;
             case R.id.btn_send_socket:
                 sendSocket();
@@ -130,14 +128,14 @@ public class MainFragment extends STFragment implements OnClickListener {
     }
 
 
-    private LocationListener locationListener = new LocationListener() {
-
-        @Override
-        public void onReceiveLocation(String address) {
-            // TODO Auto-generated method stub
-            fragmentMainBinding.tvResult.setText(address);
-        }
-    };
+//    private LocationListener locationListener = new LocationListener() {
+//
+//        @Override
+//        public void onReceiveLocation(String address) {
+//            // TODO Auto-generated method stub
+//            fragmentMainBinding.tvResult.setText(address);
+//        }
+//    };
 
     private ServiceConnection connection = new ServiceConnection() {
 

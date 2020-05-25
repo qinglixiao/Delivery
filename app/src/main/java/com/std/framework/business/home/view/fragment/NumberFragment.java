@@ -73,7 +73,6 @@ public class NumberFragment extends STFragment {
 		@Override
 		public void onOpend() {
 			// TODO Auto-generated method stub
-			((MainActivity)NumberFragment.this.getActivity()).remove(NumberFragment.this);
 		}
 		
 		@Override

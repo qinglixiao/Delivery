@@ -87,12 +87,12 @@ public class MainTabActivity extends STActivity {
 
     @Override
     protected void onPermissionGranted(int requestCode) {
-//        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionGranted(requestCode);
+        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionGranted(requestCode);
     }
 
     @Override
     protected void onPermissionDenied(List<String> permissions, int requestCode) {
-//        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionDenied(permissions, requestCode);
+        activityTabMain.tabContainer.getCurrentTab().getFragment().onPermissionDenied(permissions, requestCode);
     }
 
 }

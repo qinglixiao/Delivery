@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import androidx.multidex.MultiDex;
 
+import com.didichuxing.doraemonkit.DoraemonKit;
 import com.library.imageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.library.imageloader.core.ImageLoader;
 import com.library.imageloader.core.ImageLoaderConfiguration;
@@ -30,6 +31,8 @@ public class App extends Application {
             configLogSystem();
             setExceptionHandle();
             NetworkConfig.initNetClient();
+
+            DoraemonKit.install(this);
         }
     }
 
@@ -46,22 +49,4 @@ public class App extends Application {
     private void configLogSystem() {
         LogUtil.configureOnlyLogFile(FileUtil.getLogCacheFile().getAbsolutePath());
     }
-
-    public void initImageLoader(Context context) {
-        // This configuration tuning is custom. You can tune every option, you may tune some of them,
-        // or you can create default configuration by
-        //  ImageLoaderConfiguration.createDefault(this);
-        // method.
-        ImageLoaderConfiguration.Builder config = new ImageLoaderConfiguration.Builder(context);
-        config.threadPriority(Thread.NORM_PRIORITY - 2);
-        config.denyCacheImageMultipleSizesInMemory();
-        config.diskCacheFileNameGenerator(new Md5FileNameGenerator());
-        config.diskCacheSize(50 * 1024 * 1024); // 50 MiB
-        config.tasksProcessingOrder(QueueProcessingType.LIFO);
-        config.writeDebugLogs(); // Remove for release app
-
-        // Initialize ImageLoader with configuration.
-        ImageLoader.getInstance().init(config.build());
-    }
-
 }
