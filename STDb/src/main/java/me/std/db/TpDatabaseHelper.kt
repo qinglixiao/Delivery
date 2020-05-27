@@ -35,46 +35,46 @@ class TpDatabaseHelper {
 
         private fun buildDatabase(context: Context): IDbAccess {
             return DbProxy(
-                with(
-                    Room.databaseBuilder(
-                        context.applicationContext,
-                        TpDatabase::class.java,
-                        DATABASE_NAME
-                    )
-                ) {
-                    addCallback(object : RoomDatabase.Callback() {
-                        override fun onCreate(db: SupportSQLiteDatabase) {
-                            super.onCreate(db)
-                        }
-
-                        override fun onOpen(db: SupportSQLiteDatabase) {
-                            super.onOpen(db)
-                        }
-
-                        override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
-                            super.onDestructiveMigration(db)
-                            with(context.getSharedPreferences(DB_VER_PREF, Context.MODE_PRIVATE)) {
-                                edit().putInt(DB_VER_NEW_KEY, getInt(DB_VER_OLD_KEY, 0)).apply()
+                    with(
+                            Room.databaseBuilder(
+                                    context.applicationContext,
+                                    TpDatabase::class.java,
+                                    DATABASE_NAME
+                            )
+                    ) {
+                        addCallback(object : RoomDatabase.Callback() {
+                            override fun onCreate(db: SupportSQLiteDatabase) {
+                                super.onCreate(db)
                             }
-                        }
-                    })
 
-                    if (checkUpdate(context)) {
-                        addMigrations(*getMigrations(context))
-                        fallbackToDestructiveMigration()
+                            override fun onOpen(db: SupportSQLiteDatabase) {
+                                super.onOpen(db)
+                            }
+
+                            override fun onDestructiveMigration(db: SupportSQLiteDatabase) {
+                                super.onDestructiveMigration(db)
+                                with(context.getSharedPreferences(DB_VER_PREF, Context.MODE_PRIVATE)) {
+                                    edit().putInt(DB_VER_NEW_KEY, getInt(DB_VER_OLD_KEY, 0)).apply()
+                                }
+                            }
+                        })
+
+                        if (checkUpdate(context)) {
+                            addMigrations(*getMigrations())
+                            fallbackToDestructiveMigration()
+                        }
+                        build()
                     }
-                    build()
-                }
             )
         }
 
-        private fun getMigrations(context: Context): Array<Migration> {
+        private fun getMigrations(): Array<Migration> {
             return Migrations.versions
         }
 
         private fun checkUpdate(context: Context): Boolean {
             val sp: SharedPreferences =
-                context.getSharedPreferences(DB_VER_PREF, Context.MODE_PRIVATE)
+                    context.getSharedPreferences(DB_VER_PREF, Context.MODE_PRIVATE)
             var old = sp.getInt(DB_VER_NEW_KEY, 0)
             val new = DB_VERSION
             if (old != new) {

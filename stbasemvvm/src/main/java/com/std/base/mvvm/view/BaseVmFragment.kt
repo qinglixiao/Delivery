@@ -80,11 +80,18 @@ abstract class BaseVmFragment<VB : ViewDataBinding, VM : BaseViewModel> : BaseTp
     }
 
     private fun handleFailure(failure: Failure?) {
-        if (failure == Failure.netError) {
-            var v =stubError.inflate()
-        } else if (failure == Failure.serverError) {
-        } else {
-            onFailure(failure)
+        when (failure) {
+            Failure.netError -> {
+                var v = stubError.inflate()
+            }
+
+            Failure.serverError -> {
+
+            }
+
+            else -> {
+                onFailure(failure)
+            }
         }
     }
 
@@ -95,7 +102,7 @@ abstract class BaseVmFragment<VB : ViewDataBinding, VM : BaseViewModel> : BaseTp
 
     }
 
-    fun uiStateChanged(state: UiState?) {
+    private fun uiStateChanged(state: UiState?) {
         state?.change((activity as BaseTpActivity).dialog)
     }
 

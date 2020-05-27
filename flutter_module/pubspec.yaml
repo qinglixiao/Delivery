@@ -24,9 +24,21 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_redux:
+  redux:
+  scoped_model:
+  rxdart:
+  flutter_sparkline:
+
+  flutter_lib:
+    path: ../flutter_lib
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+#  fluttertoast: ^2.2.11
+  photo_view: ^0.2.2
+  cached_network_image: ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -83,3 +95,4 @@ flutter:
   module:
     androidPackage: com.example.fluttermodule
     iosBundleIdentifier: com.example.fluttermodule
+    androidX: true

@@ -2,6 +2,7 @@ package com.std.base.mvvm.model
 
 import android.content.Context
 import com.std.base.mvvm.comm.AppContext
+import me.std.common.utils.AppContextUtil
 
 /**
  * Description:Model层最低层接口
@@ -11,7 +12,7 @@ import com.std.base.mvvm.comm.AppContext
 interface DataContract {
     val context: Context
         get() {
-            return AppContext.context
+            return AppContextUtil.getAppContext()
         }
 
     suspend fun loadData()

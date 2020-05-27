@@ -6,7 +6,6 @@ import android.content.Intent;
 
 import org.json.JSONObject;
 
-import me.std.flutterbridge.CYFlutterActivity;
 import me.std.flutterbridge.MethodSpec;
 import me.std.flutterbridge.bridge.FlutterBridgeContext;
 import me.std.flutterbridge.bridge.specs.FlutterPageParameter;
@@ -35,36 +34,36 @@ public class OpenFlutterHandler extends BridgeHandler {
     }
 
     public static boolean openFlutterPage(Context context, FlutterPageParameter parameters, int... requestCode) {
-        if (context == null || parameters == null) return false;
-
-        Intent intent = new Intent(context, CYFlutterActivity.class);
-
-        intent.setAction("android.intent.action.RUN");
-
-        intent.putExtra(FlutterPageParameter.ARG_ROUTE, parameters.getRoute());
-
-        if (parameters != null) {
-            intent.putExtra(FlutterPageParameter.ARG_PARAMETER, parameters);
-        }
-
-        if (parameters.title != null) {
-            intent.putExtra(FlutterPageParameter.ARG_TITLE, parameters.title);
-        }
-
-        intent.putExtra(FlutterPageParameter.ARG_SHOW_NAVIGATION_BAR, parameters.showNavigationBar);
-
-        if (requestCode != null && requestCode.length > 0 && context instanceof Activity) {
-            ((Activity) context).startActivityForResult(intent, requestCode[0]);
-        } else {
-            context.startActivity(intent);
-        }
-        if (parameters.replaceTop) {
-            try {
-                ((Activity) context).finish();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+//        if (context == null || parameters == null) return false;
+//
+//        Intent intent = new Intent(context, CYFlutterActivity.class);
+//
+//        intent.setAction("android.intent.action.RUN");
+//
+//        intent.putExtra(FlutterPageParameter.ARG_ROUTE, parameters.getRoute());
+//
+//        if (parameters != null) {
+//            intent.putExtra(FlutterPageParameter.ARG_PARAMETER, parameters);
+//        }
+//
+//        if (parameters.title != null) {
+//            intent.putExtra(FlutterPageParameter.ARG_TITLE, parameters.title);
+//        }
+//
+//        intent.putExtra(FlutterPageParameter.ARG_SHOW_NAVIGATION_BAR, parameters.showNavigationBar);
+//
+//        if (requestCode != null && requestCode.length > 0 && context instanceof Activity) {
+//            ((Activity) context).startActivityForResult(intent, requestCode[0]);
+//        } else {
+//            context.startActivity(intent);
+//        }
+//        if (parameters.replaceTop) {
+//            try {
+//                ((Activity) context).finish();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
 
 
         return true;

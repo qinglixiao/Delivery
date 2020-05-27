@@ -292,7 +292,7 @@ class PullToRefreshState extends State<PullToRefresh>
           FlutterError.reportError(FlutterErrorDetails(
             exception: FlutterError('The onRefresh callback returned null.\n'
                 'The LiquidPullToRefresh onRefresh callback must return a Future.'),
-            context: 'when calling onRefresh',
+            context: "when calling onRefresh",
             library: 'LiquidPullToRefresh library',
           ));
         return true;

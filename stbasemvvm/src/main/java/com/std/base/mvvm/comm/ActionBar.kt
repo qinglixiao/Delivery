@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import com.std.base.mvvm.R
 import com.std.base.mvvm.extension.*
+import me.std.common.utils.AppContextUtil
 
 /**
  * Description:标题栏
@@ -34,7 +35,7 @@ class ActionBar(
     private var titleCustomerContainer: LinearLayout
 
     init {
-        header = AppContext.context.inflate(R.layout.action_bar)
+        header = AppContextUtil.getAppContext().inflate(R.layout.action_bar)
         leftTextView = header.findViewById(R.id.tv_left)
         leftImageView = header.findViewById(R.id.icon_left)
         leftImageView2 = header.findViewById(R.id.icon_left_2)

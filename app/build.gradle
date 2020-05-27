@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply from: '../unit_test_script.gradle'
 apply from: '../comm.gradle'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.didi.dokit'
 
 android {
     dataBinding {
@@ -81,7 +82,11 @@ dependencies {
     annotationProcessor depend['routerCompiler']
     annotationProcessor depend['butterknifeCompile']
     implementation jetpack['lifecycle_extensions']
-    implementation project(path: ':flutter')
+    implementation depend['flutterProject']
+    implementation depend['Basemvvm']
+    implementation depend['STDb']
+    debugImplementation depend['doraemonkit_debug']
+    releaseImplementation depend['doraemonkit_release']
 }
 
 configurations.all {
