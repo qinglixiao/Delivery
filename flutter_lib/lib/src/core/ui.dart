@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-mixin UIHelper on Widget {
+mixin UIWrap on Widget {
   Widget wrap() {
     return Container(child: this,);
   }

@@ -40,3 +40,18 @@ void loggerMiddleware(Store<ApplicationState> store, dynamic action, NextDispatc
   //
   next(action);
 }
+
+void nextMiddleware(Store<ApplicationState> store, dynamic action, NextDispatcher next){
+
+  //
+  // Simply log the action
+  //
+  print('Action Next: $action');
+//  debugPrint('Action Next_debug: $action');
+//  Logger.print('Action Next_debug: $action');
+
+  //
+  // Do not forget linking the middlewares
+  //
+  next(action);
+}

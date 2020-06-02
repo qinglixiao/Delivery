@@ -1,4 +1,4 @@
-import '../bridge/bridge.dart';
+import '../bridge/export.dart';
 
 enum LoaderStateType {
   init,

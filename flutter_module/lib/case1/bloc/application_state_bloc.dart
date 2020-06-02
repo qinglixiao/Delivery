@@ -1,4 +1,3 @@
-
 import 'package:fluttermodule/case1/bloc/application_model.dart';
 import 'package:fluttermodule/case1/model/authentication_state.dart';
 import 'package:fluttermodule/common/bloc_provider.dart';
@@ -10,7 +9,9 @@ class ApplicationStateBloc implements BlocBase {
   ///
   ApplicationModel applicationState = ApplicationModel();
 
-  BehaviorSubject<ApplicationModel> _applicationStateController = BehaviorSubject<ApplicationModel>.seeded(ApplicationModel());
+  BehaviorSubject<ApplicationModel> _applicationStateController =
+      BehaviorSubject<ApplicationModel>.seeded(ApplicationModel());
+
   Stream<ApplicationModel> get applicationModel => _applicationStateController;
 
   @override
@@ -21,7 +22,7 @@ class ApplicationStateBloc implements BlocBase {
   ///
   /// Used to save the authentication data
   ///
-  void logout(){
+  void logout() {
     applicationState.firstName = "";
     applicationState.lastName = "";
     applicationState.authenticationState = AuthenticationState.notAuthenticated;
@@ -31,7 +32,7 @@ class ApplicationStateBloc implements BlocBase {
   ///
   /// Used to save the authentication data
   ///
-  void login({String firstName, String lastName}){
+  void login({String firstName, String lastName}) {
     applicationState.firstName = firstName;
     applicationState.lastName = lastName;
     applicationState.authenticationState = AuthenticationState.authenticated;

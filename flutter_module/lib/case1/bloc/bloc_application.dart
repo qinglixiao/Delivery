@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:fluttermodule/case1/bloc/application_state_bloc.dart';
 import 'package:fluttermodule/case1/bloc/bloc_page.dart';
 import 'package:fluttermodule/common/bloc_provider.dart';
+import 'package:fluttermodule/transfer_page.dart';
+
+var _routes = {
+  "next": (context) => TransferPage(),
+};
 
 class Case1BlocApplication extends StatefulWidget {
   @override
@@ -9,17 +14,16 @@ class Case1BlocApplication extends StatefulWidget {
 }
 
 class _Case1BlocApplicationState extends State<Case1BlocApplication> {
-
   ApplicationStateBloc applicationBloc;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     applicationBloc = ApplicationStateBloc();
   }
 
   @override
-  void dispose(){
+  void dispose() {
     applicationBloc?.dispose();
     super.dispose();
   }
@@ -30,6 +34,7 @@ class _Case1BlocApplicationState extends State<Case1BlocApplication> {
       bloc: applicationBloc,
       child: MaterialApp(
         title: 'ReduxScopedModelBloc_Comparison',
+        routes: _routes,
         home: BlocPage(),
       ),
     );

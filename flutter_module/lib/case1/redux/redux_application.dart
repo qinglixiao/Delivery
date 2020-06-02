@@ -24,6 +24,7 @@ class _Case1ReduxApplicationState extends State<Case1ReduxApplication> {
       middleware: <Middleware<ApplicationState>>[
         authenticateMiddleware,
         loggerMiddleware,
+        nextMiddleware,
       ],
     );
   }
