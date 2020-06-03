@@ -1,7 +1,7 @@
-import '../../transfer_page.dart';
+import 'package:fluttermodule/as/business/budget/view/good_list_page.dart';
 
-const String page1 = "page1";
+const String good_list = "good_list_page";
 
 var routers = {
-  page1: (context) => TransferPage(),
+  good_list: (context) => GoodListPage().wrap(),
 };

@@ -1,13 +1,17 @@
-import 'package:flutter_lib/flutter_lib.dart';
+import 'package:flutter/cupertino.dart';
 
-class RequestState{
+class RequestState {
+  ConnectionState state;
   Error error;
-  LoaddingState loadding = LoaddingState();
-}
+  dynamic data;
 
-class LoaddingState {
-  bool isLoading;
-  String message;
+  RequestState({this.state, this.error, this.data});
 
-  LoaddingState({this.isLoading = false, this.message});
+  factory RequestState.error(Error error) {
+    return RequestState(error: error);
+  }
+
+  factory RequestState.state(ConnectionState state, {dynamic data}) {
+    return RequestState(state: state, data: data);
+  }
 }

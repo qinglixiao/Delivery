@@ -8,3 +8,12 @@ class ErrorWidget extends StatelessWidget{
   }
   
 }
+
+class LoaddingWidget extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
+  }
+
+}

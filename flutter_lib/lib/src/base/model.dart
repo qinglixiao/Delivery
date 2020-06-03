@@ -13,6 +13,7 @@ abstract class BaseModel<T> {
   }
 
   void add(T data) {
+    this.data = data;
     control?.sink?.add(data);
   }
 

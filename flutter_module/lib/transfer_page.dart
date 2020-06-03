@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fluttermodule/case1/bloc/application_state_bloc.dart';
+import 'package:flutter_lib/flutter_lib.dart';
 import 'package:fluttermodule/common/bloc_provider.dart';
+
+import 'as/business/budget/viewmodel/good_list_view_model.dart';
 
 class TransferPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ApplicationStateBloc bloc = BlocProvider.of<ApplicationStateBloc>(context);
-//    Logger.print("transfer of bloc ${bloc.hashCode}");
+    BaseViewModel bloc = StateProvider.of<BaseViewModel>(context);
+    Logger.print("transfer of bloc ${bloc.hashCode}");
 
     return Scaffold(
         appBar: AppBar(

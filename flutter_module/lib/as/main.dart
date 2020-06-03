@@ -1,20 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lib/flutter_lib.dart';
-import 'package:fluttermodule/as/comm/name_router.dart';
-import 'package:fluttermodule/as/view_model/app_view_model.dart';
 
+import '../transfer_page.dart';
+import 'business/budget/view/good_list_page.dart';
+import 'business/budget/viewmodel/good_list_view_model.dart';
 import 'comm/init_app.dart';
+
+var _routes = {
+  "next": (context) => TransferPage(),
+};
+
+class App extends StatelessWidget {
+  BaseViewModel _goodListViewModel;
+
+  @override
+  Widget build(BuildContext context) {
+    _goodListViewModel = GoodListViewModel();
+    return StateProvider(
+      viewModel: _goodListViewModel,
+      child: MaterialApp(
+        routes: _routes,
+        home: GoodListPage(),
+      ),
+    );
+  }
+}
 
 void main() {
   debugProfileBuildsEnabled = true;
-  InitApp.init().then(
-    (value) => runApp(StateProvider(
-      viewModel: AppViewModel(),
-      child: MaterialApp(
-        title: "top i Eng",
-        theme: null,
-        routes: routers,
-      ),
-    )),
-  );
+  InitApp.init().then((value) => runApp(App()));
 }
