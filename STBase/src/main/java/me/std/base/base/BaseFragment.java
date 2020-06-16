@@ -1,6 +1,7 @@
 package me.std.base.base;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleObserver;
 
 import java.util.List;
 

@@ -5,7 +5,9 @@ class RequestState {
   Error error;
   dynamic data;
 
-  RequestState({this.state, this.error, this.data});
+  bool get hasError => error != null;
+
+  RequestState({this.state = ConnectionState.none, this.error, this.data});
 
   factory RequestState.error(Error error) {
     return RequestState(error: error);

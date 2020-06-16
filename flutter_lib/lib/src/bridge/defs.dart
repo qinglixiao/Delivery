@@ -10,4 +10,4 @@
  * 这些回调均使用以下格式
  */
 
-typedef CYCallBackFn = Function(Object data, String error);
+typedef STCallBackFn = Function(Object data, String error);

@@ -4,10 +4,6 @@ import java.util.Set;
 
 import me.std.flutterbridge.bridge.handlers.BridgeEventHandler;
 
-/**
- * Created by Roger Huang on 2019/3/14.
- */
-
 public class BridgeEventCenter extends BridgeEventSubscribeManager<BridgeEventCenter.OnEventListener> {
     public interface OnEventListener {
         void onEvent(BridgeEventHandler.Event event);

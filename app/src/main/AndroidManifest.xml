@@ -67,6 +67,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="me"
+                    android:path="/main"
+                    android:scheme="ienglish" />
+            </intent-filter>
         </activity>
 
         <activity

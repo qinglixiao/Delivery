@@ -1,4 +1,4 @@
-import '../bridge/export.dart';
+import '../bridge/bridge.dart';
 
 enum LoaderStateType {
   init,
@@ -128,7 +128,7 @@ class UrlPagedLoader extends PagedLoader {
     int page = beginLoading(isRefresh);
     Map p = buildParameters(page);
 
-    return CYBridge()
+    return STBridge()
     .request(method, url, p)
     .then((o){
       print("http result: $o");

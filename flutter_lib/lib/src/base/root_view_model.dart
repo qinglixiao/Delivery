@@ -4,6 +4,8 @@ import 'package:flutter_lib/src/base/model.dart';
 import 'package:flutter_lib/src/base/root_page_state.dart';
 
 class RootModel extends BaseModel<RequestState> {
+  RootModel() : super();
+
   void error(Error error) {
     add(RequestState.error(error));
   }
@@ -17,7 +19,5 @@ class RootModel extends BaseModel<RequestState> {
   }
 
   @override
-  void dispose() {
-
-  }
+  void dispose() {}
 }

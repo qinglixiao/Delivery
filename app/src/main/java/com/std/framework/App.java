@@ -7,10 +7,6 @@ import android.text.TextUtils;
 import androidx.multidex.MultiDex;
 
 import com.didichuxing.doraemonkit.DoraemonKit;
-import com.library.imageloader.cache.disc.naming.Md5FileNameGenerator;
-import com.library.imageloader.core.ImageLoader;
-import com.library.imageloader.core.ImageLoaderConfiguration;
-import com.library.imageloader.core.assist.QueueProcessingType;
 import com.library.util.LogUtil;
 import com.std.framework.comm.clazz.STDUncaughtExceptionHandler;
 import com.std.framework.util.AppUtil;
@@ -18,6 +14,7 @@ import com.std.network.NetworkConfig;
 
 import me.std.common.utils.AppContextUtil;
 import me.std.common.utils.FileUtil;
+import me.std.flutterbridge.FlutterBridge;
 
 public class App extends Application {
     @Override
@@ -33,6 +30,7 @@ public class App extends Application {
             NetworkConfig.initNetClient();
 
             DoraemonKit.install(this);
+            FlutterBridge.INSTANCE.init(this);
         }
     }
 

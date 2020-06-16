@@ -9,10 +9,6 @@ import me.std.flutterbridge.bridge.BridgeEventCenter;
 import me.std.flutterbridge.bridge.FlutterBridgeContext;
 import me.std.flutterbridge.bridge.specs.BridgeResult;
 
-/**
- * Created by Roger Huang on 2019/3/14.
- */
-
 /*
  * flutter向原生发送事件
  * 使用场景： 打开flutter页面前，监听事件, flutter页面可以通过事件向当前页面发送消息

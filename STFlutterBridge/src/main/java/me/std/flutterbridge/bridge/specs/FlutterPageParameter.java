@@ -10,10 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import me.std.common.core.DataConvert;
-
-/**
- * Created by Roger Huang on 2019/3/15.
- */
+import me.std.flutterbridge.bridge.handlers.CallBack;
 
 public class FlutterPageParameter implements Serializable {
     public static String ARG_ROUTE = "route";
@@ -22,7 +19,6 @@ public class FlutterPageParameter implements Serializable {
 
     public static FlutterPageParameter fromJson(JSONObject json) {
         if (json == null) return null;
-
         FlutterPageParameter p = DataConvert.fromJson(json.toString(), FlutterPageParameter.class);
         return p;
     }
@@ -31,10 +27,6 @@ public class FlutterPageParameter implements Serializable {
      * 传给flutter页面
      */
     public static String ARG_PARAMETER = "init_args";
-
-    public FlutterPageParameter() {
-        this(null, null);
-    }
 
     public FlutterPageParameter(String route, String title) {
         this.route = route;

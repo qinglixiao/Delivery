@@ -7,10 +7,6 @@ import me.std.flutterbridge.bridge.FlutterBridgeContext;
 import me.std.flutterbridge.bridge.specs.BridgeResult;
 import me.std.flutterbridge.bridge.specs.FlutterPageParameter;
 
-/**
- * Created by Roger Huang on 2019/3/22.
- */
-
 public class BridgeUpdatePageHandler extends BridgeHandler {
     @Override
     protected void onDestroy() {

@@ -4,10 +4,6 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
-/**
- * Created by Roger Huang on 2019/3/14.
- */
-
 /*
  * BridgeActionButtonSpec
  * flutter页面依此设置ActionBar右边的按钮

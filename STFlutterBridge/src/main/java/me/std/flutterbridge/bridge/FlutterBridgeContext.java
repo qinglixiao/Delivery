@@ -2,18 +2,14 @@ package me.std.flutterbridge.bridge;
 
 import android.content.Context;
 
-/**
- * Created by Roger Huang on 2019/3/16.
- */
-
 public class FlutterBridgeContext {
-    public FlutterBridgeContext(Context context, BridgeInvoker invoker) {
+    public FlutterBridgeContext(Context context, FlutterInvoker invoker) {
         this.context = context;
         this.invoker = invoker;
     }
 
     public Context context;
-    public BridgeInvoker invoker;
+    public FlutterInvoker invoker;
     public Object pageInitArgs;
     public IBridgeView bridgeView;
 }

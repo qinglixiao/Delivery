@@ -21,7 +21,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.library.core.Reflect;
 import com.std.framework.R;
 import com.std.framework.comm.view.MainBottomView.TabSpec.OnTabClickListener;
-import com.std.framework.databinding.BottomTabLayoutBindingImpl;
+import com.std.framework.databinding.BottomTabLayoutBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -139,7 +139,7 @@ public class MainBottomView extends LinearLayout {
         private BaseFragment fragment;
         private OnTabClickListener onTabClickListener;
         private Context context;
-        private BottomTabLayoutBindingImpl bottomTabLayout;
+        private BottomTabLayoutBinding bottomTabLayout;
         private View view;
 
         private TabSpec(int drawableId, int strId, Class<? extends BaseFragment> clazz, Context context) {

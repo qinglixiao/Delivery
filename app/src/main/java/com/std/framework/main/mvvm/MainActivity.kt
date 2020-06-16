@@ -1,11 +1,13 @@
 package com.std.framework.main.mvvm
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.std.base.mvvm.comm.ActionBar
 import com.std.base.mvvm.extension.addFragment
 import com.std.base.mvvm.view.BaseVmActivity
 import com.std.framework.R
+import me.std.common.utils.Logger
 
 /**
  * Description:
@@ -29,5 +31,10 @@ class MainActivity : BaseVmActivity() {
 
     override fun fragments() {
         addFragment(R.id.frg_container, MainFragment::class, Bundle())
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Logger.d(resultCode.toString())
     }
 }

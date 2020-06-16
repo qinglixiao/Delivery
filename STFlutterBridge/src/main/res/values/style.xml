@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NoTitleTheme" parent="Theme.AppCompat.Light.NoActionBar">
+<!--        <item name="android:windowBackground">null</item>-->
+    </style>
+
+    <style name="MyTheme" parent="NoTitleTheme">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+</resources>

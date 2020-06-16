@@ -1,17 +1,23 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_lib/flutter_lib.dart';
+import 'package:flutter_lib/src/core/app_bar.dart';
 
 class RootPageWidget extends StatefulWidget {
   Widget body;
   Widget errorWidget;
   Widget dialogWidget;
   BaseViewModel viewModel;
+  IsAppBar appBar;
+  WillPopCallback onWillBack; //返回按键拦截，true:允许返回，false:不允许
 
   RootPageWidget({
-    @required this.body,
     @required this.viewModel,
+    @required this.appBar,
+    @required this.body,
     this.errorWidget,
     this.dialogWidget,
+    this.onWillBack,
   });
 
   @override
@@ -28,38 +34,44 @@ class RootPageWidgetState extends State<RootPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Stack(
-      alignment: Alignment.center,
-      fit: StackFit.expand,
-      children: <Widget>[
-        widget.body,
-        StreamBuilder<RequestState>(
-            stream: widget.viewModel.parentState,
-            builder: (BuildContext context, AsyncSnapshot<RequestState> data) {
-              Logger.print(
-                  "rootWidget data=${data.data} \n error=${data.error}");
-              if (data.hasError) {
-                if (data.error is NetConnectError) {
-                  return _buildNetErrorWidget();
-                } else if (data.error is ServerError) {}
-              }
+    return WillPopScope(
+        onWillPop: widget.onWillBack,
+        child: Container(
+            child: Stack(
+          alignment: Alignment.center,
+          fit: StackFit.expand,
+          children: <Widget>[
+            Scaffold(
+              appBar: widget.appBar,
+              body: widget.body,
+            ),
+            StreamBuilder<RequestState>(
+                stream: widget.viewModel?.parentState,
+                builder:
+                    (BuildContext context, AsyncSnapshot<RequestState> state) {
+                  Logger.print(
+                      "rootWidget data=${state.data} error=${state.error}");
+                  if (state.data == null) {
+                    return Container();
+                  }
 
-              if (data.connectionState == ConnectionState.waiting) {
-                return _buildLoadingWidget();
-              } else if (data.connectionState == ConnectionState.active) {}
+                  if (state.data.hasError) {
+                    return _buildNetErrorWidget();
+                  } else if (state.data.state == ConnectionState.waiting) {
+                    return _buildLoadingWidget();
+                  }
 
-              return Container();
-            }),
-      ],
-    ));
+                  return Container();
+                }),
+          ],
+        )));
   }
 
   _buildNetErrorWidget() {
-    return widget.errorWidget != null ? widget.errorWidget : Container();
+    return widget.errorWidget != null ? widget.errorWidget : AsErrorWidget();
   }
 
   _buildLoadingWidget() {
-    return widget.dialogWidget != null ? widget.dialogWidget : Container();
+    return widget.dialogWidget != null ? widget.dialogWidget : LoaddingWidget();
   }
 }

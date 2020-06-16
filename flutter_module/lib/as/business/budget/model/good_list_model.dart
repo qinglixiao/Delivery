@@ -9,7 +9,7 @@ class GoodListModel extends BaseModel<GoodBean> {
   Future load() async {
     return Future.delayed(Duration(seconds: 3), () {
       Logger.print("获取订货列表...");
-      add(GoodBean());
+      add(GoodBean(title: "第一条数据"));
     });
   }
 

@@ -5,10 +5,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by Roger Huang on 2019/3/16.
- */
-
 public class BridgeEventSubscribeManager<T> {
 
     private Map<String, Set<T>> subscriberMap = new HashMap<>();

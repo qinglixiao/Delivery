@@ -1,0 +1,31 @@
+//flutter back native
+flutter格式：{
+  "result": "ok",//android[ok/cancel]
+  "data": {
+    jsonObject
+  }
+}
+
+//flutter pop flutter
+原生格式：{
+    "success":true/false
+    "data":{
+        jsonObject
+    }
+}
+
+//native back flutter
+原生格式：{
+    "resultCode":0 //android
+    "data":{
+        jsonObject
+    }
+}
+
+//flutter调用原生方法
+原生格式：{
+    "success":true/false
+    "data":{
+        jsonObject
+    }
+}

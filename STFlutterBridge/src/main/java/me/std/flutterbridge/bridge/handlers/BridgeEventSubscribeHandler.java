@@ -7,13 +7,12 @@ import org.json.JSONObject;
 import me.std.common.core.DataConvert;
 import me.std.flutterbridge.bridge.BridgeEventCenter;
 import me.std.flutterbridge.bridge.BridgeEventSubscribeManager;
-import me.std.flutterbridge.bridge.BridgeInvoker;
+import me.std.flutterbridge.bridge.FlutterInvoker;
 import me.std.flutterbridge.bridge.FlutterBridgeContext;
 import me.std.flutterbridge.bridge.specs.BridgeCallbackSpec;
 import me.std.flutterbridge.bridge.specs.BridgeResult;
 
 /**
- * Created by Roger Huang on 2019/3/16.
  * flutter订阅事件
  */
 
@@ -72,7 +71,7 @@ public class BridgeEventSubscribeHandler extends BridgeHandler implements Bridge
     @Override
     public void onEvent(BridgeEventHandler.Event event) {
         for (String callback: subscribeManager.getSubscribers(event.name)) {
-            invoker.invoke(callback, BridgeResult.make(event.data, event.getError()), new BridgeInvoker.Callback() {
+            invoker.invoke(callback, BridgeResult.make(event.data, event.getError()), new FlutterInvoker.Callback() {
                 @Override
                 public void onResult(Object object, Error error) {
 
@@ -89,5 +88,5 @@ public class BridgeEventSubscribeHandler extends BridgeHandler implements Bridge
 
     private BridgeEventSubscribeManager<String> subscribeManager = new BridgeEventSubscribeManager();
 
-    private BridgeInvoker invoker;
+    private FlutterInvoker invoker;
 }

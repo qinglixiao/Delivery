@@ -8,11 +8,12 @@ abstract class BaseModel<T> {
     return control;
   }
 
-  BaseStreamState() {
+  BaseModel() {
     control = BehaviorSubject<T>();
   }
 
   void add(T data) {
+    assert(control != null);
     this.data = data;
     control?.sink?.add(data);
   }

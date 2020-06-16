@@ -35,7 +35,8 @@ ext {
             STDb               : project(':STDb'),
             STWebwap           : project(':STWebwap'),
             EachBeanHuman      : project(':EachBeanHuman'),
-            Basemvvm           : project(':STBaseMVVM')
+            Basemvvm           : project(':STBaseMVVM'),
+            flutterBridge      : project(':STFlutterBridge'),
     ]
 
     jetpack = [

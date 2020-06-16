@@ -218,7 +218,7 @@
 #-applymapping mapping.txt
 #-ignorewarnings
 
--useuniqueclassmembernames
+#-useuniqueclassmembernames
 
 
 -dontwarn com.sun.source.**
@@ -335,7 +335,7 @@
 -dontwarn com.hianalytics.android.**
 -keep class com.huawei.updatesdk.** { *; }
 -dontwarn com.huawei.updatesdk.**
--ignorewarning
+#-ignorewarning
 -keepattributes *Annotation*
 -keepattributes Exceptions
 -keepattributes InnerClasses

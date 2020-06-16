@@ -7,10 +7,6 @@ import java.util.Map;
 
 import me.std.common.core.DataConvert;
 
-/**
- * Created by Roger Huang on 2019/3/14.
- */
-
 public class BridgeResult {
     public static JSONObject make(Object result, Error error) {
         JSONObject r = new JSONObject();

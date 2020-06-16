@@ -79,6 +79,7 @@ dependencies {
     implementation depend['STBase']
     implementation depend['STWebwap']
     implementation depend['EachBeanHuman']
+    implementation depend['flutterBridge']
     annotationProcessor depend['routerCompiler']
     annotationProcessor depend['butterknifeCompile']
     implementation jetpack['lifecycle_extensions']

@@ -3,7 +3,7 @@
  * iOS/Android均需要严格按照本spec实现
  */
 
-class CYBridgeMethodSpec {
+class STBridgeMethodSpec {
   String methodName() {
     return null;
   }
@@ -17,7 +17,7 @@ class CYBridgeMethodSpec {
  * NativeNetworkSpec
  * 调用原生的http 请求
  */
-class NativeNetworkSpec extends CYBridgeMethodSpec {
+class NativeNetworkSpec extends STBridgeMethodSpec {
   NativeNetworkSpec({this.url, this.httpMethod, this.parameters});
 
   String url;
@@ -26,13 +26,13 @@ class NativeNetworkSpec extends CYBridgeMethodSpec {
 
   @override
   Map make() {
-    Map m = { 
-      'url':url,
-      'method':httpMethod,
+    Map m = {
+      'url': url,
+      'method': httpMethod,
     };
 
-    if (parameters !=null) {
-      m['parameters'] =parameters;
+    if (parameters != null) {
+      m['parameters'] = parameters;
     }
     return m;
   }
@@ -43,15 +43,13 @@ class NativeNetworkSpec extends CYBridgeMethodSpec {
   }
 }
 
-enum ActionButtonType {
-  share, favor, custom
-}
+enum ActionButtonType { share, favor, custom }
 
-/* 
+/*
  * MethodCallbackSpec
  * 原生对flutter的回调
  */
-class MethodCallbackSpec extends CYBridgeMethodSpec {
+class MethodCallbackSpec extends STBridgeMethodSpec {
   MethodCallbackSpec({this.method, this.parameters});
 
   /*
@@ -59,22 +57,22 @@ class MethodCallbackSpec extends CYBridgeMethodSpec {
    * 调用方，也可以传其他参数
    * optional
    */
-  Object parameters; 
+  Object parameters;
 
   // 回调方法名，需要注册到CYBridge对像中
   String method;
 
   @override
   Map make() {
-    Map m = { 'method':method };
-    if (parameters !=null) {
-      m['parameters'] =parameters;
+    Map m = {'method': method};
+    if (parameters != null) {
+      m['parameters'] = parameters;
     }
     return m;
   }
 }
 
-class MethodCallSpec extends CYBridgeMethodSpec {
+class MethodCallSpec extends STBridgeMethodSpec {
   MethodCallSpec({this.method, this.parameters});
 
   /*
@@ -82,16 +80,16 @@ class MethodCallSpec extends CYBridgeMethodSpec {
    * 调用方，也可以传其他参数
    * optional
    */
-  Object parameters; 
+  Object parameters;
 
   // 回调方法名，需要注册到CYBridge对像中
   String method;
 
   @override
   Map make() {
-    Map m = { 'method':method };
-    if (parameters !=null) {
-      m['parameters'] =parameters;
+    Map m = {'method': method};
+    if (parameters != null) {
+      m['parameters'] = parameters;
     }
     return m;
   }
@@ -108,16 +106,16 @@ class MethodCallSpec extends CYBridgeMethodSpec {
  * 1. 样式
  * 2. 回调
  */
-class ActionButtonSpec extends CYBridgeMethodSpec {
-  ActionButtonSpec({
-    this.type=ActionButtonType.custom, 
-    this.title, 
-    this.icon, 
-    this.callback,
-    this.data,
-    this.style});
+class ActionButtonSpec extends STBridgeMethodSpec {
+  ActionButtonSpec(
+      {this.type = ActionButtonType.custom,
+      this.title,
+      this.icon,
+      this.callback,
+      this.data,
+      this.style});
 
-  /* 
+  /*
    * appearance
    * type: 预定义样式
    * title & icon: 自定义样式
@@ -138,61 +136,67 @@ class ActionButtonSpec extends CYBridgeMethodSpec {
   @override
   Map make() {
     Map m = {
-      'type':type.toString(),
+      'type': type.toString(),
     };
-    if (title !=null) {
-      m['title'] =title;
+    if (title != null) {
+      m['title'] = title;
     }
-    if (icon !=null) {
-      m['icon'] =icon;
+    if (icon != null) {
+      m['icon'] = icon;
     }
-    if (data !=null) {
-      m['data'] =data;
+    if (data != null) {
+      m['data'] = data;
     }
-    if (style !=null) {
-      m['style'] =style;
+    if (style != null) {
+      m['style'] = style;
     }
-    if (callback !=null) {
-      m['callback'] =callback.make();
+    if (callback != null) {
+      m['callback'] = callback.make();
     }
     return m;
   }
 }
 
-/* 
+/*
  * OpenFlutterPageSpec
  * 打开一个flutter页面
  */
-class OpenFlutterPageSpec extends CYBridgeMethodSpec {
-  OpenFlutterPageSpec({this.title, this.route, this.rightBarButtons, this.parameters, this.callback, this.replaceTop, this.showNavigationBar });
+class OpenFlutterPageSpec extends STBridgeMethodSpec {
+  OpenFlutterPageSpec(
+      {this.title,
+      this.route,
+      this.rightBarButtons,
+      this.parameters,
+      this.callback,
+      this.replaceTop,
+      this.showNavigationBar});
 
   @override
   Map make() {
     Map m = {
-      'route':route,
-      'present':present,
-      'replace_top':replaceTop,
+      'route': route,
+      'present': present,
+      'replace_top': replaceTop,
     };
-    if (title !=null) {
-      m['title'] =title;
+    if (title != null) {
+      m['title'] = title;
     }
-    if (parameters !=null) {
-      m['parameters'] =parameters;
-    }
-
-    if (callback !=null) {
-      m['callback'] =callback.make();
+    if (parameters != null) {
+      m['parameters'] = parameters;
     }
 
-    if (rightBarButtons !=null) {
-      List<Map> l = rightBarButtons.map((f){
+    if (callback != null) {
+      m['callback'] = callback.make();
+    }
+
+    if (rightBarButtons != null) {
+      List<Map> l = rightBarButtons.map((f) {
         return f.make();
       }).toList();
 
       m['right_bar_buttons'] = l;
     }
-    if(showNavigationBar!=null)
-    {
+    if (showNavigationBar != null) {
       m["show_navigation_bar"] = showNavigationBar;
     }
 
@@ -205,21 +209,21 @@ class OpenFlutterPageSpec extends CYBridgeMethodSpec {
   }
 
   // 页面的title
-  String title; 
+  String title;
 
   // 页面route名称，flutte依此打开页面
-  String route; 
+  String route;
 
   // [ActionButtonSpec] 导航栏右上角的按钮
-  List<ActionButtonSpec> rightBarButtons; 
+  List<ActionButtonSpec> rightBarButtons;
 
-  /* 
+  /*
    * 参数，传给你打开的flutter页面，目前只能通过channel发送？能跟route一传递吗？
    */
-  Map parameters; 
+  Map parameters;
 
   // 页面中回调flutter方法, optional，暂时没用？
-  MethodCallbackSpec callback; 
+  MethodCallbackSpec callback;
 
   bool present = false; // for iOS
 
@@ -231,8 +235,14 @@ class OpenFlutterPageSpec extends CYBridgeMethodSpec {
  * UpdateFlutterPageSpec
  */
 class UpdateFlutterPageSpec extends OpenFlutterPageSpec {
-  UpdateFlutterPageSpec({String title, List<ActionButtonSpec> rightBarButtons,bool showNavigationBar}) :
-   super(title:title, rightBarButtons:rightBarButtons,showNavigationBar:showNavigationBar);
+  UpdateFlutterPageSpec(
+      {String title,
+      List<ActionButtonSpec> rightBarButtons,
+      bool showNavigationBar})
+      : super(
+            title: title,
+            rightBarButtons: rightBarButtons,
+            showNavigationBar: showNavigationBar);
 
   @override
   String methodName() {
@@ -245,25 +255,25 @@ class UpdateFlutterPageSpec extends OpenFlutterPageSpec {
  * Android EventBus事件
  * iOS NSNotificationCenter事件
  */
-class EventSpec extends CYBridgeMethodSpec {
-  EventSpec(this.name, this.data, this.error, { this.source});
+class EventSpec extends STBridgeMethodSpec {
+  EventSpec(this.name, this.data, this.error, {this.source});
 
   @override
   String methodName() {
     return "flutter_event";
-  } 
+  }
 
   @override
   Map make() {
-    Map m = { 'name':name };
-    if (data !=null) {
-      m['data'] =data;
+    Map m = {'name': name};
+    if (data != null) {
+      m['data'] = data;
     }
-    if (source !=null) {
-      m['source'] =source;
+    if (source != null) {
+      m['source'] = source;
     }
-    if (error !=null) {
-      m['error'] =error;
+    if (error != null) {
+      m['error'] = error;
     }
     return m;
   }
@@ -277,8 +287,9 @@ class EventSpec extends CYBridgeMethodSpec {
   Map data;
 }
 
-class EventObserveSpec extends CYBridgeMethodSpec {
-  EventObserveSpec(this.name, this.callback, {this.source, this.unsubscribe =false});
+class EventObserveSpec extends STBridgeMethodSpec {
+  EventObserveSpec(this.name, this.callback,
+      {this.source, this.unsubscribe = false});
 
   @override
   String methodName() {
@@ -287,43 +298,50 @@ class EventObserveSpec extends CYBridgeMethodSpec {
 
   @override
   Map make() {
-    Map m = { 'name':name };
+    Map m = {'name': name};
 
-    if (callback !=null) {
+    if (callback != null) {
       m['callback'] = callback.make();
     }
-    if (source !=null) {
-      m['source'] =source;
+    if (source != null) {
+      m['source'] = source;
     }
-    return m; 
+    return m;
   }
 
   String name;
   String source;
   MethodCallbackSpec callback;
-  bool unsubscribe =false;
+  bool unsubscribe = false;
 }
 
 /*
  * OpenNativePageSpec
  * 打开原生页面
  */
-class OpenNativePageSpec extends CYBridgeMethodSpec {
-  OpenNativePageSpec({this.route, this.parameters, this.present, this.callback});
+class OpenNativePageSpec extends STBridgeMethodSpec {
+  OpenNativePageSpec({
+    this.route,
+    this.parameters,
+    this.present,
+    this.callback,
+    this.requestCode,
+  });
 
   @override
   Map make() {
-    Map m = {
-      'route':route,
-      'present':present
-    };
+    Map m = {'route': route, 'present': present};
 
-    if (parameters !=null) {
-      m['parameters'] =parameters;
+    if (parameters != null) {
+      m['parameters'] = parameters;
     }
 
-    if (callback !=null) {
-      m['callback'] =callback.make();
+    if (callback != null) {
+      m['callback'] = callback.make();
+    }
+
+    if (requestCode != null) {
+      m["requestCode"] = requestCode;
     }
 
     return m;
@@ -335,21 +353,62 @@ class OpenNativePageSpec extends CYBridgeMethodSpec {
   }
 
   // 页面route名称，依此打开原生页面，iOS/Android需统一
-  String route; 
+  String route;
 
   // 传给原生页面的参数
-  Map parameters; 
+  Map parameters;
 
   // 页面中回调flutter方法, optional，暂时没用?
-  MethodCallbackSpec callback; 
+  MethodCallbackSpec callback;
 
   bool present = false; // for iOS
+
+  int requestCode = 1; //for android
 }
 
-class GetInitArgumentsSpec extends CYBridgeMethodSpec {
+class GetInitArgumentsSpec extends STBridgeMethodSpec {
   @override
   String methodName() {
     return "get_init_args";
+  }
+}
+
+/*
+ * 关闭当前flutter原生容器
+ */
+class CloseFlutterPageSpec extends STBridgeMethodSpec {
+  String result;
+  Map data;
+
+  CloseFlutterPageSpec({this.result, this.data});
+
+  @override
+  String methodName() {
+    return "close";
+  }
+
+  @override
+  Map make() {
+    return {"result": result, "data": data};
+  }
+}
+
+/*
+ * 调用原生pop方法，一般在一个原生容器承载多个flutter页面栈时调用
+ */
+class PopFlutterPageSpec extends STBridgeMethodSpec {
+  Map data;
+
+  PopFlutterPageSpec({this.data});
+
+  @override
+  String methodName() {
+    return "pop";
+  }
+
+  @override
+  Map make() {
+    return data;
   }
 }
 
