@@ -23,7 +23,7 @@
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
-        <item name="android:windowAnimationStyle">@style/DefaultThemeAnimation</item>
+        <item name="android:windowAnimationStyle">@style/ScaleOutAnimation</item>
         <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!--<item name="android:windowTranslucentNavigation">true</item>-->
     </style>

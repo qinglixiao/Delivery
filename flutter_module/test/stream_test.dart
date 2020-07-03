@@ -1,4 +1,5 @@
 import 'package:flutter/rendering.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:rxdart/rxdart.dart';
 
 main() {
@@ -17,7 +18,13 @@ main() {
     print(value);
   }, onError: (error) {
     print(error.toString());
-  },onDone: (){
+  }, onDone: () {
     print("onDone");
+  });
+}
+
+void test1(String s) {
+  test("新的测试", () {
+
   });
 }

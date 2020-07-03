@@ -12,9 +12,9 @@ class RootPageWidget extends StatefulWidget {
   WillPopCallback onWillBack; //返回按键拦截，true:允许返回，false:不允许
 
   RootPageWidget({
-    @required this.viewModel,
-    @required this.appBar,
     @required this.body,
+    this.viewModel,
+    this.appBar,
     this.errorWidget,
     this.dialogWidget,
     this.onWillBack,

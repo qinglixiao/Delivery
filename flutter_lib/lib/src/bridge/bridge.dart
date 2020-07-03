@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'spec.dart';
 import 'defs.dart';
 
+bool Mix = false;
+
 /*
  * flutter向原生提供的方法
  * 1. 通用方法
@@ -177,6 +179,7 @@ class STBridge {
     });
   }
 
+  //通过原生中转打开flutter页面
   Future openFlutter(String path,
       {Map parameters,
       String title,
@@ -198,14 +201,23 @@ class STBridge {
     });
   }
 
+  Future open(BuildContext context, String route, {Object parameters}) {
+    return of(context).pushNamed(route, arguments: parameters);
+  }
+
   Future close({String result, Map data}) {
     var spec = CloseFlutterPageSpec(result: result, data: data);
     return callNative(spec);
   }
 
-  Future pop({Map data}) {
-    var spec = PopFlutterPageSpec(data: data);
-    return callNative(spec);
+  Future pop(BuildContext context, {Map data}) {
+    if (Mix) {
+      _buildContext = context;
+      var spec = PopFlutterPageSpec(data: data);
+      return callNative(spec);
+    } else {
+      of(context).maybePop(data);
+    }
   }
 
   Future openNative(String path, [Map parameters]) async {
@@ -217,6 +229,11 @@ class STBridge {
         throw value["error"];
       }
     });
+  }
+
+  //此方法仅限于flutter页面间导航，在跨页面跳转中使用，其它情形请使用open/pop
+  NavigatorState of(BuildContext context) {
+    return Navigator.of(context);
   }
 
   Future emitEvent(String name, {Map data, String error, String source}) {
@@ -245,10 +262,14 @@ class STBridge {
     return _callNative(null, methodSpec);
   }
 
-  Future<Map> getInitArgs() async {
-    Map r = await _callNative(null, GetInitArgumentsSpec());
-
-    return r['data'];
+  Future getInitArgs(BuildContext context) async{
+    if (Mix) {
+      Map r = await _callNative(null, GetInitArgumentsSpec());
+      return r['data'];
+    } else {
+      return Future.value(
+          ModalRoute.of(context ?? _buildContext).settings.arguments);
+    }
   }
 
   Future updatePage(

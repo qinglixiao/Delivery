@@ -1,7 +1,9 @@
-abstract class NetBean {}
+abstract class NetBean {
+  String error_code;
+  String requestNo;
+  String message;
 
-class ServerData<T extends NetBean> {
-  T data;
-  int code;
-  Error error;
+  bool isSuccess() {
+    return error_code == "";
+  }
 }

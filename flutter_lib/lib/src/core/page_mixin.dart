@@ -10,17 +10,18 @@ mixin UIWrap on Widget {
   }
 }
 
-mixin PageIteractor {
-  STBridge bridge;
+mixin PageBridge {
+  STBridge bridge = STBridge();
 
-  void initPage(BuildContext context) {
-    bridge = STBridge();
-    bridge.setContext(context);
+  Future getInitArg(BuildContext context) {
+    return bridge.getInitArgs(context);
   }
 
-  Future<Map> getInitArg(BuildContext context) {
-    return bridge.getInitArgs();
+  Future openFlutter(BuildContext context, String route, {Object argument}) {
+    return bridge.open(context, route, parameters: argument);
   }
 
-  void close() {}
+  Future<Map> pop(BuildContext context, {Map data}) {
+    return bridge.pop(context, data: data);
+  }
 }

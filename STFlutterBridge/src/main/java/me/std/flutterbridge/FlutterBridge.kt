@@ -27,4 +27,8 @@ object FlutterBridge {
                     .put("flutter_engine", this)
         }
     }
+
+    fun openFlutter() {
+
+    }
 }

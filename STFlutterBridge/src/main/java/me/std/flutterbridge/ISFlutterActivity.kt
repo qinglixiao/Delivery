@@ -71,7 +71,10 @@ class ISFlutterActivity : FlutterActivity(), IBridgeView {
     }
 
     override fun update(parameter: FlutterPageParameter?) {
-        if (parameter == null) return
+        if (parameter == null) {
+            return
+        }
+        flutterBridgeContext.pageInitArgs = parameter?.parameters
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

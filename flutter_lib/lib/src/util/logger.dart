@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class Logger {
-  static print(String message) {
-    debugPrint(message);
+  static print(Object message) {
+    debugPrint("$message");
   }
 }

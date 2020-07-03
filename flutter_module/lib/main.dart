@@ -2,19 +2,25 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_lib/flutter_lib.dart';
-import 'package:fluttermodule/as/app/app_theme.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fluttermodule/src/comm/init_app.dart';
 
-import 'as/comm/name_router.dart';
+import 'generated/l10n.dart';
+import 'src/config/app_theme.dart';
+import 'src/config/name_router.dart';
+import 'src/main/index_tab.dart';
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    STBridge().setContext(context);
     return StateProvider(
       viewModel: null,
       child: MaterialApp(
         theme: AppTheme.theme,
+        darkTheme: AppTheme.darkTheme,
         routes: routers,
-//        initialRoute: RouterName.good_list,
+        home: IndexPage(),
         onUnknownRoute: (routerSetting) {
           return PageRouteBuilder(pageBuilder: (BuildContext context,
               Animation<double> animation,
@@ -28,12 +34,19 @@ class App extends StatelessWidget {
             ));
           });
         },
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate
+        ],
+        supportedLocales: S.delegate.supportedLocales,
       ),
     );
   }
 }
 
-void main() {
+void main() async {
   debugProfileBuildsEnabled = true;
   runApp(App());
+  await AppEnv.init();
 }

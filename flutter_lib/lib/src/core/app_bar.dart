@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lib/src/core/navigator_wrapper.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_lib/flutter_lib.dart';
+
+const double app_bar_height = 45; //标题栏高度
 
 ///系统标题栏
 class IsAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -27,35 +30,42 @@ class IsAppBar extends StatefulWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(app_bar_height);
 }
 
-const double app_bar_height = 45;
-var app_bar_txt_color = Color(0xFF333333);
-
 class _IsAppBarState extends State<IsAppBar> {
-  Color _color;
+  Color _bg;
+  Color _status_bar;
+
+  SystemUiOverlayStyle uiStyle = SystemUiOverlayStyle.light.copyWith(
+    statusBarColor: Colors.transparent,
+  );
 
   @override
   Widget build(BuildContext context) {
     final AppBarTheme appBarTheme = AppBarTheme.of(context);
+
+    _bg = appBarTheme.color;
+    _status_bar = _bg;
+    SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: _status_bar,
+    );
+    SystemChrome.setSystemUIOverlayStyle(uiStyle);
+
     Widget _leftWidget = widget.leftWidget ?? Container();
     Widget _rightWidget = widget.rightWidget ?? Container();
     if (widget.canBack && widget.leftWidget == null) {
       _leftWidget = GestureDetector(
         onTap: widget.leftOnTap ??
             () {
-              NavigatorWrapper.of(context).pop();
+              STBridge().pop(context);
             },
         child: Icon(Icons.arrow_back_ios),
       );
     }
 
     return new Container(
-      color: appBarTheme.color,
+      color: _bg,
       child: SafeArea(
         top: true,
         child: new Container(
-//            decoration: new UnderlineTabIndicator(
-//              borderSide: BorderSide(width: 1.0, color: Color(0xFFeeeeee)),
-//            ),
             height: app_bar_height,
             child: new Stack(
               alignment: Alignment.center,
@@ -63,10 +73,7 @@ class _IsAppBarState extends State<IsAppBar> {
                 Positioned(left: 10, child: _leftWidget),
                 new Container(
                   child: new Text(widget.title,
-                      style: new TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 17,
-                          color: app_bar_txt_color)),
+                      style: appBarTheme.textTheme.headline1),
                 ),
                 Positioned(right: 10, child: _rightWidget),
               ],

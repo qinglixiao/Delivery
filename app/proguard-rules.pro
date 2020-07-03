@@ -350,6 +350,7 @@
 -keep class org.simple.eventbus.**{*;}
 -keep class com.squareup.okhttp3.**{*;}
 -keep class okhttp3.**{*;}
+-keep class me.std.flutterbridge.**{*;}
 
 -keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
 public static java.lang.String TABLENAME;

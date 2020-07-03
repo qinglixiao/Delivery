@@ -51,7 +51,7 @@ class MainFragment : BaseVmFragment<FragmentMainMvvmBinding, MainViewModel>() {
 
         bindView.btnFlutter.setOnClickListener {
 //            activity?.startActivityForResult(ISFlutterActivity.withCachedEngine("flutter_engine")?.build(activity!!),100)
-            var params: FlutterPageParameter = FlutterPageParameter("good_list_page", "原生标题")
+            var params: FlutterPageParameter = FlutterPageParameter("\\", "原生标题")
             params.parameters = mapOf("id" to 35)
             BridgeOpenFlutterHandlerK.openFlutterPage(context, params, 100)
 //            activity?.startActivity(ISFlutterActivity.withNewEngine()
