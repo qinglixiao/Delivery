@@ -6,12 +6,17 @@ class GoodListViewModel extends BaseViewModel {
   GoodListViewModel() : super();
   GoodListModel _goodListModel = GoodListModel();
 
-  Stream<GoodBean> get streamGood => _goodListModel.stateStream;
+  Stream<List<GoodBean>> get streamGood => _goodListModel.stateStream;
 
-  void loadGoods() {
+  Future load(bool refresh) async {
+    return _goodListModel.load(refresh);
+  }
+
+  Future<List<GoodBean>> loadGoods() async {
     showLoadding();
-    _goodListModel.load(10).then((value) {
+    return load(true).then((value) {
       hideLoadding();
+      return value;
     });
   }
 

@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_lib/flutter_lib.dart';
 import 'package:fluttermodule/generated/l10n.dart';
 import 'package:fluttermodule/src/business/budget/bean/good.dart';
-import 'package:fluttermodule/src/business/budget/viewmodel/good_list_view_model.dart';
-import 'package:fluttermodule/src/config/name_router.dart';
+import 'package:fluttermodule/src/business/budget/viewmodel/good_list_viewmodel.dart';
+import 'package:fluttermodule/src/widgets/comm_views.dart';
 
 class GoodListPage extends StatefulWidget with UIWrap {
   @override
@@ -15,63 +16,73 @@ class GoodListPage extends StatefulWidget with UIWrap {
 
 class _GoodListState extends State<GoodListPage> with PageBridge {
   GoodListViewModel _goodListViewModel;
+  SimpleLoadMoreController loadMore;
 
   @override
   void initState() {
     super.initState();
     _goodListViewModel = GoodListViewModel();
+    loadMore = SimpleLoadMoreController(() {
+      loadData(refresh: false);
+    });
+  }
+
+  Widget _buildItem(BuildContext context, Object item) {
+    GoodBean v = item as GoodBean;
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.only(left: 12),
+          child: CachedNetworkImage(
+            imageUrl: v.imgUrl,
+            width: 100,
+            height: 100,
+          ),
+        ),
+        Column(
+          children: <Widget>[Text(v.title)],
+        )
+      ],
+    );
+  }
+
+  _itemClick(Widget widget, Object itemData) {}
+
+  Future loadData({refresh = true}) async {
+    return _goodListViewModel
+        .load(refresh)
+        .then((value) => loadMore.hasMore = value);
   }
 
   @override
   Widget build(BuildContext context) {
-    getInitArg(context).then((value) => {Logger.print("init args ${value.toString()}")});
+    getInitArg(context)
+        .then((value) => {Logger.print("init args ${value.toString()}")});
 
     return RootPageWidget(
       viewModel: _goodListViewModel,
-      body: Scaffold(
-        appBar: IsAppBar(
-          title: S.of(context).order_good,
-        ),
-        body: StreamBuilder<GoodBean>(
-            stream: _goodListViewModel.streamGood,
-            builder: (BuildContext context, AsyncSnapshot<GoodBean> snapshot) {
-              var title = snapshot.data?.title;
-              Logger.print("title ${title}");
-              return Row(
-                children: <Widget>[
-                  Text(title ?? ""),
-                  RaisedButton(
-                      child: Text("获取订货单"),
-                      onPressed: () {
-                        _goodListViewModel.loadGoods();
-                      }),
-                  RaisedButton(
-                      child: Text("转到订单详情页"),
-                      onPressed: () {
-                        openFlutter(
-                          context,
-                          RouterName.order_detail,
-                          argument: {"order_id": "x_id_01", "price": "35.4"},
-                        ).then(
-                          (value) => Logger.print(value.toString()),
-                        );
-                      }),
-                  RaisedButton(
-                      child: Text("关闭当前页返回值"),
-                      onPressed: () {
-                        bridge.close(
-                            result: "ok",
-                            data: {"order_id": "x_id_01", "price": "35.4"});
-                      }),
-                  Image.asset("assets/images/cy-refresh-icon.png"),
-                  Image(image: AssetImage("assets/images/cy-refresh-icon.png")),
-                ],
-              );
-            }),
+      appBar: IsAppBar(
+        title: S.of(context).order_good,
       ),
+      body: StreamBuilder<List<GoodBean>>(
+          stream: _goodListViewModel.streamGood,
+          builder: (BuildContext context, AsyncSnapshot<List<GoodBean>> state) {
+            if (state.data == null) {
+              return EmptyWidget();
+            }
+            return PullToRefresh(
+              child: SListView(
+                _buildItem,
+                itemAction: _itemClick,
+                moreController: loadMore,
+              ).build(context, state.data),
+              onRefresh: () {
+                return loadData();
+              },
+            );
+          }),
     );
   }
 }
-//class _GoodItem extends ListItem{
-//
-//}

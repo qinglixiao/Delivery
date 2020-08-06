@@ -53,10 +53,10 @@ class S {
     );
   }
 
-  /// `订货`
+  /// `订货列表`
   String get order_good {
     return Intl.message(
-      '订货',
+      '订货列表',
       name: 'order_good',
       desc: '',
       args: [],

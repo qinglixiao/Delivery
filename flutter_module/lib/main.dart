@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lib/flutter_lib.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttermodule/src/comm/init_app.dart';
+import 'package:fluttermodule/src/demo/animation_muti.dart';
 
 import 'generated/l10n.dart';
 import 'src/config/app_theme.dart';
 import 'src/config/name_router.dart';
-import 'src/main/index_tab.dart';
+import 'src/demo/future_use.dart';
+import 'src/demo/webview_demo.dart';
 
 class App extends StatelessWidget {
   @override
@@ -20,7 +22,7 @@ class App extends StatelessWidget {
         theme: AppTheme.theme,
         darkTheme: AppTheme.darkTheme,
         routes: routers,
-        home: IndexPage(),
+        home: WebViewExample(),
         onUnknownRoute: (routerSetting) {
           return PageRouteBuilder(pageBuilder: (BuildContext context,
               Animation<double> animation,

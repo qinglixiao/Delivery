@@ -24,7 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appCode" : MessageLookupByLibrary.simpleMessage("1.0.0"),
     "appName" : MessageLookupByLibrary.simpleMessage("iEnglish"),
     "home_title" : MessageLookupByLibrary.simpleMessage("iEnglish服务商管理平台"),
-    "order_good" : MessageLookupByLibrary.simpleMessage("订货"),
+    "order_good" : MessageLookupByLibrary.simpleMessage("订货列表"),
     "tab_home" : MessageLookupByLibrary.simpleMessage("主页"),
     "tab_me" : MessageLookupByLibrary.simpleMessage("我的"),
     "tab_plateform" : MessageLookupByLibrary.simpleMessage("合伙人平台")

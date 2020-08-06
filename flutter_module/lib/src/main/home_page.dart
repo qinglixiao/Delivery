@@ -12,8 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> with PageBridge {
-  String counter = "";
-
   @override
   Widget build(BuildContext context) {
     return RootPageWidget(
@@ -25,15 +23,19 @@ class HomePageState extends State<HomePage> with PageBridge {
             onPressed: () {},
           ),
           RaisedButton(
-            child: Text("to list"),
+            child: Text("订货"),
             onPressed: () {
-              openFlutter(context, RouterName.good_list);
+              open(context, RouterName.good_list);
             },
           ),
           RaisedButton(
-            child: Text("load"),
+            child: Text("get"),
             onPressed: () {
-              top();
+              top().then(
+                (value) => {
+                  Logger.print(value),
+                },
+              );
             },
           ),
         ],

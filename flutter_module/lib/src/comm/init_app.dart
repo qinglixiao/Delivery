@@ -5,6 +5,7 @@ import 'package:fluttermodule/src/config/global.dart';
 class AppEnv {
   static Future init() async {
     await netInit();
+    await sPUtilInit();
   }
 
   static netInit() async {
@@ -13,5 +14,9 @@ class AppEnv {
         .devHost("www.liulongbin.top:3005/api")
         .isOnline(Global.isOnline)
         .init();
+  }
+
+  static sPUtilInit() async {
+    return SpUtil.init();
   }
 }

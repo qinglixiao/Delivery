@@ -17,7 +17,7 @@ mixin PageBridge {
     return bridge.getInitArgs(context);
   }
 
-  Future openFlutter(BuildContext context, String route, {Object argument}) {
+  Future open(BuildContext context, String route, {Object argument}) {
     return bridge.open(context, route, parameters: argument);
   }
 

@@ -1,75 +1,41 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import '../refresh/load_more.dart';
 
-class ListItem {
-  Widget build(BuildContext ctxt, int index) {
-    return null;
-  }
-}
+class SListView<T> {
+  var _buildItem;
+  var _itemAction;
+  var _moreController;
 
-typedef ListItemAction = Function(ListItem item, int index);
-
-class ListItemActions {
-  void add(ListItem item, ListItemAction action) {}
-}
-
-class ListModel {
-  ListModel({this.loadMoreController});
-
-  LoadMoreController loadMoreController;
-
-  List<ListItem> items = [];
-
-  ListItemAction _action;
-
-  void setItemAction(ListItemAction action) {
-    _action = action;
+  SListView(BuildItemView buildItemView,
+      {ListItemAction itemAction, LoadMoreController moreController}) {
+    _buildItem = buildItemView;
+    _moreController = moreController;
+    _itemAction = itemAction;
   }
 
-  void clear() {
-    items.clear();
-  }
-
-  void add(ListItem item) {
-    items.add(item);
-  }
-
-  void addItems(List<ListItem> items) {
-    this.items.addAll(items);
-  }
-
-  void reset(bool isRefresh) {
-    if (isRefresh) {
-      items.clear();
-    }
-  }
-
-  bool isEmpty() {
-    return items.length == 0;
-  }
-
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, List items) {
     Widget indicator;
     ScrollController scrollController;
 
-    if (loadMoreController !=null) {
-      indicator = loadMoreController.indicator();
-      scrollController =loadMoreController.controller(); 
-    } 
+    if (_moreController != null) {
+      indicator = _moreController.indicator();
+      scrollController = _moreController.controller();
+    }
 
-    var widget = new ListView.builder(
+    return ListView.builder(
       itemCount: indicator != null ? items.length + 1 : items.length,
-      itemBuilder: (BuildContext ctxt, int index) {
+      itemBuilder: (BuildContext context, int index) {
         if (items.length == index) {
           return indicator;
         } else {
-          ListItem item = items[index];
-          Widget w = item.build(ctxt, index);
-          if (_action != null) {
+          Widget w = _buildItem(context, items[index]);
+          if (_itemAction != null) {
             return GestureDetector(
               onTap: () {
-                if (_action != null) {
-                  _action(item, index);
+                if (_itemAction != null) {
+                  _itemAction(w, items[index]);
                 }
               },
               child: w,
@@ -80,6 +46,8 @@ class ListModel {
       },
       controller: scrollController,
     );
-    return widget;
   }
 }
+
+typedef BuildItemView = Widget Function(BuildContext context, Object itemData);
+typedef ListItemAction = Function(Widget widget, Object itemData);

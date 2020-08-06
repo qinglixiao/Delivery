@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:rxdart/rxdart.dart';
 
 abstract class BaseModel<T> {

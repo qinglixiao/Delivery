@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'defs.dart';
@@ -12,9 +13,7 @@ const Duration _kIndicatorSnapDuration = Duration(milliseconds: 150);
 // refresh action has completed.
 const Duration _kIndicatorScaleDuration = Duration(milliseconds: 200);
 
-
 class RefreshHeader {
-
   PullToRefreshMode mode;
 
   PositionController positionController;
@@ -34,14 +33,11 @@ class RefreshHeader {
     return null;
   }
 
-  void show() {
-  }
+  void show() {}
 
-  void start() {
-  }
+  void start() {}
 
-  void dispose() {
-  }
+  void dispose() {}
 
   // 自定义的header，重写这个方法
   List<Widget> build(BuildContext ctxt) {
@@ -51,27 +47,38 @@ class RefreshHeader {
     if (mode == PullToRefreshMode.armed) {
       hint = "松开刷新数据";
     } else if (mode == PullToRefreshMode.refresh) {
-      hint = "正在刷新";
+      hint = "加载中";
     }
 
     return [
       AnimatedBuilder(
-          animation: positionController.controller,
-          builder: (BuildContext buildContext, Widget child) {
-            return Container(
-              constraints: BoxConstraints.expand( 
-                height: positionController.value.value * positionController.height,
-              ),
-              color: Colors.yellow, 
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+        animation: positionController.controller,
+        builder: (BuildContext buildContext, Widget child) {
+          return Container(
+            constraints: BoxConstraints.expand(
+              height:
+                  positionController.value.value * positionController.height,
+            ),
+            color: Colors.transparent,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Text(hint, style: TextStyle(color: Colors.red),),
+                  Visibility(
+                    visible: mode == PullToRefreshMode.refresh,
+                    child: CupertinoActivityIndicator(),
+                  ),
+                  Text(
+                    hint,
+                    style: TextStyle(color: Colors.red),
+                  ),
                 ],
-                ),
-            );
-          },
-        ),
+              ),
+            ),
+          );
+        },
+      ),
     ];
   }
 }
@@ -87,9 +94,8 @@ class PositionController {
   static final Animatable<double> _threeQuarterTween =
       Tween<double>(begin: 0.0, end: 1.0);
 
-  PositionController({this.height = 100, this.springAnimationDurationInMilliseconds = 1000}) {
-
-  }
+  PositionController(
+      {this.height = 100, this.springAnimationDurationInMilliseconds = 1000}) {}
 
   void setup({TickerProvider tp}) {
     this.tp = tp;
@@ -113,8 +119,7 @@ class PositionController {
 
   void show() {
     controller.animateTo(1.0,
-        duration: Duration(
-            milliseconds: springAnimationDurationInMilliseconds),
+        duration: Duration(milliseconds: springAnimationDurationInMilliseconds),
         curve: Curves.linear);
   }
 
@@ -124,8 +129,8 @@ class PositionController {
 
   void dismiss() async {
     await controller.animateTo(0.0,
-            duration: Duration(
-                milliseconds: _kIndicatorSnapDuration.inMilliseconds * 2));
+        duration:
+            Duration(milliseconds: _kIndicatorSnapDuration.inMilliseconds * 2));
   }
 
   void cancel() async {
@@ -137,19 +142,18 @@ class PullPadding {
   final PositionController positionController;
   final double height;
 
-  PullPadding({this.positionController, this.height}) {
-  }
+  PullPadding({this.positionController, this.height}) {}
 
   Widget build(BuildContext ctxt) {
     return SliverToBoxAdapter(
-        child: AnimatedBuilder(
-          animation: positionController.controller,
-          builder: (BuildContext buildContext, Widget child) {
-            return Container(
-              height: positionController.value.value * height, 
-            );
-          },
-        ),
+      child: AnimatedBuilder(
+        animation: positionController.controller,
+        builder: (BuildContext buildContext, Widget child) {
+          return Container(
+            height: positionController.value.value * height,
+          );
+        },
+      ),
     );
   }
 }

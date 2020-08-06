@@ -24,7 +24,8 @@ main() {
 }
 
 void test1(String s) {
-  test("新的测试", () {
-
+  test("faaef", () {
+    assert(false,"打印错误信息");
+    assert(true);
   });
 }

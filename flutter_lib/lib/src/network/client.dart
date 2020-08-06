@@ -33,7 +33,7 @@ class IEnglishNetClient extends DioMixin {
 
   IEnglishNetClient._() {
     httpClientAdapter = DefaultHttpClientAdapter();
-    interceptors..add(LogInterceptor())..add(EghIntercaptor(this));
+    interceptors..add(LogInterceptor())..add(EghInterceptor(this));
   }
 
   factory IEnglishNetClient() {

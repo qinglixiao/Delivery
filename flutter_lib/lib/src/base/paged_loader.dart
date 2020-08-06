@@ -1,3 +1,6 @@
+import 'package:dio/dio.dart';
+import 'package:flutter_lib/flutter_lib.dart';
+
 import '../bridge/bridge.dart';
 
 enum LoaderStateType {
@@ -46,17 +49,18 @@ class LoaderState {
   }
 
   bool isNew() {
-    return _lastLoadState == LoaderStateType.init && _lastLoadState == LoaderStateType.init;
+    return _lastLoadState == LoaderStateType.init &&
+        _lastLoadState == LoaderStateType.init;
   }
 }
 
 class PagedLoader {
   PagedLoader({
-    this.initialPage=1,
-    this.pageSize=20,
-    this.pageParameterName="page",
-    this.pageSizeParameterName="page_size",
-    });
+    this.initialPage = 1,
+    this.pageSize = 20,
+    this.pageParameterName = "page",
+    this.pageSizeParameterName = "page_size",
+  });
 
   final String pageParameterName;
   final String pageSizeParameterName;
@@ -66,39 +70,38 @@ class PagedLoader {
 
   // state
   int currentPage = -1;
-  bool canLoadMore =true;
-  bool isLoading =false;
+  bool canLoadMore = true;
+  bool isLoading = false;
 
   int beginLoading(bool isRefresh) {
     if (isLoading) throw IsLoadingException();
 
-    isLoading =true;
+    isLoading = true;
 
-    if (currentPage < 0) isRefresh =true;
+    if (currentPage < 0) isRefresh = true;
 
-    int page =isRefresh? this.initialPage : this.currentPage + 1;
+    int page = isRefresh ? this.initialPage : this.currentPage + 1;
 
     return page;
   }
 
   void endLoading(int page) {
-    currentPage =page;
+    currentPage = page;
   }
 
-  Future<T> load<T>({bool isRefresh=true}) async {
+  Future<T> load<T>({bool isRefresh = true}) async {
     return null;
   }
 
   Map buildPageParameters(int page) {
-    return {
-      pageParameterName: page,
-      pageSizeParameterName:pageSize
-    };
+    return {pageParameterName: page, pageSizeParameterName: pageSize};
   }
 
   Map buildParameters(int page) {
     return buildPageParameters(page);
   }
+
+  dynamic buildData(int page) {}
 }
 
 class UrlPagedLoader extends PagedLoader {
@@ -106,45 +109,60 @@ class UrlPagedLoader extends PagedLoader {
   final String method;
   final bool useNativeHttp;
   Map parameters;
+  dynamic data;
 
   UrlPagedLoader({
     this.url,
-    this.method="GET",
+    this.method = "GET",
     this.parameters,
-    this.useNativeHttp = true,
-    int initialPage=1,
-    int pageSize=20,
-    String pageSizeParameterName="page_size",
-    String pageParameterName="page",
-  }) :super(
-    initialPage:initialPage, 
-    pageSize:pageSize,
-    pageSizeParameterName:pageSizeParameterName,
-    pageParameterName:pageParameterName,
-  );
+    this.data,
+    this.useNativeHttp = false,
+    int initialPage = 1,
+    int pageSize = 20,
+    String pageSizeParameterName = "page_size",
+    String pageParameterName = "page",
+  }) : super(
+          initialPage: initialPage,
+          pageSize: pageSize,
+          pageSizeParameterName: pageSizeParameterName,
+          pageParameterName: pageParameterName,
+        );
 
   @override
-  Future<T> load<T>({bool isRefresh=true}) async {
+  Future<T> load<T>({bool isRefresh = true}) async {
     int page = beginLoading(isRefresh);
     Map p = buildParameters(page);
 
-    return STBridge()
-    .request(method, url, p)
-    .then((o){
-      print("http result: $o");
+    if (useNativeHttp) {
+      return STBridge().request(method, url, p).then((o) {
+        print("http result: $o");
+        isLoading = false;
+
+        var r = parseResult(o);
+
+        print("$r");
+
+        endLoading(page);
+
+        return r;
+      }, onError: (e) {
+        isLoading = false;
+        print("eeee: $e");
+        throw e;
+      });
+    } else {
+      return dartNetLoad(page, parameters);
+    }
+  }
+
+  dartNetLoad(int page, Map parameters) async {
+    var option = IEnglishNetClient().mergeOptions(
+        Options(method: method), url, buildData(page), parameters);
+    return IEnglishNetClient().request(url, options: option).then((value) {
       isLoading = false;
-
-      var r = parseResult(o);
-
-      print("$r");
-
+      var r = parseResult(value);
       endLoading(page);
-
       return r;
-    }, onError: (e) {
-      isLoading = false; 
-      print("eeee: $e");
-      throw e;
     });
   }
 
@@ -155,8 +173,7 @@ class UrlPagedLoader extends PagedLoader {
 
 typedef Object PagedFakeDataGenerator(bool isRefresh, int page);
 
-class IsLoadingException implements Exception {
-}
+class IsLoadingException implements Exception {}
 
 class FakePagedLoader extends PagedLoader {
   final PagedFakeDataGenerator generator;
@@ -164,7 +181,7 @@ class FakePagedLoader extends PagedLoader {
   FakePagedLoader(this.generator);
 
   @override
-  Future<T> load<T>({bool isRefresh=true}) async {
+  Future<T> load<T>({bool isRefresh = true}) async {
     int page = beginLoading(isRefresh);
 
     return new Future.delayed(const Duration(seconds: 2), () {
@@ -174,5 +191,5 @@ class FakePagedLoader extends PagedLoader {
 
       return data;
     });
-  } 
+  }
 }
