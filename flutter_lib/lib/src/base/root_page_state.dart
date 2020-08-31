@@ -2,15 +2,17 @@ import 'package:flutter/cupertino.dart';
 
 class RequestState {
   ConnectionState state;
-  Error error;
+  var exception;
   dynamic data;
 
-  bool get hasError => error != null;
+  bool get hasError => exception != null;
 
-  RequestState({this.state = ConnectionState.none, this.error, this.data});
+  String get errorMessage => exception?.message;
 
-  factory RequestState.error(Error error) {
-    return RequestState(error: error);
+  RequestState({this.state = ConnectionState.none, this.exception, this.data});
+
+  factory RequestState.error(Exception error) {
+    return RequestState(exception: error);
   }
 
   factory RequestState.state(ConnectionState state, {dynamic data}) {

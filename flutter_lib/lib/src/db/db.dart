@@ -1,5 +1,6 @@
 import 'package:flutter_lib/flutter_lib.dart';
 import 'package:flutter_lib/src/db/table_helper.dart';
+import 'package:flutter_lib/src/util/string_util.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/utils/utils.dart';
 
@@ -58,10 +59,10 @@ class IsDb {
 
   _createTables(Database db, int version) async {
     var batch = db.batch();
-    _tables.forEach((table) {
-      Logger.print("create table : ${table.onCreate()}");
+    _tables.forEach((table) async {
 
       if (isSafeSQL(table.onCreate())) {
+        Logger.print("create table : ${table.onCreate()}");
         batch.execute("DROP TABLE IF EXISTS ${table.name}");
         batch.execute(table.onCreate());
       }
@@ -136,10 +137,10 @@ class IsDb {
 
   Future<List<String>> getTableNames() async {
     var tableNames = (await _innerDb
-            .query('sqlite_master', where: 'type = ?', whereArgs: ['table']))
+        .query('sqlite_master', where: 'type = ?', whereArgs: ['table']))
         .map((row) => row['name'] as String)
         .toList(growable: false)
-          ..sort();
+      ..sort();
     return tableNames;
   }
 
@@ -154,7 +155,7 @@ class IsDb {
     return _innerDb.query(table);
   }
 
-  execute(String sql, [List<dynamic> arguments]) async{
+  execute(String sql, [List<dynamic> arguments]) async {
     return _innerDb.execute(sql, arguments);
   }
 
@@ -164,7 +165,7 @@ class IsDb {
   }
 
   //example: ('SELECT * FROM my_table WHERE name IN (?, ?, ?)', ['cat', 'dog', 'fish'])
-  Future<List<Map>> rawQuery(String sql, [List<dynamic> arguments]) async{
+  Future<List<Map>> rawQuery(String sql, [List<dynamic> arguments]) async {
     return _innerDb.rawQuery(sql, arguments);
   }
 
@@ -226,3 +227,4 @@ class VersionMigration {
 
   VersionMigration({this.version, this.sql});
 }
+

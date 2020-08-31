@@ -19,3 +19,9 @@ class ServerError extends ASError {}
 class DataConvertError extends ASError {
   DataConvertError({String message}) : super(message: message);
 }
+
+class IllegalArgument extends ASError {
+  IllegalArgument({String message}) : super(message: message);
+}
+
+class NetworkError implements Exception {}

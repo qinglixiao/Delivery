@@ -53,6 +53,8 @@ class STFlutterMethodManager {
   }
 }
 
+final GlobalNavigator = GlobalKey<NavigatorState>();
+
 /*
  * 1. 调用原生方法
  * 2. 对原生端，提供flutter方法
@@ -201,8 +203,23 @@ class STBridge {
     });
   }
 
-  Future open(BuildContext context, String route, {Object parameters}) {
-    return of(context).pushNamed(route, arguments: parameters);
+  Future open(String route, {Object arguments}) async {
+    return iAgentNavigator.pushNamed(route, arguments: arguments);
+  }
+
+  Future popAndOpen(String route, {Object arguments}) {
+    return iAgentNavigator.popAndPushNamed(route, arguments: arguments);
+  }
+
+  Future openAndRemoveUtil(String newRoute,
+      {String historyRoute, Object arguments}) {
+    return iAgentNavigator.pushNamedAndRemoveUntil(
+        newRoute, ModalRoute.withName(historyRoute),
+        arguments: arguments);
+  }
+
+  popUtil(String route) {
+    return iAgentNavigator.popUntil(ModalRoute.withName(route));
   }
 
   Future close({String result, Map data}) {
@@ -210,13 +227,12 @@ class STBridge {
     return callNative(spec);
   }
 
-  Future pop(BuildContext context, {Map data}) {
+  Future pop({Object data}) {
     if (Mix) {
-      _buildContext = context;
       var spec = PopFlutterPageSpec(data: data);
       return callNative(spec);
     } else {
-      of(context).maybePop(data);
+      iAgentNavigator.maybePop(data);
     }
   }
 
@@ -232,8 +248,8 @@ class STBridge {
   }
 
   //此方法仅限于flutter页面间导航，在跨页面跳转中使用，其它情形请使用open/pop
-  NavigatorState of(BuildContext context) {
-    return Navigator.of(context);
+  NavigatorState get iAgentNavigator {
+    return GlobalNavigator.currentState;
   }
 
   Future emitEvent(String name, {Map data, String error, String source}) {

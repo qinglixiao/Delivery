@@ -18,8 +18,10 @@ class RefreshHeader {
 
   PositionController positionController;
 
-  final Color color = Colors.red;
-  final Color backgroundColor = Colors.yellow;
+  Color txtColor;
+  Color backgroundColor;
+
+  RefreshHeader({this.txtColor, this.backgroundColor});
 
   void setup({PositionController positionController}) {
     this.positionController = positionController;
@@ -57,9 +59,9 @@ class RefreshHeader {
           return Container(
             constraints: BoxConstraints.expand(
               height:
-                  positionController.value.value * positionController.height,
+              positionController.value.value * positionController.height,
             ),
-            color: Colors.transparent,
+            color: backgroundColor ?? Colors.transparent,
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -71,7 +73,8 @@ class RefreshHeader {
                   ),
                   Text(
                     hint,
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(
+                        color: txtColor ?? Theme.of(ctxt).primaryColor),
                   ),
                 ],
               ),

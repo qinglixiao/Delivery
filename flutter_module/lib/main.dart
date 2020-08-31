@@ -4,25 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lib/flutter_lib.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttermodule/src/comm/init_app.dart';
-import 'package:fluttermodule/src/demo/animation_muti.dart';
 
 import 'generated/l10n.dart';
+import 'src/comm/crash_analyze.dart';
 import 'src/config/app_theme.dart';
+import 'src/config/global.dart';
 import 'src/config/name_router.dart';
-import 'src/demo/future_use.dart';
-import 'src/demo/webview_demo.dart';
+import 'src/demo/slide_page.dart';
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    STBridge().setContext(context);
     return StateProvider(
-      viewModel: null,
+      data: Global(context),
       child: MaterialApp(
         theme: AppTheme.theme,
         darkTheme: AppTheme.darkTheme,
         routes: routers,
-        home: WebViewExample(),
+        home: SlidePage(),
         onUnknownRoute: (routerSetting) {
           return PageRouteBuilder(pageBuilder: (BuildContext context,
               Animation<double> animation,
@@ -48,7 +47,9 @@ class App extends StatelessWidget {
 }
 
 void main() async {
-  debugProfileBuildsEnabled = true;
-  runApp(App());
-  await AppEnv.init();
+  AppCrashHandler(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await AppEnv.init();
+    runApp(App());
+  });
 }

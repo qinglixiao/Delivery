@@ -3,21 +3,26 @@ import 'package:flutter_lib/flutter_lib.dart';
 import 'package:flutter_lib/src/base/model.dart';
 import 'package:flutter_lib/src/base/root_page_state.dart';
 
-class RootModel extends BaseModel<RequestState> {
+class RootModel extends BaseModel {
   RootModel() : super();
 
-  void error(Error error) {
+  void error(Exception error) {
     add(RequestState.error(error));
   }
 
-  void showLoadding({String txt}) {
+  void showLoadding({dynamic txt}) {
     add(RequestState.state(ConnectionState.waiting, data: txt));
   }
 
   void hideLoadding() {
-    add(RequestState.state(ConnectionState.done));
+    add(RequestState.state(ConnectionState.none));
   }
 
-  @override
-  void dispose() {}
+  void showEmptyView() {
+    add(RequestState.state(ConnectionState.done, data: null));
+  }
+
+  void hideEmptyView() {
+    add(RequestState.state(ConnectionState.none, data: Object()));
+  }
 }

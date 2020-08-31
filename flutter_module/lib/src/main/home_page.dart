@@ -25,7 +25,7 @@ class HomePageState extends State<HomePage> with PageBridge {
           RaisedButton(
             child: Text("订货"),
             onPressed: () {
-              open(context, RouterName.good_list);
+              open(RouterName.good_list);
             },
           ),
           RaisedButton(

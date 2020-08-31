@@ -17,11 +17,25 @@ mixin PageBridge {
     return bridge.getInitArgs(context);
   }
 
-  Future open(BuildContext context, String route, {Object argument}) {
-    return bridge.open(context, route, parameters: argument);
+  Future open(String route, {Object argument}) {
+    return bridge.open(route, arguments: argument);
   }
 
-  Future<Map> pop(BuildContext context, {Map data}) {
-    return bridge.pop(context, data: data);
+  Future popAndOpen(String route, {Object argument}) {
+    return bridge.popAndOpen(route, arguments: argument);
+  }
+
+  Future openAndRemoveUtil(String newRoute,
+      {String historyRoute, Object arguments}) {
+    return bridge.openAndRemoveUtil(newRoute,
+        historyRoute: historyRoute, arguments: arguments);
+  }
+
+  popUtil(String route) {
+    bridge.popUtil(route);
+  }
+
+  Future<Map> pop({Object data}) {
+    return bridge.pop(data: data);
   }
 }

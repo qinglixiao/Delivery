@@ -1,27 +1,43 @@
 import 'package:rxdart/rxdart.dart';
 
-abstract class BaseModel<T> {
-  BehaviorSubject<T> control;
-  T data;
+abstract class BaseModel {
+  Map<String, BehaviorSubject> controls;
 
-  Stream<T> get stateStream {
-    return control;
+  Stream<S> getStream<S>() {
+    if (controls.containsKey(S.toString())) {
+      return controls[S.toString()] as Stream<S>;
+    } else {
+      var c = BehaviorSubject<S>();
+      controls[S.toString()] = c;
+      return c;
+    }
   }
 
   BaseModel() {
-    control = BehaviorSubject<T>();
+    controls = Map();
   }
 
-  void add(T data) {
-    assert(control != null);
-    this.data = data;
-    control?.sink?.add(data);
+  Object add(Object data) {
+    var type = data.runtimeType.toString();
+    if (controls.containsKey(type)) {
+      controls[type].sink.add(data);
+    }
+
+    return data;
+  }
+
+  void unBindStream() {
+    controls.clear();
   }
 
   void close() {
-    control?.close();
+    controls.forEach((key, value) {
+      value.close();
+    });
+
+    unBindStream();
     dispose();
   }
 
-  void dispose();
+  void dispose() {}
 }
