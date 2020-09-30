@@ -1,0 +1,202 @@
+name: flutter_ienglish_fine
+description: A new flutter module project.
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+#
+# This version is used _only_ for the Runner app, which is used if you just do
+# a `flutter run` or a `flutter make-host-app-editable`. It has no impact
+# on any other native host app that you embed your Flutter project into.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  flutter_lib:
+    path: ../flutter_lib
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: 0.1.3
+  flutter_html: 1.0.0
+  keyboard_avoider: 0.1.2
+  url_launcher: 5.5.3
+  cloudbase_core: ^0.0.9
+  cloudbase_auth: ^0.0.11
+  cloudbase_function: ^0.0.2
+  cloudbase_storage: ^0.0.3
+  cloudbase_database: ^0.0.10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  intl_translation: 0.17.9
+  build_runner: 1.10.0
+  json_serializable: 3.3.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add Flutter specific assets to your application, add an assets section,
+  # like this:
+  assets:
+    - assets/db/iagent
+    - assets/images/arrow_right.png
+    - assets/images/tab_icon1.png
+    - assets/images/tab_icon2.png
+    - assets/images/tab_icon3.png
+    - assets/images/tab_icon1_active.png
+    - assets/images/tab_icon2_active.png
+    - assets/images/tab_icon3_active.png
+    - assets/images/appBar_setting.png
+    - assets/images/more_right.png
+    - assets/images/login_bg.png
+    - assets/images/button_unSelect.png
+    - assets/images/button_select.png
+    - assets/images/button_close.png
+    - assets/images/place_line.png
+    - assets/images/icon_back.png
+    - assets/images/warn_icon.png
+    - assets/images/count_add.png
+    - assets/images/count_subtract.png
+    - assets/images/balance.png
+    - assets/images/share.png
+    - assets/images/icon_pic_back.png
+    - assets/images/icon_pic_share.png
+    - assets/images/pay_success.png
+    - assets/images/dispatch_bg.png
+    - assets/images/dispatch_pay_bg.png
+    - assets/images/dispatch_cancel_bg.png
+    - assets/images/rise_in_price.png
+    - assets/images/rise_in_price_status.png
+    - assets/images/tel.png
+    - assets/images/down_icon.png
+    - assets/images/bg_no_data.png
+    - assets/images/bg_no_net.png
+    - assets/images/bg_no_list.png
+    - assets/images/bg_no_address.png
+    - assets/images/replenish_header.png
+    - assets/images/right_icon.png
+    - assets/images/mine_bg.png
+    - assets/images/level_icon_1.png
+    - assets/images/level_icon_2.png
+    - assets/images/level_icon_3.png
+    - assets/images/level_icon_4.png
+    - assets/images/level_icon_5.png
+    - assets/images/setting_icon.png
+    - assets/images/message_icon.png
+    - assets/images/me_order_icon_1.png
+    - assets/images/me_order_icon_2.png
+    - assets/images/me_tool_icon_1.png
+    - assets/images/me_tool_icon_2.png
+    - assets/images/me_tool_icon_3.png
+    - assets/images/me_tool_icon_4.png
+    - assets/images/me_tool_icon_5.png
+    - assets/images/me_tool_icon_6.png
+    - assets/images/me_tool_icon_7.png
+    - assets/images/me_tool_icon_8.png
+    - assets/images/show_icon.png
+    - assets/images/hidden_icon.png
+    - assets/images/show_icon_grey.png
+    - assets/images/hidden_icon_grey.png
+    - assets/images/persion_icon.png
+    - assets/images/enterprise_icon.png
+    - assets/images/warn_white_icon.png
+    - assets/images/right_white_icon.png
+    - assets/images/balance_bg.png
+    - assets/images/balance_icon_1.png
+    - assets/images/balance_icon_2.png
+    - assets/images/balance_icon_3.png
+    - assets/images/earnings_bg.png
+    - assets/images/orange_ok.png
+    - assets/images/close_grey.png
+    - assets/images/company_account.png
+    - assets/images/person_account.png
+    - assets/images/open_account_header.png
+    - assets/images/icon_warn.png
+    - assets/images/status_success.png
+    - assets/images/status_error.png
+    - assets/images/select_icon.png
+    - assets/images/first_icon.png
+    - assets/images/second_select_icon.png
+    - assets/images/second_unselect_icon.png
+    - assets/images/warn_icon_orange.png
+    - assets/images/msg_icon.png
+    - assets/images/notice_icon.png
+    - assets/images/bg_no_msg.png
+    - assets/images/invite_bg.png
+    - assets/images/invite_star_icon.png
+    - assets/images/invite_right_icon.png
+    - assets/images/invite_share_icon.png
+    - assets/images/invite_regist_icon.png
+    - assets/images/invite_buy_icon.png
+    - assets/images/invite_customer_icon.png
+    - assets/images/status_select.png
+    - assets/images/status_normal.png
+    - assets/images/pull_up.png
+    - assets/images/icon_back_close.png
+    - assets/images/icon_search.png
+    - assets/images/account_audit.png
+    - assets/images/account_fail.png
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add Flutter specific custom fonts to your application, add a fonts
+  # section here, in this "flutter" section. Each entry in this list should
+  # have a "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
+
+
+  # This section identifies your Flutter project as a module meant for
+  # embedding in a native host app.  These identifiers should _not_ ordinarily
+  # be changed after generation - they are used to ensure that the tooling can
+  # maintain consistency when adding or modifying assets and plugins.
+  # They also do not have any bearing on your native host application's
+  # identifiers, which may be completely independent or the same as these.
+#  module:
+#    androidX: true
+#    androidPackage: com.ienglish.flutter.iagent
+#    iosBundleIdentifier: com.ienglish.flutter.iagent
+flutter_intl:
+  enabled: true
+  main_locale: zh
